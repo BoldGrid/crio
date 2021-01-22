@@ -1,0 +1,42 @@
+{
+  "name": "crio",
+  "version": "2.6.3",
+  "description": "Crio",
+  "main": "index.js",
+  "scripts": {
+	"build": "gulp build",
+	"script:tgm": "node build/tgm.mjs",
+	"build-webpack": "cross-env NODE_ENV=production webpack --color"
+  },
+  "keywords": [
+    "BoldGrid"
+  ],
+  "author": "The BoldGrid Team",
+  "license": "GPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BoldGrid/crio.git"
+  },
+  "devDependencies": {
+	"chalk": "^2.4.2",
+	"gulp": "^4.0.0",
+	"gulp-replace": "^1.0.0",
+	"gulp-shell": "^0.8.0",
+	"mkdirp": "^0.5.1"
+  },
+  "dependencies": {
+	"@boldgrid/components": "^2.16.2",
+	"animate.css": "3.7.2",
+	"bootstrap-sass": "~3.4.1",
+	"color-js": "^1.0.5",
+	"float-labels.js": "^3.3.5",
+	"font-awesome": "^4.7.0",
+	"jquery-goup": "^1.1.0",
+	"jquery.nicescroll": "^3.6.8",
+	"kirki-toolkit": "https://github.com/kirki-framework/kirki.git#v3.1.4",
+	"sass.js": "~0.11.1",
+	"scssphp": "https://github.com/boldgrid/scssphp.git#master",
+	"smartmenus": "^1.1.0",
+	"wow.js": "^1.2.2"
+  }
+}
