@@ -1,5 +1,7 @@
 <?php
 /**
+ * File: functions.php
+ *
  * Theme functions and definitions.
  *
  * Includes the core files for BoldGrid Theme Framework.
@@ -9,6 +11,9 @@
  * @package Prime
  */
 
+/**
+ * Includes bgtfw config file and bgtfw entrypoint.
+ */
 require_once get_theme_file_path( 'inc/boldgrid-theme-framework-config/config.php' );
 require_once get_parent_theme_file_path( 'inc/boldgrid-theme-framework/boldgrid-theme-framework.php' );
 

@@ -1,17 +1,16 @@
+import chalk from 'chalk';
+import repo from './modules/github-request.js';
+import mkdirp from 'mkdirp';
+import fs from 'fs';
+import path from 'path';
 const
-	chalk = require( 'chalk' ),
-	repo = require( './modules/github-request' ),
-	mkdirp = require( 'mkdirp' ),
-	fs = require( 'fs' ),
-	path = require( 'path' ),
-
 	options = {
 		slug: 'crio',
 		prefix: 'crio',
 		addonName: 'Crio',
 		addonType: 'parent-theme',
 		publishType: 'wporg',
-		installPath: path.join( path.resolve( './inc/boldgrid-theme-framework/includes' ), 'tgm' ),
+		installPath: path.join( path.resolve( './crio/inc/boldgrid-theme-framework/includes' ), 'tgm' ),
 		files: [ 'class-tgm-plugin-activation.php', 'LICENSE.md' ],
 		calls: {
 			latestVersion: {
