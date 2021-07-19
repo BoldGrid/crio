@@ -32,7 +32,7 @@ $crio_results_count = $wp_query->found_posts;
 					<article <?php post_class(); ?>>
 						<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 						<div class="entry">
-							<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 30, '...' ) ); ?></p>
+							<p><?php echo wp_kses_post( wp_trim_excerpt() ); ?></p>
 						</div>
 					</article>
 					<hr />
