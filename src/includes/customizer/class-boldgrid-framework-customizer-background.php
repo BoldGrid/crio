@@ -134,15 +134,15 @@ class Boldgrid_Framework_Customizer_Background {
 		$wp_customize->add_control(
 			'boldgrid_background_attachment',
 			array(
-				'label'    => __( 'Background Effects', 'bgtfw' ),
+				'label'    => __( 'Background Effects', 'crio' ),
 				'section'  => 'background_image',
 				'settings' => 'background_attachment',
 				'priority' => 14,
 				'type'     => 'radio',
 				'choices'  => array(
-					'parallax' => __( 'Parallax', 'bgtfw' ),
-					'scroll'   => __( 'Scroll', 'bgtfw' ),
-					'fixed'    => __( 'Fixed', 'bgtfw' ),
+					'parallax' => __( 'Parallax', 'crio' ),
+					'scroll'   => __( 'Scroll', 'crio' ),
+					'fixed'    => __( 'Fixed', 'crio' ),
 				),
 			)
 		);
@@ -156,15 +156,15 @@ class Boldgrid_Framework_Customizer_Background {
 	 */
 	public function rearrange_menu( $wp_customize ) {
 		$bg_attachment           = $wp_customize->get_control( 'background_attachment' );
-		$bg_attachment->label    = __( 'Background Effects', 'bgtfw' );
+		$bg_attachment->label    = __( 'Background Effects', 'crio' );
 		$bg_attachment->choices  = $bg_attachment->choices + array( 'parallax' => 'Parallax' );
 		$bg_attachment->priority = 14;
 
 		$wp_customize->get_control( 'boldgrid_background_image_size' )->priority = 15;
 		$wp_customize->get_control( 'background_repeat' )->priority              = 18;
 		$background_image_section              = $wp_customize->get_section( 'background_image' );
-		$background_image_section->title       = __( 'Background', 'bgtfw' );
-		$background_image_section->description = '<div class="bgtfw-description"><p>' . esc_html__( 'Change the appearance of your site\'s background.', 'bgtfw' ) . '</p><div class="help"><a href="https://www.boldgrid.com/support/boldgrid-crio/changing-your-site-background-in-boldgrid-crio/?source=customize-background" target="_blank"><span class="dashicons"></span>Help</a></div></div>';
+		$background_image_section->title       = __( 'Background', 'crio' );
+		$background_image_section->description = '<div class="bgtfw-description"><p>' . esc_html__( 'Change the appearance of your site\'s background.', 'crio' ) . '</p><div class="help"><a href="https://www.boldgrid.com/support/boldgrid-crio/changing-your-site-background-in-boldgrid-crio/?source=customize-background" target="_blank"><span class="dashicons"></span>Help</a></div></div>';
 		$wp_customize->remove_control( 'background_color' );
 
 		return $wp_customize;
@@ -226,7 +226,7 @@ class Boldgrid_Framework_Customizer_Background {
 				$wp_customize,
 				'boldgrid_background_pattern',
 				array(
-					'label'    => __( 'Pattern', 'bgtfw' ),
+					'label'    => __( 'Pattern', 'crio' ),
 					'section'  => 'background_image',
 					'settings' => 'boldgrid_background_pattern',
 					'priority' => 3,
@@ -442,7 +442,7 @@ class Boldgrid_Framework_Customizer_Background {
 				'background_image',
 				array(
 					'section'     => 'background_image',
-					'label'       => __( 'Background Image', 'bgtfw' ),
+					'label'       => __( 'Background Image', 'crio' ),
 					'priority'    => 9,
 					'flex_width'  => true,
 					'flex_height' => true,

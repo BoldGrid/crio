@@ -64,8 +64,8 @@ class Boldgrid_Framework_Title {
 		);
 		wp_enqueue_script( $handle );
 		wp_localize_script( $handle, 'boldgridFrameworkCustomizerHomepage', array(
-			'Configure' => __( 'Configure', 'bgtfw' ),
-			'ConfigurePostsPage' => __( 'Configure Posts Page', 'bgtfw' ),
+			'Configure' => __( 'Configure', 'crio' ),
+			'ConfigurePostsPage' => __( 'Configure Posts Page', 'crio' ),
 		));
 	}
 
@@ -97,24 +97,24 @@ class Boldgrid_Framework_Title {
 		}
 
 		$post_meta = get_post_meta( $post->ID, $this->configs['title']['hide'], true );
-		$title     = sprintf( '%1$s %2$s', 'post' === $post->post_type ? __( 'Post: ', 'bgtfw' ) : __( 'Page: ', 'bgtfw' ), __( 'Title: ', 'bgtfw' ) );
+		$title     = sprintf( '%1$s %2$s', 'post' === $post->post_type ? __( 'Post: ', 'crio' ) : __( 'Page: ', 'crio' ), __( 'Title: ', 'crio' ) );
 		$k         = $this->get_global();
 
 		$options = array(
 			'global' => array(
-				'name' => __( 'Use Global Setting ', 'bgtfw' ),
+				'name' => __( 'Use Global Setting ', 'crio' ),
 				'value' => 'global',
 				'checked' => 'global' === $post_meta,
 				'post_text' => esc_attr( $k ),
 			),
 			'show' => array(
-				'name' => __( 'Show', 'bgtfw' ),
+				'name' => __( 'Show', 'crio' ),
 				'value' => '1',
 				'checked' => '1' === $post_meta,
 				'post_text' => $this->configs['title']['meta_box'][ $post->post_type ]['show_post_text'],
 			),
 			'hide' => array(
-				'name' => __( 'Hide', 'bgtfw' ),
+				'name' => __( 'Hide', 'crio' ),
 				'value' => '0',
 				'checked' => '0' === $post_meta,
 				'post_text' => $this->configs['title']['meta_box'][ $post->post_type ]['hide_post_text'],
@@ -148,13 +148,13 @@ class Boldgrid_Framework_Title {
 			<?php
 				if ( $options['global']['checked'] ) {
 					$k = get_theme_mod( 'bgtfw_pages_title_display' );
-					echo esc_html( $title ) . ': <span class="value-displayed">' . esc_html__( 'Use Global Setting ', 'bgtfw' ) . '<div class="template-subtitle">' . esc_html( $k ) . '</div></span>';
+					echo esc_html( $title ) . ': <span class="value-displayed">' . esc_html__( 'Use Global Setting ', 'crio' ) . '<div class="template-subtitle">' . esc_html( $k ) . '</div></span>';
 				} else {
 					echo esc_html( $title ) . '<span class="value-displayed">...</span>';
 				}
 			?>
 			<a class="edit" href="">
-				<span aria-hidden="true"><?php esc_html_e( 'Edit', 'bgtfw' ); ?></span> <span class="screen-reader-text"><?php echo esc_html( $title ); ?></span>
+				<span aria-hidden="true"><?php esc_html_e( 'Edit', 'crio' ); ?></span> <span class="screen-reader-text"><?php echo esc_html( $title ); ?></span>
 			</a>
 			<div class="options">
 				<?php foreach ( $options as $option ) : ?>
@@ -170,8 +170,8 @@ class Boldgrid_Framework_Title {
 				</label>
 				<?php endforeach; ?>
 				<p>
-					<a href="" class="button"><?php esc_html_e( 'OK', 'bgtfw' ); ?></a>
-					<a href="" class="button-cancel"><?php esc_html_e( 'Cancel', 'bgtfw' ); ?></a>
+					<a href="" class="button"><?php esc_html_e( 'OK', 'crio' ); ?></a>
+					<a href="" class="button-cancel"><?php esc_html_e( 'Cancel', 'crio' ); ?></a>
 				</p>
 			</div>
 		</div><?php

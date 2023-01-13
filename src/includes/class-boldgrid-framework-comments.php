@@ -59,7 +59,7 @@ class BoldGrid_Framework_Comments {
 						if ( 1 === $comments_number ) {
 							printf(
 								/* translators: %s: comments title */
-								esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'bgtfw' ),
+								esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'crio' ),
 								'<span>' . esc_html( get_the_title() ) . '</span>'
 							);
 						} else {
@@ -70,7 +70,7 @@ class BoldGrid_Framework_Comments {
 									'%1$s thoughts on &ldquo;%2$s&rdquo;',
 									$comments_number,
 									'comments title',
-									'bgtfw'
+									'crio'
 								) ),
 								esc_html( number_format_i18n( $comments_number ) ),
 								'<span>' . esc_html( get_the_title() ) . '</span>'
@@ -123,21 +123,21 @@ class BoldGrid_Framework_Comments {
 					&& '0' != get_comments_number()
 					&& post_type_supports( get_post_type(), 'comments' ) ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'bgtfw' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'crio' ); ?></p>
 		<?php endif; ?>
 
 		<?php comment_form( apply_filters( 'comment_form_defaults', $args = array(
 			'id_form'           => 'commentform',
 			'id_submit'         => 'commentsubmit',
-			'title_reply'       => __( 'Leave a Reply', 'bgtfw' ),
+			'title_reply'       => __( 'Leave a Reply', 'crio' ),
 			/* translators: %s: the author of the comment being replied to */
-			'title_reply_to'    => __( 'Leave a Reply to %s', 'bgtfw' ),
-			'cancel_reply_link' => __( 'Cancel Reply', 'bgtfw' ),
-			'label_submit'      => __( 'Post Comment', 'bgtfw' ),
+			'title_reply_to'    => __( 'Leave a Reply to %s', 'crio' ),
+			'cancel_reply_link' => __( 'Cancel Reply', 'crio' ),
+			'label_submit'      => __( 'Post Comment', 'crio' ),
 			'class_submit' => 'button-primary',
 			'comment_field' => '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 			'comment_notes_after' => '<p class="form-allowed-tags">' .
-			__( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'bgtfw' ) .
+			__( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'crio' ) .
 			'</p><div class="alert alert-info">' . allowed_tags() . '</div>',
 		) ) );
 	}
@@ -156,7 +156,7 @@ class BoldGrid_Framework_Comments {
 
 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'media' ); ?>>
 			<div class="comment-body">
-				<?php esc_html_e( 'Pingback:', 'bgtfw' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'bgtfw' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php esc_html_e( 'Pingback:', 'crio' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'crio' ), '<span class="edit-link">', '</span>' ); ?>
 			</div>
 		<?php else : ?>
 		<li id="comment-<?php comment_ID(); ?>"
@@ -174,7 +174,7 @@ class BoldGrid_Framework_Comments {
 									'<cite class="fn">%1$s</cite> <span class="says">%2$s:</span>',
 									get_comment_author_link(),
 									/* translators: this displays as $author says: */
-									esc_html__( 'says', 'bgtfw' )
+									esc_html__( 'says', 'crio' )
 								);
 							?>
 							</div>
@@ -183,15 +183,15 @@ class BoldGrid_Framework_Comments {
 									<time datetime="<?php esc_attr( comment_time( 'c' ) ); ?>">
 									<?php
 										/* translators: 1: date of comment, 2: time of comment */
-										printf( esc_html_x( '%1$s at %2$s', '1: date, 2: time', 'bgtfw' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) );
+										printf( esc_html_x( '%1$s at %2$s', '1: date, 2: time', 'crio' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) );
 									?>
 									</time>
 								</a>
-								<?php edit_comment_link( __( '<span style="margin-left: 5px;" class="fa fa-edit"></span> Edit', 'bgtfw' ), '<span class="edit-link">', '</span>' ); ?>
+								<?php edit_comment_link( __( '<span style="margin-left: 5px;" class="fa fa-edit"></span> Edit', 'crio' ), '<span class="edit-link">', '</span>' ); ?>
 							</div>
 						</div>
 						<?php if ( '0' == $comment->comment_approved ) : ?>
-							<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'bgtfw' ); ?></p>
+							<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'crio' ); ?></p>
 						<?php endif; ?>
 						<div class="comment-content panel-body">
 							<?php comment_text(); ?>

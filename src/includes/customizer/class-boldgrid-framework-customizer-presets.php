@@ -119,19 +119,19 @@ class Boldgrid_Framework_Customizer_Presets {
 	 */
 	public function get_branding_notices() {
 		$markup  = '<p class="branding_notice logo">'
-			. esc_html__( 'You do not have a logo set. ', 'bgtfw' )
-			. '<a href="#">' . esc_html__( 'Click Here', 'bgtfw' )
-			. ' </a>' . esc_html__( ' to set your logo.', 'bgtfw' )
+			. esc_html__( 'You do not have a logo set. ', 'crio' )
+			. '<a href="#">' . esc_html__( 'Click Here', 'crio' )
+			. ' </a>' . esc_html__( ' to set your logo.', 'crio' )
 			. '</p>';
 		$markup .= '<p class="branding_notice title">'
-			. esc_html__( 'You do not have a site title set. ', 'bgtfw' )
-			. '<a href="#">' . esc_html__( 'Click Here', 'bgtfw' )
-			. ' </a>' . esc_html__( ' to set your site title.', 'bgtfw' )
+			. esc_html__( 'You do not have a site title set. ', 'crio' )
+			. '<a href="#">' . esc_html__( 'Click Here', 'crio' )
+			. ' </a>' . esc_html__( ' to set your site title.', 'crio' )
 			. '</p>';
 		$markup .= '<p class="branding_notice description">'
-			. esc_html__( 'You do not have a tagline set. ', 'bgtfw' )
-			. '<a href="#">' . esc_html__( 'Click Here', 'bgtfw' )
-			. ' </a>' . esc_html__( ' to set your tagline.', 'bgtfw' )
+			. esc_html__( 'You do not have a tagline set. ', 'crio' )
+			. '<a href="#">' . esc_html__( 'Click Here', 'crio' )
+			. ' </a>' . esc_html__( ' to set your tagline.', 'crio' )
 			. '</p>';
 
 		return $markup;
@@ -171,17 +171,17 @@ class Boldgrid_Framework_Customizer_Presets {
 									array(
 										'selector' => '.custom-logo-link',
 										'display'  => 'show',
-										'title'    => __( 'Logo', 'bgtfw' ),
+										'title'    => __( 'Logo', 'crio' ),
 									),
 									array(
 										'selector' => '.site-title',
 										'display'  => 'show',
-										'title'    => __( 'Title', 'bgtfw' ),
+										'title'    => __( 'Title', 'crio' ),
 									),
 									array(
 										'selector' => '.site-description',
 										'display'  => 'show',
-										'title'    => __( 'Tagline', 'bgtfw' ),
+										'title'    => __( 'Tagline', 'crio' ),
 									),
 								),
 							),
@@ -243,17 +243,17 @@ class Boldgrid_Framework_Customizer_Presets {
 									array(
 										'selector' => '.custom-logo-link',
 										'display'  => 'show',
-										'title'    => __( 'Logo', 'bgtfw' ),
+										'title'    => __( 'Logo', 'crio' ),
 									),
 									array(
 										'selector' => '.site-title',
 										'display'  => 'show',
-										'title'    => __( 'Title', 'bgtfw' ),
+										'title'    => __( 'Title', 'crio' ),
 									),
 									array(
 										'selector' => '.site-description',
 										'display'  => 'show',
-										'title'    => __( 'Tagline', 'bgtfw' ),
+										'title'    => __( 'Tagline', 'crio' ),
 									),
 								),
 							),

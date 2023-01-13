@@ -137,7 +137,7 @@ class Boldgrid_Framework_Widgets {
 	 */
 	public function generate_css( $sidebars ) {
 		$css = '';
-		$inactive_translated = wp_filter_nohtml_kses( __( 'Inactive', 'bgtfw' ) );
+		$inactive_translated = wp_filter_nohtml_kses( __( 'Inactive', 'crio' ) );
 		if ( ! empty( $sidebars ) ) {
 			foreach ( $sidebars as $sidebar ) {
 				$css .= "#{$sidebar} .sidebar-name h2:after {

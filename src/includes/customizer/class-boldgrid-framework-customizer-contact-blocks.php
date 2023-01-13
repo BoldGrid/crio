@@ -51,21 +51,21 @@ class Boldgrid_Framework_Customizer_Contact_Blocks {
 			'boldgrid_contact_details',
 			array(
 				'type'        => 'repeater',
-				'label'       => esc_attr__( 'Contact Details', 'bgtfw' ),
+				'label'       => esc_attr__( 'Contact Details', 'crio' ),
 				'section'     => 'bgtfw_footer_layout',
 				'priority'    => 10,
 				'row_label' => array(
 					'field' => 'contact_block',
 					'type' => 'field',
-					'value' => esc_attr__( 'Contact Block', 'bgtfw' ),
+					'value' => esc_attr__( 'Contact Block', 'crio' ),
 				),
 				'settings'    => 'boldgrid_contact_details_setting',
 				'default'     => $this->configs['customizer-options']['contact-blocks']['defaults'],
 				'fields' => array(
 					'contact_block' => array(
 						'type'        => 'text',
-						'label'       => esc_attr__( 'Text', 'bgtfw' ),
-						'description' => esc_attr__( 'Enter the text to display in your contact details', 'bgtfw' ),
+						'label'       => esc_attr__( 'Text', 'crio' ),
+						'description' => esc_attr__( 'Enter the text to display in your contact details', 'crio' ),
 						'default'     => '',
 					),
 				),

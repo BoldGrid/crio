@@ -16,8 +16,8 @@ return array(
 			'edit_vars' => array(
 				array(
 					'selector'    => array( '.custom-logo-link' ),
-					'label'       => esc_html__( 'Change Logo', 'bgtfw' ),
-					'description' => esc_html__( 'Upload or change your site logo.', 'bgtfw' ),
+					'label'       => esc_html__( 'Change Logo', 'crio' ),
+					'description' => esc_html__( 'Upload or change your site logo.', 'crio' ),
 				),
 			),
 		),

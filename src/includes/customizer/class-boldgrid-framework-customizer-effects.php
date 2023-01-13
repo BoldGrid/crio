@@ -60,20 +60,20 @@ class Boldgrid_Framework_Customizer_Effects {
 			$wp_customize->add_section(
 				'boldgrid_effects',
 				array(
-					'title' => __( 'Page Effects', 'bgtfw' ),
+					'title' => __( 'Page Effects', 'crio' ),
 					'panel' => 'boldgrid_other',
 				)
 			);
 			Kirki::add_field( 'boldgrid_slim_scroll', array(
 					'type'        => 'switch',
 					'settings'    => 'boldgrid_slim_scroll',
-					'label'       => __( 'Slim Scroll Bars', 'bgtfw' ),
+					'label'       => __( 'Slim Scroll Bars', 'crio' ),
 					'section'     => 'boldgrid_effects',
 					'default'     => get_theme_mod( 'boldgrid_slim_scroll', (int) $this->configs['scripts']['options']['nicescroll']['enabled'] ),
 					'priority'    => 10,
 					'choices'     => array(
-						'on'  => esc_attr__( 'Enable', 'bgtfw' ),
-						'off' => esc_attr__( 'Disable', 'bgtfw' ),
+						'on'  => esc_attr__( 'Enable', 'crio' ),
+						'off' => esc_attr__( 'Disable', 'crio' ),
 					),
 			) );
 		}

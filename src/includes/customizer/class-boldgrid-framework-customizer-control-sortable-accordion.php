@@ -124,19 +124,19 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				<div id="sortable-{{ data.id }}">
 					<# _.each( data.value, function( repeaters, sortable ) { #>
 						<div id="sortable-{{ sortable }}-wrapper" class="sortable-wrapper">
-							<span class="sortable-title"><span class="title title-empty"><em><?php esc_html_e( 'Empty Row', 'bgtfw' ) ?></em></span><span class="dashicons dashicons-trash"></span></span>
+							<span class="sortable-title"><span class="title title-empty"><em><?php esc_html_e( 'Empty Row', 'crio' ) ?></em></span><span class="dashicons dashicons-trash"></span></span>
 							<div class="sortable-accordion-content">
 								<div class="sortable-section-controls">
 									<div class="bgtfw-container-control">
 										<# var selected = repeaters.container === 'container' ? 'selected' : ''; #>
 										<div class="bgtfw-sortable-control container {{ selected }}" data-container="container">
 											<span class="bgtfw-icon icon-layout-container"></span>
-											<span><?php esc_html_e( 'Container', 'bgtfw' ); ?></span>
+											<span><?php esc_html_e( 'Container', 'crio' ); ?></span>
 										</div>
 										<# var selected = repeaters.container !== 'container' ? 'selected' : ''; #>
 										<div class="bgtfw-sortable-control full-screen {{ selected }}" data-container="full-width">
 											<span class="bgtfw-icon icon-layout-full-screen"></span>
-											<span><?php esc_html_e( 'Full Width', 'bgtfw' ); ?></span>
+											<span><?php esc_html_e( 'Full Width', 'crio' ); ?></span>
 										</div>
 									</div>
 								</div>
@@ -169,7 +169,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					<# } ); #>
 				</div>
 				<div id="sortable-{{ data.id }}-add-section" class="bgtfw-add-new-section">
-					<a class="button-secondary" href="#"><i class="fa fa-plus" aria-hidden="true"></i><?php esc_html_e( 'Add Row', 'bgtfw' ); ?></a>
+					<a class="button-secondary" href="#"><i class="fa fa-plus" aria-hidden="true"></i><?php esc_html_e( 'Add Row', 'crio' ); ?></a>
 				</div>
 			</div>
 			<?php

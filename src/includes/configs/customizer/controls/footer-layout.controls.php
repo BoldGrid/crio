@@ -14,7 +14,7 @@ return array(
 	'bgtfw_footer_layout' => array(
 		'settings'        => 'bgtfw_footer_layout',
 		'transport'       => 'auto',
-		'label'           => __( 'Footer Layout', 'bgtfw' ),
+		'label'           => __( 'Footer Layout', 'crio' ),
 		'type'            => 'bgtfw-sortable-accordion',
 		'default'         => array(
 			array(
@@ -36,7 +36,7 @@ return array(
 		'items'           => array(
 			'menu'        => array(
 				'icon'     => 'dashicons dashicons-menu',
-				'title'    => __( 'Menu', 'bgtfw' ),
+				'title'    => __( 'Menu', 'crio' ),
 				'controls' => array(
 					'menu-select' => array(),
 					'align'       => array(
@@ -46,7 +46,7 @@ return array(
 			),
 			'branding'    => array(
 				'icon'     => 'dashicons dashicons-store',
-				'title'    => __( 'Branding', 'bgtfw' ),
+				'title'    => __( 'Branding', 'crio' ),
 				'controls' => array(
 					'align'   => array(
 						'default' => 'nw',
@@ -56,17 +56,17 @@ return array(
 							array(
 								'selector' => '.custom-logo-link',
 								'display'  => 'show',
-								'title'    => __( 'Logo', 'bgtfw' ),
+								'title'    => __( 'Logo', 'crio' ),
 							),
 							array(
 								'selector' => '.site-title',
 								'display'  => 'show',
-								'title'    => __( 'Title', 'bgtfw' ),
+								'title'    => __( 'Title', 'crio' ),
 							),
 							array(
 								'selector' => '.site-description',
 								'display'  => 'show',
-								'title'    => __( 'Tagline', 'bgtfw' ),
+								'title'    => __( 'Tagline', 'crio' ),
 							),
 						),
 					),
@@ -74,14 +74,14 @@ return array(
 			),
 			'sidebar'     => array(
 				'icon'     => 'dashicons dashicons-layout',
-				'title'    => __( 'Widget Area', 'bgtfw' ),
+				'title'    => __( 'Widget Area', 'crio' ),
 				'controls' => array(
 					'sidebar-edit' => array(),
 				),
 			),
 			'attribution' => array(
 				'icon'     => 'dashicons dashicons-admin-links',
-				'title'    => __( 'Attribution Links', 'bgtfw' ),
+				'title'    => __( 'Attribution Links', 'crio' ),
 				'controls' => array(
 					'attribution' => array(),
 					'align'       => array(
@@ -101,8 +101,8 @@ return array(
 		'edit_vars'   => array(
 			array(
 				'selector'    => 'footer.site-footer',
-				'label'       => __( 'Footer Layout', 'bgtfw' ),
-				'description' => __( 'Customize the layout of your site\'s footer', 'bgtfw' ),
+				'label'       => __( 'Footer Layout', 'crio' ),
+				'description' => __( 'Customize the layout of your site\'s footer', 'crio' ),
 			),
 		),
 	),
@@ -110,8 +110,8 @@ return array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_footer_color',
-		'label'             => esc_attr__( 'Background Color', 'bgtfw' ),
-		'description'       => esc_attr__( 'Choose a color from your palette to use.', 'bgtfw' ),
+		'label'             => esc_attr__( 'Background Color', 'crio' ),
+		'description'       => esc_attr__( 'Choose a color from your palette to use.', 'crio' ),
 		'section'           => 'bgtfw_footer_colors',
 		'priority'          => 10,
 		'default'           => '',
@@ -123,8 +123,8 @@ return array(
 		'edit_vars'         => array(
 			array(
 				'selector'    => 'footer.site-footer',
-				'label'       => esc_attr__( 'Footer Colors', 'bgtfw' ),
-				'description' => esc_attr__( 'Change the color of the footer background and footer links', 'bgtfw' ),
+				'label'       => esc_attr__( 'Footer Colors', 'crio' ),
+				'description' => esc_attr__( 'Change the color of the footer background and footer links', 'crio' ),
 			),
 		),
 	),
@@ -132,7 +132,7 @@ return array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_footer_links',
-		'label'             => esc_attr__( 'Link Color', 'bgtfw' ),
+		'label'             => esc_attr__( 'Link Color', 'crio' ),
 		'section'           => 'bgtfw_footer_colors',
 		'priority'          => 30,
 		'default'           => '',

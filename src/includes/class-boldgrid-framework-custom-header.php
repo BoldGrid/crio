@@ -91,7 +91,7 @@ class Boldgrid_Framework_Custom_Header {
 					'default-image' => array(
 						'url'           => '%s' . $default_image,
 						'thumbnail_url' => '%s' . $default_image,
-						'description'   => __( 'Default Header Image', 'bgtfw' ),
+						'description'   => __( 'Default Header Image', 'crio' ),
 					),
 				)
 			);
@@ -247,8 +247,8 @@ class Boldgrid_Framework_Custom_Header {
 	 * @return array The filtered video settings.
 	 */
 	public function video_controls( $settings ) {
-		$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'bgtfw' ) . '</span>';
-		$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'bgtfw' ) . '</span>';
+		$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'crio' ) . '</span>';
+		$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'crio' ) . '</span>';
 		return $settings;
 	}
 }

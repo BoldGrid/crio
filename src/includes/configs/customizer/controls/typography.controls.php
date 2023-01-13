@@ -15,7 +15,7 @@ return array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_headings_color',
-		'label'             => esc_attr__( 'Heading Font Color', 'bgtfw' ),
+		'label'             => esc_attr__( 'Heading Font Color', 'crio' ),
 		'section'           => 'boldgrid_typography',
 		'priority'          => 6,
 		'default'           => '',
@@ -29,7 +29,7 @@ return array(
 		'type'      => 'typography',
 		'settings'  => 'bgtfw_headings_typography',
 		'transport' => 'auto',
-		'label'     => esc_attr__( 'Headings Typography', 'bgtfw' ),
+		'label'     => esc_attr__( 'Headings Typography', 'crio' ),
 		'section'   => 'boldgrid_typography',
 		'default'   => array(
 			'font-family'    => 'Roboto',
@@ -44,8 +44,8 @@ return array(
 		'edit_vars' => array(
 			array(
 				'selector'    => array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ),
-				'label'       => esc_attr__( 'Heading Typography', 'bgtfw' ),
-				'description' => esc_attr__( 'Adjust heading typography styles', 'bgtfw' ),
+				'label'       => esc_attr__( 'Heading Typography', 'crio' ),
+				'description' => esc_attr__( 'Adjust heading typography styles', 'crio' ),
 			),
 		),
 	),
@@ -53,7 +53,7 @@ return array(
 		'type'      => 'text',
 		'transport' => 'postMessage',
 		'settings'  => 'bgtfw_headings_font_size',
-		'label'     => esc_attr__( 'Font Size', 'bgtfw' ),
+		'label'     => esc_attr__( 'Font Size', 'crio' ),
 		'section'   => 'boldgrid_typography',
 		'default'   => '14',
 		'priority'  => 4,
@@ -63,7 +63,7 @@ return array(
 		'type'      => 'typography',
 		'transport' => 'auto',
 		'settings'  => 'bgtfw_body_typography',
-		'label'     => esc_attr__( 'Main Text Typography', 'bgtfw' ),
+		'label'     => esc_attr__( 'Main Text Typography', 'crio' ),
 		'section'   => 'boldgrid_typography',
 		'default'   => array(
 			'font-family'    => 'Roboto',
@@ -84,8 +84,8 @@ return array(
 				'selector'    => array(
 					'.site-content p:first-of-type',
 				),
-				'label'       => esc_attr__( 'Main Text Typography', 'bgtfw' ),
-				'description' => esc_attr__( 'Adjust the typography of your main text', 'bgtfw' ),
+				'label'       => esc_attr__( 'Main Text Typography', 'crio' ),
+				'description' => esc_attr__( 'Adjust the typography of your main text', 'crio' ),
 			),
 		),
 	),
@@ -93,7 +93,7 @@ return array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_body_link_color',
-		'label'             => esc_attr__( 'Link Color', 'bgtfw' ),
+		'label'             => esc_attr__( 'Link Color', 'crio' ),
 		'section'           => 'bgtfw_body_link_design',
 		'default'           => 'color-1',
 		'choices'           => array(
@@ -105,21 +105,21 @@ return array(
 		'edit_vars'         => array(
 			array(
 				'selector'    => Boldgrid_Framework_Links::$edit_link_selectors,
-				'label'       => esc_attr__( 'Body Links', 'bgtfw' ),
-				'description' => esc_attr__( 'Customize the style of your body links.', 'bgtfw' ),
+				'label'       => esc_attr__( 'Body Links', 'crio' ),
+				'description' => esc_attr__( 'Customize the style of your body links.', 'crio' ),
 			),
 		),
 	),
 	'bgtfw_body_link_decoration'       => array(
 		'settings'          => 'bgtfw_body_link_decoration',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Text Style', 'bgtfw' ),
+		'label'             => esc_html__( 'Text Style', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'section'           => 'bgtfw_body_link_design',
 		'default'           => 'underline',
 		'choices'           => array(
-			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'bgtfw' ),
-			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'bgtfw' ),
+			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'crio' ),
+			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'none', 'underline' ), true ) ? $value : $settings->default;
@@ -129,7 +129,7 @@ return array(
 		'type'      => 'slider',
 		'transport' => 'postMessage',
 		'settings'  => 'bgtfw_body_link_color_hover',
-		'label'     => esc_attr__( 'Hover Color Brightness', 'bgtfw' ),
+		'label'     => esc_attr__( 'Hover Color Brightness', 'crio' ),
 		'section'   => 'bgtfw_body_link_design',
 		'default'   => 0,
 		'choices'   => array(
@@ -141,13 +141,13 @@ return array(
 	'bgtfw_body_link_decoration_hover' => array(
 		'settings'          => 'bgtfw_body_link_decoration_hover',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Hover Text Style', 'bgtfw' ),
+		'label'             => esc_html__( 'Hover Text Style', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'section'           => 'bgtfw_body_link_design',
 		'default'           => 'underline',
 		'choices'           => array(
-			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'bgtfw' ),
-			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'bgtfw' ),
+			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'crio' ),
+			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'none', 'underline' ), true ) ? $value : $settings->default;

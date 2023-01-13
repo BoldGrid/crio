@@ -41,11 +41,11 @@ function boldgrid_post_nav() {
 
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="sr-only"><?php esc_html_e( 'Post navigation', 'bgtfw' ); ?></h2>
+		<h2 class="sr-only"><?php esc_html_e( 'Post navigation', 'crio' ); ?></h2>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="' . $nav_classes['previous'] . '">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'bgtfw' ) );
-				next_post_link( '<div class="' . $nav_classes['next'] . '">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'bgtfw' ) );
+				previous_post_link( '<div class="' . $nav_classes['previous'] . '">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'crio' ) );
+				next_post_link( '<div class="' . $nav_classes['next'] . '">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'crio' ) );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -81,20 +81,20 @@ function boldgrid_posted_on() {
 
 	if ( 'timeago' === $format ) {
 		$posted_on = sprintf(
-			esc_html_x( 'Posted %s ago', '%s = human-readable time difference', 'bgtfw' ),
+			esc_html_x( 'Posted %s ago', '%s = human-readable time difference', 'crio' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . human_time_diff( get_the_time( 'U', $post->ID ), current_time( 'U' ) ) . '</a>'
 		);
 	}
 
 	if ( 'date' === $format ) {
 		$posted_on = sprintf(
-			esc_html_x( 'Posted on %s', 'post date', 'bgtfw' ),
+			esc_html_x( 'Posted on %s', 'post date', 'crio' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 	}
 
 	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'bgtfw' ),
+		esc_html_x( 'by %s', 'post author', 'crio' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -113,7 +113,7 @@ function boldgrid_entry_footer() {
 	if ( 'post' == get_post_type() ) {
 
 		/* translators: used between each category list item, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'bgtfw' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'crio' ) );
 		$categories_count = count( explode( ', ', $categories_list ) );
 
 		if ( $categories_list && boldgrid_categorized_blog() ) {
@@ -134,7 +134,7 @@ function boldgrid_entry_footer() {
 		}
 
 		/* translators: used between each tag list item, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'bgtfw' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'crio' ) );
 
 		if ( $tags_list ) {
 			$icon = is_single() ? get_theme_mod( 'bgtfw_posts_tag_icon' ) : get_theme_mod( 'bgtfw_blog_post_tag_icon' );
@@ -175,7 +175,7 @@ function boldgrid_entry_footer() {
 
 		echo '<i class="fa fa-fw fa-' . esc_attr( $icon ) . '" aria-hidden="true"></i> ';
 
-		comments_popup_link( __( 'Leave a comment', 'bgtfw' ), __( '1 Comment', 'bgtfw' ), __( '% Comments', 'bgtfw' ) );
+		comments_popup_link( __( 'Leave a comment', 'crio' ), __( '1 Comment', 'crio' ), __( '% Comments', 'crio' ) );
 		echo '</span>';
 	}
 
@@ -246,7 +246,7 @@ if ( ! function_exists( 'bgtfw_edit_post_link' ) ) {
 				edit_post_link(
 
 					/* translators: %s: Name of current post. */
-					sprintf( __( 'Click to edit %s.', 'bgtfw' ), get_the_title() ),
+					sprintf( __( 'Click to edit %s.', 'crio' ), get_the_title() ),
 					'<span class="bgtfw-edit-link">',
 					'</span>'
 				);
@@ -258,7 +258,7 @@ if ( ! function_exists( 'bgtfw_edit_post_link' ) ) {
 						wp_kses(
 
 							/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Edit <span class="screen-reader-text">%s</span>', 'bgtfw' ),
+							__( 'Edit <span class="screen-reader-text">%s</span>', 'crio' ),
 							array(
 								'span' => array(
 									'class' => array(),
@@ -335,7 +335,7 @@ if ( ! function_exists( 'bgtfw_edit_link' ) ) {
  */
 function woocommerce_widget_shopping_cart_button_view_cart() {
 	?>
-		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="btn button-primary wc-forward"><?php esc_html_e( 'View Cart', 'bgtfw' ); ?></a>
+		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="btn button-primary wc-forward"><?php esc_html_e( 'View Cart', 'crio' ); ?></a>
 	<?php
 }
 
@@ -346,7 +346,7 @@ function woocommerce_widget_shopping_cart_button_view_cart() {
  */
 function woocommerce_widget_shopping_cart_proceed_to_checkout() {
 	?>
-		<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="btn button-primary checkout wc-forward"><?php esc_html_e( 'Checkout', 'bgtfw' ); ?></a>
+		<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="btn button-primary checkout wc-forward"><?php esc_html_e( 'Checkout', 'crio' ); ?></a>
 	<?php
 }
 
@@ -441,14 +441,14 @@ function bgtfw_widget( $sidebar_id, $help = null ) {
 			<?php if ( ! is_active_sidebar( $sidebar_id ) ) : ?>
 				<div class="empty-sidebar-message">
 					<?php if ( empty( $sidebar_meta[ $sidebar_id ]['title'] ) ) : ?>
-						<h2><?php esc_html_e( 'Empty Sidebar', 'bgtfw' ); ?></h2>
+						<h2><?php esc_html_e( 'Empty Sidebar', 'crio' ); ?></h2>
 					<?php endif; ?>
-					<p><?php esc_html_e( "This sidebar doesn't have any widgets assigned to it yet.", 'bgtfw' ); ?></p>
-					<p><a href="<?php echo esc_url( $link ) ?>"><i class="fa fa-plus-square" aria-hidden="true"></i> <?php esc_html_e( 'Add widgets here.', 'bgtfw' ) ?></a></p>
+					<p><?php esc_html_e( "This sidebar doesn't have any widgets assigned to it yet.", 'crio' ); ?></p>
+					<p><a href="<?php echo esc_url( $link ) ?>"><i class="fa fa-plus-square" aria-hidden="true"></i> <?php esc_html_e( 'Add widgets here.', 'crio' ) ?></a></p>
 				</div>
 				<?php elseif ( is_active_sidebar( $sidebar_id ) ) : ?>
 					<div class="add-widget-message">
-						<p><a href="<?php echo esc_url( $link ) ?>"><i class="fa fa-plus-square" aria-hidden="true"></i> <?php esc_html_e( 'Add another widget.', 'bgtfw' ) ?></a></p>
+						<p><a href="<?php echo esc_url( $link ) ?>"><i class="fa fa-plus-square" aria-hidden="true"></i> <?php esc_html_e( 'Add another widget.', 'crio' ) ?></a></p>
 					</div>
 			<?php endif; ?>
 		<?php endif; ?>

@@ -84,7 +84,7 @@ return array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_footer_border_color',
-		'label'             => esc_attr__( 'Border Color', 'bgtfw' ),
+		'label'             => esc_attr__( 'Border Color', 'crio' ),
 		'section'           => 'boldgrid_footer_border_section',
 		'priority'          => 20,
 		'default'           => 'color-1',

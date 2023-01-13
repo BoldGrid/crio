@@ -115,7 +115,7 @@ class BoldGrid_Framework_Pro_Feature_Cards {
 				<div class="subtitle"><p><?php echo esc_html( $card['subtitle'] ); ?></p></div>
 				<div class="action-links">
 					<?php if ( $learn_more ) : ?>
-						<a class="button" href="<?php echo esc_url( $learn_more ); ?>" target="_blank"><?php echo esc_html__( 'Learn More', 'bgtfw' ); ?></a>
+						<a class="button" href="<?php echo esc_url( $learn_more ); ?>" target="_blank"><?php echo esc_html__( 'Learn More', 'crio' ); ?></a>
 					<?php endif; ?>
 					<?php if ( $video ) : ?>
 						<a href="<?php echo esc_url( $video ); ?>"><span class="dashicons dashicons-video-alt3"></span></a>

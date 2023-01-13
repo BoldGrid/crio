@@ -14,9 +14,9 @@ return array(
 	'custom_theme_js'                  => array(
 		'type'        => 'code',
 		'settings'    => 'custom_theme_js',
-		'label'       => __( 'JS code', 'bgtfw' ),
-		'help'        => __( 'This adds live JavaScript to your website.', 'bgtfw' ),
-		'description' => __( 'Add custom javascript for this theme.', 'bgtfw' ),
+		'label'       => __( 'JS code', 'crio' ),
+		'help'        => __( 'This adds live JavaScript to your website.', 'crio' ),
+		'description' => __( 'Add custom javascript for this theme.', 'crio' ),
 		'section'     => 'custom_css',
 		'default'     => "// jQuery('body');",
 		'priority'    => 10,
@@ -30,13 +30,13 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_scroll_to_top_display',
-		'label'             => esc_attr__( 'Display', 'bgtfw' ),
-		'tooltip'           => __( 'Toggle the display of the scroll to top button on your site.', 'bgtfw' ),
+		'label'             => esc_attr__( 'Display', 'crio' ),
+		'tooltip'           => __( 'Toggle the display of the scroll to top button on your site.', 'crio' ),
 		'section'           => 'bgtfw_scroll_to_top',
 		'default'           => 'show',
 		'choices'           => array(
-			'show' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'bgtfw' ),
-			'hide' => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'bgtfw' ),
+			'show' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'hide' => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'show', 'hide' ), true ) ? $value : $settings->default;
@@ -44,20 +44,20 @@ return array(
 		'edit_vars'         => array(
 			array(
 				'selector'    => '.goup-container',
-				'label'       => esc_attr__( 'Scroll To Top', 'bgtfw' ),
-				'description' => esc_attr__( 'Enable / Disable the scroll to top button', 'bgtfw' ),
+				'label'       => esc_attr__( 'Scroll To Top', 'crio' ),
+				'description' => esc_attr__( 'Enable / Disable the scroll to top button', 'crio' ),
 			),
 		),
 	),
 	'boldgrid_contact_details_setting' => array(
 		'type'      => 'repeater',
-		'label'     => esc_attr__( 'Contact Details', 'bgtfw' ),
+		'label'     => esc_attr__( 'Contact Details', 'crio' ),
 		'section'   => 'boldgrid_footer_panel',
 		'priority'  => 10,
 		'row_label' => array(
 			'field' => 'contact_block',
 			'type'  => 'field',
-			'value' => esc_attr__( 'Contact Block', 'bgtfw' ),
+			'value' => esc_attr__( 'Contact Block', 'crio' ),
 		),
 		'settings'  => 'boldgrid_contact_details_setting',
 		'default'   => array(
@@ -77,8 +77,8 @@ return array(
 		'fields'    => array(
 			'contact_block' => array(
 				'type'        => 'text',
-				'label'       => esc_attr__( 'Text', 'bgtfw' ),
-				'description' => esc_attr__( 'Enter the text to display in your contact details', 'bgtfw' ),
+				'label'       => esc_attr__( 'Text', 'crio' ),
+				'description' => esc_attr__( 'Enter the text to display in your contact details', 'crio' ),
 				'default'     => '',
 			),
 		),

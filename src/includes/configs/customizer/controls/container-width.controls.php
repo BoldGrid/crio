@@ -13,14 +13,14 @@ return array(
 	'bgtfw_pages_container'                => array(
 		'settings'          => 'bgtfw_pages_container',
 		'transport'         => 'refresh',
-		'label'             => esc_html__( 'Container', 'bgtfw' ),
+		'label'             => esc_html__( 'Container', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'priority'          => 35,
 		'default'           => 'container',
 		'choices'           => array(
-			'container'      => '<span class="icon-layout-container"></span>' . esc_attr__( 'Contained', 'bgtfw' ),
-			''               => '<span class="icon-layout-full-screen"></span>' . esc_attr__( 'Full Width', 'bgtfw' ),
-			'max-full-width' => '<span class="icon-layout-max-full-width"></span>' . esc_attr__( 'Max Full Width', 'bgtfw' ),
+			'container'      => '<span class="icon-layout-container"></span>' . esc_attr__( 'Contained', 'crio' ),
+			''               => '<span class="icon-layout-full-screen"></span>' . esc_attr__( 'Full Width', 'crio' ),
+			'max-full-width' => '<span class="icon-layout-max-full-width"></span>' . esc_attr__( 'Max Full Width', 'crio' ),
 		),
 		'section'           => 'bgtfw_layout_page_container',
 		'sanitize_callback' => function( $value, $settings ) {
@@ -59,22 +59,22 @@ return array(
 		'edit_vars'         => array(
 			array(
 				'selector'    => '.page .site-content',
-				'label'       => __( 'Page Layout', 'bgtfw' ),
-				'description' => __( 'Choose between contained or full-width page layout', 'bgtfw' ),
+				'label'       => __( 'Page Layout', 'crio' ),
+				'description' => __( 'Choose between contained or full-width page layout', 'crio' ),
 			),
 		),
 	),
 	'bgtfw_blog_page_container'            => array(
 		'settings'          => 'bgtfw_blog_page_container',
 		'transport'         => 'refresh',
-		'label'             => esc_html__( 'Container', 'bgtfw' ),
+		'label'             => esc_html__( 'Container', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'priority'          => 35,
 		'default'           => 'container',
 		'choices'           => array(
-			'container'      => '<span class="icon-layout-container"></span>' . esc_attr__( 'Contained', 'bgtfw' ),
-			''               => '<span class="icon-layout-full-screen"></span>' . esc_attr__( 'Full Width', 'bgtfw' ),
-			'max-full-width' => '<span class="icon-layout-max-full-width"></span>' . esc_attr__( 'Max Full Width', 'bgtfw' ),
+			'container'      => '<span class="icon-layout-container"></span>' . esc_attr__( 'Contained', 'crio' ),
+			''               => '<span class="icon-layout-full-screen"></span>' . esc_attr__( 'Full Width', 'crio' ),
+			'max-full-width' => '<span class="icon-layout-max-full-width"></span>' . esc_attr__( 'Max Full Width', 'crio' ),
 		),
 		'section'           => 'bgtfw_pages_blog_blog_page_post_content',
 		'sanitize_callback' => function( $value, $settings ) {
@@ -100,15 +100,15 @@ return array(
 	'bgtfw_blog_posts_container'           => array(
 		'settings'          => 'bgtfw_blog_posts_container',
 		'transport'         => 'refresh',
-		'label'             => esc_html__( 'Container', 'bgtfw' ),
-		'tooltip'           => __( 'Choose if you would like your content wrapped in a container or cover the full width of the page.', 'bgtfw' ),
+		'label'             => esc_html__( 'Container', 'crio' ),
+		'tooltip'           => __( 'Choose if you would like your content wrapped in a container or cover the full width of the page.', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'priority'          => 40,
 		'default'           => 'container',
 		'choices'           => array(
-			'container'      => '<span class="icon-layout-container"></span>' . esc_attr__( 'Contained', 'bgtfw' ),
-			''               => '<span class="icon-layout-full-screen"></span>' . esc_attr__( 'Full Width', 'bgtfw' ),
-			'max-full-width' => '<span class="icon-layout-max-full-width"></span>' . esc_attr__( 'Max Full Width', 'bgtfw' ),
+			'container'      => '<span class="icon-layout-container"></span>' . esc_attr__( 'Contained', 'crio' ),
+			''               => '<span class="icon-layout-full-screen"></span>' . esc_attr__( 'Full Width', 'crio' ),
+			'max-full-width' => '<span class="icon-layout-max-full-width"></span>' . esc_attr__( 'Max Full Width', 'crio' ),
 		),
 		'section'           => 'bgtfw_pages_blog_posts_container',
 		'sanitize_callback' => function( $value, $settings ) {
@@ -142,14 +142,14 @@ return array(
 	'bgtfw_woocommerce_container'          => array(
 		'settings'          => 'bgtfw_woocommerce_container',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Container', 'bgtfw' ),
+		'label'             => esc_html__( 'Container', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'priority'          => 35,
 		'default'           => 'container',
 		'choices'           => array(
-			'container'      => '<span class="icon-layout-container"></span>' . esc_attr__( 'Contained', 'bgtfw' ),
-			''               => '<span class="icon-layout-full-screen"></span>' . esc_attr__( 'Full Width', 'bgtfw' ),
-			'max-full-width' => '<span class="icon-layout-max-full-width"></span>' . esc_attr__( 'Max Full Width', 'bgtfw' ),
+			'container'      => '<span class="icon-layout-container"></span>' . esc_attr__( 'Contained', 'crio' ),
+			''               => '<span class="icon-layout-full-screen"></span>' . esc_attr__( 'Full Width', 'crio' ),
+			'max-full-width' => '<span class="icon-layout-max-full-width"></span>' . esc_attr__( 'Max Full Width', 'crio' ),
 		),
 		'section'           => 'bgtfw_layout_woocommerce_container',
 		'sanitize_callback' => function( $value, $settings ) {
@@ -194,8 +194,8 @@ return array(
 		'edit_vars'         => array(
 			array(
 				'selector'    => '.woocommerce .site-content',
-				'label'       => __( 'WooCommerce Page Layout', 'bgtfw' ),
-				'description' => __( 'Choose between contained or full-width page layout for WooCommerce pages', 'bgtfw' ),
+				'label'       => __( 'WooCommerce Page Layout', 'crio' ),
+				'description' => __( 'Choose between contained or full-width page layout for WooCommerce pages', 'crio' ),
 			),
 		),
 	),

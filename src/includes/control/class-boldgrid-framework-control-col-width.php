@@ -64,7 +64,7 @@ class Boldgrid_Framework_Control_Col_Width extends WP_Customize_Control {
 			$wp_customize,
 				'bgtfw_header_layout_custom_col_width',
 				array(
-					'label'    => __( 'Header Column Widths', 'bgtfw' ),
+					'label'    => __( 'Header Column Widths', 'crio' ),
 					'section'  => 'bgtfw_header_layout_advanced',
 					'settings' => 'bgtfw_header_layout_custom_col_width',
 				)
@@ -132,7 +132,7 @@ class Boldgrid_Framework_Control_Col_Width extends WP_Customize_Control {
 			$sliders_markup .= '<div class="full-width-wrapper"><input id="bgtfw_header_layout_custom_col_width-slider-'
 				. $row_number . '-' . $device . '-full" type="checkbox" class="col-width-full-width" data-row="' . $row_number
 				. '" data-device="' . $device . '" value="1" ' . checked( $full_width, true, false ) . '>';
-			$sliders_markup .= '<label class="full_width_label">' . esc_html__( 'Full width items for this device size', 'bgtfw' ) . '</label></div></div><hr />';
+			$sliders_markup .= '<label class="full_width_label">' . esc_html__( 'Full width items for this device size', 'crio' ) . '</label></div></div><hr />';
 
 			$row_number     += 1;
 		}

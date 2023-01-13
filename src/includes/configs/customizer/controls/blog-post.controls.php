@@ -15,13 +15,13 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_posts_tags_display',
-		'label'             => esc_attr__( 'Display', 'bgtfw' ),
-		'tooltip'           => __( 'Toggle the display of your tags on the blog roll and archive pages.', 'bgtfw' ),
+		'label'             => esc_attr__( 'Display', 'crio' ),
+		'tooltip'           => __( 'Toggle the display of your tags on the blog roll and archive pages.', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_tags_links',
 		'default'           => 'block',
 		'choices'           => array(
-			'block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'bgtfw' ),
-			'none'  => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'bgtfw' ),
+			'block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'none'  => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'block', 'none' ), true ) ? $value : $settings->default;
@@ -39,12 +39,12 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_posts_tags_link_color_display',
-		'label'             => esc_attr__( 'Colors', 'bgtfw' ),
+		'label'             => esc_attr__( 'Colors', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_tags_links',
 		'default'           => 'inherit',
 		'choices'           => array(
-			'inherit' => '<span class="dashicons dashicons-admin-site"></span>' . __( 'Global Color', 'bgtfw' ),
-			'custom'  => '<span class="dashicons dashicons-admin-customizer"></span>' . __( 'Custom', 'bgtfw' ),
+			'inherit' => '<span class="dashicons dashicons-admin-site"></span>' . __( 'Global Color', 'crio' ),
+			'custom'  => '<span class="dashicons dashicons-admin-customizer"></span>' . __( 'Custom', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'inherit', 'custom' ), true ) ? $value : $settings->default;
@@ -61,7 +61,7 @@ return array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_posts_tags_link_color',
-		'label'             => esc_attr__( 'Link Color', 'bgtfw' ),
+		'label'             => esc_attr__( 'Link Color', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_tags_links',
 		'default'           => 'color-1',
 		'choices'           => array(
@@ -86,13 +86,13 @@ return array(
 	'bgtfw_posts_tags_link_decoration'          => array(
 		'settings'          => 'bgtfw_posts_tags_link_decoration',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Text Style', 'bgtfw' ),
+		'label'             => esc_html__( 'Text Style', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'section'           => 'bgtfw_pages_blog_posts_tags_links',
 		'default'           => 'none',
 		'choices'           => array(
-			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'Normal', 'bgtfw' ),
-			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'bgtfw' ),
+			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'Normal', 'crio' ),
+			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'none', 'underline' ), true ) ? $value : $settings->default;
@@ -114,7 +114,7 @@ return array(
 		'type'            => 'slider',
 		'transport'       => 'postMessage',
 		'settings'        => 'bgtfw_posts_tags_link_color_hover',
-		'label'           => esc_attr__( 'Hover Color Brightness', 'bgtfw' ),
+		'label'           => esc_attr__( 'Hover Color Brightness', 'crio' ),
 		'section'         => 'bgtfw_pages_blog_posts_tags_links',
 		'default'         => -25,
 		'choices'         => array(
@@ -138,13 +138,13 @@ return array(
 	'bgtfw_posts_tags_decoration_hover'         => array(
 		'settings'          => 'bgtfw_posts_tags_link_decoration_hover',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Hover Text Style', 'bgtfw' ),
+		'label'             => esc_html__( 'Hover Text Style', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'section'           => 'bgtfw_pages_blog_posts_tags_links',
 		'default'           => 'none',
 		'choices'           => array(
-			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'bgtfw' ),
-			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'bgtfw' ),
+			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'crio' ),
+			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'none', 'underline' ), true ) ? $value : $settings->default;
@@ -168,12 +168,12 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_posts_tags_icon_display',
-		'label'             => esc_attr__( 'Icon Display', 'bgtfw' ),
+		'label'             => esc_attr__( 'Icon Display', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_tags_links',
 		'default'           => 'inline-block',
 		'choices'           => array(
-			'inline-block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'bgtfw' ),
-			'none'         => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'bgtfw' ),
+			'inline-block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'none'         => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'inline-block', 'none' ), true ) ? $value : $settings->default;
@@ -196,7 +196,7 @@ return array(
 		'type'            => 'fontawesome',
 		'transport'       => 'postMessage',
 		'settings'        => 'bgtfw_posts_tag_icon',
-		'label'           => esc_attr__( 'Single Tag Icon', 'bgtfw' ),
+		'label'           => esc_attr__( 'Single Tag Icon', 'crio' ),
 		'section'         => 'bgtfw_pages_blog_posts_tags_links',
 		'default'         => 'hashtag',
 		'js_vars'         => array(
@@ -224,7 +224,7 @@ return array(
 		'type'            => 'fontawesome',
 		'transport'       => 'postMessage',
 		'settings'        => 'bgtfw_posts_tags_icon',
-		'label'           => esc_attr__( 'Multiple Tags Icon', 'bgtfw' ),
+		'label'           => esc_attr__( 'Multiple Tags Icon', 'crio' ),
 		'section'         => 'bgtfw_pages_blog_posts_tags_links',
 		'default'         => 'hashtag',
 		'js_vars'         => array(
@@ -253,12 +253,12 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_posts_cats_display',
-		'label'             => esc_attr__( 'Display', 'bgtfw' ),
+		'label'             => esc_attr__( 'Display', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_cat_links',
 		'default'           => 'block',
 		'choices'           => array(
-			'block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'bgtfw' ),
-			'none'  => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'bgtfw' ),
+			'block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'none'  => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'block', 'none' ), true ) ? $value : $settings->default;
@@ -276,12 +276,12 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_posts_cats_link_color_display',
-		'label'             => esc_attr__( 'Colors', 'bgtfw' ),
+		'label'             => esc_attr__( 'Colors', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_cat_links',
 		'default'           => 'inherit',
 		'choices'           => array(
-			'inherit' => '<span class="dashicons dashicons-admin-site"></span>' . __( 'Global Color', 'bgtfw' ),
-			'custom'  => '<span class="dashicons dashicons-admin-customizer"></span>' . __( 'Custom', 'bgtfw' ),
+			'inherit' => '<span class="dashicons dashicons-admin-site"></span>' . __( 'Global Color', 'crio' ),
+			'custom'  => '<span class="dashicons dashicons-admin-customizer"></span>' . __( 'Custom', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'inherit', 'custom' ), true ) ? $value : $settings->default;
@@ -298,7 +298,7 @@ return array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_posts_cats_link_color',
-		'label'             => esc_attr__( 'Link Color', 'bgtfw' ),
+		'label'             => esc_attr__( 'Link Color', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_cat_links',
 		'default'           => 'color-1',
 		'choices'           => array(
@@ -323,13 +323,13 @@ return array(
 	'bgtfw_posts_cats_link_decoration'          => array(
 		'settings'          => 'bgtfw_posts_cats_link_decoration',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Text Style', 'bgtfw' ),
+		'label'             => esc_html__( 'Text Style', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'section'           => 'bgtfw_pages_blog_posts_cat_links',
 		'default'           => 'none',
 		'choices'           => array(
-			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'Normal', 'bgtfw' ),
-			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'bgtfw' ),
+			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'Normal', 'crio' ),
+			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'none', 'underline' ), true ) ? $value : $settings->default;
@@ -351,7 +351,7 @@ return array(
 		'type'            => 'slider',
 		'transport'       => 'postMessage',
 		'settings'        => 'bgtfw_posts_cats_link_color_hover',
-		'label'           => esc_attr__( 'Hover Color Brightness', 'bgtfw' ),
+		'label'           => esc_attr__( 'Hover Color Brightness', 'crio' ),
 		'section'         => 'bgtfw_pages_blog_posts_cat_links',
 		'default'         => -25,
 		'choices'         => array(
@@ -375,13 +375,13 @@ return array(
 	'bgtfw_posts_cats_decoration_hover'         => array(
 		'settings'          => 'bgtfw_posts_cats_link_decoration_hover',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Hover Text Style', 'bgtfw' ),
+		'label'             => esc_html__( 'Hover Text Style', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'section'           => 'bgtfw_pages_blog_posts_cat_links',
 		'default'           => 'none',
 		'choices'           => array(
-			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'bgtfw' ),
-			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'bgtfw' ),
+			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'crio' ),
+			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'none', 'underline' ), true ) ? $value : $settings->default;
@@ -405,12 +405,12 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_posts_cats_icon_display',
-		'label'             => esc_attr__( 'Icon Display', 'bgtfw' ),
+		'label'             => esc_attr__( 'Icon Display', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_cat_links',
 		'default'           => 'inline-block',
 		'choices'           => array(
-			'inline-block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'bgtfw' ),
-			'none'         => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'bgtfw' ),
+			'inline-block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'none'         => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'inline-block', 'none' ), true ) ? $value : $settings->default;
@@ -426,7 +426,7 @@ return array(
 		'type'            => 'fontawesome',
 		'transport'       => 'postMessage',
 		'settings'        => 'bgtfw_posts_cat_icon',
-		'label'           => esc_attr__( 'Single Category Icon', 'bgtfw' ),
+		'label'           => esc_attr__( 'Single Category Icon', 'crio' ),
 		'section'         => 'bgtfw_pages_blog_posts_cat_links',
 		'default'         => 'folder',
 		'js_vars'         => array(
@@ -454,7 +454,7 @@ return array(
 		'type'            => 'fontawesome',
 		'transport'       => 'postMessage',
 		'settings'        => 'bgtfw_posts_cats_icon',
-		'label'           => esc_attr__( 'Multiple Categories Icon', 'bgtfw' ),
+		'label'           => esc_attr__( 'Multiple Categories Icon', 'crio' ),
 		'section'         => 'bgtfw_pages_blog_posts_cat_links',
 		'default'         => 'folder-open',
 		'js_vars'         => array(
@@ -483,12 +483,12 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_posts_navigation_display',
-		'label'             => esc_attr__( 'Display', 'bgtfw' ),
+		'label'             => esc_attr__( 'Display', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_navigation_links',
 		'default'           => 'flex',
 		'choices'           => array(
-			'flex' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'bgtfw' ),
-			'none' => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'bgtfw' ),
+			'flex' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'none' => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'flex', 'none' ), true ) ? $value : $settings->default;
@@ -502,8 +502,8 @@ return array(
 		'edit_vars'         => array(
 			array(
 				'selector'    => '.single .post-navigation',
-				'label'       => __( 'Post Navigation Links', 'bgtfw' ),
-				'description' => __( 'Choose whether or not to display post navigation links', 'bgtfw' ),
+				'label'       => __( 'Post Navigation Links', 'crio' ),
+				'description' => __( 'Choose whether or not to display post navigation links', 'crio' ),
 			),
 		),
 	),
@@ -513,12 +513,12 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_posts_navigation_link_color_display',
-		'label'             => esc_attr__( 'Colors', 'bgtfw' ),
+		'label'             => esc_attr__( 'Colors', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_navigation_links',
 		'default'           => 'inherit',
 		'choices'           => array(
-			'inherit' => '<span class="dashicons dashicons-admin-site"></span>' . __( 'Global Color', 'bgtfw' ),
-			'custom'  => '<span class="dashicons dashicons-admin-customizer"></span>' . __( 'Custom', 'bgtfw' ),
+			'inherit' => '<span class="dashicons dashicons-admin-site"></span>' . __( 'Global Color', 'crio' ),
+			'custom'  => '<span class="dashicons dashicons-admin-customizer"></span>' . __( 'Custom', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'inherit', 'custom' ), true ) ? $value : $settings->default;
@@ -535,7 +535,7 @@ return array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_posts_navigation_link_color',
-		'label'             => esc_attr__( 'Link Color', 'bgtfw' ),
+		'label'             => esc_attr__( 'Link Color', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_navigation_links',
 		'default'           => 'color-1',
 		'choices'           => array(
@@ -560,13 +560,13 @@ return array(
 	'bgtfw_posts_navigation_link_decoration'    => array(
 		'settings'          => 'bgtfw_posts_navigation_link_decoration',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Text Style', 'bgtfw' ),
+		'label'             => esc_html__( 'Text Style', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'section'           => 'bgtfw_pages_blog_posts_navigation_links',
 		'default'           => 'none',
 		'choices'           => array(
-			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'Normal', 'bgtfw' ),
-			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'bgtfw' ),
+			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'Normal', 'crio' ),
+			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'none', 'underline' ), true ) ? $value : $settings->default;
@@ -588,7 +588,7 @@ return array(
 		'type'            => 'slider',
 		'transport'       => 'postMessage',
 		'settings'        => 'bgtfw_posts_navigation_link_color_hover',
-		'label'           => esc_attr__( 'Hover Color Brightness', 'bgtfw' ),
+		'label'           => esc_attr__( 'Hover Color Brightness', 'crio' ),
 		'section'         => 'bgtfw_pages_blog_posts_navigation_links',
 		'default'         => -25,
 		'choices'         => array(
@@ -612,13 +612,13 @@ return array(
 	'bgtfw_posts_navigation_decoration_hover'   => array(
 		'settings'          => 'bgtfw_posts_navigation_link_decoration_hover',
 		'transport'         => 'postMessage',
-		'label'             => esc_html__( 'Hover Text Style', 'bgtfw' ),
+		'label'             => esc_html__( 'Hover Text Style', 'crio' ),
 		'type'              => 'radio-buttonset',
 		'section'           => 'bgtfw_pages_blog_posts_navigation_links',
 		'default'           => 'none',
 		'choices'           => array(
-			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'bgtfw' ),
-			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'bgtfw' ),
+			'none'      => '<span class="dashicons dashicons-editor-textcolor"></span>' . __( 'None', 'crio' ),
+			'underline' => '<span class="dashicons dashicons-editor-underline"></span>' . __( 'Underline', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'none', 'underline' ), true ) ? $value : $settings->default;
@@ -638,7 +638,7 @@ return array(
 	),
 	'bgtfw_layout_blog'                         => array(
 		'settings'          => 'bgtfw_layout_blog',
-		'label'             => esc_html__( 'Sidebar Display', 'bgtfw' ),
+		'label'             => esc_html__( 'Sidebar Display', 'crio' ),
 		'type'              => 'radio',
 		'priority'          => 10,
 		'default'           => 'no-sidebar',
@@ -650,13 +650,13 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_post_header_feat_image_display',
-		'label'             => esc_attr__( 'Display', 'bgtfw' ),
-		'tooltip'           => __( 'Hide or show your featured image on your blog posts.', 'bgtfw' ),
+		'label'             => esc_attr__( 'Display', 'crio' ),
+		'tooltip'           => __( 'Hide or show your featured image on your blog posts.', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_featured_images',
 		'default'           => 'show',
 		'choices'           => array(
-			'show' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'bgtfw' ),
-			'hide' => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'bgtfw' ),
+			'show' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'hide' => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'show', 'hide' ), true ) ? $value : $settings->default;
@@ -666,13 +666,13 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_post_header_feat_image_position',
-		'label'             => esc_attr__( 'Position', 'bgtfw' ),
-		'tooltip'           => __( 'Change where your featured image appears on your blog posts.', 'bgtfw' ),
+		'label'             => esc_attr__( 'Position', 'crio' ),
+		'tooltip'           => __( 'Change where your featured image appears on your blog posts.', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_featured_images',
 		'default'           => 'background',
 		'choices'           => array(
-			'background' => '<span class="dashicons dashicons-format-image"></span>' . __( 'Header Background', 'bgtfw' ),
-			'below'      => '<span class="dashicons dashicons-arrow-down-alt"></span>' . __( 'Below Header', 'bgtfw' ),
+			'background' => '<span class="dashicons dashicons-format-image"></span>' . __( 'Header Background', 'crio' ),
+			'below'      => '<span class="dashicons dashicons-arrow-down-alt"></span>' . __( 'Below Header', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'background', 'below' ), true ) ? $value : $settings->default;
@@ -689,15 +689,15 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_post_header_feat_image_size',
-		'label'             => esc_attr__( 'Size', 'bgtfw' ),
-		'tooltip'           => __( 'Change the size of your featured images. Due to container sizes, very large images may now show the full size when left or right aligned', 'bgtfw' ),
+		'label'             => esc_attr__( 'Size', 'crio' ),
+		'tooltip'           => __( 'Change the size of your featured images. Due to container sizes, very large images may now show the full size when left or right aligned', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_featured_images',
 		'default'           => 'medium',
 		'choices'           => array(
-			'thumbnail' => __( 'Thumbnail', 'bgtfw' ),
-			'medium'    => __( 'Medium', 'bgtfw' ),
-			'large'     => __( 'Large', 'bgtfw' ),
-			'full'      => __( 'Full', 'bgtfw' ),
+			'thumbnail' => __( 'Thumbnail', 'crio' ),
+			'medium'    => __( 'Medium', 'crio' ),
+			'large'     => __( 'Large', 'crio' ),
+			'full'      => __( 'Full', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'thumbnail', 'medium', 'large', 'full' ), true ) ? $value : $settings->default;
@@ -719,15 +719,15 @@ return array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'auto',
 		'settings'          => 'bgtfw_post_header_feat_image_align',
-		'label'             => esc_attr__( 'Alignment', 'bgtfw' ),
-		'tooltip'           => __( 'Change the alignment of your image.', 'bgtfw' ),
+		'label'             => esc_attr__( 'Alignment', 'crio' ),
+		'tooltip'           => __( 'Change the alignment of your image.', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_featured_images',
 		'default'           => 'alignleft',
 		'choices'           => array(
-			'alignnone'   => __( 'None', 'bgtfw' ),
-			'alignleft'   => __( 'Left', 'bgtfw' ),
-			'aligncenter' => __( 'Center', 'bgtfw' ),
-			'alignright'  => __( 'Right', 'bgtfw' ),
+			'alignnone'   => __( 'None', 'crio' ),
+			'alignleft'   => __( 'Left', 'crio' ),
+			'aligncenter' => __( 'Center', 'crio' ),
+			'alignright'  => __( 'Right', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'alignnone', 'alignleft', 'aligncenter', 'alignright' ), true ) ? $value : $settings->default;

@@ -158,11 +158,11 @@ class Boldgrid_Framework_Customizer_Edit {
 				'boldgridFrameworkCustomizerEdit',
 				array(
 					'editPostLink' => $edit_post_link,
-					'goThereNow'   => __( 'Go there now', 'bgtfw' ),
-					'menu'         => esc_attr__( 'Menu', 'bgtfw' ),
+					'goThereNow'   => __( 'Go there now', 'crio' ),
+					'menu'         => esc_attr__( 'Menu', 'crio' ),
 					'params'       => $this->edit_params,
 					'postType'     => get_post_type(),
-					'widgetArea'   => esc_attr__( 'Widget Area', 'bgtfw' ),
+					'widgetArea'   => esc_attr__( 'Widget Area', 'crio' ),
 				)
 			);
 

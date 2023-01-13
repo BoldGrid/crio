@@ -51,7 +51,7 @@ class Boldgrid_Framework_Layouts_Post_Meta {
 		// add our own
 		add_meta_box(
 			'bgtfw-attributes-meta-box',
-			'page' == $post_type ? __( 'Page Attributes', 'bgtfw' ) : __( 'Post Attributes', 'bgtfw' ),
+			'page' == $post_type ? __( 'Page Attributes', 'crio' ) : __( 'Post Attributes', 'crio' ),
 			array( $this, 'meta_box_callback' ),
 			$crio_layout_post_types,
 			'side',
@@ -120,10 +120,10 @@ class Boldgrid_Framework_Layouts_Post_Meta {
 
 				// Check that page_for_posts and pull the default global for blog page sidebar options.
 				if ( get_option( 'page_for_posts' ) == $post->ID ) {
-					$default_title = __( 'Theme Customizer Default', 'bgtfw' );
+					$default_title = __( 'Theme Customizer Default', 'crio' );
 					$global_template = get_theme_mod( 'bgtfw_blog_blog_page_sidebar', $default_title );
 				} else {
-					$default_title = __( 'Use Global Setting', 'bgtfw' );
+					$default_title = __( 'Use Global Setting', 'crio' );
 					$type = 'page' === $post->post_type ? $post->post_type : 'blog';
 
 					// Get the default value from the config's customizer controls.
@@ -202,7 +202,7 @@ class Boldgrid_Framework_Layouts_Post_Meta {
 				$template = ! empty( $post->page_template ) ? $post->page_template : false;
 				?>
 				<div class="misc-pub-section bgtfw-misc-pub-section bgtfw-template">
-					<?php esc_html_e( 'Template', 'bgtfw' ); ?>:<?php
+					<?php esc_html_e( 'Template', 'crio' ); ?>:<?php
 
 						/**
 						 * Fires immediately after the label inside the 'Template' section
@@ -220,13 +220,13 @@ class Boldgrid_Framework_Layouts_Post_Meta {
 					?>
 					<span class="value-displayed">...</span>
 					<a class="edit" href="">
-						<span aria-hidden="true"><?php esc_html_e( 'Edit', 'bgtfw' ); ?></span> <span class="screen-reader-text"><?php esc_html_e( 'Edit template', 'bgtfw' ); ?></span>
+						<span aria-hidden="true"><?php esc_html_e( 'Edit', 'crio' ); ?></span> <span class="screen-reader-text"><?php esc_html_e( 'Edit template', 'crio' ); ?></span>
 					</a>
 					<div class="options">
 						<?php $this->layout_selection( $post ); ?>
 						<p>
-							<a href="" class="button"><?php esc_html_e( 'OK', 'bgtfw' ); ?></a>
-							<a href="" class="button-cancel"><?php esc_html_e( 'Cancel', 'bgtfw' ); ?></a>
+							<a href="" class="button"><?php esc_html_e( 'OK', 'crio' ); ?></a>
+							<a href="" class="button-cancel"><?php esc_html_e( 'Cancel', 'crio' ); ?></a>
 						</p>
 					</div>
 				</div>
@@ -237,7 +237,7 @@ class Boldgrid_Framework_Layouts_Post_Meta {
 		<?php
 			if ( is_post_type_hierarchical( $post->post_type ) ) : ?>
 				<div class="advanced-toggle dashicons-before dashicons-admin-tools">
-					<p><?php esc_html_e( 'Advanced Options', 'bgtfw' ); ?></p>
+					<p><?php esc_html_e( 'Advanced Options', 'crio' ); ?></p>
 					<span class="toggle-indicator" aria-hidden="true"></span>
 				</div>
 				<div class="post-attributes-advanced-wrap hide-if-js">
@@ -247,7 +247,7 @@ class Boldgrid_Framework_Layouts_Post_Meta {
 					'exclude_tree'     => $post->ID,
 					'selected'         => $post->post_parent,
 					'name'             => 'parent_id',
-					'show_option_none' => esc_html__( '(no parent)', 'bgtfw' ),
+					'show_option_none' => esc_html__( '(no parent)', 'crio' ),
 					'sort_column'      => 'menu_order, post_title',
 					'echo'             => 0,
 				);
@@ -270,7 +270,7 @@ class Boldgrid_Framework_Layouts_Post_Meta {
 				// Note: The dynamic parts (translation strings) are escaped above when the variable $dropdown_args is created, so no further escaping is necessary at this point.
 				$pages = wp_dropdown_pages( $dropdown_args ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				if ( ! empty( $pages ) ) : // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped ?>
-					<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="parent_id"><?php esc_html_e( 'Parent', 'bgtfw' ); ?></label></p>
+					<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="parent_id"><?php esc_html_e( 'Parent', 'crio' ); ?></label></p>
 					<?php
 					// Note: The variable $pages has it's dynamic parts (translation string) escaped above when the variable $dropdown_args is created so no further escaping is necessary at this point.
 					echo '<span>' . $pages . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.XSS.EscapeOutput.OutputNotEscaped
@@ -278,10 +278,10 @@ class Boldgrid_Framework_Layouts_Post_Meta {
 				endif; // end empty pages check
 		?>
 		<?php if ( post_type_supports( $post->post_type, 'page-attributes' ) ) : ?>
-			<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="menu_order"><?php esc_html_e( 'Order', 'bgtfw' ); ?></label></p>
+			<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="menu_order"><?php esc_html_e( 'Order', 'crio' ); ?></label></p>
 			<input name="menu_order" type="text" size="4" id="menu_order" value="<?php echo esc_attr( $post->menu_order ); ?>" />
 			<?php if ( 'page' == $post->post_type && get_current_screen()->get_help_tabs() ) : ?>
-				<p><?php esc_html_e( 'Need help? Use the Help tab above the screen title.', 'bgtfw' ); ?></p>
+				<p><?php esc_html_e( 'Need help? Use the Help tab above the screen title.', 'crio' ); ?></p>
 			<?php endif; // end if post type is page ?>
 		<?php
 			endif; // end if post supports page-attributes

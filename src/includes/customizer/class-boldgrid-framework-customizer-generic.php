@@ -486,17 +486,17 @@ class Boldgrid_Framework_Customizer_Generic {
 							[
 								'selector' => '.custom-logo-link',
 								'display'  => 'show',
-								'title'    => __( 'Logo', 'bgtfw' ),
+								'title'    => __( 'Logo', 'crio' ),
 							],
 							[
 								'selector' => '.site-title',
 								'display'  => 'show',
-								'title'    => __( 'Title', 'bgtfw' ),
+								'title'    => __( 'Title', 'crio' ),
 							],
 							[
 								'selector' => '.site-description',
 								'display'  => 'show',
-								'title'    => __( 'Tagline', 'bgtfw' ),
+								'title'    => __( 'Tagline', 'crio' ),
 							],
 						],
 					],

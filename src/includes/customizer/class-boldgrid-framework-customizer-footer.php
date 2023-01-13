@@ -44,9 +44,9 @@ class Boldgrid_Framework_Customizer_Footer {
 			if ( ! get_theme_mod( 'hide_boldgrid_attribution' ) ) {
 				$theme_mods .= sprintf(
 					'<span class="link boldgrid-attribution-link">%s <a href="%s" rel="nofollow" target="_blank">%s</a></span>',
-					__( 'Built with', 'bgtfw' ),
+					__( 'Built with', 'crio' ),
 					'http://boldgrid.com/',
-					__( 'BoldGrid', 'bgtfw' )
+					__( 'BoldGrid', 'crio' )
 				);
 			}
 
@@ -54,9 +54,9 @@ class Boldgrid_Framework_Customizer_Footer {
 			if ( ! get_theme_mod( 'hide_wordpress_attribution' ) ) {
 				$theme_mods .= sprintf(
 					'<span class="link wordpress-attribution-link">%s <a href="%s" rel="nofollow" target="_blank">%s</a></span>',
-					__( 'Powered by', 'bgtfw' ),
+					__( 'Powered by', 'crio' ),
 					'https://wordpress.org/',
-					__( 'WordPress', 'bgtfw' )
+					__( 'WordPress', 'crio' )
 				);
 			}
 

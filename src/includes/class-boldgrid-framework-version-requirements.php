@@ -50,10 +50,10 @@ class Boldgrid_Framework_Version_Requirements {
 		?>
 		<div class="update-nag">
 			<p>
-				<?php esc_html_e( 'You need to update your PHP version to use this theme!', 'bgtfw' ); ?>
+				<?php esc_html_e( 'You need to update your PHP version to use this theme!', 'crio' ); ?>
 			</p>
 			<p>
-				<?php esc_html_e( 'Your current version is:', 'bgtfw' ) ?> <strong><?php echo esc_html( phpversion() ); ?></strong>, <?php esc_html_e( 'and this theme requires 5.6.0', 'bgtfw' ) ?>
+				<?php esc_html_e( 'Your current version is:', 'crio' ) ?> <strong><?php echo esc_html( phpversion() ); ?></strong>, <?php esc_html_e( 'and this theme requires 5.6.0', 'crio' ) ?>
 			</p>
 		</div>
 		<?php

@@ -62,8 +62,8 @@ return array(
 		'is_automatic' => true,                    // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
 		'strings' => array(
-			'menu_title'   => __( 'Recommended Plugins', 'bgtfw' ),
-			'page_title'   => __( 'Install Recommended Plugins', 'bgtfw' ),
+			'menu_title'   => __( 'Recommended Plugins', 'crio' ),
+			'page_title'   => __( 'Install Recommended Plugins', 'crio' ),
 		),
 	),
 );

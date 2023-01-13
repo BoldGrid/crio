@@ -14,13 +14,13 @@ return array(
 	'bgtfw_pages_title_display' => array(
 		'type'              => 'radio-buttonset',
 		'settings'          => 'bgtfw_pages_title_display',
-		'label'             => esc_html__( 'Display', 'bgtfw' ),
-		'tooltip'           => esc_html__( 'This is a global setting. Access the editor to toggle page titles for individual posts.', 'bgtfw' ),
+		'label'             => esc_html__( 'Display', 'crio' ),
+		'tooltip'           => esc_html__( 'This is a global setting. Access the editor to toggle page titles for individual posts.', 'crio' ),
 		'section'           => 'bgtfw_layout_page_title',
 		'default'           => 'show',
 		'choices'           => array(
-			'show' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'bgtfw' ),
-			'hide' => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'bgtfw' ),
+			'show' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'hide' => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'show', 'hide' ), true ) ? $value : $settings->default;
@@ -58,15 +58,15 @@ return array(
 		'edit_vars'         => array(
 			array(
 				'selector'    => array( '.page .page-header', '.archive .page-header', '.blog .page-header' ),
-				'label'       => __( 'Page Title Display', 'bgtfw' ),
-				'description' => __( 'Choose whether or not to display the page title', 'bgtfw' ),
+				'label'       => __( 'Page Title Display', 'crio' ),
+				'description' => __( 'Choose whether or not to display the page title', 'crio' ),
 			),
 		),
 	),
 	'bgtfw_layout_page'         => array(
 		'type'              => 'radio',
 		'settings'          => 'bgtfw_layout_page',
-		'label'             => __( 'Sidebar', 'bgtfw' ),
+		'label'             => __( 'Sidebar', 'crio' ),
 		'section'           => 'bgtfw_layout_page_sidebar',
 		'default'           => 'no-sidebar',
 		'priority'          => 10,
@@ -75,8 +75,8 @@ return array(
 		'edit_vars'         => array(
 			array(
 				'selector'    => '.page .site-content',
-				'label'       => __( 'Page Sidebar Layout', 'bgtfw' ),
-				'description' => __( 'Choose the layout of the sidebar on your pages', 'bgtfw' ),
+				'label'       => __( 'Page Sidebar Layout', 'crio' ),
+				'description' => __( 'Choose the layout of the sidebar on your pages', 'crio' ),
 			),
 		),
 	),

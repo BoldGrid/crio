@@ -13,7 +13,7 @@
 return array(
 	'header'        => array(
 		'lbrm'   => array(
-			'label'  => __( 'Branding + Menu', 'bgtfw' ),
+			'label'  => __( 'Branding + Menu', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -52,7 +52,7 @@ return array(
 			),
 		),
 		'lbcmrs' => array(
-			'label'  => __( 'Branding + Menu + Social Icons', 'bgtfw' ),
+			'label'  => __( 'Branding + Menu + Social Icons', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -97,7 +97,7 @@ return array(
 			),
 		),
 		'lmrb'   => array(
-			'label'  => __( 'Menu + Branding', 'bgtfw' ),
+			'label'  => __( 'Menu + Branding', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -136,7 +136,7 @@ return array(
 			),
 		),
 		'lbrslm' => array(
-			'label'  => __( 'Branding and Menu + Social', 'bgtfw' ),
+			'label'  => __( 'Branding and Menu + Social', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -186,7 +186,7 @@ return array(
 			),
 		),
 		'lbrscm' => array(
-			'label'  => __( 'Branding + Social Icons w/ Center Menu', 'bgtfw' ),
+			'label'  => __( 'Branding + Social Icons w/ Center Menu', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -236,7 +236,7 @@ return array(
 			),
 		),
 		'lbrsrm' => array(
-			'label'  => __( 'Branding + Social Icons and Menu', 'bgtfw' ),
+			'label'  => __( 'Branding + Social Icons and Menu', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -286,7 +286,7 @@ return array(
 			),
 		),
 		'cbcm'   => array(
-			'label'  => __( 'Centered Branding above Menu', 'bgtfw' ),
+			'label'  => __( 'Centered Branding above Menu', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -330,7 +330,7 @@ return array(
 			),
 		),
 		'cmcb'   => array(
-			'label'  => __( 'Centered Menu above Branding', 'bgtfw' ),
+			'label'  => __( 'Centered Menu above Branding', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -374,7 +374,7 @@ return array(
 			),
 		),
 		'lshsbm' => array(
-			'label'  => __( 'Centered Menu above Branding', 'bgtfw' ),
+			'label'  => __( 'Centered Menu above Branding', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -431,7 +431,7 @@ return array(
 	),
 	'sticky_header' => array(
 		'lbrm'   => array(
-			'label'  => __( 'Branding + Menu', 'bgtfw' ),
+			'label'  => __( 'Branding + Menu', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -470,7 +470,7 @@ return array(
 			),
 		),
 		'lbcmrs' => array(
-			'label'  => __( 'Branding + Menu + Social Icons', 'bgtfw' ),
+			'label'  => __( 'Branding + Menu + Social Icons', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -515,7 +515,7 @@ return array(
 			),
 		),
 		'lmrb'   => array(
-			'label'  => __( 'Menu + Branding', 'bgtfw' ),
+			'label'  => __( 'Menu + Branding', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -554,7 +554,7 @@ return array(
 			),
 		),
 		'lbrslm' => array(
-			'label'  => __( 'Branding and Menu + Social', 'bgtfw' ),
+			'label'  => __( 'Branding and Menu + Social', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -604,7 +604,7 @@ return array(
 			),
 		),
 		'lbrscm' => array(
-			'label'  => __( 'Branding + Social Icons w/ Center Menu', 'bgtfw' ),
+			'label'  => __( 'Branding + Social Icons w/ Center Menu', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -654,7 +654,7 @@ return array(
 			),
 		),
 		'lbrsrm' => array(
-			'label'  => __( 'Branding + Social Icons and Menu', 'bgtfw' ),
+			'label'  => __( 'Branding + Social Icons and Menu', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -704,7 +704,7 @@ return array(
 			),
 		),
 		'cbcm'   => array(
-			'label'  => __( 'Centered Branding above Menu', 'bgtfw' ),
+			'label'  => __( 'Centered Branding above Menu', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',
@@ -748,7 +748,7 @@ return array(
 			),
 		),
 		'cmcb'   => array(
-			'label'  => __( 'Centered Menu above Branding', 'bgtfw' ),
+			'label'  => __( 'Centered Menu above Branding', 'crio' ),
 			'config' => array(
 				array(
 					'container' => 'container',

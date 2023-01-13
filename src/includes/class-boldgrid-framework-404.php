@@ -55,11 +55,11 @@ class BoldGrid_Framework_404 {
 
 				<section class="error-404 not-found">
 					<header class="page-header">
-						<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'bgtfw' ); ?></h1>
+						<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'crio' ); ?></h1>
 					</header><!-- .page-header -->
 
 					<div class="page-content">
-						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'bgtfw' ); ?></p>
+						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'crio' ); ?></p>
 
 						<?php get_search_form(); ?>
 
@@ -67,7 +67,7 @@ class BoldGrid_Framework_404 {
 
 						<?php if ( boldgrid_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
 						<div class="widget widget_categories">
-							<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'bgtfw' ); ?></h2>
+							<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'crio' ); ?></h2>
 							<ul>
 							<?php
 								wp_list_categories( array(
@@ -84,7 +84,7 @@ class BoldGrid_Framework_404 {
 
 						<?php
 							/* translators: %1$s: smiley */
-							$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'bgtfw' ), convert_smilies( ':)' ) ) . '</p>';
+							$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'crio' ), convert_smilies( ':)' ) ) . '</p>';
 							the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
 						?>
 

@@ -214,10 +214,10 @@ class Boldgrid_Framework_Customizer_Widget_Meta {
 
 		$data = array(
 			'l10n' => array(
-				'title_label' => __( 'Title:', 'bgtfw' ),
-				'background_color_label' => __( 'Background Color:', 'bgtfw' ),
-				'headings_color_label' => __( 'Headings Color:', 'bgtfw' ),
-				'links_color_label' => __( 'Links Color:', 'bgtfw' ),
+				'title_label' => __( 'Title:', 'crio' ),
+				'background_color_label' => __( 'Background Color:', 'crio' ),
+				'headings_color_label' => __( 'Headings Color:', 'crio' ),
+				'links_color_label' => __( 'Links Color:', 'crio' ),
 			),
 			'backgroundChoices' => array(
 				'colors' => $formatted_palette,
