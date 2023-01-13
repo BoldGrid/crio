@@ -31,6 +31,8 @@ var gulp = require('gulp'),
 var config = {
   fontsDest: './crio/inc/boldgrid-theme-framework/assets/fonts',
   src: './src',
+  prime_src: './prime',
+  prime_dest: './crio',
   dist: './crio/inc/boldgrid-theme-framework',
   node_modules: './node_modules',
   jsDest: './crio/inc/boldgrid-theme-framework/assets/js',
@@ -530,10 +532,18 @@ gulp.task( 'patterns', shell.task( 'yarn run script:patterns' ) );
 gulp.task( 'tgm', shell.task( 'yarn run script:tgm' ) );
 gulp.task( 'wpTextDomainLint', shell.task( 'yarn run script:wp-textdomain-lint' ) );
 
+gulp.task( 'prime', function() {
+  return gulp.src([
+    config.prime_src + '/**/*',
+  ])
+    .pipe(gulp.dest(config.prime_dest));
+} );
+
 // Tasks
 gulp.task( 'build', function( cb ) {
 	sequence(
 		'dist',
+    'prime',
 		[ 'readme','license' ],
 		['wpTextDomainLint', 'jsHint', 'jscs', 'frameworkJs', 'svgs', 'tgm'],
 		['scssDeps', 'jsDeps', 'modernizr', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss'],
