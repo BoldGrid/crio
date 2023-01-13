@@ -6,7 +6,7 @@ textdomain( 'src/**/*.php', {
 	force: true
 } );
 
-textdomain( 'boldgrid-theme-framework/**/*.php', {
+textdomain( 'crio/inc/boldgrid-theme-framework/**/*.php', {
 	domain: [ 'crio' ],
 	fix: true,
 	force: true

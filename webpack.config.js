@@ -16,12 +16,12 @@ const webpackConfig = merge( {
 	mode: process.env.NODE_ENV || 'production',
 	context: src,
 	output: {
-		path: path.resolve( __dirname, 'boldgrid-theme-framework' ),
-		publicPath: '/wp-content/themes/prime/inc/boldgrid-theme-framework/'
+		path: path.resolve( __dirname, 'crio/inc/boldgrid-theme-framework' ),
+		publicPath: '/wp-content/themes/crio/inc/boldgrid-theme-framework/'
 	},
 	devServer: {
-		publicPath: '/wp-content/themes/prime/inc/boldgrid-theme-framework/',
-		contentBase: '/wp-content/themes/prime/inc/boldgrid-theme-framework/',
+		publicPath: '/wp-content/themes/crio/inc/boldgrid-theme-framework/',
+		contentBase: '/wp-content/themes/crio/inc/boldgrid-theme-framework/',
 		historyApiFallback: true,
 		quiet: true,
 		port: 4009,

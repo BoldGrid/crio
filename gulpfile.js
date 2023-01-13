@@ -29,20 +29,20 @@ var gulp = require('gulp'),
 
 // Configs
 var config = {
-  fontsDest: './boldgrid-theme-framework/assets/fonts',
+  fontsDest: './crio/inc/boldgrid-theme-framework/assets/fonts',
   src: './src',
-  dist: './boldgrid-theme-framework',
+  dist: './crio/inc/boldgrid-theme-framework',
   node_modules: './node_modules',
-  jsDest: './boldgrid-theme-framework/assets/js',
-  scss_dest: '../boldgrid-theme-framework/inc/assets/scss',
+  jsDest: './crio/inc/boldgrid-theme-framework/assets/js',
+  scss_dest: '../crio/inc/boldgrid-theme-framework/inc/assets/scss',
   scss_src: './inc/assets/scss',
-  css_dest: '../boldgrid-theme-framework/inc/assets/css',
+  css_dest: '../crio/inc/boldgrid-theme-framework/inc/assets/css',
   css_src: './inc/assets/css',
   fontsSrc: './inc/assets/fonts',
-  img_dest: '../boldgrid-theme-framework/inc/assets/img',
+  img_dest: '../crio/inc/boldgrid-theme-framework/inc/assets/img',
   img_src: './inc/assets/img/**/*',
   layouts_src: './layouts',
-  layouts_dest: '../boldgrid-theme-framework/layouts',
+  layouts_dest: '../crio/inc/boldgrid-theme-framework/layouts',
   scss_minify: 'compressed' // or uncompressed for dev
 };
 
@@ -115,7 +115,7 @@ gulp.task('googlefonts-image', function () {
 // Create dist folder.
 gulp.task('dist', function () {
   return gulp.src('*.*', {read: false})
-    .pipe(gulp.dest('./boldgrid-theme-framework'))
+    .pipe(gulp.dest('./crio/inc/boldgrid-theme-framework'))
 });
 // Clean distribution on build.
 gulp.task('clean', function () {

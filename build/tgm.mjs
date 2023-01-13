@@ -6,12 +6,12 @@ const
 	path = require( 'path' ),
 
 	options = {
-		slug: 'bgtfw',
-		prefix: 'bgtfw',
-		addonName: 'Bgtfw',
+		slug: 'crio',
+		prefix: 'crio',
+		addonName: 'Crio',
 		addonType: 'parent-theme',
 		publishType: 'wporg',
-		installPath: path.join( path.resolve( './boldgrid-theme-framework/includes' ), 'tgm' ),
+		installPath: path.join( path.resolve( './crio/inc/boldgrid-theme-framework/includes' ), 'tgm' ),
 		files: [ 'class-tgm-plugin-activation.php', 'LICENSE.md' ],
 		calls: {
 			latestVersion: {
