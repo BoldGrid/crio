@@ -1,0 +1,386 @@
+@function hover($background, $color) {
+	$style: '';
+	$hover-color: '';
+	$color-lightness: abs(lightness($color));
+	$background-lightness: abs(lightness($background));
+
+	@if $color-lightness == 100 {
+		/* White */
+		@if $background-lightness >= 90 {
+			$hover-color: darken($background, 15);
+		} @else {
+			$hover-color: mix($color, $background, 80);
+		}
+	} @else if $color-lightness == 0 {
+		/* Black */
+		@if $background-lightness < 10 {
+			$hover-color: lighten($background, 20);
+		} @else {
+			$hover-color: mix($color, $background, 60);
+		}
+	} @else if $background-lightness < $color-lightness {
+		/* Light text on dark background */
+		$style: 'lighten';
+		@if $color-lightness > 90 {
+			/* Color too light to lighten */
+			$hover-color: darken($color, 20);
+			$style: 'darken';
+		} @else {
+			$hover-color: lighten($color, 20);
+		}
+	} @else {
+		/* Dark text on light background */
+		$style: 'darken';
+		@if $color-lightness < 15 {
+			/* Color is too dark to further darken */
+			$hover-color: lighten($color, 20);
+			$style: 'lighten';
+		} @else {
+			$hover-color: darken($color, 20);
+		}
+	}
+
+	@return $hover-color;
+}
+
+$ubtn-colors: ();
+@if variable-exists( palette-primary_1 ) {
+	$ubtn-colors: append($ubtn-colors,('color-1' $palette-primary_1 var(--color-1-text-contrast)));
+	@if $ubtn-theme-color == 'palette-primary_1' {
+		$ubtn-bgcolor: $palette-primary_1;
+		$ubtn-font-color: var(--color-1-text-contrast);
+	}
+}
+@if variable-exists( palette-primary_2  ) {
+	$ubtn-colors: append($ubtn-colors,('color-2' $palette-primary_2 var(--color-2-text-contrast)));
+	@if $ubtn-theme-color == 'palette-primary_2' {
+		$ubtn-bgcolor: $palette-primary_2;
+		$ubtn-font-color: var(--color-2-text-contrast);
+	}
+}
+@if variable-exists( palette-primary_3 ) {
+	$ubtn-colors: append($ubtn-colors,('color-3' $palette-primary_3 var(--color-3-text-contrast)));
+	@if $ubtn-theme-color == 'palette-primary_3' {
+		$ubtn-bgcolor: $palette-primary_3;
+		$ubtn-font-color: var(--color-3-text-contrast);
+	}
+}
+@if variable-exists( palette-primary_4 ) {
+	$ubtn-colors: append($ubtn-colors,('color-4' $palette-primary_4 var(--color-4-text-contrast)));
+	@if $ubtn-theme-color == 'palette-primary_4' {
+		$ubtn-bgcolor: $palette-primary_4;
+		$ubtn-font-color: var(--color-4-text-contrast);
+	}
+}
+@if variable-exists( palette-primary_5 ) {
+	$ubtn-colors: append($ubtn-colors,('color-5' $palette-primary_5 var(--color-5-text-contrast)));
+	@if $ubtn-theme-color == 'palette-primary_5' {
+		$ubtn-bgcolor: $palette-primary_5;
+		$ubtn-font-color: var(--color-5-text-contrast);
+	}
+}
+@if variable-exists( palette-primary-neutral-color ) {
+	$ubtn-colors: append($ubtn-colors,('neutral-color' $palette-primary-neutral-color var(--color-neutral-text-contrast)));
+	@if $ubtn-theme-color == 'palette-primary-neutral-color' {
+		$ubtn-bgcolor: $palette-primary-neutral-color;
+		$ubtn-font-color: var(--color-neutral-text-contrast);
+	}
+}
+
+@if variable-exists( palette-primary-transparent-color ) {
+	$ubtn-colors: append($ubtn-colors,('transparent-color' $palette-primary-transparent-color var(--color-neutral-text-contrast)));
+	@if $ubtn-theme-color == 'palette-primary-transparent-color' {
+		$ubtn-bgcolor: $palette-primary-transparent-color;
+		$ubtn-font-color: var(--color-neutral-text-contrast);
+	}
+}
+
+/* Create single css classes to apply palettes on universal elements. */
+$names: background background-color;
+.sidebar.transparent-background-color {
+	@for $color from 1 through length( $colors ) {
+		@for $each from 1 through length( $colors ) {
+			$reference: nth($colors, $color);
+			&.color-#{$each}-link-color {
+				a:not( .btn ) {
+					color: #{nth($colors, $each)};
+				}
+			}
+		}
+		@if variable-exists( palette-primary-neutral-color ) {
+			&.color-neutral-link-color {
+				a:not( .btn ) {
+					color: $palette-primary-neutral-color;
+				}
+			}
+			&.color-neutral-sub-link-color.sm {
+				ul.sub-menu:not( .custom-sub-menu ) {
+					li.menu-item {
+						> a:not(.btn) {
+							color: $palette-primary-neutral-color;
+						}
+						> a:not(.btn) {
+							&:hover, &:focus, &:active, &.highlighted {
+								color: hover( nth($colors, $color), $palette-primary-neutral-color );
+							}
+						}
+					}
+				}
+			}
+		}
+		&-hover {
+			&:focus, &:hover {
+				background-color: nth($colors, $color) ! important;
+			}
+		}
+	}
+}
+@for $i from 1 through length( $names ) {
+	@for $color from 1 through length( $colors ) {
+		$reference: nth($colors, $color);
+		.color#{$color}-#{nth( $names, $i )} {
+			@for $each from 1 through length( $colors ) {
+				&.color-#{$each}-link-color {
+					li.menu-item:not( .custom-sub-menu ),
+					.attribution-theme-mods .link {
+						> a:not( .btn ) {
+							color: #{nth($colors, $each)};
+						}
+						> a:not( .btn ) {
+							&:hover, &:focus, &:active, &.highlighted {
+								color: hover( nth($colors, $color), nth($colors, $each) );
+							}
+						}
+					}
+					
+				}
+				&.sidebar {
+					&.color-#{$each}-link-color {
+						a:not( .btn ) {
+							color: #{nth($colors, $each)};
+						}
+					}
+				}
+				&.sm {
+					&.color-#{$each}-link-color {
+						li.menu-item.btn {
+							> a {
+								color: inherit;
+							}
+							> a {
+								&:hover, &:focus, &:active, &.highlighted {
+									color: inherit;
+								}
+							}
+						}
+						li.menu-item:not( .custom-sub-menu ) {
+							> a:not(.btn) {
+								color: #{nth($colors, $each)};
+							}
+							> a:not(.btn) {
+								&:hover, &:focus, &:active, &.highlighted {
+									color: hover( nth($colors, $color), nth($colors, $each) );
+								}
+							}
+						}
+						@for $subeach from 1 through length( $colors ) {
+							&.color-#{$subeach}-sub-link-color {
+								li.menu-item:not( .custom-sub-menu ) {
+									ul.sub-menu:not( .custom-sub-menu ) > a:not(.btn) {
+										color: #{nth($colors, $subeach)};
+										&:hover, &:focus, &:active, &.highlighted {
+											color: hover( nth($colors, $subeach), nth($colors, $subeach) );
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			@if variable-exists( palette-primary-neutral-color ) {
+				&.color-neutral-link-color {
+					a {
+						&:not( .in-mega ):not( .btn ) {
+							color: $palette-primary-neutral-color;
+							&:hover, &:focus, &:active, &.highlighted {
+								color: hover( nth($colors, $color), $palette-primary-neutral-color );
+							}
+						}
+					}
+				}
+				&.color-neutral-sub-link-color.sm {
+					ul.sub-menu:not( .custom-sub-menu ) {
+						li.menu-item:not( .custom-sub-menu ) {
+							> a:not(.btn) {
+								color: $palette-primary-neutral-color;
+								&:hover, &:focus, &:active, &.highlighted {
+									color: hover( nth($colors, $color), $palette-primary-neutral-color );
+								}
+							}
+						}
+					}
+				}
+				@for $subEach from 1 through length( $colors ) {
+					&.color-#{$subEach}-sub-link-color {
+						ul.sub-menu:not( .custom-sub-menu ) {
+							li.menu-item:not( .custom-sub-menu ) {
+								> a:not(.btn) {
+									color: #{nth($colors, $subEach)};
+									&:hover, &:focus, &:active, &.highlighted {
+										color: hover( nth($colors, $color), nth($colors, $subEach) );
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			&-hover {
+				&:focus, &:hover {
+					#{nth( $names, $i )}: #{$reference} ! important;
+				}
+			}
+		}
+	}
+	@if variable-exists( palette-primary-neutral-color ) {
+		.color-neutral-#{nth($names, $i)} {
+			@for $each from 1 through length( $colors) {
+				&.color-#{$each}-link-color {
+					a {
+						color: #{nth($colors, $each)};
+					}
+					&:not( .sidebar ) {
+						a:hover, a:focus, a:active, a.highlighted {
+							color: hover( $palette-primary-neutral-color, nth($colors, $each) );
+						}
+					}
+				}
+				&.color-#{$each}-sub-link-color.sm {
+					ul.sub-menu:not( .custom-sub-menu ) {
+						li.menu-item:not( .custom-sub-menu ) {
+							> a:not(.btn) {
+								color: #{nth($colors, $each)};
+								&:hover, &:focus, &:active, &.highlighted {
+									color: hover( $palette-primary-neutral-color, nth($colors, $each) );
+								}
+							}
+						}
+					}
+				}
+			}
+			&.color-neutral-link-color {
+				a {
+					color: $palette-primary-neutral-color;
+				}
+				a:hover, a:focus, a:active, a.highlighted {
+					color: hover( $palette-primary-neutral-color, $palette-primary-neutral-color );
+				}
+			}
+			&.color-neutral-sub-link-color.sm {
+				ul.sub-menu:not( .custom-sub-menu ) {
+					li.menu-item:not( .custom-sub-menu ) {
+						> a:not(.btn) {
+							color: $palette-primary-neutral-color;
+							&:hover, &:focus, &:active, &.highlighted {
+								color: hover( $palette-primary-neutral-color, $palette-primary-neutral-color );
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+* Base Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+@if variable-exists( ubtn-colors ) {
+	@each $ubtn-color in $ubtn-colors {
+		$ubtn-name: nth($ubtn-color, 1);
+		$ubtn-background: nth($ubtn-color, 2);
+		$ubtn-color: nth($ubtn-color, 3);
+
+		// Crete class for .button-primary
+		// and legacy flat .button-primary-flat
+		.btn-#{$ubtn-name},
+		.palette-primary .btn-#{$ubtn-name}.button-primary,
+		.palette-primary .btn-#{$ubtn-name}.button-secondary,
+		.btn-#{$ubtn-name}-flat {
+			background-color: $ubtn-background !important;
+			border-color: $ubtn-background;
+			color: $ubtn-color;
+			a {
+				color: $ubtn-color;
+			}
+
+			&:visited {
+				color: $ubtn-color;
+				a {
+					color: $ubtn-color;
+				}
+			}
+
+			&:hover,
+			&:focus {
+				background-color: lighten($ubtn-background, 10%) !important;
+				border-color: lighten($ubtn-background, 10%);
+				color: $ubtn-color;
+				a {
+					color: $ubtn-color;
+				}
+			}
+
+			&:active,
+			&.active,
+			&.is-active {
+				background-color: desaturate($ubtn-background, 10%) !important;
+				border-color: desaturate($ubtn-background, 10%);
+				color: darken($ubtn-background, 10%);
+				a {
+					color: $ubtn-color;
+				}
+			}
+		}
+
+		// Add support for borders & transparent buttons
+		.btn-border-#{$ubtn-name},
+		.palette-primary .btn-border-#{$ubtn-name}.button-primary,
+		.palette-primary .btn-border-#{$ubtn-name}.button-secondary,
+		.btn-border-#{$ubtn-name}-flat {
+			border-color: $ubtn-background !important;
+			&.btn-transparent{
+				color: $ubtn-background;
+			}
+			&:hover,
+			&:focus {
+				&.btn-transparent{
+					background-color: lighten($ubtn-background, 10%) !important;
+					color: $ubtn-color;
+					a {
+						color: $ubtn-color;
+					}
+				}
+				border-color: lighten($ubtn-background, 10%) !important;
+
+			}
+
+			&:active,
+			&.active,
+			&.is-active {
+				&.btn-transparent{
+					background-color: lighten($ubtn-background, 10%) !important;
+					color: darken($ubtn-background, 10%);
+					a {
+						color: $ubtn-color;
+					}
+				}
+				border-color: desaturate($ubtn-background, 10%) !important;
+			}
+		}
+	}
+}

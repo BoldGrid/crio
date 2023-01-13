@@ -1,0 +1,17 @@
+{
+  "crawl": false,
+  "tests": [
+    "svg",
+    "touchevents",
+    "flexbox",
+    "flexwrap",
+    "inlinesvg",
+	"customproperties",
+	"backgroundblendmode"
+  ],
+  "customTests": "./tests/modernizr/",
+  "options": [
+    "addTest",
+    "setClasses"
+  ]
+}

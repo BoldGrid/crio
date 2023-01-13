@@ -1,0 +1,306 @@
+/**
+* #.# Edit buttons.
+*
+* Buttons are identified using "button[data-control]". Sometimes ".palette-primary button" styles
+* override the button settings below, so "body" has been prepended below for specificity.
+*/
+button.customize-partial-edit-shortcut-button {
+	display: none;
+}
+
+.customize-partial-edit-shortcuts-shown .product span.onsale {
+	z-index: 2 !important;
+}
+
+#masthead .boldgrid-section .bgtfw-has-edit, .bgtfw-has-edit {
+	&.btn-longshadow {
+		position: static !important;
+		.bgtfw-edit-button {
+			text-shadow: none;
+		}
+	}
+	&.top-button {
+		> .bgtfw-multi-edit-button {
+			top: 0;
+			&.expanded {
+				div {
+					bottom: unset;
+					top: 30px;
+				}
+			}
+		}
+
+		> .bgtfw-edit-button {
+			top: 0;
+			&:hover {
+				div {
+					left: 0px;
+					right: unset;
+				}
+			}
+		}
+	}
+
+	&.left-button {
+		> .bgtfw-multi-edit-button {
+			left: 0;
+			&.expanded {
+				div {
+					left: 0px;
+					right: unset;
+				}
+			}
+		}
+		> .bgtfw-edit-button {
+			left: 0;
+			&:hover {
+				div {
+					left: 0px;
+					right: unset;
+				}
+			}
+		}
+	}
+
+	&:hover {
+		> .bgtfw-edit-button {
+			background-color:#0073aa;
+			color: #fff !important;
+			opacity: 1;
+
+		}
+		> .bgtfw-multi-edit-button {
+			background-color:#0073aa;
+			color: #fff !important;
+			opacity: 1;
+		}
+	}
+	> .bgtfw-edit-button {
+		position: absolute;
+		width: 30px;
+		padding: 5px;
+		height: 30px;
+		background-color: #ddd;
+		bottom: -30px;
+		opacity: 0.75;
+		cursor: pointer;
+		right: 0;
+		text-decoration: none;
+		color: #000 !important;
+		border-radius: 4px;
+		border: 0px;
+		line-height: 20px;
+		z-index: 300;
+		font-size: 14px;
+		margin: 0;
+		&:hover {
+			background-color:#0073aa;
+			color: #fff;
+			opacity: 1;
+			~ .bgtfw-edit-border-box {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				box-shadow: inset 0 0 2px 2px #0073aa;
+				background-color: rgba(0, 115, 170,0.15);
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+		}
+		&:before {
+			display: inline-block;
+			-webkit-font-smoothing: antialiased;
+			font: normal 20px/1 'dashicons';
+			vertical-align: top;
+			content: "\f464";
+			border-radius: 4px;
+			border: 0px;
+		}
+	}
+	> .bgtfw-multi-edit-button {
+		position: absolute;
+		width: 30px;
+		padding: 5px;
+		height: 30px;
+		background-color: #ddd;
+		bottom: -30px;
+		opacity: 0.75;
+		cursor: pointer;
+		right: 0;
+		text-decoration: none;
+		color: #000 !important;
+		border-radius: 4px;
+		border: 0px;
+		line-height: 20px;
+		z-index: 300;
+		font-size: 14px;
+		margin: 0;
+		.bgtfw-edit-item {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			width: max-content;
+			min-width: calc(100% - 10px );
+			padding: 5px;
+			margin: 5px;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: 400;
+			font-style:normal;
+			text-align: left;
+			justify-content: flex-start;
+			text-transform: none;
+			&:hover {
+				background-color: #0073aa;
+				color: #fff !important;
+			}
+			&:not( :last-child ) {
+				border-bottom: 1px solid #e0e0e0;
+			}
+			span {
+				&.edit-label {
+					font-weight: 600;
+					text-align: left;
+					width: 100%;
+					justify-content: flex-start;
+					padding-left: 0;
+					text-transform: none;
+				}
+			}
+		}
+
+		&:hover, &.expanded {
+			background-color:#0073aa;
+			color: #fff !important;
+			opacity: 1;
+			z-index: 301;
+			~ .bgtfw-edit-border-box {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				box-shadow: inset 0 0 2px 2px #0073aa;
+				background-color: rgba(0, 115, 170,0.15);
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+		}
+
+		&.expanded {
+			&:before {
+				content: "\f158";
+			}
+			div {
+				display: block;
+				position: absolute;
+				bottom: 30px;
+				right: 0px;
+				width: auto;
+				list-style: none;
+				background-color: #f8f8f8;
+				color: black !important;
+				border-radius: 5px;
+				border: 1px solid #e0e0e0;
+			}
+		}
+
+		&:before {
+			display: inline-block;
+			-webkit-font-smoothing: antialiased;
+			font: normal 20px/1 'dashicons';
+			vertical-align: top;
+			content: "\f464";
+			border-radius: 4px;
+			border: 0px;
+		}
+		> div {
+			display: none;
+		}
+	}
+}
+
+/**
+* #.# jQuery UI Dialog.
+*
+* Custom settings for our jQuery UI Dialog, which is used for notices, such as when trying to edit
+* a page's content.
+*/
+/* By default, ensure the dialog is hidden. */
+.dialog-hidden {
+	display: none;
+}
+body div.ui-widget-overlay {
+	background: unset;
+	background-color: #000;
+	opacity: 0.7;
+}
+/* Generic settings to ensure a theme's css does not interfere with dialog. */
+.bgtfw-edit-dialog {
+	&.ui-dialog {
+		color: #000;
+		max-width: 95%;
+		font-family: Helvetica;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 20px;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		.ui-widget-content {
+			padding: 16px;
+		}
+		.ui-button {
+			color: #555;
+		}
+		.ui-dialog-titlebar.ui-widget-header {
+			background: #fff;
+			border: unset;
+			border-bottom: 1px solid #dcdcde;
+			height: 36px;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 2;
+			padding: 0 36px 0 16px;
+			border-radius: unset;
+		}
+		.ui-dialog-titlebar-close {
+			height: 100%;
+			float: right;
+			background: transparent;
+			margin-right: -35px;
+			border: 0px;
+			border-left: 1px solid #ddd;
+		}
+
+		/* Mimic wp-core-ui's button-primary */
+		.ui-dialog-buttonset button {
+			font-size: 13px;
+			line-height: 26px;
+			height: 28px;
+			margin: 0;
+			padding: 0 10px 1px;
+			border-width: 1px;
+			-webkit-appearance: none;
+			border-radius: 3px;
+			white-space: nowrap;
+		}
+		.ui-dialog-buttonset button:first-of-type {
+		background: #0085ba;
+		border-color: #0073aa #006799 #006799;
+		-webkit-box-shadow: 0 1px 0 #006799;
+		box-shadow: 0 1px 0 #006799;
+		color: #fff;
+		text-decoration: none;
+		text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
+		margin-right: 5px;
+		}
+	}
+	.bgtfw-dialog-question {
+		text-align: center;
+		font-style: italic;
+		color: #555d66;
+		margin-top: 26px;
+	}
+}
