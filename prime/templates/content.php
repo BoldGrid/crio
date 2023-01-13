@@ -4,7 +4,7 @@
  *
  * This file contains the markup for the default content template.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

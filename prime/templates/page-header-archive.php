@@ -4,7 +4,7 @@
  *
  * This file contains the markup for the archive page's entry header.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <div <?php BoldGrid::add_class( 'page_header_wrapper', [ 'page-header-wrapper' ] ); ?>>

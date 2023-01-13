@@ -5,7 +5,7 @@
  * This file contains the markup for the footer template.
  *
  * @since 2.0
- * @package Prime
+ * @package Crio
  */
 $has_footer_template     = apply_filters( 'crio_premium_get_page_footer', get_the_ID() );
 $has_footer_template     = get_the_ID() === $has_footer_template ? false : $has_footer_template;

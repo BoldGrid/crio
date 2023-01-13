@@ -4,7 +4,7 @@
  *
  * This file contains the markup for the header template.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <header id="masthead" <?php BoldGrid::add_class( 'header', [ 'header' ] ); ?> role="banner" <?php BoldGrid_Framework_Schema::header( true ); ?>>

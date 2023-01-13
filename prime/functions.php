@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Prime
+ * @package Crio
  */
 
 require_once get_theme_file_path( 'inc/boldgrid-theme-framework-config/config.php' );

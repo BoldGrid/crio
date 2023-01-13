@@ -2,7 +2,7 @@
 /**
  * This file contains the "Welcome" markup displayed after Crio is activated.
  *
- * @package Prime
+ * @package Crio
  * @since 2.0.0
  */
 

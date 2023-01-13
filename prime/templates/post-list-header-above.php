@@ -4,7 +4,7 @@
  *
  * This file contains the markup for the post list with feat img above the header information.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <header <?php BoldGrid::add_class( 'entry_header', [ 'entry-header', 'above' ] ); ?>>

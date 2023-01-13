@@ -4,7 +4,7 @@
  *
  * This file contains the markup for entry headers.
  *
- * @package Prime
+ * @package Crio
  */
 do_action( 'boldgrid_before_entry_title' ); ?>
 <header <?php BoldGrid::add_class( 'entry_header', [ 'entry-header' ] ); ?> <?php bgtfw_featured_img_bg( $post->ID ); ?>>

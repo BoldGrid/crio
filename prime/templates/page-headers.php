@@ -4,7 +4,7 @@
  *
  * This file gets the template part for the page header/title to display.
  *
- * @package Prime
+ * @package Crio
  */
 if ( is_archive() ) {
 	get_template_part( 'templates/page-header', 'archive' );

@@ -4,7 +4,7 @@
  *
  * This file contains the markup for the post list header.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <header <?php BoldGrid::add_class( 'entry_header', [ 'entry-header' ] ); ?> <?php bgtfw_featured_img_bg( $post->ID ); ?>>

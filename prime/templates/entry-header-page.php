@@ -4,7 +4,7 @@
  *
  * This file contains the markup for page entry headers.
  *
- * @package Prime
+ * @package Crio
  */
 do_action( 'boldgrid_before_entry_title' ); ?>
 <div <?php BoldGrid::add_class( 'page_header_wrapper', [ 'page-header-wrapper' ] ); ?>>

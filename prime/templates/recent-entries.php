@@ -5,7 +5,7 @@
  * This file contains the markup for recent entries displayed in the
  * 404 pages of the Prime theme.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <?php

@@ -4,7 +4,7 @@
  *
  * This displayed if no page content exists.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <section class="no-results not-found">

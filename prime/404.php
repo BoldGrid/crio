@@ -5,7 +5,7 @@
  * This file contains the 404 template used in this theme.
  *
  * @since 2.0
- * @package Prime
+ * @package Crio
  */
 ?>
 

@@ -4,7 +4,7 @@
  *
  * This file contains the markup for single post entry headers.
  *
- * @package Prime
+ * @package Crio
  */
 
 $has_featured_image_header = has_post_thumbnail() &&

@@ -2,7 +2,7 @@
 /**
  * Contains markup for the blog page in starter content.
  *
- * @package Prime
+ * @package Crio
  *
  * @since 2.0.0
  */

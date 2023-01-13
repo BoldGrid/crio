@@ -4,7 +4,7 @@
  *
  * This file contains the markup for the post list with feat img as a background image for header.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <header <?php BoldGrid::add_class( 'entry_header', [ 'entry-header' ] ); ?> <?php is_single() ? : bgtfw_featured_img_bg( $post->ID, true ); ?>>

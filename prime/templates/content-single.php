@@ -4,7 +4,7 @@
  *
  * This file contains the markup for the single template.
  *
- * @package Prime
+ * @package Crio
  */
 ?>
 <?php while ( have_posts() ) : the_post(); ?>

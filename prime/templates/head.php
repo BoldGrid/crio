@@ -5,7 +5,7 @@
  * This file contains the markup for head tag used in the base.php of
  * a prime theme.
  *
- * @package Prime
+ * @package Crio
  * @license GPL-3.0-or-later
  */
 global $post;

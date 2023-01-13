@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages.
  *
- * @package Prime
+ * @package Crio
  */
 
 // Get number of results.

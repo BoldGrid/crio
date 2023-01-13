@@ -5,7 +5,7 @@
  *
  * @since 2.0
  *
- * @package Prime
+ * @package Crio
  */
 
 if ( ! have_posts() ) {

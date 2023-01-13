@@ -2,7 +2,7 @@
 /**
  * This file contains the "Pro Features" markup.
  *
- * @package Prime
+ * @package Crio
  * @since 2.0.0
  */
 
