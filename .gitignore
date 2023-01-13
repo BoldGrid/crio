@@ -1,8 +1,0 @@
-node_modules/
-generated/
-css/color-palettes.css
-css/buttons.css
-bower_components/
-crio/
-vendor/
-!src/inc
