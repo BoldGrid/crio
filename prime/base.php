@@ -45,7 +45,7 @@ $has_sticky_template = get_the_ID() === $has_sticky_template ? false : $has_stic
 			// Invoking core hook for plugins to hook first in place on the body content. Ref: https://core.trac.wordpress.org/ticket/46679.
 			do_action( 'wp_body_open' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		?>
-		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'prime' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'crio' ); ?></a>
 		<?php do_action( 'boldgrid_header_before' ); ?>
 		<div <?php BoldGrid::add_class( 'site_header', array( 'bgtfw-header', 'site-header' ) ); ?>>
 			<?php

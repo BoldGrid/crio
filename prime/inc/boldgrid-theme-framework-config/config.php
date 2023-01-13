@@ -150,7 +150,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 				'file' => 'images/man-on-computer.jpg',
 			),
 			'crio-light' => array(
-				'post_title' => _x( 'Light test logo for theme starter content', 'crio' ),
+				'post_title' => _x( 'Light test logo for theme starter content', 'crio', 'crio' ),
 				'file' => 'images/crio-light.png',
 				'meta_input' => array(
 					'_custom_logo' => true,
@@ -361,7 +361,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 		$config['customizer']['controls']['bgtfw_blog_post_header_title_color']['default'] = 'color-2';
 
 		// Post list read more link text.
-		$config['customizer']['controls']['bgtfw_blog_post_readmore_text']['default'] = esc_html__( 'Read More', 'bgtfw' );
+		$config['customizer']['controls']['bgtfw_blog_post_readmore_text']['default'] = esc_html__( 'Read More', 'crio' );
 
 		// Post list read more link style.
 		$config['customizer']['controls']['bgtfw_blog_post_readmore_type']['default'] = 'btn button-secondary';
@@ -414,7 +414,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 
 		// Main Menu configuration.
 		$config['starter-content']['nav_menus']['main'] = array(
-			'name' => __( 'Main Menu', 'bgtfw' ),
+			'name' => __( 'Main Menu', 'crio' ),
 			'items' => array(
 				'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
 				'page_blog',
@@ -428,7 +428,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 
 		// Social Menu configuration.
 		$config['starter-content']['nav_menus']['social'] = array(
-			'name' => __( 'Social Media Links', 'bgtfw' ),
+			'name' => __( 'Social Media Links', 'crio' ),
 			'items' => array(
 				'link_yelp',
 				'link_facebook',
@@ -522,17 +522,17 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 							[
 								'selector' => '.custom-logo',
 								'display' => 'show',
-								'title' => __( 'Logo', 'bgtfw' ),
+								'title' => __( 'Logo', 'crio' ),
 							],
 							[
 								'selector' => '.site-title',
 								'display' => 'hide',
-								'title' => __( 'Title', 'bgtfw' ),
+								'title' => __( 'Title', 'crio' ),
 							],
 							[
 								'selector' => '.site-description',
 								'display' => 'hide',
-								'title' => __( 'Tagline', 'bgtfw' ),
+								'title' => __( 'Tagline', 'crio' ),
 							],
 						],
 					],
@@ -560,17 +560,17 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 							[
 								'selector' => '.custom-logo',
 								'display' => 'show',
-								'title' => __( 'Logo', 'bgtfw' ),
+								'title' => __( 'Logo', 'crio' ),
 							],
 							[
 								'selector' => '.site-title',
 								'display' => 'hide',
-								'title' => __( 'Title', 'bgtfw' ),
+								'title' => __( 'Title', 'crio' ),
 							],
 							[
 								'selector' => '.site-description',
 								'display' => 'hide',
-								'title' => __( 'Tagline', 'bgtfw' ),
+								'title' => __( 'Tagline', 'crio' ),
 							],
 						],
 					],

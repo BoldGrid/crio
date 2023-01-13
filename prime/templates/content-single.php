@@ -22,7 +22,7 @@
 				do_action( 'bgtfw_after_post_header' );
 				?>
 				<?php the_content(); ?>
-				<?php wp_link_pages( array( 'before' => '<nav class="page-nav"><p>' . __( 'Pages:', 'bgtfw' ), 'after' => '</p></nav>' ) ); ?>
+				<?php wp_link_pages( array( 'before' => '<nav class="page-nav"><p>' . __( 'Pages:', 'crio' ), 'after' => '</p></nav>' ) ); ?>
 			</div><!-- .entry-content -->
 			<footer class="entry-footer">
 				<?php boldgrid_entry_footer(); ?>

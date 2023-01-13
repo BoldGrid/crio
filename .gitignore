@@ -6,6 +6,7 @@ node_modules
 bower_components
 boldgrid-theme-framework-config
 vendor/
+/crio/**
 build/config.local.json
 boldgrid-theme-framework
 yarn-error.log

@@ -17,12 +17,12 @@ return array(
 				'</svg>' .
 			'</div>' .
 			'<div class="learning-text">' .
-				'<h3>' . esc_html__( 'Crio Documentation and Tutorials', 'bgtfw' ) . '</h3>' .
-				'<p>' . esc_html__( 'Step by Step tutorials and easy to follow documentation!', 'bgtfw' ) . '</p>' .
+				'<h3>' . esc_html__( 'Crio Documentation and Tutorials', 'crio' ) . '</h3>' .
+				'<p>' . esc_html__( 'Step by Step tutorials and easy to follow documentation!', 'crio' ) . '</p>' .
 			'</div>' .
 		'</div>' .
 		'<p class="box">' .
-			'<a href="http://boldgrid.com/support/boldgrid-crio" target="_blank" class="button button-secondary">' . esc_html__( 'Browse Docs', 'bgtfw' ) . '</a>' .
+			'<a href="http://boldgrid.com/support/boldgrid-crio" target="_blank" class="button button-secondary">' . esc_html__( 'Browse Docs', 'crio' ) . '</a>' .
 		'</p>' .
 	'</div>',
 	// Second box on welcome page.
@@ -36,12 +36,12 @@ return array(
 				'</svg>' .
 			'</div>' .
 			'<div class="learning-text">' .
-				'<h3>' . esc_html__( '1 on 1 Support', 'bgtfw' ) . '</h3>' .
-				'<p>' . esc_html__( 'Need help with Crio that you don\'t see in our Docs or user groups? Contact our Support Team (Premium Feature)', 'bgtfw' ) . '</p>' .
+				'<h3>' . esc_html__( '1 on 1 Support', 'crio' ) . '</h3>' .
+				'<p>' . esc_html__( 'Need help with Crio that you don\'t see in our Docs or user groups? Contact our Support Team (Premium Feature)', 'crio' ) . '</p>' .
 			'</div>' .
 		'</div>' .
 		'<p class="box">' .
-			'<a href="https://www.boldgrid.com/central/account/help/premium" target="_blank" class="button button-secondary">' . esc_html__( 'Get Support', 'bgtfw' ) . '</a>' .
+			'<a href="https://www.boldgrid.com/central/account/help/premium" target="_blank" class="button button-secondary">' . esc_html__( 'Get Support', 'crio' ) . '</a>' .
 		'</p>' .
 	'</div>',
 	// Third box on welcome page.
@@ -55,12 +55,12 @@ return array(
 			'</svg>' .
 		'</div>' .
 		'<div class="learning-text">' .
-			'<h3>' . esc_html__( 'Team Orange', 'bgtfw' ) . '</h3>' .
-			'<p>' . esc_html__( 'An active and helpful place to get answers and tips from users like you!', 'bgtfw' ) . '/p>' .
+			'<h3>' . esc_html__( 'Team Orange', 'crio' ) . '</h3>' .
+			'<p>' . esc_html__( 'An active and helpful place to get answers and tips from users like you!', 'crio' ) . '/p>' .
 		'</div>' .
 	'</div>' .
 	'<p class="box">' .
-		'<a href="https://www.facebook.com/groups/BGTeamOrange" target="_blank" class="button button-secondary">' . esc_html__( 'Join Us', 'bgtfw' ) . '</a>' .
+		'<a href="https://www.facebook.com/groups/BGTeamOrange" target="_blank" class="button button-secondary">' . esc_html__( 'Join Us', 'crio' ) . '</a>' .
 	'</p>' .
 	'</div>',
 );

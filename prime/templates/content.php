@@ -33,12 +33,12 @@
 		if ( 'excerpt' === $bgtfw_content ) {
 			Boldgrid_Framework_Content::the_excerpt();
 		} else {
-			the_content( sprintf( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'bgtfw' ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
+			the_content( sprintf( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'crio' ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
 		}
 	?>
 	<?php
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . __( 'Pages:', 'bgtfw' ),
+			'before' => '<div class="page-links">' . __( 'Pages:', 'crio' ),
 			'after' => '</div>',
 		) );
 	?>

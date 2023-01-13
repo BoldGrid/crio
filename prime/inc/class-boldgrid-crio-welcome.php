@@ -46,8 +46,8 @@ class Boldgrid_Crio_Welcome {
 		$priority = ! empty( $priority ) && 1 === count( $priority ) ? key( $priority ) - 1 : null;
 
 		add_menu_page(
-			__( 'Crio', 'bgtfw' ),
-			__( 'Crio', 'bgtfw' ),
+			__( 'Crio', 'crio' ),
+			__( 'Crio', 'crio' ),
 			'edit_theme_options',
 			'crio',
 			array( $this, 'page_welcome' ),

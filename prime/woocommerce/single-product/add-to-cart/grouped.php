@@ -65,7 +65,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								woocommerce_template_loop_add_to_cart();
 							} elseif ( $grouped_product_child->is_sold_individually() ) {
 								echo '<input type="checkbox" name="' . esc_attr( 'quantity[' . $grouped_product_child->get_id() . ']' ) . '" value="1" class="wc-grouped-product-add-to-cart-checkbox" id="' . esc_attr( 'quantity-' . $grouped_product_child->get_id() ) . '" />';
-								echo '<label for="' . esc_attr( 'quantity-' . $grouped_product_child->get_id() ) . '" class="screen-reader-text">' . esc_html__( 'Buy one of this item', 'woocommerce' ) . '</label>';
+								echo '<label for="' . esc_attr( 'quantity-' . $grouped_product_child->get_id() ) . '" class="screen-reader-text">' . esc_html__( 'Buy one of this item', 'crio' ) . '</label>';
 							} else {
 								do_action( 'woocommerce_before_add_to_cart_quantity' );
 

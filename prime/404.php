@@ -10,8 +10,8 @@
 ?>
 
 <div class="text-center">
-	<h1><?php esc_html_e( '404: Page Not Found.', 'bgtfw' ); ?></h1>
-		<p><?php esc_html_e( 'The page you requested could not be found.', 'bgtfw' ); ?></p>
+	<h1><?php esc_html_e( '404: Page Not Found.', 'crio' ); ?></h1>
+		<p><?php esc_html_e( 'The page you requested could not be found.', 'crio' ); ?></p>
 	<div class="row">
 		<div class="col-md-12">
 			<?php get_search_form(); ?>

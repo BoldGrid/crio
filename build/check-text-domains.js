@@ -6,6 +6,12 @@ textdomain( 'src/**/*.php', {
 	force: true
 } );
 
+textdomain( 'prime/**/*.php', {
+	domain: [ 'crio' ],
+	fix: true,
+	force: true
+} );
+
 textdomain( 'crio/inc/boldgrid-theme-framework/**/*.php', {
 	domain: [ 'crio' ],
 	fix: true,

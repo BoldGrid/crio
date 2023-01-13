@@ -23,11 +23,11 @@ defined( 'ABSPATH' ) || exit;
 <div class="woocommerce-billing-fields">
 	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 
-		<h3><?php esc_html_e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h3>
+		<h3><?php esc_html_e( 'Billing &amp; Shipping', 'crio' ); ?></h3>
 
 	<?php else : ?>
 
-		<h3><?php esc_html_e( 'Billing Details', 'woocommerce' ); ?></h3>
+		<h3><?php esc_html_e( 'Billing Details', 'crio' ); ?></h3>
 
 	<?php endif; ?>
 
@@ -51,7 +51,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<p class="form-row form-row-wide create-account">
 					<label for="createaccount" class="checkbox">
-						<input class="input-checkbox" id="createaccount" <?php checked( ( true === $checkout->get_value( 'createaccount' ) || ( true === apply_filters( 'woocommerce_create_account_default_checked', false ) ) ), true) ?> type="checkbox" name="createaccount" value="1" /><span><?php esc_html_e( 'Create an account?', 'woocommerce' ); ?></span>
+						<input class="input-checkbox" id="createaccount" <?php checked( ( true === $checkout->get_value( 'createaccount' ) || ( true === apply_filters( 'woocommerce_create_account_default_checked', false ) ) ), true) ?> type="checkbox" name="createaccount" value="1" /><span><?php esc_html_e( 'Create an account?', 'crio' ); ?></span>
 					</label>
 				</p>
 

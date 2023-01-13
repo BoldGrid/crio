@@ -17,7 +17,7 @@
 	<div class="row">
 		<?php if ( $bgtfw_recent_posts ) : ?>
 			<div class="<?php echo ! $bgtfw_pages ? 'col-md-12' : 'col-md-6'; ?> search-posts">
-				<h3><?php esc_html_e( 'Recent Articles', 'bgtfw' ); ?></h3>
+				<h3><?php esc_html_e( 'Recent Articles', 'crio' ); ?></h3>
 				<ul class="list-group">
 					<?php
 						$bgtfw_args = array( 'numberposts' => '10', 'post_status' => 'publish' );
@@ -33,7 +33,7 @@
 		<?php endif; ?>
 		<?php if ( $bgtfw_pages ) : ?>
 			<div class="<?php echo ! $bgtfw_recent_posts ? 'col-md-12' : 'col-md-6'; ?> search-pages">
-				<h3><?php esc_html_e( 'Page Sitemap', 'bgtfw' ); ?></h3>
+				<h3><?php esc_html_e( 'Page Sitemap', 'crio' ); ?></h3>
 				<ul class="list-group">
 					<?php
 						$bgtfw_count = 0;
