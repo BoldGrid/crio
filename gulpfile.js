@@ -236,11 +236,17 @@ gulp.task('frameworkFiles', function () {
     .pipe(gulp.dest(config.dist));
 });
 
-//Converto readme.txt to md
-gulp.task('readme', function () {
-  gulp.src('./README.md')
-    .pipe(gulp.dest(config.dist));
-});
+// Move Readme.txt to build folder.
+gulp.task( 'readme', function() {
+  gulp.src( './readme.txt' )
+    .pipe( gulp.dest( config.prime_dest ) );
+} );
+
+// Move style.css to build folder.
+gulp.task( 'styleCss', function() {
+  gulp.src( './style.css' )
+    .pipe( gulp.dest( config.prime_dest ) );
+} );
 
 // Copy License
 gulp.task( 'license', function() {
@@ -263,17 +269,17 @@ gulp.task('svgs', function() {
 });
 
 // Setup Translate.
-gulp.task('translate', function () {
-  return gulp.src(config.src + '/**/*.php')
-    .pipe(sort())
-    .pipe(wpPot({
-      domain: 'bgtfw',
-      destFile: 'boldgrid-theme-framework.pot',
-      package: 'boldgrid_theme_framework',
+gulp.task( 'translate', function() {
+  return gulp.src( config.prime_dest + '/**/*.php' )
+    .pipe( sort() )
+    .pipe( wpPot( {
+      domain: 'crio',
+      destFile: 'crio.pot',
+      package: 'crio',
       bugReport: 'https://boldgrid.com',
       team: 'The BoldGrid Team <support@boldgrid.com>'
-    }))
-    .pipe(gulp.dest(config.dist + '/languages'));
+    } ) )
+    .pipe( gulp.dest( config.prime_dest + '/languages' ) );
   //.pipe( notify( { message: 'Theme Translation complete', onLast: true } ) );
 });
 
@@ -544,8 +550,8 @@ gulp.task( 'build', function( cb ) {
 	sequence(
 		'dist',
     'prime',
-		[ 'readme','license' ],
-		['wpTextDomainLint', 'jsHint', 'jscs', 'frameworkJs', 'svgs', 'tgm'],
+		[ 'readme','license', 'styleCss' ],
+		['jsHint', 'jscs', 'frameworkJs', 'svgs', 'tgm'],
 		['scssDeps', 'jsDeps', 'modernizr', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss'],
 		'images',
 		['scssCompile', 'bootstrapCompile'],
@@ -553,6 +559,8 @@ gulp.task( 'build', function( cb ) {
 		'hovers',
 		'hoverColors',
 		'cleanHovers',
+    'wpTextDomainLint',
+    'translate',
 		cb
 	);
 } );
@@ -561,7 +569,7 @@ gulp.task( 'build', function( cb ) {
 gulp.task( 'qbuild', function( cb ) {
 	sequence(
 		'dist',
-		[ 'readme','license' ],
+		[ 'readme','license', 'styleCss' ],
 		['wpTextDomainLint', 'jsHint', 'jscs', 'frameworkJs'],
 		['scssDeps', 'jsDeps', 'modernizr', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss'],
 		['scssCompile', 'bootstrapCompile'],
