@@ -1,0 +1,33 @@
+{
+  "name": "Prime",
+  "version": "2.11.0",
+  "description": "BoldGrid Theme Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "theme": "node bin/build-zip.js"
+  },
+  "keywords": [
+    "BoldGrid"
+  ],
+  "author": "The BoldGrid Team",
+  "license": "GPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BoldGrid/prime.git"
+  },
+  "devDependencies": {
+    "archiver": "^3.0.0",
+    "chalk": "^2.4.2",
+    "del": "^3.0.0",
+    "got": "^9.6.0",
+    "pkg-dir": "^3.0.0",
+    "recursive-copy": "^2.0.10",
+    "shelljs": "^0.8.3",
+    "unzip-stream": "^0.3.0",
+    "wp-header-update": "^1.0.1",
+    "wp-pot": "^1.6.6",
+	"wp-textdomain": "^1.0.1",
+	"minimist": "^0.2.1"
+  }
+}
