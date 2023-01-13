@@ -17,7 +17,7 @@ module.exports = ( pattern = '**/*.php', config = {} ) => {
 				withPositions: true
 			}
 		},
-		domain: [ 'bgtfw', 'kirki' ],
+		domain: [ 'crio' ],
 		missingDomain: true,
 		variableDomain: true,
 		keywords: [
@@ -96,12 +96,11 @@ module.exports = ( pattern = '**/*.php', config = {} ) => {
 			parensBalance = 0;
 
 		for ( let i = 0; i < tokens.length; i++ ) {
-
 			let token = tokens[ i ][0], text = tokens[ i ][1], line = tokens[ i ][2],
 				content = ( 'undefined' !== typeof tokens[ i ][1] ? tokens[ i ][1] : tokens[ i ][0] );
 
 			//Look for T_STRING (function call )
-			if ( token.includes( 'T_STRING' ) && functions.indexOf( text ) > -1 ){
+			if ( token.includes( 'T_STRING' ) && functions.indexOf( text ) > -1 ) {
 
 				gettext = {
 					name: text,
@@ -114,7 +113,6 @@ module.exports = ( pattern = '**/*.php', config = {} ) => {
 
 			//Check for T_CONSTANT_ENCAPSED_STRING - and that we are in the text-domain argument
 			} else if ( token.includes( 'T_CONSTANT_ENCAPSED_STRING' ) && gettext.line && funcDomain[ gettext.name ] === gettext.argument ) {
-
 				if ( gettext.argument > 0 ){
 					gettext.domain = text.substr( 1, text.length -2 );//get rid of quotes from beginning & end
 
