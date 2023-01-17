@@ -21,6 +21,7 @@ before_script:
 - export BGTFW_THEME_DIR=$WP_DEVELOP_DIR/src/wp-content/themes/prime
 - mkdir -p $WP_DEVELOP_DIR
 - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
+- echo $(basename $(pwd)))
 - framework_dir=$(basename $(pwd))/boldgrid-theme-framework
 - cd ..
 - git clone -b master https://github.com/boldgrid/prime $BGTFW_THEME_DIR
