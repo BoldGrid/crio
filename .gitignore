@@ -4,10 +4,8 @@
 .qaconfig.json
 node_modules
 bower_components
-boldgrid-theme-framework-config
-vendor/
-/crio/**
+/vendor/
 build/config.local.json
-boldgrid-theme-framework
 yarn-error.log
 node_modules
+crio.zip

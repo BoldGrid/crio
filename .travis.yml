@@ -15,16 +15,20 @@ notifications:
 before_script:
 - nvm install 10.13.0
 - nvm use 10.13.0
-- npm install --global gulp-cli
-- yarn install && yarn run build
+- npm install archiver@3.0.0
+- npm install fs
+- npm install path
+- npm install chalk
+- npm install pkg-dir@3.0.0
 - export WP_DEVELOP_DIR=/tmp/wordpress/
-- export BGTFW_THEME_DIR=$WP_DEVELOP_DIR/src/wp-content/themes/prime
+- export BGTFW_THEME_DIR=$WP_DEVELOP_DIR/src/wp-content/themes/crio
 - mkdir -p $WP_DEVELOP_DIR
 - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
-- framework_dir=$(basename $(pwd))/boldgrid-theme-framework
+- framework_dir=$(basename $(pwd))/crio
 - cd ..
-- git clone -b master https://github.com/boldgrid/prime $BGTFW_THEME_DIR
-- cp -r $framework_dir/. $BGTFW_THEME_DIR/inc/boldgrid-theme-framework
+- echo framework_dir $framework_dir
+- echo BGTFW theme dir $(BGTFW_THEME_DIR)
+- cp -r $framework_dir/. $BGTFW_THEME_DIR
 - cd $WP_DEVELOP_DIR
 - echo $WP_DEVELOP_DIR
 - cp wp-tests-config-sample.php wp-tests-config.php
@@ -53,13 +57,7 @@ deploy:
 - provider: releases
   skip_cleanup: true
   api_key: "${GITHUB_TOKEN}"
-  file: bgtfw.zip
-  on:
-    tags: true
-    php: '7.3'
-- provider: script
-  skip_cleanup: true
-  script: node build/remote-update.js
+  file: crio.zip
   on:
     tags: true
     php: '7.3'
