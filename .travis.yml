@@ -48,13 +48,7 @@ deploy:
 - provider: releases
   skip_cleanup: true
   api_key: "${GITHUB_TOKEN}"
-  file: bgtfw.zip
-  on:
-    tags: true
-    php: '7.3'
-- provider: script
-  skip_cleanup: true
-  script: node build/remote-update.js
+  file: crio.zip
   on:
     tags: true
     php: '7.3'
