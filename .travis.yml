@@ -27,7 +27,7 @@ before_script:
 - framework_dir=$(basename $(pwd))/crio
 - cd ..
 - echo framework_dir $framework_dir
-- echo BGTFW theme dir $BGTFW_THEME_DIR
+- echo BGTFW theme dir $(BGTFW_THEME_DIR)
 - cp -r $framework_dir/. $BGTFW_THEME_DIR
 - cd $WP_DEVELOP_DIR
 - echo $WP_DEVELOP_DIR
