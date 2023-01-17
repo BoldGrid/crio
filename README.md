@@ -1,9 +1,9 @@
-# BoldGrid Theme Framework #
+# Crio #
 
-[![Build Status](https://api.travis-ci.org/BoldGrid/boldgrid-theme-framework.svg?branch=master)](https://travis-ci.org/BoldGrid/boldgrid-theme-framework)
+[![Build Status](https://api.travis-ci.org/BoldGrid/crio.svg?branch=master)](https://travis-ci.org/BoldGrid/crio)
 [![License](https://img.shields.io/badge/license-GPL--3.0%2B-orange.svg)](https://raw.githubusercontent.com/BoldGrid/boldgrid-theme-framework/master/LICENSE)
 [![PHP Version](https://img.shields.io/badge/PHP-5.6%2B-blue.svg)](https://php.net)
-[![Code Climate](https://codeclimate.com/github/BoldGrid/boldgrid-theme-framework/badges/gpa.svg)](https://codeclimate.com/github/BoldGrid/boldgrid-theme-framework)
+[![Code Climate](https://codeclimate.com/github/BoldGrid/crio/badges/gpa.svg)](https://codeclimate.com/github/BoldGrid/crio)
 
 * **Contributors:** rramo012, timph, jamesros161
 * **Tags:** inspiration,customization,build,create,design
@@ -11,10 +11,6 @@
 * **Tested up to:** 6.1
 * **License:** GPL-3.0-or-later
 * **License URI:** https://www.gnu.org/licenses/gpl-3.0-standalone.html
-
-<a href="https://www.browserstack.com/" title="BrowserStack" target="_blank">
-<img src="https://p14.zdusercontent.com/attachment/1015988/e7lZDYUQAcrjhARfSQKnVsW5M?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..Rj7ZUz59GX2kLfySyw8pdw.q8aA7RoJrLrobEqyTsY8eit4vnvNQuNMuQS9-HyFoLtLu6Q8lsQmHuiboyA8w1HYC_5raUBaIpKLsj_lV5AwEX_aw2-zbSe5EXWiIEuoXHBmLKjSD657s8JMsird0qXUgYvpU9jGZPj9cZj42msR2Cb0lasANAf5ISP6I0qc0Xx2yRRkwjT_r94Z7GCyGMZhCw8pA3Da9Jz0_TZzS62wOgdoxizVMsrnw3Bj_F34eMvZIOI3uclFVVUQu-j-m8qamarikMSLQlr2hAPLjBknibGj6HGO2T8jHwVDz2cH6NU.OFY7iswivDQLRyvfVbc7yw" width="30%" height="30%" />
-</a>
 
 Browser testing and compatibility is made possible to us with <a href="https://www.browserstack.com/" title="BrowserStack" target="_blank">BrowserStack</a>'s awesome support and wonderful service! The following browsers are the currently supported browsers for BoldGrid Theme Framework. Other browsers do work perfectly fine for the frontend of websites, but aren't guaranteed to have active testing and bugfixes in terms of the tools provided to build a site.  We highly suggest using a modern browser, such as the <a href="https://www.google.com/chrome/browser/" title="Download Google Chrome" target="_blank">latest Chrome release</a>.
 
@@ -24,15 +20,24 @@ Browser testing and compatibility is made possible to us with <a href="https://w
 
 ## Description ##
 
-BoldGrid Theme Framework is a library that allows you to easily make BoldGrid themes.
-Please see our reference guide for more information: https://www.boldgrid.com/docs/configuration-file
+Crio is a WordPress SuperTheme that allows front-end designers, developers and other web professionals to create without bounds or restrictions.  Crio's advanced customization options are completely integrated with the WordPress Customizer API, providing you with a powerful, but familiar interface to customize your website. Our integration gives you granular control over many elements straight from the Customizer, and even device previews so you can see how your site looks on different devices. Crio’s unique color palette system keeps colors consistent across your site. Drag and drop colors in your palette to increase or decrease the usage of that color throughout your website. Use the advanced controls to create a custom Header, Footer, or Blog Page layout. Be Bold and stand above the rest with Prime by BoldGrid!
 
 ## Installation ##
 
-1. Create a configuration that overrides required fields. Please see the BoldGrid theme
-user guide for more information.
+1. Crio can be installed from the WordPress dashboard by going to Appearance > Themes and clicking the "Add New" button.
 
-1. Include boldgrid-theme-framework.php from your theme's functions.php
+2. Either upload the crio.zip file or search for "Crio" and click the "Install" button.
+
+
+### Dev Installation ###
+
+1. Clone the repository into your WordPress installation's `wp-content` directory.
+
+2. cd into the `wp-content/crio` directory.
+
+3. Run the `yarn` and `yarn build` commands.
+
+4. Run the `yarn link-theme` command to symlink your dev build directory to your WordPress installation's `wp-content/themes/crio` directory.
 
 ## Changelog ##
 

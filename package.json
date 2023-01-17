@@ -40,7 +40,7 @@
 		"script:tgm": "node build/tgm.mjs",
 		"script:wp-textdomain-lint": "node build/check-text-domains.js",
 		"script:zip": "node build/build-zip.js",
-		"build-prime": "git clone https://github.com/boldgrid/prime ../themes/prime && ln -s $(pwd)/boldgrid-theme-framework ../themes/prime/inc/boldgrid-theme-framework"
+		"link-theme": "ln -s $(pwd)/crio ../themes/crio"
 	},
 	"keywords": [
 		"BoldGrid"
