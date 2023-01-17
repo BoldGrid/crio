@@ -4,7 +4,7 @@
 .qaconfig.json
 node_modules
 bower_components
-vendor/
+/vendor/
 build/config.local.json
 yarn-error.log
 node_modules
