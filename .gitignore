@@ -9,3 +9,4 @@ build/config.local.json
 yarn-error.log
 node_modules
 crio.zip
+/crio/
