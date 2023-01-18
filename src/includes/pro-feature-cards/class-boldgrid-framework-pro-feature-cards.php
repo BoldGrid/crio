@@ -98,7 +98,7 @@ class BoldGrid_Framework_Pro_Feature_Cards {
 
 			if ( isset( $card['show_notice'] ) ) {
 				$notices[] = $card['show_notice'];
-				$new_card  = in_array( $card['show_notice'], $dismissed_notices ) ? '' : ' new-card';
+				$new_card  = in_array( $card['show_notice'], $dismissed_notices, true ) ? '' : ' new-card';
 			} else {
 				$new_card = '';
 			}
@@ -186,13 +186,13 @@ class BoldGrid_Framework_Pro_Feature_Cards {
 
 		foreach ( $menu as $menu_position => $menu_data ) {
 			if ( 'crio' === $menu_data[2] ) {
-				$menu[ $menu_position ][0] .= ' <span class="update-plugins count-1"><span class="plugin-count">' . $counts . '</span></span>';
+				$menu[ $menu_position ][0] .= ' <span class="update-plugins count-1"><span class="plugin-count">' . $counts . '</span></span>'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 				break;
 			}
 		}
 
 		if ( isset( $submenu['crio'] ) && isset( $submenu['crio'][1] ) ) {
-			$submenu['crio'][1][0] .= ' <span class="update-plugins count-1"><span class="plugin-count">' . $counts . '</span></span>';
+			$submenu['crio'][1][0] .= ' <span class="update-plugins count-1"><span class="plugin-count">' . $counts . '</span></span>'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 		}
 	}
 }
