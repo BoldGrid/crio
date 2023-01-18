@@ -845,6 +845,35 @@ return array(
 			),
 		),
 	),
+	'bgtfw_blog_post_tags_alignment'                   => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_tags_alignment',
+		'label'             => esc_attr__( 'Alignment', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_tags_links',
+		'default'           => 'left',
+		'choices'           => array(
+			'left'   => '<span class="dashicons dashicons-editor-alignleft"></span>' . esc_attr__( 'Left', 'crio' ),
+			'center' => '<span class="dashicons dashicons-editor-aligncenter"></span>' . esc_attr__( 'Center', 'crio' ),
+			'right'  => '<span class="dashicons dashicons-editor-alignright"></span>' . esc_attr__( 'Right', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'left', 'center', 'right' ), true ) ? $value : $settings->default;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.blog .post .entry-footer .tags-links, .archive .post .entry-footer .tags-links',
+				'property' => 'text-align',
+			),
+		),
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_tags_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
 	'bgtfw_blog_post_readmore_text'                    => array(
 		'type'      => 'text',
 		'transport' => 'postMessage',
@@ -1266,6 +1295,36 @@ return array(
 		),
 	),
 
+	'bgtfw_blog_post_cats_alignment'                   => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_cats_alignment',
+		'label'             => esc_attr__( 'Alignment', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_cat_links',
+		'default'           => 'left',
+		'choices'           => array(
+			'left'   => '<span class="dashicons dashicons-editor-alignleft"></span>' . esc_attr__( 'Left', 'crio' ),
+			'center' => '<span class="dashicons dashicons-editor-aligncenter"></span>' . esc_attr__( 'Center', 'crio' ),
+			'right'  => '<span class="dashicons dashicons-editor-alignright"></span>' . esc_attr__( 'Right', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'left', 'center', 'right' ), true ) ? $value : $settings->default;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.blog .post .entry-footer .cat-links, .archive .post .entry-footer .cat-links',
+				'property' => 'text-align',
+			),
+		),
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_cats_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
+
 	// Start: Blog Page Category Links Color Controls.
 	'bgtfw_blog_post_cats_link_color_display'          => array(
 		'type'              => 'radio-buttonset',
@@ -1498,6 +1557,36 @@ return array(
 			array(
 				'element'  => '.blog .post .entry-footer .comments-link, .archive .post .entry-footer .comments-link',
 				'property' => 'display',
+			),
+		),
+	),
+
+	'bgtfw_blog_post_comments_alignment'                   => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_comments_alignment',
+		'label'             => esc_attr__( 'Alignment', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_comment_links',
+		'default'           => 'left',
+		'choices'           => array(
+			'left'   => '<span class="dashicons dashicons-editor-alignleft"></span>' . esc_attr__( 'Left', 'crio' ),
+			'center' => '<span class="dashicons dashicons-editor-aligncenter"></span>' . esc_attr__( 'Center', 'crio' ),
+			'right'  => '<span class="dashicons dashicons-editor-alignright"></span>' . esc_attr__( 'Right', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'left', 'center', 'right' ), true ) ? $value : $settings->default;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.blog .post .entry-footer .comments-link, .archive .post .entry-footer .comments-link',
+				'property' => 'text-align',
+			),
+		),
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_display',
+				'operator' => '!==',
+				'value'    => 'none',
 			),
 		),
 	),
