@@ -15,11 +15,8 @@ notifications:
 before_script:
 - nvm install 10.13.0
 - nvm use 10.13.0
-- npm install archiver@3.0.0
-- npm install fs
-- npm install path
-- npm install chalk
-- npm install pkg-dir@3.0.0
+- yarn install
+- yarn build
 - export WP_DEVELOP_DIR=/tmp/wordpress/
 - export BGTFW_THEME_DIR=$WP_DEVELOP_DIR/src/wp-content/themes/crio
 - mkdir -p $WP_DEVELOP_DIR
