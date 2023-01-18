@@ -9,18 +9,18 @@
  */
 
 return array(
-	'custom-page-headers'     => array(
-		'title'       => __( 'Custom Page Headers', 'crio' ),
-		'subtitle'    => __( 'Create Page Headers using drag and drop functionality, and assign them to different areas.', 'crio' ),
+	'mega-menus'      => array(
+		'title'       => __( 'Mega Menus', 'crio' ),
+		'subtitle'    => __( 'Create custom WYSIWYG submenus with images, text, links, and more.', 'crio' ),
+		'icon'        => 'dashicons-welcome-widgets-menus',
 		'color'       => 'f75c27',
-		'icon'        => 'dashicons-table-row-before',
-		'show_notice' => 'custom-page-headers',
+		'show_notice' => 'mega-menus',
 	),
-	'white-labeling'          => array(
-		'title'      => __( 'White Labeling', 'crio' ),
-		'subtitle'   => __( 'Crio Pro can remove the default BoldGrid attribution for a truly white labeled product.', 'crio' ),
+	'custom-page-headers'     => array(
+		'title'      => __( 'Custom Page Headers', 'crio' ),
+		'subtitle'   => __( 'Create Page Headers using drag and drop functionality, and assign them to different areas.', 'crio' ),
 		'color'      => 'ca663b',
-		'icon'       => 'dashicons-tag',
+		'icon'       => 'dashicons-table-row-before',
 	),
 	'sticky-headers'      => array(
 		'title'      => __( 'Sticky Headers', 'crio' ),
