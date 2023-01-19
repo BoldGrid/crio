@@ -60,17 +60,32 @@ if ( ! function_exists( 'boldgrid_posted_on' ) ) :
 function boldgrid_posted_on() {
 	global $post;
 
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U', $post->ID ) !== get_the_modified_time( 'U', $post->ID ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
+	/*
+	 * Whether to use the 'published' date or the 'updated' date.
+	 * This is allowing for a control to be added using the Customizer controls or
+	 * for this to be controlled via a filter.
+	 */
+	$updated_or_published = is_single() ? get_theme_mod( 'bgtfw_posts_meta_updated_or_published' ) : get_theme_mod( 'bgtfw_blog_post_header_updated_or_published' );
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
+	$updated_or_published = is_single() ?
+		apply_filters( 'bgtfw_posts_meta_updated_or_published', $updated_or_published ) :
+		apply_filters( 'bgtfw_blog_post_header_updated_or_published', $updated_or_published );
+
+	if ( 'updated' === $updated_or_published && get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		$time_string = sprintf(
+			$time_string,
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
+	} else {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		$time_string = sprintf(
+			$time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+	}
 
 	// Posted on date format.
 	$format = is_single() ? get_theme_mod( 'bgtfw_posts_meta_format' ) : get_theme_mod( 'bgtfw_blog_post_header_meta_format' );
@@ -84,11 +99,21 @@ function boldgrid_posted_on() {
 			esc_html_x( 'Posted %s ago', '%s = human-readable time difference', 'crio' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . human_time_diff( get_the_time( 'U', $post->ID ), current_time( 'U' ) ) . '</a>'
 		);
+
+		$updated_on = sprintf(
+			esc_html_x( 'Updated %s ago', '%s = human-readable time difference', 'crio' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . human_time_diff( get_the_modified_time( 'U', $post->ID ), current_time( 'U' ) ) . '</a>'
+		);
 	}
 
 	if ( 'date' === $format ) {
 		$posted_on = sprintf(
 			esc_html_x( 'Posted on %s', 'post date', 'crio' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		);
+
+		$updated_on = sprintf(
+			esc_html_x( 'Updated on %s', 'post date', 'crio' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 	}
@@ -99,7 +124,18 @@ function boldgrid_posted_on() {
 	);
 
 	// Note: The variables $posted_on and $byline have all dynamic parts escaped above, and are safe for output at this point.
-	echo '<span class="posted-on ' . esc_attr( $format ) . '">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	?>
+	<span class="posted-on <?php esc_attr( $format ); ?>">
+		<?php
+		if ( 'updated' === $updated_or_published && get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			echo $updated_on; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			echo $posted_on; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+		?>
+	</span>
+	<span class="byline"><?php echo $byline; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span> 
+	<?php
 }
 endif;
 
