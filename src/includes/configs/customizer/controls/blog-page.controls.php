@@ -1719,6 +1719,90 @@ return array(
 			),
 		),
 	),
+	'bgtfw_blog_post_comments_icon_display'            => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_comments_icon_display',
+		'label'             => esc_attr__( 'Icon Display', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_comment_links',
+		'default'           => 'inline-block',
+		'choices'           => array(
+			'inline-block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'none'         => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'inline-block', 'none' ), true ) ? $value : $settings->default;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.blog .post .entry-footer .comments-link .fa, .archive .post .entry-footer .comments-link .fa',
+				'property' => 'display',
+			),
+		),
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
+	'bgtfw_blog_post_comment_icon'                     => array(
+		'type'            => 'fontawesome',
+		'transport'       => 'postMessage',
+		'settings'        => 'bgtfw_blog_post_comment_icon',
+		'label'           => esc_attr__( 'Single Comment Icon', 'crio' ),
+		'section'         => 'bgtfw_pages_blog_blog_page_comment_links',
+		'default'         => 'comment',
+		'js_vars'         => array(
+			array(
+				'element'       => '.blog .post .comments-link.singular .fa, .archive .post .comments-link.singular .fa',
+				'function'      => 'html',
+				'attr'          => 'class',
+				'value_pattern' => 'fa fa-fw fa-$',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_icon_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
+	'bgtfw_blog_post_comments_icon'                    => array(
+		'type'            => 'fontawesome',
+		'transport'       => 'postMessage',
+		'settings'        => 'bgtfw_blog_post_comments_icon',
+		'label'           => esc_attr__( 'Multiple Comments Icon', 'crio' ),
+		'section'         => 'bgtfw_pages_blog_blog_page_comment_links',
+		'default'         => 'comments',
+		'js_vars'         => array(
+			array(
+				'element'       => '.blog .post .comments-link.multiple .fa, .archive .post .comments-link.multiple .fa',
+				'function'      => 'html',
+				'attr'          => 'class',
+				'value_pattern' => 'fa fa-fw fa-$',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_icon_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
 	'bgtfw_layout_blog_layout'                         => array(
 		'settings'          => 'bgtfw_layout_blog_layout',
 		'transport'         => 'postMessage',
