@@ -11,24 +11,19 @@
 	<header <?php BoldGrid::add_class( 'archive_page_title', [ 'page-header' ] ); ?>>
 		<div <?php BoldGrid::add_class( 'featured_image', [ 'featured-imgage-header' ] ); ?>>
 			<?php
-				$crio_queried_obj = get_queried_object_id();
-				$crio_archive_url = is_author() ? get_author_posts_url( $crio_queried_obj ) : get_term_link( $crio_queried_obj );
-				if ( ! is_wp_error( $crio_archive_url ) ) {
-					printf(
-						'<h1 class="page-title %1$s"><a %2$s href="%3$s" rel="bookmark">%4$s</a></h1>',
-						esc_attr( get_theme_mod( 'bgtfw_global_title_size' ) ),
-						BoldGrid::add_class( 'pages_title', [ 'link' ], false ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						esc_url( $crio_archive_url ),
-						wp_kses_post( get_the_archive_title() )
-					);
-				} else {
-					printf(
-						'<h1 class="page-title %1$s"><span %2$s>%3$s</span></h1>',
-						esc_attr( get_theme_mod( 'bgtfw_global_title_size' ) ),
-						BoldGrid::add_class( 'pages_title', [ 'link' ], false ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						wp_kses_post( get_the_archive_title() )
-					);
-				}
+				echo wp_kses_post(
+					sprintf(
+						// translators: %1$s is the element type, %2$s is the class string, %3$s is the title.
+						'<%1$s %2$s>%3$s</%1$s>',
+						apply_filters( 'bgtfw_archive_title_element', 'h1' ),
+						BoldGrid::add_class(
+							'pages_title',
+							array( 'page-title', esc_attr( get_theme_mod( 'bgtfw_global_title_size' ) ) ),
+							false
+						),
+						get_the_archive_title()
+					)
+				);
 
 				wp_kses_post( the_archive_description( '<div class="taxonomy-description">', '</div>' ) );
 			?>
