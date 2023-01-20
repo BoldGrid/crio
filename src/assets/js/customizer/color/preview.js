@@ -45,7 +45,7 @@ export class Preview  {
 			},
 			{
 				name: 'bgtfw_global_title_color',
-				selector: '.page-header .entry-title .link, .page-header .page-title .link',
+				selector: '.page-header .entry-title, .page-header .page-title',
 				properties: [ 'color', 'color-hover' ]
 			},
 			{
