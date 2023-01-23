@@ -47,6 +47,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 		$config['customizer']['controls']['bgtfw_site_title_typography']['default'] = array(
 			'font-family' => 'Source Sans Pro',
 			'font-size' => '42px',
+			'letter-spacing' => '0',
 			'text-transform' => 'none',
 			'line-height' => '1.1',
 			'variant' => '600',
@@ -61,6 +62,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 			'font-size' => '20px',
 			'text-transform' => 'lowercase',
 			'line-height' => '1.1',
+			'letter-spacing' => '0',
 			'variant' => 'regular',
 		);
 
@@ -386,6 +388,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 			'font-family' => 'Roboto',
 			'font-size' => '16px',
 			'line-height' => '1.8',
+			'letter-spacing' => '0',
 			'text-transform' => 'none',
 			'variant' => 'regular',
 		);
@@ -395,6 +398,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 			'font-family' => 'Roboto',
 			'font-size' => '16px',
 			'line-height' => '1.5',
+			'letter-spacing' => '0',
 			'text-transform' => 'none',
 			'variant' => 'regular',
 		);
@@ -403,6 +407,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 		$config['customizer']['controls']['bgtfw_headings_typography']['default'] = array(
 			'font-family' => 'Source Sans Pro',
 			'line-height' => '1.1',
+			'letter-spacing' => '0',
 			'text-transform' => 'none',
 			'variant' => '600',
 		);
