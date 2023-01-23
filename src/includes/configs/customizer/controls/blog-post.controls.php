@@ -707,7 +707,7 @@ return array(
 			return ( 'above-header' === $feat_image_pos || 'below-header' === $feat_image_pos );
 		},
 	),
-	'bgtfw_post_header_feat_image_bg_height'   => array(
+	'bgtfw_post_header_feat_image_bg_height'    => array(
 		'type'            => 'slider',
 		'transport'       => 'auto',
 		'settings'        => 'bgtfw_post_header_feat_image_bg_height',

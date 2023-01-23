@@ -10,9 +10,9 @@
 $has_featured_image_header = has_post_thumbnail() && 'show' === get_theme_mod( 'bgtfw_post_header_feat_image_display' );
 do_action( 'boldgrid_before_entry_title' );
 ?>
-<div <?php BoldGrid::add_class( 'page_header_wrapper', [ 'page-header-wrapper' ] ); ?>>
-	<header <?php BoldGrid::add_class( 'single_page_title', [ 'entry-header', 'page-header', $has_featured_image_header ? 'has-featured-image-header' : '' ] ); ?> <?php bgtfw_featured_img_bg( $post->ID ); ?>>
-		<div <?php BoldGrid::add_class( 'featured_image', [ 'featured-imgage-header' ] ); ?>>
+<div <?php BoldGrid::add_class( 'page_header_wrapper', array( 'page-header-wrapper' ) ); ?>>
+	<header <?php BoldGrid::add_class( 'single_page_title', array( 'entry-header', 'page-header', $has_featured_image_header ? 'has-featured-image-header' : '' ) ); ?> <?php bgtfw_featured_img_bg( $post->ID ); ?>>
+		<div <?php BoldGrid::add_class( 'featured_image', array( 'featured-imgage-header' ) ); ?>>
 				<?php
 				echo wp_kses_post(
 					sprintf(
@@ -28,7 +28,7 @@ do_action( 'boldgrid_before_entry_title' );
 					)
 				);
 				?>
-			<?php if ( 'post' == get_post_type() ) : ?>
+			<?php if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
 				<?php boldgrid_posted_on(); ?>
 			</div><!-- .entry-meta -->

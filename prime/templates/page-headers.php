@@ -14,7 +14,9 @@ if ( ! is_front_page() && is_home() ) {
 	get_template_part( 'templates/page-header', 'blog' );
 }
 
-while ( have_posts() ) : the_post();
+while ( have_posts() ) :
+	the_post();
+
 	if ( is_page() ) {
 		get_template_part( 'templates/entry-header-page' );
 	}
