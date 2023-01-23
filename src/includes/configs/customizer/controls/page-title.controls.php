@@ -118,7 +118,7 @@ return array(
 	),
 	'bgtfw_global_title_background_container' => array(
 		'type'              => 'radio-buttonset',
-		'transport'         => 'postMessage',
+		'transport'         => 'refresh',
 		'settings'          => 'bgtfw_global_title_background_container',
 		'label'             => esc_attr__( 'Background Container', 'crio' ),
 		'tooltip'           => __( 'Change where your page titles appear on your site.', 'crio' ),
@@ -131,14 +131,6 @@ return array(
 		'sanitize_callback' => function( $value, $settings ) {
 			return 'container' === $value || 'full-width' === $value ? $value : $settings->default;
 		},
-		'js_vars'           => array(
-			array(
-				'element'       => '.page-title-above .page-header-wrapper',
-				'function'      => 'html',
-				'attr'          => 'class',
-				'value_pattern' => 'page-header-wrapper $',
-			),
-		),
 		'active_callback'   => array(
 			array(
 				'setting'  => 'bgtfw_global_title_position',
@@ -149,7 +141,7 @@ return array(
 	),
 	'bgtfw_global_title_content_container'    => array(
 		'type'              => 'radio-buttonset',
-		'transport'         => 'postMessage',
+		'transport'         => 'refresh',
 		'settings'          => 'bgtfw_global_title_content_container',
 		'label'             => esc_attr__( 'Content Container', 'crio' ),
 		'tooltip'           => __( 'Set the page title content to be displayed in a container or full width of the page.', 'crio' ),
@@ -162,14 +154,6 @@ return array(
 		'sanitize_callback' => function( $value, $settings ) {
 			return 'container' === $value || '' === $value ? $value : $settings->default;
 		},
-		'js_vars'           => array(
-			array(
-				'element'       => '.page-title-above .page-header .featured-imgage-header',
-				'function'      => 'html',
-				'attr'          => 'class',
-				'value_pattern' => 'featured-imgage-header $',
-			),
-		),
 		'active_callback'   => array(
 			array(
 				'setting'  => 'bgtfw_global_title_position',
