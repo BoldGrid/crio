@@ -672,10 +672,12 @@ return array(
 		'default'           => 'background',
 		'choices'           => array(
 			'background' => '<span class="dashicons dashicons-format-image"></span>' . __( 'Header Background', 'crio' ),
+			'above'      => '<span class="dashicons dashicons-arrow-up-alt"></span>' . __( 'Above Header', 'crio' ),
 			'below'      => '<span class="dashicons dashicons-arrow-down-alt"></span>' . __( 'Below Header', 'crio' ),
+			'content'    => '<span class="dashicons dashicons-format-aside"></span>' . __( 'In Post Content', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
-			return in_array( $value, array( 'background', 'below' ), true ) ? $value : $settings->default;
+			return in_array( $value, array( 'background', 'above', 'below', 'content' ), true ) ? $value : $settings->default;
 		},
 		'active_callback'   => array(
 			array(
