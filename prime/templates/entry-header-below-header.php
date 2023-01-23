@@ -7,6 +7,7 @@
  * @package Crio
  */
 do_action( 'boldgrid_before_entry_title' );
+$feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type', 'background' );
 ?>
 <div <?php BoldGrid::add_class( 'page_header_wrapper', array( 'page-header-wrapper' ) ); ?>>
 	<header <?php BoldGrid::add_class( 'single_page_title', array( 'entry-header', 'page-header', 'below', 'has-featured-image-header' ) ); ?>>
@@ -31,6 +32,31 @@ do_action( 'boldgrid_before_entry_title' );
 					<?php boldgrid_posted_on(); ?>
 				</div><!-- .entry-meta -->
 			<?php endif; ?>
+		</div>
+		<div
+		<?php
+		if ( 'background' === $feat_image_type ) {
+			$classes = 'featured-imgage-header has-feat-image-bg';
+			if ( 'contained' === get_theme_mod( 'bgtfw_global_title_background_container' ) ) {
+				$classes .= ' container';
+			}
+			$styles = 'background-image: url(' . esc_url( get_the_post_thumbnail_url() ) . '); background-size: cover; background-position: center center;';
+			echo ' class="' . esc_attr( $classes ) . '" style="' . esc_attr( $styles ) . '"';
+		} else {
+			BoldGrid::add_class( 'featured_image', array( 'featured-imgage-header' ) );
+		}
+		?>
+		>
+			<?php
+
+			if ( 'image' === $feat_image_type ) {
+				echo get_the_post_thumbnail(
+					null,
+					get_theme_mod( 'bgtfw_post_header_feat_image_size' ),
+					array( 'class' => get_theme_mod( 'bgtfw_post_header_feat_image_align' ) )
+				);
+			}
+			?>
 		</div>
 	</header><!-- .entry-header -->
 </div>
