@@ -47,7 +47,7 @@
 		&.below {
 			.featured-imgage-header {
 				&.has-feat-image-bg {
-					height: 300px;
+					height: 20vh;
 					&.container {
 						@media (min-width: 768px ) {
 							width: 660px;

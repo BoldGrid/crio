@@ -708,28 +708,43 @@ return array(
 		},
 	),
 	'bgtfw_post_header_feat_image_bg_height'    => array(
-		'type'            => 'slider',
-		'transport'       => 'auto',
-		'settings'        => 'bgtfw_post_header_feat_image_bg_height',
-		'label'           => esc_attr__( 'Featured Image Background Height', 'crio' ),
-		'section'         => 'bgtfw_pages_blog_posts_featured_images',
-		'default'         => 300,
-		'choices'         => array(
-			'min'  => '0',
-			'max'  => '1500',
-			'step' => '5',
+		'type'              => 'dimension',
+		'settings'          => 'bgtfw_post_header_feat_image_bg_height',
+		'label'             => esc_html__( 'Height', 'crio' ),
+		'description'       => __( 'Enter the desired height of the background. The following units are acceptable: px, pt, em, rem, vh, vw, %', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_posts_featured_images',
+		'default'           => '20vh',
+		'choices'           => array(
+			'accept_unitless' => false,
 		),
-		'active_callback' => function() {
+		'active_callback'   => function() {
 			$feat_image_pos  = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
 			$feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type' );
 
 			return ( 'above-header' === $feat_image_pos || 'below-header' === $feat_image_pos ) && 'background' === $feat_image_type;
 		},
-		'output'          => array(
+		'sanitize_callback' => function( $value, $settings ) {
+			$matches = array();
+			preg_match( '/[^0-9.]+/', $value, $matches );
+
+			if ( empty( $matches ) ) {
+				return $settings->default;
+			} else {
+				$unit = $matches[0];
+			}
+
+			$acceptable_units = array( 'px', 'pt', 'em', 'rem', 'vh', 'vw', '%' );
+
+			if ( ! in_array( $unit, $acceptable_units, true ) ) {
+				return $settings->default;
+			}
+
+			return $value;
+		},
+		'output'            => array(
 			array(
 				'element'  => '.page-header-wrapper .page-header.above .featured-imgage-header.has-feat-image-bg, .page-header-wrapper .page-header.below .featured-imgage-header.has-feat-image-bg',
 				'property' => 'height',
-				'units'    => 'px',
 			),
 		),
 	),
