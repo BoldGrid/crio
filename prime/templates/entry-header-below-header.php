@@ -43,7 +43,7 @@ $feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type', 'backgrou
 			$styles = 'background-image: url(' . esc_url( get_the_post_thumbnail_url() ) . '); background-size: cover; background-position: center center;';
 			echo ' class="' . esc_attr( $classes ) . '" style="' . esc_attr( $styles ) . '"';
 		} else {
-			BoldGrid::add_class( 'featured_image', array( 'featured-imgage-header' ) );
+			BoldGrid::add_class( 'featured_image', array( 'featured-imgage-header', 'img' ) );
 		}
 		?>
 		>

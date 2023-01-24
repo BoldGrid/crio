@@ -43,9 +43,30 @@
 			padding-left: 15px;
 			padding-right: 15px;
 		}
+		&.above {
+			.featured-imgage-header {
+				img {
+					margin-top: 1.5em;
+					margin-bottom: 0;
+					
+				}
+			}
+		}
+		&.below {
+			.featured-imgage-header {
+				img {
+					margin-top: 0;
+					margin-bottom: 1.5em;
+				}
+			}
+		}
 		&.above,
 		&.below {
 			.featured-imgage-header {
+				&.img {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
 				&.has-feat-image-bg {
 					height: 20vh;
 					&.container {
