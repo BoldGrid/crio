@@ -355,9 +355,7 @@
 				}
 				&.above,
 				&.below {
-					.container {
-						flex-direction:column;
-					}
+					flex-direction: column;
 				}
 			}
 		}
