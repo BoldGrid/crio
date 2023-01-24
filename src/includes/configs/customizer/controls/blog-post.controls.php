@@ -712,6 +712,7 @@ return array(
 		'settings'          => 'bgtfw_post_header_feat_image_bg_height',
 		'label'             => esc_html__( 'Height', 'crio' ),
 		'description'       => __( 'Enter the desired height of the background. The following units are acceptable: px, pt, em, rem, vh, vw, %', 'crio' ),
+		'tooltip'           => __( 'For the best results with both desktop and mobile devices, We recommend using the \'vh\' unit. 1vh is equal to 1% of the height of the screen', 'crio' ),
 		'section'           => 'bgtfw_pages_blog_posts_featured_images',
 		'default'           => '20vh',
 		'choices'           => array(
