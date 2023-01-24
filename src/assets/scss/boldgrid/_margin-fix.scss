@@ -353,6 +353,12 @@
 				> .featured-imgage-header:not( .container ) {
 					width: calc( 100% + 30px );
 				}
+				&.above,
+				&.below {
+					.container {
+						flex-direction:column;
+					}
+				}
 			}
 		}
 		#main-wrapper.full-width .main .entry-content .container-fluid .row {
