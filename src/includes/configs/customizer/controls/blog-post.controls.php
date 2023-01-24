@@ -703,6 +703,9 @@ return array(
 			return in_array( $value, array( 'background', 'image' ), true ) ? $value : $settings->default;
 		},
 		'active_callback'   => function() {
+			if ( 'hide' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				return false;
+			}
 			$feat_image_pos = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
 			return ( 'above-header' === $feat_image_pos || 'below-header' === $feat_image_pos );
 		},
@@ -719,6 +722,10 @@ return array(
 			'accept_unitless' => false,
 		),
 		'active_callback'   => function() {
+			if ( 'hide' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				return false;
+			}
+
 			$feat_image_pos  = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
 			$feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type' );
 
@@ -767,6 +774,10 @@ return array(
 			return in_array( $value, array( 'thumbnail', 'medium', 'large', 'full' ), true ) ? $value : $settings->default;
 		},
 		'active_callback'   => function() {
+			if ( 'hide' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				return false;
+			}
+
 			$feat_image_pos  = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
 			$feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type' );
 
@@ -799,6 +810,10 @@ return array(
 			return in_array( $value, array( 'alignnone', 'alignleft', 'aligncenter', 'alignright' ), true ) ? $value : $settings->default;
 		},
 		'active_callback'   => function() {
+			if ( 'hide' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				return false;
+			}
+
 			$feat_image_pos  = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
 			$feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type' );
 

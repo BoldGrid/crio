@@ -33,6 +33,7 @@ $feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type', 'backgrou
 				</div><!-- .entry-meta -->
 			<?php endif; ?>
 		</div>
+		<?php if ( 'show' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) : ?>
 		<div
 		<?php
 		if ( 'background' === $feat_image_type ) {
@@ -58,6 +59,7 @@ $feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type', 'backgrou
 			}
 			?>
 		</div>
+		<?php endif; ?>
 	</header><!-- .entry-header -->
 </div>
 <?php do_action( 'boldgrid_after_entry_title' ); ?>

@@ -531,7 +531,9 @@ function bgtfw_get_featured_img_bg( $post_id, $theme_mod = false ) {
 function bgtfw_featured_img_bg( $post_id, $theme_mod = false ) {
 
 	// Note: See the docblock comment of this method for details regarding the escaping.
-	echo bgtfw_get_featured_img_bg( $post_id, $theme_mod ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	if ( 'show' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+		echo bgtfw_get_featured_img_bg( $post_id, $theme_mod ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 }
 
 /**

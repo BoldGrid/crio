@@ -12,6 +12,7 @@ $feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type', 'backgrou
 ?>
 <div <?php BoldGrid::add_class( 'page_header_wrapper', array( 'page-header-wrapper' ) ); ?>>
 	<header <?php BoldGrid::add_class( 'single_page_title', array( 'entry-header', 'page-header', 'above', 'has-featured-image-header' ) ); ?>>
+		<?php if ( 'show' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) : ?>
 		<div
 		<?php
 		if ( 'background' === $feat_image_type ) {
@@ -36,6 +37,7 @@ $feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type', 'backgrou
 			}
 			?>
 		</div>
+		<?php endif; ?>
 		<div <?php BoldGrid::add_class( 'featured_image', array( 'featured-imgage-header' ) ); ?>>
 			<?php
 			echo wp_kses_post(
