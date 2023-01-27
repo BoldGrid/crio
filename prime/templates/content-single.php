@@ -16,7 +16,7 @@
 					echo get_the_post_thumbnail(
 						null,
 						get_theme_mod( 'bgtfw_post_header_feat_image_size' ),
-						array( 'class' => get_theme_mod( 'bgtfw_post_header_feat_image_align' ) )
+						array( 'class' => 'entry-featured-image ' . get_theme_mod( 'bgtfw_post_header_feat_image_align' ) )
 					);
 				}
 				do_action( 'bgtfw_after_post_header' );
