@@ -22,6 +22,8 @@ if ( ( is_home() || is_archive() ) && 'above' === get_theme_mod( 'bgtfw_global_t
 
 		boldgrid_paging_nav();
 
+		do_action( 'boldgrid_after_paging_nav' );
+
 		echo '</div>';
 
 		if ( BoldGrid::display_sidebar() ) {
