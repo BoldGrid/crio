@@ -12,8 +12,13 @@
 
 	.comment {
 		display: block;
+		margin-bottom: 20px;
 		.panel-heading a {
 			color: currentColor;
+		}
+
+		.panel {
+			margin-bottom: 0px;
 		}
 
 		a.avatar {
