@@ -15,6 +15,13 @@
 		.panel-heading a {
 			color: currentColor;
 		}
+
+		a.avatar {
+			&.pull-left {
+				padding-bottom: 10px;
+				padding-right: 10px;
+			}
+		}
 	}
 
 	.comment-content {
