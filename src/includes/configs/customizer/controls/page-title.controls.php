@@ -69,14 +69,6 @@ return array(
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ), true ) ? $value : $settings->default;
 		},
-		'js_vars'           => array(
-			array(
-				'element'       => '.page-header .entry-title, .page-header .page-title',
-				'function'      => 'html',
-				'attr'          => 'class',
-				'value_pattern' => 'entry-title $',
-			),
-		),
 	),
 	'bgtfw_global_title_alignment'            => array(
 		'type'              => 'radio-buttonset',
