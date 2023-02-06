@@ -235,6 +235,7 @@ class BoldGrid_Framework_Comments {
 							?>
 							</div>
 							<div class="comment-meta">
+								<?php if ( get_theme_mod( 'bgtfw_comments_date_display', true ) ) : ?>
 								<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 									<time datetime="<?php esc_attr( comment_time( 'c' ) ); ?>">
 									<?php
@@ -243,6 +244,7 @@ class BoldGrid_Framework_Comments {
 									?>
 									</time>
 								</a>
+								<?php endif; ?>
 								<?php edit_comment_link( __( '<span style="margin-left: 5px;" class="fa fa-edit"></span> Edit', 'crio' ), '<span class="edit-link">', '</span>' ); ?>
 							</div>
 						</div>
@@ -269,6 +271,8 @@ class BoldGrid_Framework_Comments {
 						$button_class = get_theme_mod( 'bgtfw_comment_reply_button_class', 'button-primary' );
 						$classes      = apply_filters( 'bgtfw_button_classes', array() );
 
+						error_log( 'button_class: ' . $button_class );
+						error_log( 'isset button_class: ' . isset( $classes[ $button_class ] ) );
 						if ( isset( $classes[ $button_class ] ) ) {
 							$comment_reply_link = preg_replace(
 								'/comment-reply-link/',
