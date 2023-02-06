@@ -367,6 +367,33 @@ return array(
 			),
 		),
 	),
+	'bgtfw_blog_post_header_updated_or_published'      => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_header_updated_or_published',
+		'label'             => esc_attr__( 'Use Published or Modified Date', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_post_meta',
+		'default'           => 'published',
+		'choices'           => array(
+			'published' => '<i class="fa fa-calendar" aria-hidden="true"></i>' . esc_attr__( 'Published', 'crio' ),
+			'updated'   => '<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>' . esc_attr__( 'Modified', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'published', 'updated' ), true ) ? $value : $settings->default;
+		},
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_header_meta_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+			array(
+				'setting'  => 'bgtfw_blog_post_header_date_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
 	'bgtfw_blog_post_header_date_link_color_display'   => array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'postMessage',

@@ -154,6 +154,20 @@ $names: background background-color;
 					}
 					
 				}
+				&.panel-heading,
+				&.panel-body,
+				&.panel-footer {
+					&.color-#{$each}-link-color {
+						a:not( .btn ) {
+							color: #{nth($colors, $each)};
+						}
+						> a:not( .btn ) {
+							&:hover, &:focus, &:active, &.highlighted {
+								color: hover( nth($colors, $color), nth($colors, $each) );
+							}
+						}
+					}
+				}
 				&.sidebar {
 					&.color-#{$each}-link-color {
 						a:not( .btn ) {

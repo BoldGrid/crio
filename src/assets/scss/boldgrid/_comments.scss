@@ -12,8 +12,22 @@
 
 	.comment {
 		display: block;
+		.comment-body {
+			margin-bottom: 20px;
+		}
 		.panel-heading a {
 			color: currentColor;
+		}
+
+		.panel {
+			margin-bottom: 0px;
+		}
+
+		a.avatar {
+			&.pull-left {
+				padding-bottom: 10px;
+				padding-right: 10px;
+			}
 		}
 	}
 
