@@ -1,10 +1,5 @@
 jQuery( document ).ready( function( $ ) {
 
-	// Comment reply link.
-	$( '.comment-reply-link' )
-		.addClass( 'btn button-primary color1-text-contrast' )
-		.css( 'transition', 'all .5s' );
-
 	// The WordPress Default Widgets.
 	$( '.widget_rss ul' ).addClass( 'media-list' );
 

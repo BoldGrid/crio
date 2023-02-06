@@ -143,6 +143,49 @@ class BoldGrid_Framework_Comments {
 	}
 
 	/**
+	 * Filter Color Value
+	 *
+	 * Filter old color value formats for comments
+	 *
+	 * @since 2.19.0
+	 *
+	 * @param string $value The color value.
+	 *
+	 * @return string The color value.
+	 */
+	public function filter_color_value( $value ) {
+		if ( false !== strpos( $value, ':' ) ) {
+			$value = explode( ':', $value );
+			$value = $value[0];
+		}
+
+		return $value;
+	}
+
+	/**
+	 * Get Color Classes
+	 *
+	 * @since 2.19.0
+	 *
+	 * @param string $section The section of the comments element.
+	 * @param string $default The default bg color.
+	 */
+	public function get_color_classes( $section, $default ) {
+		$link_color = get_theme_mod( 'bgtfw_comments_' . $section . '_links', get_theme_mod( 'bgtfw_body_link_color', 'color-1' ) );
+		$link_color = $this->filter_color_value( $link_color );
+		$link_color = $link_color . '-link-color';
+
+		$bg_color = get_theme_mod( 'bgtfw_comments_' . $section . '_background', $default );
+		$bg_color = $this->filter_color_value( $bg_color );
+		$color    = $bg_color . '-text-contrast';
+		$bg_color = 'color-neutral' === $bg_color ?
+			$bg_color . '-background' :
+			str_replace( '-', '', $bg_color ) . '-background';
+
+		return implode( ' ', array( $bg_color, $color, $link_color ) );
+	}
+
+	/**
 	 * Get bootstrap formatted comment
 	 *
 	 * This is the BoldGrid Bootstrap template for comments and pingbacks.
@@ -152,6 +195,12 @@ class BoldGrid_Framework_Comments {
 	 * @since 1.0.0
 	 */
 	public function boldgrid_bootstrap_comment( $comment, $args, $depth ) {
+		$heading_color_classes = $this->get_color_classes( 'header', 'color-2' );
+		$body_color_classes    = $this->get_color_classes( 'body', 'color-neutral' );
+		$footer_color_classes  = $this->get_color_classes( 'footer', 'color-2' );
+
+		$avatar_display = get_theme_mod( 'bgtfw_comments_avatar_display', 'pull-left' );
+
 		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
 
 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'media' ); ?>>
@@ -162,13 +211,21 @@ class BoldGrid_Framework_Comments {
 		<li id="comment-<?php comment_ID(); ?>"
 			<?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body media">
-				<a class="pull-left" href="#">
-					<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] ); } ?>
-				</a>
+				<?php if ( 'pull-left' === $avatar_display || 'pull-right' === $avatar_display ) : ?>
+					<a class="avatar <?php echo esc_attr( $avatar_display ); ?>" href="#">
+						<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] ); } ?>
+					</a>
+				<?php endif; ?>
 				<div class="media-body">
 					<div class="media-body-wrap panel panel-default">
-						<div class="panel-heading">
+						<div class="panel-heading <?php echo esc_attr( $heading_color_classes ); ?>"
+							<?php echo ( 'inside' === $avatar_display ) ? 'style="min-height: 70px;"' : ''; ?>>
 							<div class="media-heading">
+							<?php if ( 'inside' === $avatar_display ) : ?>
+							<a class="avatar pull-left" href="#">
+								<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] ); } ?>
+							</a>
+							<?php endif; ?>
 							<?php
 								printf(
 									'<cite class="fn">%1$s</cite> <span class="says">%2$s:</span>',
@@ -179,6 +236,7 @@ class BoldGrid_Framework_Comments {
 							?>
 							</div>
 							<div class="comment-meta">
+								<?php if ( get_theme_mod( 'bgtfw_comments_date_display', true ) ) : ?>
 								<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 									<time datetime="<?php esc_attr( comment_time( 'c' ) ); ?>">
 									<?php
@@ -187,27 +245,45 @@ class BoldGrid_Framework_Comments {
 									?>
 									</time>
 								</a>
+								<?php endif; ?>
 								<?php edit_comment_link( __( '<span style="margin-left: 5px;" class="fa fa-edit"></span> Edit', 'crio' ), '<span class="edit-link">', '</span>' ); ?>
 							</div>
 						</div>
 						<?php if ( '0' == $comment->comment_approved ) : ?>
 							<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'crio' ); ?></p>
 						<?php endif; ?>
-						<div class="comment-content panel-body">
+						<div class="comment-content panel-body <?php echo esc_attr( $body_color_classes ); ?>">
 							<?php comment_text(); ?>
 						</div><!-- .comment-content -->
 						<?php
-						comment_reply_link(
+						$comment_reply_link = get_comment_reply_link(
 							array_merge(
-								$args, array(
+								$args,
+								array(
 									'add_below' => 'div-comment',
-									'depth' 	=> $depth,
+									'depth'     => $depth,
 									'max_depth' => $args['max_depth'],
-									'before' 	=> '<footer class="reply comment-reply panel-footer">',
-									'after' 	=> '</footer><!-- .reply -->',
+									'before'    => '<footer class="reply comment-reply panel-footer ' . $footer_color_classes . '">',
+									'after'     => '</footer><!-- .reply -->',
 								)
-							)
-						); ?>
+							),
+						);
+
+						$button_class = get_theme_mod( 'bgtfw_comment_reply_button_class', 'button-primary' );
+						$classes      = apply_filters( 'bgtfw_button_classes', array() );
+
+						error_log( 'button_class: ' . $button_class );
+						error_log( 'isset button_class: ' . isset( $classes[ $button_class ] ) );
+						if ( isset( $classes[ $button_class ] ) ) {
+							$comment_reply_link = preg_replace(
+								'/comment-reply-link/',
+								'comment-reply-link ' . $button_class . ' ' . $classes[ $button_class ],
+								$comment_reply_link
+							);
+						}
+
+						echo wp_kses_post( $comment_reply_link );
+						?>
 					</div><!-- .panel -->
 				</div><!-- .media-body -->
 			</article> <!-- .comment-body -->
