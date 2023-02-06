@@ -218,7 +218,8 @@ class BoldGrid_Framework_Comments {
 				<?php endif; ?>
 				<div class="media-body">
 					<div class="media-body-wrap panel panel-default">
-						<div class="panel-heading <?php echo esc_attr( $heading_color_classes ); ?>">
+						<div class="panel-heading <?php echo esc_attr( $heading_color_classes ); ?>"
+							<?php echo ( 'inside' === $avatar_display ) ? 'style="min-height: 70px;"' : ''; ?>>
 							<div class="media-heading">
 							<?php if ( 'inside' === $avatar_display ) : ?>
 							<a class="avatar pull-left" href="#">
