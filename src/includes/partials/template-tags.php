@@ -39,13 +39,30 @@ function boldgrid_post_nav() {
 
 	$nav_classes = $configs['template']['post_navigation']['post_nav_classes'];
 
+	$previous_link_text = apply_filters( 'bgtfw_previous_link_text', '%title' );
+	$next_link_text     = apply_filters( 'bgtfw_next_link_text', '%title' );
+
 	?>
 	<nav class="navigation post-navigation" role="navigation">
 		<h2 class="sr-only"><?php esc_html_e( 'Post navigation', 'crio' ); ?></h2>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="' . $nav_classes['previous'] . '">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'crio' ) );
-				next_post_link( '<div class="' . $nav_classes['next'] . '">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'crio' ) );
+				previous_post_link(
+					'<div class="' . $nav_classes['previous'] . '">%link</div>',
+					sprintf(
+						// translators: Link text. Default is the post title.
+						'<span class="meta-nav">&larr;</span>&nbsp;%1$s',
+						$previous_link_text
+					)
+				);
+				next_post_link(
+					'<div class="' . $nav_classes['next'] . '">%link</div>',
+					sprintf(
+						// translators: Link text. Default is the post title.
+						'%1$s&nbsp;<span class="meta-nav">&rarr;</span>',
+						$next_link_text
+					)
+				);
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -567,7 +584,9 @@ function bgtfw_get_featured_img_bg( $post_id, $theme_mod = false ) {
 function bgtfw_featured_img_bg( $post_id, $theme_mod = false ) {
 
 	// Note: See the docblock comment of this method for details regarding the escaping.
-	echo bgtfw_get_featured_img_bg( $post_id, $theme_mod ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	if ( 'show' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+		echo bgtfw_get_featured_img_bg( $post_id, $theme_mod ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 }
 
 /**
