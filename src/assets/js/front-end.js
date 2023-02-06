@@ -40,6 +40,7 @@ var BoldGrid = BoldGrid || {};
 				this.cssVarsPonyfill();
 				this.responsiveVideos();
 				this.addButtonClasses();
+				this.inContentFeaturedImage();
 				this.addColLg();
 
 				/*
@@ -89,6 +90,109 @@ var BoldGrid = BoldGrid || {};
 					this.removeButtonClasses( buttonTypeClass.replace( '_', '-' ) );
 					this.addButtonClass( buttonTypeClass.replace( '_', '-' ), buttonClasses );
 				}
+			},
+
+			/**
+			 * Move featured images into the first column of the first bg section
+			 *
+			 * @since 2.22.0
+			 */
+			inContentFeaturedImage: function() {
+				var $firstBgSection = $( '.entry-content .boldgrid-section' ).first(),
+					$featuredImage  = $( '.entry-content img.entry-featured-image' ),
+					findFirstRow,
+					findFirstCol,
+					$rows,
+					$firstRow = $(),
+					$firstCol = $();
+
+				// If there are no BG Sections, or featured images return.
+				if ( 0 === $firstBgSection.length || 0 === $featuredImage.length ) {
+					return;
+				}
+
+				// Find the first valid row.
+				findFirstRow = function( row ) {
+					var $cols     = $( row ).children( '[class*=col-]' ),
+						$firstCol = $();
+
+					$cols.each( ( _, col ) => {
+						var firstCol = findFirstCol( col );
+
+						if ( false !== firstCol ) {
+							$firstCol = $( firstCol );
+							return false;
+						}
+					} );
+
+					if ( false === $firstCol || 0 === $firstCol.length ) {
+						return false;
+					}
+
+					return [ row, $firstCol ];
+				};
+
+				// Find the first valid column.
+				findFirstCol = function( col ) {
+					var $children = $( col ).children(),
+						$filteredChildren;
+
+					$filteredChildren = $children.filter( function() {
+						if ( $( this ).is( 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6' ) ) {
+							return false;
+						}
+						if ( $( this ).is( '.bg-editor-hr-wrap' ) ) {
+							return false;
+						}
+						if ( $( this ).is( '.row' ) ) {
+							return false;
+						}
+
+						if ( '' === $.trim( $( this ).html() ) ) {
+							return false;
+						}
+
+						if ( $( this ).is( ':empty' ) ) {
+							return false;
+						}
+
+						return true;
+					} );
+
+					if ( 0 === $filteredChildren.length ) {
+						return false;
+					}
+
+					return col;
+
+				};
+
+				$rows = $firstBgSection.children( 'div' ).children( '.row' );
+
+				/*
+				 * Loop through each row, and find the first valid row,
+				 * with a valid column. If we find one, break from the loop.
+				 */
+				$rows.each( ( _, row ) => {
+					var firstRow = findFirstRow( row );
+					if ( false !== firstRow && 0 !== firstRow.length ) {
+						$firstRow = $( firstRow[0] );
+						$firstCol = $( firstRow[1] );
+						return false;
+					}
+				} );
+
+				// If we didn't find a valid row, return.
+				if ( false === $firstRow || 0 === $firstRow.length ) {
+					return;
+				}
+
+				// If we didn't find a valid column, return.
+				if ( false === $firstCol || 0 === $firstCol.length ) {
+					return;
+				}
+
+				$featuredImage.prependTo( $firstCol );
 			},
 
 			/**
