@@ -619,13 +619,29 @@ class BoldGrid_Framework_Styles {
 			$inline_css .= "--dark-text:{$dark};";
 			$additional_css = '';
 			foreach ( $formatted_palette as $property => $value ) {
+				$value_rgba_array   = $helper->get_rgb_array( $value );
+				$light_hsla_array   = $helper->rgba_to_hsla( $value_rgba_array, 10 );
+				$lighter_hsla_array = $helper->rgba_to_hsla( $value_rgba_array, 20 );
+				$dark_hsla_array    = $helper->rgba_to_hsla( $value_rgba_array, -10 );
+				$darker_hsla_array  = $helper->rgba_to_hsla( $value_rgba_array, -20 );
+
+				$value_raw      = implode( ',', array_slice( $helper->get_rgb_array( $value ), 1 ) );
+				$value_light    = 'hsla(' . implode( ',', $light_hsla_array ) . ')';
+				$value_lighter  = 'hsla(' . implode( ',', $lighter_hsla_array ) . ')';
+				$value_dark     = 'hsla(' . implode( ',', $dark_hsla_array ) . ')';
+				$value_darker   = 'hsla(' . implode( ',', $darker_hsla_array ) . ')';
 				$contrast_color = $helper->get_luminance( $value );
-				$lightness = abs( $contrast_color - $helper->get_luminance( $light ) );
-				$darkness = abs( $contrast_color - $helper->get_luminance( $dark ) );
+				$lightness      = abs( $contrast_color - $helper->get_luminance( $light ) );
+				$darkness       = abs( $contrast_color - $helper->get_luminance( $dark ) );
 				$contrast_color = $lightness > $darkness ? 'light' : 'dark';
 				$contrast_color = "var(--{$contrast_color}-text)";
 
 				$inline_css .= "--{$property}:{$value};";
+				$inline_css .= "--{$property}-light:{$value_light};";
+				$inline_css .= "--{$property}-lighter:{$value_lighter};";
+				$inline_css .= "--{$property}-dark:{$value_dark};";
+				$inline_css .= "--{$property}-darker:{$value_darker};";
+				$inline_css .= "--{$property}-raw:{$value_raw};";
 				$inline_css .= "--{$property}-text-contrast:{$contrast_color};";
 				$property2 = str_replace( '-', '', $property );
 				$additional_css .= ".{$property}-text-default, .{$property2}-text-default{color: var(--{$property}-text-contrast);}";

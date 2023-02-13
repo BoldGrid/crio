@@ -172,6 +172,16 @@ class Boldgrid_Framework_Compile_Colors {
 			$color_variables['ubtn-font-color'] = '$text-contrast-' . get_theme_mod( 'boldgrid_palette_class', 'palette-primary' ) . '_' . $this->get_button_default_color() . ';';
 			$color_variables['ubtn-theme-color'] = get_theme_mod( 'boldgrid_palette_class', 'palette-primary' ) . '_' . $this->get_button_default_color() . ';';
 		}
+
+		error_log(
+			json_encode(
+				array(
+					'method' => __METHOD__,
+					'line' => __LINE__,
+					'color_variables' => $color_variables,
+				)
+			)
+		);
 		return $color_variables;
 	}
 
@@ -422,6 +432,83 @@ class Boldgrid_Framework_Compile_Colors {
 		}
 
 		return $normalized;
+	}
+
+	/**
+	 * Get RGB(A) Array from rgb or rgba string.
+	 *
+	 * Returns an array of R,G,B,A values from a string.
+	 *
+	 * @since SINCEVERSION
+	 */
+	public function get_rgb_array( $color ) {
+		$rgba_string = $this->normalize( $color );
+		$rgba_string = str_replace( 'rgba(', '', $rgba_string );
+		$rgba_string = str_replace( ')', '', $rgba_string );
+		$rgba = explode( ',', $rgba_string );
+		return $rgba;
+	}
+
+	/**
+	 * Convert RGBA to HSLA.
+	 *
+	 * @since SINCEVERSION
+	 *
+	 * @param array $rgba_array         Array of RGBA values
+	 * @param int   $luminosity_adjust Luminosity to adjust (optional).
+	 *
+	 * @return array $hsla_array         HSLA array.
+	 */
+	public function rgba_to_hsla( $rgba_array, $luminosity_adjust = 0 ) {
+		$r = intval( $rgba_array[0] );
+		$g = intval( $rgba_array[1] );
+		$b = intval( $rgba_array[2] );
+		$a = isset( $rgba_array[3] ) ? intval( $rgba_array[3] ) : 1;
+
+		error_log( 'rgba: (' . $r . ', ' . $g . ', ' . $b . ', ' . $a . ' )' );
+
+		$r /= 255;
+		$g /= 255;
+		$b /= 255;
+
+		$max = max( $r, $g, $b );
+		$min = min( $r, $g, $b );
+
+		$h;
+		$s;
+		$l = ( $max + $min ) / 2;
+		$d = $max - $min;
+
+		// If difference is 0, then it's a shade of grey.
+		if ( 0 == $d ) {
+			$h = 0;
+			$s = 0;
+		} else {
+			$s = $d / ( 1 - abs( 2 * $l - 1 ) );
+			switch ( $max ) {
+				case $r:
+					$h = 60 * fmod( ( ( $g - $b ) / $d ), 6 );
+						if ( $b > $g ) {
+							$h += 360;
+						}
+					break;
+
+				case $g:
+					$h = 60 * ( ( $b - $r ) / $d + 2 );
+					break;
+
+				case $b:
+					$h = 60 * ( ( $r - $g ) / $d + 4 );
+					break;
+			}
+		}
+
+		return array(
+			round( $h, 2 ),
+			round( $s, 2 ) * 100 . '%',
+			( round( $l, 2 ) * 100 ) + $luminosity_adjust . '%',
+			$a,
+		);
 	}
 
 	/**
