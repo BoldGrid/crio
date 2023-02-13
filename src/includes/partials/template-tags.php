@@ -547,6 +547,20 @@ function bgtfw_get_featured_img_bg( $post_id, $theme_mod = false ) {
 			}
 		}
 
+		if ( is_single() ) {
+			if ( 'show' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				if ( ( 'background' === get_theme_mod( 'bgtfw_post_header_feat_image_position' ) ) ) {
+
+					// Get user defined header background color for posts.
+					$opt = 'bgtfw_global_title_background_color';
+				} else {
+					$opt = null;
+				}
+			} else {
+				$opt = false;
+			}
+		}
+
 		if ( false === $opt ) {
 			return $style;
 		}
@@ -584,9 +598,7 @@ function bgtfw_get_featured_img_bg( $post_id, $theme_mod = false ) {
 function bgtfw_featured_img_bg( $post_id, $theme_mod = false ) {
 
 	// Note: See the docblock comment of this method for details regarding the escaping.
-	if ( 'show' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
-		echo bgtfw_get_featured_img_bg( $post_id, $theme_mod ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
+	echo bgtfw_get_featured_img_bg( $post_id, $theme_mod ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**
