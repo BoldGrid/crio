@@ -274,7 +274,6 @@ BOLDGRID.Customizer.Util.getInitialPalettes = function( option ) {
 	headerLayout.init();
 
 	new TitleSizePreview().init();
-
 	new ResponsiveFontSizes().bindEvents();
 	new GenericPreview().bindEvents();
 	new HeaderPreview().bindEvents();
