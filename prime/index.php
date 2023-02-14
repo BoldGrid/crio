@@ -22,6 +22,15 @@ if ( ( is_home() || is_archive() ) && 'above' === get_theme_mod( 'bgtfw_global_t
 
 		boldgrid_paging_nav();
 
+		/*
+		 * Fires after the navigation links have been displayed.
+		 *
+		 * This hook is used to add additional content / functionality
+		 * after the navigation links such as a "Back to Top" link or
+		 * lazy loading of posts.
+		 */
+		do_action( 'boldgrid_after_paging_nav' );
+
 		echo '</div>';
 
 		if ( BoldGrid::display_sidebar() ) {

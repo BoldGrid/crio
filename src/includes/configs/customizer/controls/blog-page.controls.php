@@ -367,6 +367,33 @@ return array(
 			),
 		),
 	),
+	'bgtfw_blog_post_header_updated_or_published'      => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_header_updated_or_published',
+		'label'             => esc_attr__( 'Use Published or Modified Date', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_post_meta',
+		'default'           => 'published',
+		'choices'           => array(
+			'published' => '<i class="fa fa-calendar" aria-hidden="true"></i>' . esc_attr__( 'Published', 'crio' ),
+			'updated'   => '<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>' . esc_attr__( 'Modified', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'published', 'updated' ), true ) ? $value : $settings->default;
+		},
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_header_meta_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+			array(
+				'setting'  => 'bgtfw_blog_post_header_date_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
 	'bgtfw_blog_post_header_date_link_color_display'   => array(
 		'type'              => 'radio-buttonset',
 		'transport'         => 'postMessage',
@@ -845,6 +872,35 @@ return array(
 			),
 		),
 	),
+	'bgtfw_blog_post_tags_alignment'                   => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_tags_alignment',
+		'label'             => esc_attr__( 'Alignment', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_tags_links',
+		'default'           => 'left',
+		'choices'           => array(
+			'left'   => '<span class="dashicons dashicons-editor-alignleft"></span>' . esc_attr__( 'Left', 'crio' ),
+			'center' => '<span class="dashicons dashicons-editor-aligncenter"></span>' . esc_attr__( 'Center', 'crio' ),
+			'right'  => '<span class="dashicons dashicons-editor-alignright"></span>' . esc_attr__( 'Right', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'left', 'center', 'right' ), true ) ? $value : $settings->default;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.blog .post .entry-footer .tags-links, .archive .post .entry-footer .tags-links',
+				'property' => 'text-align',
+			),
+		),
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_tags_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
 	'bgtfw_blog_post_readmore_text'                    => array(
 		'type'      => 'text',
 		'transport' => 'postMessage',
@@ -1266,6 +1322,36 @@ return array(
 		),
 	),
 
+	'bgtfw_blog_post_cats_alignment'                   => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_cats_alignment',
+		'label'             => esc_attr__( 'Alignment', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_cat_links',
+		'default'           => 'left',
+		'choices'           => array(
+			'left'   => '<span class="dashicons dashicons-editor-alignleft"></span>' . esc_attr__( 'Left', 'crio' ),
+			'center' => '<span class="dashicons dashicons-editor-aligncenter"></span>' . esc_attr__( 'Center', 'crio' ),
+			'right'  => '<span class="dashicons dashicons-editor-alignright"></span>' . esc_attr__( 'Right', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'left', 'center', 'right' ), true ) ? $value : $settings->default;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.blog .post .entry-footer .cat-links, .archive .post .entry-footer .cat-links',
+				'property' => 'text-align',
+			),
+		),
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_cats_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
+
 	// Start: Blog Page Category Links Color Controls.
 	'bgtfw_blog_post_cats_link_color_display'          => array(
 		'type'              => 'radio-buttonset',
@@ -1502,6 +1588,36 @@ return array(
 		),
 	),
 
+	'bgtfw_blog_post_comments_alignment'                   => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_comments_alignment',
+		'label'             => esc_attr__( 'Alignment', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_comment_links',
+		'default'           => 'left',
+		'choices'           => array(
+			'left'   => '<span class="dashicons dashicons-editor-alignleft"></span>' . esc_attr__( 'Left', 'crio' ),
+			'center' => '<span class="dashicons dashicons-editor-aligncenter"></span>' . esc_attr__( 'Center', 'crio' ),
+			'right'  => '<span class="dashicons dashicons-editor-alignright"></span>' . esc_attr__( 'Right', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'left', 'center', 'right' ), true ) ? $value : $settings->default;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.blog .post .entry-footer .comments-link, .archive .post .entry-footer .comments-link',
+				'property' => 'text-align',
+			),
+		),
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
+
 	// Start: Comment Link Color Controls.
 	'bgtfw_blog_post_comments_link_color_display'      => array(
 		'type'              => 'radio-buttonset',
@@ -1627,6 +1743,90 @@ return array(
 				'setting'  => 'bgtfw_blog_post_comments_link_color_display',
 				'operator' => '!==',
 				'value'    => 'inherit',
+			),
+		),
+	),
+	'bgtfw_blog_post_comments_icon_display'            => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_blog_post_comments_icon_display',
+		'label'             => esc_attr__( 'Icon Display', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_blog_page_comment_links',
+		'default'           => 'inline-block',
+		'choices'           => array(
+			'inline-block' => '<span class="dashicons dashicons-visibility"></span>' . __( 'Show', 'crio' ),
+			'none'         => '<span class="dashicons dashicons-hidden"></span>' . __( 'Hide', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'inline-block', 'none' ), true ) ? $value : $settings->default;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.blog .post .entry-footer .comments-link .fa, .archive .post .entry-footer .comments-link .fa',
+				'property' => 'display',
+			),
+		),
+		'active_callback'   => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
+	'bgtfw_blog_post_comment_icon'                     => array(
+		'type'            => 'fontawesome',
+		'transport'       => 'postMessage',
+		'settings'        => 'bgtfw_blog_post_comment_icon',
+		'label'           => esc_attr__( 'Single Comment Icon', 'crio' ),
+		'section'         => 'bgtfw_pages_blog_blog_page_comment_links',
+		'default'         => 'comment',
+		'js_vars'         => array(
+			array(
+				'element'       => '.blog .post .comments-link.singular .fa, .archive .post .comments-link.singular .fa',
+				'function'      => 'html',
+				'attr'          => 'class',
+				'value_pattern' => 'fa fa-fw fa-$',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_icon_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+		),
+	),
+	'bgtfw_blog_post_comments_icon'                    => array(
+		'type'            => 'fontawesome',
+		'transport'       => 'postMessage',
+		'settings'        => 'bgtfw_blog_post_comments_icon',
+		'label'           => esc_attr__( 'Multiple Comments Icon', 'crio' ),
+		'section'         => 'bgtfw_pages_blog_blog_page_comment_links',
+		'default'         => 'comments',
+		'js_vars'         => array(
+			array(
+				'element'       => '.blog .post .comments-link.multiple .fa, .archive .post .comments-link.multiple .fa',
+				'function'      => 'html',
+				'attr'          => 'class',
+				'value_pattern' => 'fa fa-fw fa-$',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_display',
+				'operator' => '!==',
+				'value'    => 'none',
+			),
+			array(
+				'setting'  => 'bgtfw_blog_post_comments_icon_display',
+				'operator' => '!==',
+				'value'    => 'none',
 			),
 		),
 	),

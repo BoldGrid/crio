@@ -17,6 +17,10 @@ BOLDGRID.CUSTOMIZER = BOLDGRID.CUSTOMIZER || {};
 
 	onload = function() {
 		self.section_selector = create_sections_selector();
+
+		if ( ! wp.customizer ) {
+			return;
+		}
 		self.$previewer = $( wp.customize.previewer.container ).find( 'iframe' ).last().contents();
 		bind_section_hover();
 		bind_force_mouse_leave();

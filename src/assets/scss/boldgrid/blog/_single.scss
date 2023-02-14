@@ -24,6 +24,15 @@
 		.wp-post-image {
 			display: block;
 			margin: 0 auto 2.8rem auto;
+			&.entry-featured-image {
+				&.alignleft,
+				&.alignright,
+				&.alignnone {
+					margin-right: 10px;
+					margin-bottom: 10px;
+					margin-left: 10px;
+				}
+			}
 			&.alignnone {
 				display: inline;
 			}

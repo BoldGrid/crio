@@ -22,14 +22,18 @@ do_action( 'boldgrid_before_entry_title' ); ?>
 	>
 		<div <?php BoldGrid::add_class( 'featured_image_single', [ 'featured-imgage-header' ] ); ?>>
 			<?php
-			$title_element    = apply_filters( 'bgtfw_entry_title_element', 'p' );
-			$title_size       = get_theme_mod( 'bgtfw_global_title_size' );
-			$title_link_class = BoldGrid::add_class( 'posts_title', [ 'link' ], false );
-			$title_link_url   = esc_url( get_permalink() );
-
-			the_title(
-				'<' . $title_element . ' class="entry-title page-title ' . $title_size . '"><a ' . $title_link_class . ' href="' . $title_link_url . '" rel="bookmark">',
-				'</a></' . $title_element . '>'
+			echo wp_kses_post(
+				sprintf(
+					// translators: %1$s is the element type, %2$s is the class string, %3$s is the title.
+					'<%1$s %2$s>%3$s</%1$s>',
+					apply_filters( 'bgtfw_entry_title_element', 'p' ),
+					BoldGrid::add_class(
+						'pages_title',
+						array( 'entry-title', 'page-title', get_theme_mod( 'bgtfw_global_title_size' ) ),
+						false
+					),
+					get_the_title()
+				)
 			);
 			?>
 			<?php if ( 'post' == get_post_type() ) : ?>

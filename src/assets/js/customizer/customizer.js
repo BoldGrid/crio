@@ -1,5 +1,6 @@
 /* global _wpCustomizePreviewNavMenusExports:false, _wpCustomizeSettings:false, BoldGrid:true, BOLDGRID:true */
 import ColorPreview from './color/preview';
+import TitleSizePreview from './title-size/preview';
 import { Preview as GenericPreview } from './generic/preview.js';
 import { Preview as ResponsiveFontSizes } from './responsive-font-sizes/preview.js';
 import { Preview as HeaderPreview } from './header-layout/preview.js';
@@ -272,6 +273,7 @@ BOLDGRID.Customizer.Util.getInitialPalettes = function( option ) {
 
 	headerLayout.init();
 
+	new TitleSizePreview().init();
 	new ResponsiveFontSizes().bindEvents();
 	new GenericPreview().bindEvents();
 	new HeaderPreview().bindEvents();

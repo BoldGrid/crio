@@ -671,17 +671,88 @@ return array(
 		'section'           => 'bgtfw_pages_blog_posts_featured_images',
 		'default'           => 'background',
 		'choices'           => array(
-			'background' => '<span class="dashicons dashicons-format-image"></span>' . __( 'Header Background', 'crio' ),
-			'below'      => '<span class="dashicons dashicons-arrow-down-alt"></span>' . __( 'Below Header', 'crio' ),
+			'background'   => '<span class="dashicons dashicons-format-image"></span>' . __( 'Header Background', 'crio' ),
+			'above-header' => '<span class="dashicons dashicons-arrow-up-alt"></span>' . __( 'Above Header', 'crio' ),
+			'below-header' => '<span class="dashicons dashicons-arrow-down-alt"></span>' . __( 'Below Header', 'crio' ),
+			'below'        => '<span class="dashicons dashicons-format-aside"></span>' . __( 'In Post Content', 'crio' ),
 		),
 		'sanitize_callback' => function( $value, $settings ) {
-			return in_array( $value, array( 'background', 'below' ), true ) ? $value : $settings->default;
+			return in_array( $value, array( 'background', 'above-header', 'below-header', 'below' ), true ) ? $value : $settings->default;
 		},
 		'active_callback'   => array(
 			array(
 				'setting'  => 'bgtfw_post_header_feat_image_display',
 				'operator' => '!==',
 				'value'    => 'hide',
+			),
+		),
+	),
+	'bgtfw_post_header_feat_image_type'         => array(
+		'type'              => 'radio-buttonset',
+		'transport'         => 'refresh',
+		'settings'          => 'bgtfw_post_header_feat_image_type',
+		'label'             => esc_attr__( 'Featured Image Display Type', 'crio' ),
+		'tooltip'           => __( 'Choose whether the featured image should be inserted as an image or as the background of the row above or below the Post Title row', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_posts_featured_images',
+		'default'           => 'background',
+		'choices'           => array(
+			'background' => __( 'Background', 'crio' ),
+			'image'      => __( 'Image', 'crio' ),
+		),
+		'sanitize_callback' => function( $value, $settings ) {
+			return in_array( $value, array( 'background', 'image' ), true ) ? $value : $settings->default;
+		},
+		'active_callback'   => function() {
+			if ( 'hide' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				return false;
+			}
+			$feat_image_pos = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
+			return ( 'above-header' === $feat_image_pos || 'below-header' === $feat_image_pos );
+		},
+	),
+	'bgtfw_post_header_feat_image_bg_height'    => array(
+		'type'              => 'dimension',
+		'settings'          => 'bgtfw_post_header_feat_image_bg_height',
+		'label'             => esc_html__( 'Height', 'crio' ),
+		'description'       => __( 'Enter the desired height of the background. The following units are acceptable: px, pt, em, rem, vh, vw', 'crio' ),
+		'tooltip'           => __( 'For the best results with both desktop and mobile devices, We recommend using the \'vh\' unit. 1vh is equal to 1% of the height of the screen', 'crio' ),
+		'section'           => 'bgtfw_pages_blog_posts_featured_images',
+		'default'           => '20vh',
+		'choices'           => array(
+			'accept_unitless' => false,
+		),
+		'active_callback'   => function() {
+			if ( 'hide' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				return false;
+			}
+
+			$feat_image_pos  = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
+			$feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type' );
+
+			return ( 'above-header' === $feat_image_pos || 'below-header' === $feat_image_pos ) && 'background' === $feat_image_type;
+		},
+		'sanitize_callback' => function( $value, $settings ) {
+			$matches = array();
+			preg_match( '/[^0-9.]+/', $value, $matches );
+
+			if ( empty( $matches ) ) {
+				return $settings->default;
+			} else {
+				$unit = $matches[0];
+			}
+
+			$acceptable_units = array( 'px', 'pt', 'em', 'rem', 'vh', 'vw' );
+
+			if ( ! in_array( $unit, $acceptable_units, true ) ) {
+				return $settings->default;
+			}
+
+			return $value;
+		},
+		'output'            => array(
+			array(
+				'element'  => '.page-header-wrapper .page-header.above .featured-imgage-header.has-feat-image-bg, .page-header-wrapper .page-header.below .featured-imgage-header.has-feat-image-bg',
+				'property' => 'height',
 			),
 		),
 	),
@@ -702,18 +773,24 @@ return array(
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'thumbnail', 'medium', 'large', 'full' ), true ) ? $value : $settings->default;
 		},
-		'active_callback'   => array(
-			array(
-				'setting'  => 'bgtfw_post_header_feat_image_display',
-				'operator' => '!==',
-				'value'    => 'hide',
-			),
-			array(
-				'setting'  => 'bgtfw_post_header_feat_image_position',
-				'operator' => '!==',
-				'value'    => 'background',
-			),
-		),
+		'active_callback'   => function() {
+			if ( 'hide' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				return false;
+			}
+
+			$feat_image_pos  = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
+			$feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type' );
+
+			if ( 'below' === $feat_image_pos ) {
+				return true;
+			}
+
+			if ( ( 'above-header' === $feat_image_pos || 'below-header' === $feat_image_pos ) && ( 'image' === $feat_image_type ) ) {
+				return true;
+			}
+
+			return false;
+		},
 	),
 	'bgtfw_post_header_feat_image_align'        => array(
 		'type'              => 'radio-buttonset',
@@ -732,17 +809,23 @@ return array(
 		'sanitize_callback' => function( $value, $settings ) {
 			return in_array( $value, array( 'alignnone', 'alignleft', 'aligncenter', 'alignright' ), true ) ? $value : $settings->default;
 		},
-		'active_callback'   => array(
-			array(
-				'setting'  => 'bgtfw_post_header_feat_image_display',
-				'operator' => '!==',
-				'value'    => 'hide',
-			),
-			array(
-				'setting'  => 'bgtfw_post_header_feat_image_position',
-				'operator' => '!==',
-				'value'    => 'background',
-			),
-		),
+		'active_callback'   => function() {
+			if ( 'hide' === get_theme_mod( 'bgtfw_post_header_feat_image_display' ) ) {
+				return false;
+			}
+
+			$feat_image_pos  = get_theme_mod( 'bgtfw_post_header_feat_image_position' );
+			$feat_image_type = get_theme_mod( 'bgtfw_post_header_feat_image_type' );
+
+			if ( 'below' === $feat_image_pos ) {
+				return true;
+			}
+
+			if ( ( 'above-header' === $feat_image_pos || 'below-header' === $feat_image_pos ) && ( 'image' === $feat_image_type ) ) {
+				return true;
+			}
+
+			return false;
+		},
 	),
 );

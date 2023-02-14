@@ -4,7 +4,7 @@ Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, ful
 Requires PHP: 5.6
 Requires at least: 4.8
 Tested up to: 6.1
-Stable tag: 2.18.2
+Stable tag: 2.19.0
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -20,6 +20,13 @@ This version includes CSS fixes for incorrect margin / padding issues. If you ar
 == Changelog ==
 
 ## Changelog ##
+
+== 2.19.0 ==
+* New Feature: Choose Post date display format [#12](https://github.com/BoldGrid/crio/issues/12)
+* New Feature: Add alignment controls for Blog Page > Links [#10](https://github.com/BoldGrid/crio/issues/10)
+* New Feature: Add option for Featured Image "Above Header" on Blog Post [#9](https://github.com/BoldGrid/crio/issues/9)
+* Enhancement: Blog Post titles are no longer shown as links in the individual post titles [#14](https://github.com/BoldGrid/crio/issues/14)
+* Update: Add Mega Menu card to Premium Features page [#5](https://github.com/BoldGrid/crio/issues/5)
 
 == 2.18.2 ==
 * Bug Fix: Fixed Container CPH = 0 padding on mobile [#779](https://github.com/BoldGrid/boldgrid-theme-framework/issues/779)

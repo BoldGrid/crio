@@ -161,15 +161,6 @@ return array(
 			$bgtfw_configs,
 			'.palette-primary *:not( .menu-item ) > .button-primary'
 		),
-		'edit_vars' => array(
-			array(
-				'selector'    => array(
-					'.palette-primary .button-primary',
-				),
-				'label'       => esc_attr__( 'Primary Button Typography', 'crio' ),
-				'description' => esc_attr__( 'Adjust the typography of your primary buttons', 'crio' ),
-			),
-		),
 	),
 	// Secondary Buttons.
 	'bgtfw_secondary_button_background' => array(
