@@ -1,8 +1,8 @@
 <?php
 /**
- * Single Post Header Above Template
+ * Entry Header Header Above Template
  *
- * This file contains the markup for the post list with feat img above the header information.
+ * This file contains the markup for a single post with feat img above the header information.
  *
  * @package Crio
  */

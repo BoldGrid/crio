@@ -1,8 +1,8 @@
 <?php
 /**
- * Post List Header Background Template
+ * Entry Header Header Background Template
  *
- * This file contains the markup for the post list with feat img as a background image for header.
+ * This file contains the markup for a single post with feat img as a background image for header.
  *
  * @package Crio
  */
