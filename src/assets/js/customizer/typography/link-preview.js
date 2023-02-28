@@ -59,9 +59,6 @@ export class LinkPreview {
 
 				api( ...controls, ( ...args ) => {
 					args.map( control => control.bind( () => this.updateStyles( prefix ) ) );
-					api( 'boldgrid_color_palette' ).bind( ( control ) => {
-						this.updateStyles( prefix );
-					} );
 				} );
 			}
 		} );
@@ -123,7 +120,7 @@ export class LinkPreview {
 					}
 					${selector}:hover,
 					${selector}:focus {
-						color: ${shiftedColorVal};
+						color: ${shiftedColorVal} !important;
 						text-decoration: ${decorationHover};
 					}
 				`;
@@ -134,13 +131,6 @@ export class LinkPreview {
 			 * controlled by the Site Content Link typography controls.
 			 */
 			if ( 'bgtfw_body' === prefix ) {
-				let footerLinkColor      = this._getColor( 'bgtfw_footer_link_color', true ),
-					footerLinkColorHover = api( `${prefix}_link_color_hover` )() || 0,
-					footerShiftedColorVal;
-
-				footerLinkColorHover  = parseInt( footerLinkColorHover, 10 ) / 100,
-				footerShiftedColorVal = colorLib.Color( footerLinkColor ).lightenByAmount( footerLinkColorHover ).toCSS();
-
 				let colorPaletteOption = api( 'boldgrid_color_palette' )();
 
 				if ( colorPaletteOption ) {
@@ -163,19 +153,8 @@ export class LinkPreview {
 						css += `.sidebar.color-${sidebarColorClass}-link-color a:not( .btn ):hover, .sidebar.color-${sidebarColorClass}-link-color a:not( .btn ):focus { color: ${sidebarAriColor} !important; }`;
 				} );
 
-				css += `
-				#colophon .bgtfw-footer.footer-content > a:not( .btn ),
-				#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ) {
-					text-decoration: ${decoration};
-				}
-				#colophon .bgtfw-footer.footer-content > a:not( .btn ):hover,
-				#colophon .bgtfw-footer.footer-content > a:not( .btn ):focus,
-				#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ):hover,
-				#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ):focus {
-						color: ${footerShiftedColorVal};
-						text-decoration: ${decorationHover};
-					}
-				`;
+				// footer Link Color.
+				this.updateStyles( 'bgtfw_footer' );
 			}
 		}
 
