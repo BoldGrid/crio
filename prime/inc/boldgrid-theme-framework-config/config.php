@@ -220,7 +220,7 @@ if ( ! function_exists( 'boldgrid_prime_framework_config' ) ) {
 
 		// Footer specific colors for background, headings, and links.
 		$config['customizer']['controls']['bgtfw_footer_color']['default'] = 'color-5';
-		$config['customizer']['controls']['bgtfw_footer_links']['default'] = 'color-1';
+		$config['customizer']['controls']['bgtfw_footer_link_color']['default'] = 'color-1';
 
 		// Page title display settings, show by default.
 		$config['customizer']['controls']['bgtfw_pages_title_display']['default'] = 'show';

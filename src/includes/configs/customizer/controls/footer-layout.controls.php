@@ -128,17 +128,18 @@ return array(
 			),
 		),
 	),
-	'bgtfw_footer_links'  => array(
+	'bgtfw_footer_link_color'  => array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
-		'settings'          => 'bgtfw_footer_links',
+		'settings'          => 'bgtfw_footer_link_color',
 		'label'             => esc_attr__( 'Link Color', 'crio' ),
 		'section'           => 'bgtfw_footer_colors',
 		'priority'          => 30,
 		'default'           => '',
 		'choices'           => array(
-			'colors' => $bgtfw_formatted_palette,
-			'size'   => $bgtfw_palette->get_palette_size( $bgtfw_formatted_palette ),
+			'selectors' => Boldgrid_Framework_Links::$footer_link_selectors,
+			'colors'    => $bgtfw_formatted_palette,
+			'size'      => $bgtfw_palette->get_palette_size( $bgtfw_formatted_palette ),
 		),
 		'sanitize_callback' => array( $bgtfw_color_sanitize, 'sanitize_palette_selector' ),
 	),

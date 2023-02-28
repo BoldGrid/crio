@@ -57,6 +57,16 @@ class Boldgrid_Framework_Links {
 	);
 
 	/**
+	 * Footer Link Selectors.
+	 *
+	 * @var array
+	 */
+	public static $footer_link_selectors = array(
+		'#colophon .bgtfw-footer.footer-content > a:not( .btn )',
+		'#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn )',
+	);
+
+	/**
 	 * Selectors to use for edit vars.
 	 *
 	 * NOTE: do not use this directly. Only set in here for passing into config.
@@ -162,7 +172,7 @@ class Boldgrid_Framework_Links {
 				}
 
 				if ( 'bgtfw_body' === $prefix ) {
-					$footer_link_color  = explode( ':', get_theme_mod( 'bgtfw_footer_links' ) )[1];
+					$footer_link_color  = explode( ':', get_theme_mod( 'bgtfw_footer_link_color' ) )[1];
 					$footer_ari_color   = ariColor::newColor( $color );
 					$footer_color_hover = get_theme_mod( "${prefix}_link_color_hover" ) ?: 0;
 					$footer_lightness   = min( $footer_ari_color->lightness + $footer_color_hover, 100 );
