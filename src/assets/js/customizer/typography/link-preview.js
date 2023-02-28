@@ -14,6 +14,7 @@ export class LinkPreview {
 		this.paletteSelector = new PaletteSelector();
 		this.prefixes = [
 			'bgtfw_body',
+			'bgtfw_footer',
 			'bgtfw_posts_date',
 			'bgtfw_posts_byline',
 			'bgtfw_posts_tags',
@@ -52,8 +53,15 @@ export class LinkPreview {
 					controls.push( `${prefix}_link_color_display` );
 				}
 
+				if ( 'bgtfw_footer' === prefix ) {
+					controls = [ `${prefix}_link_color` ];
+				}
+
 				api( ...controls, ( ...args ) => {
 					args.map( control => control.bind( () => this.updateStyles( prefix ) ) );
+					api( 'boldgrid_color_palette' ).bind( ( control ) => {
+						this.updateStyles( prefix );
+					} );
 				} );
 			}
 		} );
@@ -83,13 +91,24 @@ export class LinkPreview {
 	updateStyles( prefix ) {
 		let css = '';
 		if ( false === _.isFunction( api( `${prefix}_link_color_display` ) ) || 'inherit' !== api( `${prefix}_link_color_display` )() ) {
-			let linkColor = this._getColor( `${prefix}_link_color`, true ),
-				linkColorHover = api( `${prefix}_link_color_hover` )() || 0,
-				decoration = this._getDecoration( `${prefix}_link_decoration` ),
-				decorationHover = this._getDecoration( `${prefix}_link_decoration_hover` ),
-				excludes = '',
-				selectors = this.selectors[ prefix ],
+			let linkColor, linkColorHover, decoration, decorationHover, excludes, selectors, shiftedColorVal;
+			if ( 'bgtfw_footer' === prefix ) {
+				linkColor       = this._getColor( `${prefix}_link_color`, true ),
+				linkColorHover  = api( 'bgtfw_body_link_color_hover' )() || 0,
+				decoration      = this._getDecoration( 'bgtfw_body_link_decoration' ),
+				decorationHover = this._getDecoration( 'bgtfw_body_link_decoration_hover' ),
+				excludes        = '',
+				selectors       = this.selectors[ prefix ],
 				shiftedColorVal;
+			} else {
+				linkColor       = this._getColor( `${prefix}_link_color`, true ),
+				linkColorHover  = api( `${prefix}_link_color_hover` )() || 0,
+				decoration      = this._getDecoration( `${prefix}_link_decoration` ),
+				decorationHover = this._getDecoration( `${prefix}_link_decoration_hover` ),
+				excludes        = '',
+				selectors       = this.selectors[ prefix ],
+				shiftedColorVal;
+			}
 
 			linkColorHover = parseInt( linkColorHover, 10 ) / 100;
 
@@ -115,14 +134,20 @@ export class LinkPreview {
 			 * controlled by the Site Content Link typography controls.
 			 */
 			if ( 'bgtfw_body' === prefix ) {
-				let footerLinkColor      = this._getColor( 'bgtfw_footer_links', true ),
+				let footerLinkColor      = this._getColor( 'bgtfw_footer_link_color', true ),
 					footerLinkColorHover = api( `${prefix}_link_color_hover` )() || 0,
 					footerShiftedColorVal;
 
 				footerLinkColorHover  = parseInt( footerLinkColorHover, 10 ) / 100,
 				footerShiftedColorVal = colorLib.Color( footerLinkColor ).lightenByAmount( footerLinkColorHover ).toCSS();
 
-				let colorPaletteOption = JSON.parse( api( 'boldgrid_color_palette' )() );
+				let colorPaletteOption = api( 'boldgrid_color_palette' )();
+
+				if ( colorPaletteOption ) {
+					colorPaletteOption = JSON.parse( api( 'boldgrid_color_palette' )() );
+				} else {
+					colorPaletteOption = parent.BOLDGRID.COLOR_PALETTE.Modify;
+				}
 
 				let paletteColors  = colorPaletteOption.state.palettes['palette-primary'].colors;
 				let paletteNeutral = colorPaletteOption.state.palettes['palette-primary']['neutral-color'];
