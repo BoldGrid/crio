@@ -1869,6 +1869,42 @@ return array(
 		'section'           => 'bgtfw_layout_blog',
 		'sanitize_callback' => 'sanitize_html_class',
 	),
+	'bgtfw_blog_page_margin'                                => array(
+		'type'              => 'kirki-generic',
+		'transport'         => 'postMessage',
+		'section'           => 'bgtfw_blog_margin_section',
+		'settings'          => 'bgtfw_blog_page_margin',
+		'label'             => '',
+		'default'           => array(
+			array(
+				'media'    => array( 'base' ),
+				'unit'     => 'em',
+				'isLinked' => true,
+				'values'   => array(
+					'top' => 0,
+				),
+			),
+		),
+		'sanitize_callback' => array( 'Boldgrid_Framework_Customizer_Generic', 'sanitize' ),
+		'choices'           => array(
+			'name'     => 'boldgrid_controls',
+			'type'     => 'Padding',
+			'settings' => array(
+				'responsive' => Boldgrid_Framework_Customizer_Generic::$device_sizes,
+				'control'    => array(
+					'title'     => __( 'Margin Above Posts Container', 'crio' ),
+					'selectors' => array( '.archive .article-wrapper, .blog .article-wrapper' ),
+					'sliders'   => array(
+						array(
+							'name'        => 'top',
+							'label'       => '',
+							'cssProperty' => 'padding-top',
+						),
+					),
+				),
+			),
+		),
+	),
 	'bgtfw_blog_margin'                                => array(
 		'type'              => 'kirki-generic',
 		'transport'         => 'postMessage',
@@ -1894,15 +1930,11 @@ return array(
 				'responsive' => Boldgrid_Framework_Customizer_Generic::$device_sizes,
 				'control'    => array(
 					'selectors' => array( '.palette-primary.archive .post, .palette-primary.blog .post' ),
+					'title'     => __( 'Margin Between Posts', 'crio' ),
 					'sliders'   => array(
 						array(
-							'name'        => 'top',
-							'label'       => 'Top',
-							'cssProperty' => 'margin-top',
-						),
-						array(
 							'name'        => 'bottom',
-							'label'       => 'Bottom',
+							'label'       => '',
 							'cssProperty' => 'margin-bottom',
 						),
 					),
