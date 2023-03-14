@@ -1930,7 +1930,7 @@ return array(
 				'responsive' => Boldgrid_Framework_Customizer_Generic::$device_sizes,
 				'control'    => array(
 					'selectors' => array( '.palette-primary.archive .post, .palette-primary.blog .post' ),
-					'title'     => __( 'Margin Between Posts', 'crio' ),
+					'title'     => __( 'Margin Below Posts', 'crio' ),
 					'sliders'   => array(
 						array(
 							'name'        => 'bottom',
