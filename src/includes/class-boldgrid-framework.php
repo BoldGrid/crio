@@ -656,6 +656,12 @@ class BoldGrid_Framework {
 		$this->loader->add_action( 'init', $admin, 'remove_hooks' );
 
 		$this->loader->add_action( 'bgtfw_pro_feature_cards', $pro_feature_cards, 'print_cards' );
+
+		// Filter category rewrite rules.
+		$this->loader->add_filter( 'category_rewrite_rules', $admin, 'category_rewrite_rules' );
+		$this->loader->add_action( 'created_category', $admin, 'schedule_flush' );
+		$this->loader->add_action( 'edited_category', $admin, 'schedule_flush' );
+		$this->loader->add_action( 'delete_category', $admin, 'schedule_flush' );
 	}
 
 	/**
