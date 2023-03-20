@@ -478,6 +478,9 @@ class BoldGrid_Framework {
 		$this->loader->add_filter( 'bgtfw_blog_page_title_classes', $boldgrid_theme, 'page_title_background_class' );
 		$this->loader->add_filter( 'bgtfw_archive_page_title_classes', $boldgrid_theme, 'page_title_background_class' );
 
+		// Pagination Filters
+		$this->loader->add_action( 'after_setup_theme', $boldgrid_theme, 'pagination_filters' );
+
 		// Title containers.
 		$this->loader->add_filter( 'bgtfw_page_header_wrapper_classes', $boldgrid_theme, 'title_container' );
 		$this->loader->add_filter( 'bgtfw_featured_image_classes', $boldgrid_theme, 'title_content_container' );

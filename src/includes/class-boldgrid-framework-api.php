@@ -1512,4 +1512,54 @@ class BoldGrid {
 		$fixed_content = preg_replace( '/([a|li][^>]*class="[^"]*)button-secondary([^"]*")/', '$1button-secondary ' . $classes['button-secondary'] . '$2', $fixed_content );
 		return $fixed_content;
 	}
+
+	/**
+	 * Pagination Filters
+	 *
+	 * Filters the wp_query statements for
+	 * getting the 'next' and 'previous' posts.
+	 *
+	 * @since 2.19.1
+	 */
+	public function pagination_filters() {
+		add_filter(
+			'get_next_post_where',
+			function( $where, $in_same_term, $scluded_terms, $taxonomy, $post ) {
+				$where = str_replace( '>', '>=', $where );
+				$where = $where . ' AND p.ID > ' . $post->ID;
+				return $where;
+			},
+			10,
+			5
+		);
+
+		add_filter(
+			'get_next_post_sort',
+			function( $sort ) {
+				return 'ORDER BY p.post_date ASC, p.ID ASC LIMIT 1';
+			},
+			10,
+			1
+		);
+
+		add_filter(
+			'get_previous_post_where',
+			function( $where, $in_same_term, $scluded_terms, $taxonomy, $post ) {
+				$where = str_replace( '<', '<=', $where );
+				$where = $where . ' AND p.ID < ' . $post->ID;
+				return $where;
+			},
+			10,
+			5
+		);
+
+		add_filter(
+			'get_previous_post_sort',
+			function( $sort ) {
+				return 'ORDER BY p.post_date DESC, p.ID DESC LIMIT 1';
+			},
+			10,
+			1
+		);
+	}
 }
