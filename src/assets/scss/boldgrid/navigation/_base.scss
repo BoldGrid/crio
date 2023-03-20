@@ -267,7 +267,7 @@
 			.sm-clean.nw,
 			.sm-clean.sw {
 				&:not( .sm-vertical ) {
-					> li.menu-item:first-of-type a {
+					> li.menu-item:first-of-type > a {
 						padding-left: 0px;
 					}
 				}
