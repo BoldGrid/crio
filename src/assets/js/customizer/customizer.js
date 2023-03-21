@@ -484,7 +484,7 @@ BOLDGRID.Customizer.Util.getInitialPalettes = function( option ) {
 		 */
 		api( 'bgtfw_site_title_typography', 'bgtfw_tagline_typography', ( ...args ) => {
 			args.map( ( control ) => {
-				let settings = [ 'font-size', 'line-height', 'letter-spacing', 'font-family', 'font-weight' ];
+				let settings = [ 'font-size', 'line-height', 'font-family', 'font-weight' ];
 				let update = ( to ) => {
 					_.each( settings, _.once( ( setting ) => control[ setting ] === to[ setting ] || calc() ) );
 				};

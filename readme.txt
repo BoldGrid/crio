@@ -26,7 +26,6 @@ This version includes CSS fixes for incorrect margin / padding issues. If you ar
 * Bug Fix: Cannot get even spacing between posts and header/footer on Blog Page [#38](https://github.com/BoldGrid/crio/issues/38)
 * Bug Fix: Blog Category links 404 and Category will not show on Blog Page [#37](https://github.com/BoldGrid/crio/issues/37)
 * Bug Fix: Blog Post next and previous links do not show up with Inspirations standard blog posts [#44](https://github.com/BoldGrid/crio/issues/44)
-* Bug Fix: Add Letter Spacing Control for Fonts [#18](https://github.com/BoldGrid/crio/issues/18)
 * Update: Add Inspirations specific styling for split hero header designs.
 
 == 2.19.0 ==
