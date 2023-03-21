@@ -666,7 +666,7 @@ class Boldgrid_Framework_Customizer_Typography {
 	 * @return array $values Formatted output values.
 	 */
 	public function get_typography_output( $configs, $elements ) {
-		$props  = [ 'font-family', 'font-size', 'line-height', 'text-transform', 'variant', 'font-style' ];
+		$props  = [ 'font-family', 'font-size', 'line-height', 'letter-spacing', 'text-transform', 'variant', 'font-style' ];
 		$values = [];
 		foreach ( $props as $prop ) {
 			$values[] = [
@@ -697,7 +697,7 @@ class Boldgrid_Framework_Customizer_Typography {
 			}
 		}
 		$elements = implode( ', ', array_keys( $selectors ) );
-		$props = [ 'font-family', 'line-height', 'text-transform', 'variant', 'font-style' ];
+		$props = [ 'font-family', 'line-height', 'letter-spacing', 'text-transform', 'variant', 'font-style' ];
 		$values = [];
 
 		foreach ( $props as $prop ) {
