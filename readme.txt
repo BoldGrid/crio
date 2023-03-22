@@ -3,8 +3,8 @@ Contributors: boldgrid, timph, rramo012, bgnicolepaschen, joemoto, imh_brad, jam
 Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, full-width-template, footer-widgets, featured-images, flexible-header, custom-header, custom-logo, custom-background, custom-colors, custom-menu, editor-style, translation-ready, left-sidebar, right-sidebar, grid-layout, one-column, two-columns, three-columns, four-columns
 Requires PHP: 5.6
 Requires at least: 4.8
-Tested up to: 6.1
-Stable tag: 2.19.1
+Tested up to: 6.2
+Stable tag: 2.19.2
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,12 +21,15 @@ This version includes CSS fixes for incorrect margin / padding issues. If you ar
 
 ## Changelog ##
 
-== 2.19.1 ==
+== 2.19.2 ==
 * Bug Fix: If the first menu item has a dropdown there are padding issues in the dropdown [#39](https://github.com/BoldGrid/crio/issues/39)
 * Bug Fix: Cannot get even spacing between posts and header/footer on Blog Page [#38](https://github.com/BoldGrid/crio/issues/38)
 * Bug Fix: Blog Category links 404 and Category will not show on Blog Page [#37](https://github.com/BoldGrid/crio/issues/37)
 * Bug Fix: Blog Post next and previous links do not show up with Inspirations standard blog posts [#44](https://github.com/BoldGrid/crio/issues/44)
 * Update: Add Inspirations specific styling for split hero header designs.
+
+== 2.19.1 ==
+* Bug Fix: Featured images not showing correctly in 2.19.0 release.
 
 == 2.19.0 ==
 * New Feature: Choose Post date display format [#12](https://github.com/BoldGrid/crio/issues/12)
