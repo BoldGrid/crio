@@ -6,22 +6,6 @@
 	background: rgba(0, 0, 0, 0.8);
 }
 
-@media only screen and (min-width:992px) {
-.wedge-cta {
-		background:none
-	}
-.wedge-cta-dark {
-	background:none
-	}
-}
-
-@media only screen and (max-width: 767px ) {
-	.mobile-only-cta-dark {
-		background-color: rgba( 0, 0, 0, 0.6 ) !important;
-		color: #ffffff !important;
-	}
-}
-
 body {
 	&.home {
 		&.inspirations-theme-73:before {
@@ -59,7 +43,45 @@ body {
 		}
 	}
 }
-@media only screen and (min-width: 768px) {
+
+.boldgrid-section.theme-split-hero {
+	div.split-hero-left {
+			background: linear-gradient( to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100% );
+		&::before {
+			background-color: var( --color-4 );
+			background-image:  linear-gradient( to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100% );
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: -1;
+		}
+		~ .fwr-container {
+			.fwr-left-container {
+				background: linear-gradient( to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100% );
+			}
+		}
+	}
+}
+
+@media screen and ( max-width: 767px ) {
+	.mobile-only-cta-dark {
+		background-color: rgba( 0, 0, 0, 0.6 ) !important;
+		color: #ffffff !important;
+	}
+
+	.boldgrid-section.theme-split-hero {
+		background: var(--color-4) !important;
+
+		.row.split-hero-bottom {
+			background: var( --color-4 );
+		}
+	}
+}
+
+@media screen and ( min-width: 768px ) {
 	body {
 		&.home {
 			&.inspirations-theme-73:before {
@@ -72,8 +94,35 @@ body {
 			}
 		}
 	}
+
+	.boldgrid-section.theme-split-hero {
+		position: relative;
+
+		&::before {
+			content: "";
+			background: linear-gradient(to right, var( --color-4) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100% );
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0
+		}
+
+		.row.split-hero-top {
+			background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 50%);
+		}
+	}
 }
+
 @media only screen and (min-width: 992px) {
+	.wedge-cta {
+		background:none
+	}
+
+	.wedge-cta-dark {
+		background:none
+	}
+
 	body {
 		&.home {
 			&.inspirations-theme-73:before {
@@ -88,3 +137,8 @@ body {
 	}
 
 }
+
+
+
+
+

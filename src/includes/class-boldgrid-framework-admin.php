@@ -118,4 +118,58 @@ class Boldgrid_Framework_Admin {
 			remove_all_filters( 'plugins_api', 11 );
 		}
 	}
+
+	/**
+	 * Filter category rewrite rules
+	 *
+	 * @since 2.19.1
+	 *
+	 * @param array $rules Rewrite rules.
+	 *
+	 * @return array $rules Filtered Rewrite rules.
+	 */
+	public function category_rewrite_rules( $rules ) {
+		if ( '.' !== get_option( 'category_base' ) ) {
+			return $rules;
+		}
+		$category_rewrite = array();
+		$categories       = get_categories( array( 'hide_empty' => false ) );
+
+		foreach ( $categories as $category ) {
+			$category_nicename = $category->slug;
+			if ( $category->parent === $category->cat_ID ) {
+				$category->parent = 0;
+			} elseif ( 0 !== $category->parent ) {
+				$category_nicename = get_category_parents( $category->parent, false, '/', true ) . $category_nicename;
+			}
+
+			$category_rewrite[ '(' . $category_nicename . ')/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$' ] = 'index.php?category_name=$matches[1]&feed=$matches[2]';
+
+			$category_rewrite[ '(' . $category_nicename . ')/page/?([0-9]{1,})/?$' ] = 'index.php?category_name=$matches[1]&paged=$matches[2]';
+
+			$category_rewrite[ '(' . $category_nicename . ')/?$' ] = 'index.php?category_name=$matches[1]';
+		}
+
+		global $wp_rewrite;
+
+		$old_base = $wp_rewrite->get_category_permastruct();
+		$old_base = str_replace( '%category%', '(.+)', $old_base );
+		$old_base = trim( $old_base, '/' );
+
+		$category_rewrite[ $old_base . '$' ] = 'index.php?category_redirect=$matches[1]';
+
+		return $category_rewrite;
+	}
+
+	/**
+	 * Schedule Flush
+	 *
+	 * Flush rewrite rules on category additions,
+	 * changes, or deletions.
+	 *
+	 * @since 2.19.1
+	 */
+	public function schedule_flush() {
+		add_action( 'shutdown', 'flush_rewrite_rules' );
+	}
 }
