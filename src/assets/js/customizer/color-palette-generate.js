@@ -157,6 +157,14 @@ BOLDGRID.COLOR_PALETTE.Generate = BOLDGRID.COLOR_PALETTE.Generate || {};
 	/**
 	 * Get Hover Color.
 	 *
+	 * All the logic for determining the hover color was
+	 * derived from the SCSS functions defined prior to the
+	 * 2.2.0 release in the following file:
+	 *
+	 * src/assets/scss/custom-color/color-palettes.scss
+	 * 
+	 * @since 2.20.0
+	 *
 	 * @param {Color} BgColor   Background Color object.
 	 * @param {Color} TextColor Text Color object.
 	 *
@@ -203,6 +211,7 @@ BOLDGRID.COLOR_PALETTE.Generate = BOLDGRID.COLOR_PALETTE.Generate || {};
 
 		// Dark Text on Light Background.
 		} else {
+
 			// Color is too dark to darken.
 			if ( 0.15 > textLightness ) {
 				hoverColor = TextColor.lightenByAmount( 0.2 );
