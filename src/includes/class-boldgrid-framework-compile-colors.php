@@ -173,16 +173,6 @@ class Boldgrid_Framework_Compile_Colors {
 			$color_variables['ubtn-theme-color'] = get_theme_mod( 'boldgrid_palette_class', 'palette-primary' ) . '_' . $this->get_button_default_color() . ';';
 		}
 
-		error_log(
-			json_encode(
-				array(
-					'method' => __METHOD__,
-					'line' => __LINE__,
-					'color_variables' => $color_variables,
-				)
-			)
-		);
-
 		return $color_variables;
 	}
 

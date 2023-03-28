@@ -118,6 +118,7 @@ BOLDGRID.COLOR_PALETTE.Generate = BOLDGRID.COLOR_PALETTE.Generate || {};
 
 		$.each( formattedPalette, function( variable, color ) {
 			css += `--${variable}: ${color};`;
+			css += `--${variable}-raw: ` + color.replace( 'rgb(', '' ).replace( ')', '' ) + ';';
 			css += `--${variable}-light:` + net.brehaut.Color( color ).lightenByAmount( 0.1 ).toCSS() + ';';
 			css += self.generateHoverVars( formattedPalette, variable, color );
 		} );
