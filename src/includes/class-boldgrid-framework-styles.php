@@ -619,7 +619,7 @@ class BoldGrid_Framework_Styles {
 				$dark_hsla_array    = $helper->rgba_to_hsla( $value_rgba_array, -10 );
 				$darker_hsla_array  = $helper->rgba_to_hsla( $value_rgba_array, -20 );
 
-				$value_raw      = implode( ',', array_slice( $helper->get_rgb_array( $value ), 1 ) );
+				$value_raw      = str_replace( array( 'rgb(', ')' ), array( '', '' ), $value );
 				$value_light    = 'hsla(' . implode( ',', $light_hsla_array ) . ')';
 				$value_lighter  = 'hsla(' . implode( ',', $lighter_hsla_array ) . ')';
 				$value_dark     = 'hsla(' . implode( ',', $dark_hsla_array ) . ')';
