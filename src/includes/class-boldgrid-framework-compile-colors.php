@@ -182,8 +182,8 @@ class Boldgrid_Framework_Compile_Colors {
 	 * @since 2.20.0
 	 *
 	 * @param array  $formatted_palette Array of formatted palette colors.
-	 * @param string $property         Property to generate hover colors for.
-	 * @param string $value            Value of color
+	 * @param string $text_color_name   Property to generate hover colors for.
+	 * @param string $text_color_value  Value of color.
 	 *
 	 * @return string $scss_variables  SCSS variables for hover colors.
 	 */
@@ -625,7 +625,7 @@ class Boldgrid_Framework_Compile_Colors {
 	 *
 	 * @since 2.20.0
 	 *
-	 * @param array $rgba_array         Array of RGBA values
+	 * @param array $rgba_array        Array of RGBA values.
 	 * @param int   $luminosity_adjust Luminosity to adjust (optional).
 	 *
 	 * @return array $hsla_array         HSLA array.
