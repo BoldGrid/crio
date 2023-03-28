@@ -65,7 +65,6 @@ class BoldGrid_Framework_404 {
 
 						<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
 
-						<?php if ( boldgrid_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
 						<div class="widget widget_categories">
 							<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'crio' ); ?></h2>
 							<ul>
@@ -80,7 +79,6 @@ class BoldGrid_Framework_404 {
 							?>
 							</ul>
 						</div><!-- .widget -->
-						<?php endif; ?>
 
 						<?php
 							/* translators: %1$s: smiley */

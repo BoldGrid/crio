@@ -8,7 +8,7 @@
 * **Contributors:** rramo012, timph, jamesros161
 * **Tags:** inspiration,customization,build,create,design
 * **Requires at least:** 4.9
-* **Tested up to:** 6.1
+* **Tested up to:** 6.2
 * **License:** GPL-3.0-or-later
 * **License URI:** https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -40,6 +40,16 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 4. Run the `yarn link-theme` command to symlink your dev build directory to your WordPress installation's `wp-content/themes/crio` directory.
 
 ## Changelog ##
+
+### 2.19.2 ###
+* Bug Fix: If the first menu item has a dropdown there are padding issues in the dropdown [#39](https://github.com/BoldGrid/crio/issues/39)
+* Bug Fix: Cannot get even spacing between posts and header/footer on Blog Page [#38](https://github.com/BoldGrid/crio/issues/38)
+* Bug Fix: Blog Category links 404 and Category will not show on Blog Page [#37](https://github.com/BoldGrid/crio/issues/37)
+* Bug Fix: Blog Post next and previous links do not show up with Inspirations standard blog posts [#44](https://github.com/BoldGrid/crio/issues/44)
+* Update: Add Inspirations specific styling for split hero header designs.
+
+### 2.19.1 ###
+* Bug Fix: Featured images not showing correctly in 2.19.0 release.
 
 ### 2.19.0 ###
 * New Feature: Choose Post date display format [#12](https://github.com/BoldGrid/crio/issues/12)

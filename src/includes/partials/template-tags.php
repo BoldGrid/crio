@@ -169,7 +169,7 @@ function boldgrid_entry_footer() {
 		$categories_list = get_the_category_list( esc_html__( ', ', 'crio' ) );
 		$categories_count = count( explode( ', ', $categories_list ) );
 
-		if ( $categories_list && boldgrid_categorized_blog() ) {
+		if ( $categories_list ) {
 			$class = 'singular';
 			$icon = is_single() ? get_theme_mod( 'bgtfw_posts_cat_icon' ) : get_theme_mod( 'bgtfw_blog_post_cat_icon' );
 
@@ -235,36 +235,6 @@ function boldgrid_entry_footer() {
 	bgtfw_edit_post_link();
 }
 endif;
-
-/**
- * Returns true if a blog has more than 1 category.
- *
- * @return bool
- */
-function boldgrid_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'boldgrid_categories' ) ) ) {
-		// Create an array of all the categories that are attached to posts.
-		$all_the_cool_cats = get_categories( array(
-			'fields'     => 'ids',
-			'hide_empty' => 1,
-			// We only need to know if there is more than one category.
-			'number'     => 2,
-		) );
-
-		// Count the number of categories that are attached to the posts.
-		$all_the_cool_cats = count( $all_the_cool_cats );
-
-		set_transient( 'boldgrid_categories', $all_the_cool_cats );
-	}
-
-	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so boldgrid_categorized_blog should return true.
-		return true;
-	} else {
-		// This blog has only 1 category so boldgrid_categorized_blog should return false.
-		return false;
-	}
-}
 
 /**
  * Flush out the transients used in boldgrid_categorized_blog.
