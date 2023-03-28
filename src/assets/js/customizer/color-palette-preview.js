@@ -44,7 +44,11 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 
 		// Update styles.
 		style = document.getElementById( 'boldgrid-color-palettes-inline-css' );
-		style.innerHTML = modify.compiled_css;
+		if ( style ) {
+			style.innerHTML = ':root{' + modify.css_variables + '}';
+		} else {
+			$( 'head' ).append( '<style id="boldgrid-color-palettes-inline-css" type="text/css">:root{' + modify.css_variables + '}</style>' );
+		}
 	};
 
 	/**

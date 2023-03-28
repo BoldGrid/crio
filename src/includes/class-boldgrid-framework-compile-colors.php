@@ -172,7 +172,191 @@ class Boldgrid_Framework_Compile_Colors {
 			$color_variables['ubtn-font-color'] = '$text-contrast-' . get_theme_mod( 'boldgrid_palette_class', 'palette-primary' ) . '_' . $this->get_button_default_color() . ';';
 			$color_variables['ubtn-theme-color'] = get_theme_mod( 'boldgrid_palette_class', 'palette-primary' ) . '_' . $this->get_button_default_color() . ';';
 		}
+
+		error_log(
+			json_encode(
+				array(
+					'method' => __METHOD__,
+					'line' => __LINE__,
+					'color_variables' => $color_variables,
+				)
+			)
+		);
+
 		return $color_variables;
+	}
+
+	/**
+	 * Generate SCSS variables for Hover Colors.
+	 *
+	 * @since SINCEVERSION
+	 *
+	 * @param array  $formatted_palette Array of formatted palette colors.
+	 * @param string $property         Property to generate hover colors for.
+	 * @param string $value            Value of color
+	 *
+	 * @return string $scss_variables  SCSS variables for hover colors.
+	 */
+	public function generate_hover_variables( $formatted_palette, $text_color_name, $text_color_value ) {
+		$hover_variables    = '';
+		$text_index         = str_replace( 'color-', '', $text_color_name );
+		$text_rgba_array    = $this->get_rgb_array( $text_color_value );
+		$light_hsla_array   = $this->rgba_to_hsla( $text_rgba_array, 10 );
+		$lighter_hsla_array = $this->rgba_to_hsla( $text_rgba_array, 20 );
+		$dark_hsla_array    = $this->rgba_to_hsla( $text_rgba_array, -10 );
+		$darker_hsla_array  = $this->rgba_to_hsla( $text_rgba_array, -20 );
+
+		foreach ( $formatted_palette as $bg_color_name => $bg_color_value ) {
+			$bg_index    = str_replace( 'color-', '', $bg_color_name );
+			$hover_color = $this->get_hover_color(
+				$this->normalize( $bg_color_value ),
+				$this->normalize( $text_color_value )
+			);
+			$hover_variables .= "--bg-$bg_index-text-$text_index-hover: $hover_color;";
+		}
+
+		return $hover_variables;
+	}
+
+	/**
+	 * Get the hover color for a given background and text color.
+	 *
+	 * @since SINCEVERSION
+	 *
+	 * @param string $bg_color_value  Background color value.
+	 * @param string $text_color_value Text color value.
+	 *
+	 * @return string $hover_color    Hover color.
+	 */
+	public function get_hover_color( $bg_color_value, $text_color_value ) {
+		$text_lightness = intval( $this->get_luminance( $text_color_value ) );
+		$bg_lightness   = intval( $this->get_luminance( $bg_color_value ) );
+		$bg_rgb_array   = $this->get_rgb_array( $bg_color_value );
+		$text_rgb_array = $this->get_rgb_array( $text_color_value );
+
+		if ( 100 === $text_lightness ) {
+			// White text.
+			if ( 90 <= $bg_lightness ) {
+				// Light background.
+				$hover_color = $this->hsla_array_to_string(
+					$this->rgba_to_hsla( $bg_rgb_array, -15 )
+				);
+			} else {
+				// Dark background.
+				$hover_color = $this->rgba_array_to_string(
+					$this->mix_rbg_colors( $text_rgb_array, $bg_rgb_array, 0.8 )
+				);
+			}
+		} elseif ( 0 === $text_lightness ) {
+			// Black text.
+			if ( 10 > $bg_lightness ) {
+				// Dark background.
+				$hover_color = $this->hsla_array_to_string(
+					$this->rgba_to_hsla( $bg_rgb_array, 20 )
+				);
+			} else {
+				// Light background.
+				$hover_color = $this->rgba_array_to_string(
+					$this->mix_rbg_colors( $text_rgb_array, $bg_rgb_array, 0.6 )
+				);
+			}
+		} elseif ( $bg_lightness < $text_lightness ) {
+			// Light text on dark background.
+			if ( 90 < $text_lightness ) {
+				// Color to light to lighten.
+				$hover_color = $this->hsla_array_to_string(
+					$this->rgba_to_hsla( $text_rgb_array, -20 )
+				);
+			} else {
+				// Dark background.
+				$hover_color = $this->hsla_array_to_string(
+					$this->rgba_to_hsla( $text_rgb_array, 20 )
+				);
+			}
+		} else {
+			// Dark text on light background.
+			if ( 15 > $text_lightness ) {
+				// Color is too dark to darken.
+				$hover_color = $this->hsla_array_to_string(
+					$this->rgba_to_hsla( $text_rgb_array, 20 )
+				);
+			} else {
+				$hover_color = $this->hsla_array_to_string(
+					$this->rgba_to_hsla( $text_rgb_array, -20 )
+				);
+			}
+		}
+
+		return $hover_color;
+	}
+
+	/**
+	 * RGBA array to string.
+	 *
+	 * Convert an RGBA array to a formatted string.
+	 *
+	 * @since SINCEVERSION
+	 *
+	 * @param array $rgba_array RGBA array.
+	 *
+	 * @return string $rgba_string RGBA string.
+	 */
+	public function rgba_array_to_string( $rgba_array ) {
+		$r = $rgba_array[0];
+		$g = $rgba_array[1];
+		$b = $rgba_array[2];
+		$a = isset( $rgba_array[3] ) ? $rgba_array[3] : 1;
+
+		$rgba_string = 'rgba(' . $r . ',' . $g . ',' . $b . ',' . $a . ')';
+		return $rgba_string;
+	}
+
+	/**
+	 * HSLA array to string.
+	 *
+	 * Convert an HSLA array to a formatted string.
+	 *
+	 * @since SINCEVERSION
+	 *
+	 * @param array $hsla_array HSLA array.
+	 *
+	 * @return string $hsla_string HSLA string.
+	 */
+	public function hsla_array_to_string( $hsla_array ) {
+		$h = $hsla_array[0];
+		$s = $hsla_array[1];
+		$l = $hsla_array[2];
+		$a = isset( $hsla_array[3] ) ? $hsla_array[3] : 1;
+
+		$hsla_string = 'hsla(' . $h . ',' . $s . ',' . $l . ',' . $a . ')';
+		return $hsla_string;
+	}
+
+	/**
+	 * Mix Two RGB Colors.
+	 *
+	 * @since SINCEVERSION
+	 *
+	 * @param array $color_1 RGB Color 1.
+	 * @param array $color_2 RGB Color 2.
+	 * @param float $weight  Mix Weight.
+	 *
+	 * @return array $mixed_color Mixed Color.
+	 */
+	public function mix_rbg_colors( $color_1 = array( 0, 0, 0 ), $color_2 = array( 0, 0, 0 ), $weight = 0.5 ) {
+		$f = function ( $x ) use ( $weight ) {
+			return $weight * $x;
+		};
+
+		$g = function ( $x ) use ( $weight ) {
+			return ( 1 - $weight ) * $x;
+		};
+
+		$h = function ( $x, $y ) {
+			return round( $x + $y );
+		};
+
+		return array_map( $h, array_map( $f, $color_1 ), array_map( $g, $color_2 ) );
 	}
 
 	/**
@@ -334,7 +518,7 @@ class Boldgrid_Framework_Compile_Colors {
 	 */
 	public function get_button_color_files( $files ) {
 		$s = $this->configs['components']['buttons']['variables'];
-		$path = $this->configs['customizer-options']['colors']['settings']['scss_directory']['framework_dir'] . '/buttons/';
+		$path = $this->configs['framework']['asset_dir'] . 'scss/custom-color/buttons/';
 		$configs = array();
 		// Build an array of button-classes that are needed.
 		if ( ! empty( $s['button-primary-classes'] ) ) {
@@ -422,6 +606,82 @@ class Boldgrid_Framework_Compile_Colors {
 		}
 
 		return $normalized;
+	}
+
+	/**
+	 * Get RGB(A) Array from rgb or rgba string.
+	 *
+	 * Returns an array of R,G,B,A values from a string.
+	 *
+	 * @since SINCEVERSION
+	 */
+	public function get_rgb_array( $color ) {
+		$rgba_string = $this->normalize( $color );
+		$rgba_string = str_replace( 'rgba(', '', $rgba_string );
+		$rgba_string = str_replace( ')', '', $rgba_string );
+
+		$rgba = explode( ',', $rgba_string );
+		return $rgba;
+	}
+
+	/**
+	 * Convert RGBA to HSLA.
+	 *
+	 * @since SINCEVERSION
+	 *
+	 * @param array $rgba_array         Array of RGBA values
+	 * @param int   $luminosity_adjust Luminosity to adjust (optional).
+	 *
+	 * @return array $hsla_array         HSLA array.
+	 */
+	public function rgba_to_hsla( $rgba_array, $luminosity_adjust = 0 ) {
+		$r = intval( $rgba_array[0] );
+		$g = intval( $rgba_array[1] );
+		$b = intval( $rgba_array[2] );
+		$a = isset( $rgba_array[3] ) ? intval( $rgba_array[3] ) : 1;
+
+		$r /= 255;
+		$g /= 255;
+		$b /= 255;
+
+		$max = max( $r, $g, $b );
+		$min = min( $r, $g, $b );
+
+		$h;
+		$s;
+		$l = ( $max + $min ) / 2;
+		$d = $max - $min;
+
+		// If difference is 0, then it's a shade of grey.
+		if ( 0 == $d ) {
+			$h = 0;
+			$s = 0;
+		} else {
+			$s = $d / ( 1 - abs( 2 * $l - 1 ) );
+			switch ( $max ) {
+				case $r:
+					$h = 60 * fmod( ( ( $g - $b ) / $d ), 6 );
+						if ( $b > $g ) {
+							$h += 360;
+						}
+					break;
+
+				case $g:
+					$h = 60 * ( ( $b - $r ) / $d + 2 );
+					break;
+
+				case $b:
+					$h = 60 * ( ( $r - $g ) / $d + 4 );
+					break;
+			}
+		}
+
+		return array(
+			round( $h, 2 ),
+			round( $s, 2 ) * 100 . '%',
+			( round( $l, 2 ) * 100 ) + $luminosity_adjust . '%',
+			$a,
+		);
 	}
 
 	/**

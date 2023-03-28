@@ -49,9 +49,9 @@ export class Preview  {
 				properties: [ 'color', 'color-hover' ]
 			},
 			{
-				name: 'bgtfw_footer_links',
-				selector: '.footer-content:not(.template-footer)',
-				properties: [ 'link-color' ]
+				name: 'bgtfw_footer_link_color',
+				selector: '#colophon .bgtfw-footer.footer-content:not(.template-footer) *:not( .menu-item ) > a:not( .btn )',
+				properties: [ 'color' ]
 			}
 		];
 	}

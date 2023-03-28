@@ -19,10 +19,10 @@ return array(
 	'dark_text' => '#4d4d4d',
 	'settings' => array(
 		// Directory that contains SCSS files to be compiled.
-		'scss_directory' => array(
-			'framework_dir' => $bgtfw_configs['framework']['asset_dir'] . 'scss/custom-color',
-			'default' => '/inc/boldgrid-theme-framework-config/scss',
-		),
+		// 'scss_directory' => array(
+		// 	'framework_dir' => $bgtfw_configs['framework']['asset_dir'] . 'scss/custom-color',
+		// 	'default' => '/inc/boldgrid-theme-framework-config/scss',
+		// ),
 
 		// After the helper compiles the css, where should the css be stored?
 		'output_css_name' => $bgtfw_configs['framework']['config_directory']['template'] . '/css/color-palettes.css',
