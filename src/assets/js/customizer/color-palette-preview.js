@@ -35,7 +35,7 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 	 *
 	 * @since 2.20.0
 	 */
-	self.update_overlay_colors = function() {
+	self.updateOverlayColors = function() {
 		var $bgColorElements = $( '[class*="-background-color"]' );
 
 		$bgColorElements.each( ( _, el ) => {
@@ -100,7 +100,7 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 				.change();
 
 			// Update overlay colors.
-			self.update_overlay_colors();
+			self.updateOverlayColors();
 		} );
 	} );
 
