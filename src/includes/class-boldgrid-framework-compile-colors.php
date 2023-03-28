@@ -179,7 +179,7 @@ class Boldgrid_Framework_Compile_Colors {
 	/**
 	 * Generate SCSS variables for Hover Colors.
 	 *
-	 * @since SINCEVERSION
+	 * @since 2.20.0
 	 *
 	 * @param array  $formatted_palette Array of formatted palette colors.
 	 * @param string $property         Property to generate hover colors for.
@@ -211,7 +211,7 @@ class Boldgrid_Framework_Compile_Colors {
 	/**
 	 * Get the hover color for a given background and text color.
 	 *
-	 * @since SINCEVERSION
+	 * @since 2.20.0
 	 *
 	 * @param string $bg_color_value  Background color value.
 	 * @param string $text_color_value Text color value.
@@ -285,7 +285,7 @@ class Boldgrid_Framework_Compile_Colors {
 	 *
 	 * Convert an RGBA array to a formatted string.
 	 *
-	 * @since SINCEVERSION
+	 * @since 2.20.0
 	 *
 	 * @param array $rgba_array RGBA array.
 	 *
@@ -306,7 +306,7 @@ class Boldgrid_Framework_Compile_Colors {
 	 *
 	 * Convert an HSLA array to a formatted string.
 	 *
-	 * @since SINCEVERSION
+	 * @since 2.20.0
 	 *
 	 * @param array $hsla_array HSLA array.
 	 *
@@ -325,7 +325,7 @@ class Boldgrid_Framework_Compile_Colors {
 	/**
 	 * Mix Two RGB Colors.
 	 *
-	 * @since SINCEVERSION
+	 * @since 2.20.0
 	 *
 	 * @param array $color_1 RGB Color 1.
 	 * @param array $color_2 RGB Color 2.
@@ -603,7 +603,7 @@ class Boldgrid_Framework_Compile_Colors {
 	 *
 	 * Returns an array of R,G,B,A values from a string.
 	 *
-	 * @since SINCEVERSION
+	 * @since 2.20.0
 	 */
 	public function get_rgb_array( $color ) {
 		$rgba_string = $this->normalize( $color );
@@ -617,7 +617,7 @@ class Boldgrid_Framework_Compile_Colors {
 	/**
 	 * Convert RGBA to HSLA.
 	 *
-	 * @since SINCEVERSION
+	 * @since 2.20.0
 	 *
 	 * @param array $rgba_array         Array of RGBA values
 	 * @param int   $luminosity_adjust Luminosity to adjust (optional).
