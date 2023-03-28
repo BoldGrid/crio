@@ -172,7 +172,18 @@ class Boldgrid_Framework_Links {
 				}
 
 				if ( 'bgtfw_body' === $prefix ) {
-					$footer_link_color  = explode( ':', get_theme_mod( 'bgtfw_footer_link_color' ) )[1];
+					/**
+					 * The footer link theme mod name was changed from
+					 * 'bgtfw_footer_links' to 'bgtfw_footer_link_color' in
+					 * 2.20.0, so we need to check for both to ensure backwards compatibility.
+					 */
+					$footer_link_color  = explode(
+						':',
+						get_theme_mod(
+							'bgtfw_footer_link_color',
+							get_theme_mod( 'bgtfw_footer_links' )
+						)
+					)[1];
 					$footer_ari_color   = ariColor::newColor( $color );
 					$footer_color_hover = get_theme_mod( "${prefix}_link_color_hover" ) ?: 0;
 					$footer_lightness   = min( $footer_ari_color->lightness + $footer_color_hover, 100 );

@@ -135,7 +135,7 @@ return array(
 		'label'             => esc_attr__( 'Link Color', 'crio' ),
 		'section'           => 'bgtfw_footer_colors',
 		'priority'          => 30,
-		'default'           => '',
+		'default'           => get_theme_mod( 'bgtfw_footer_links', '' ),
 		'choices'           => array(
 			'selectors' => Boldgrid_Framework_Links::$footer_link_selectors,
 			'colors'    => $bgtfw_formatted_palette,
