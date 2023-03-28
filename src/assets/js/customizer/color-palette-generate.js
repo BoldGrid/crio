@@ -98,7 +98,7 @@ BOLDGRID.COLOR_PALETTE.Generate = BOLDGRID.COLOR_PALETTE.Generate || {};
 	 *
 	 * Generate CSS Variables for a color palette.
 	 *
-	 * @ since SINCEVERSION
+	 * @since 2.20.0
 	 *
 	 * @param {object} colorPalette The Color Palette Object.
 	 *
@@ -129,7 +129,7 @@ BOLDGRID.COLOR_PALETTE.Generate = BOLDGRID.COLOR_PALETTE.Generate || {};
 	/**
 	 * Generates CSS Variables for hover colors.
 	 *
-	 * @since SINCEVERSION
+	 * @since 2.20.0
 	 *
 	 * @param {object} formattedPalette Formatted colors object.
 	 * @param {string} textVariable     Text color variable.
