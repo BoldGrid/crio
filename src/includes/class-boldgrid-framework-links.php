@@ -62,8 +62,7 @@ class Boldgrid_Framework_Links {
 	 * @var array
 	 */
 	public static $footer_link_selectors = array(
-		'#colophon .bgtfw-footer.footer-content > a:not( .btn )',
-		'#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn )',
+		'#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn )',
 	);
 
 	/**
@@ -184,7 +183,7 @@ class Boldgrid_Framework_Links {
 							get_theme_mod( 'bgtfw_footer_links' )
 						)
 					)[1];
-					$footer_ari_color   = ariColor::newColor( $color );
+					$footer_ari_color   = ariColor::newColor( $footer_link_color );
 					$footer_color_hover = get_theme_mod( "${prefix}_link_color_hover" ) ?: 0;
 					$footer_lightness   = min( $footer_ari_color->lightness + $footer_color_hover, 100 );
 					$footer_lightness   = max( $footer_lightness, 0 );
@@ -201,8 +200,8 @@ class Boldgrid_Framework_Links {
 						$css .= ".sidebar.color-${sidebar_color_class}-link-color a:not( .btn ):hover, .sidebar.color-${sidebar_color_class}-link-color a:not( .btn ):focus { color: ${sidebar_color_hover} !important; }";
 					}
 
-					$css .= "#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ) { text-decoration: ${decoration};}";
-					$css .= "#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ):hover, .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ):focus {color: ${footer_color_hover};text-decoration: ${decoration_hover};}";
+					$css .= "#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ) { text-decoration: ${decoration};}";
+					$css .= "#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ):hover, .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ):focus {color: ${footer_color_hover};text-decoration: ${decoration_hover};}";
 				}
 			}
 		}

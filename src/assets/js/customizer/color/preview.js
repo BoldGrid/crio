@@ -50,7 +50,7 @@ export class Preview  {
 			},
 			{
 				name: 'bgtfw_footer_link_color',
-				selector: '#colophon .bgtfw-footer.footer-content:not(.template-footer) *:not( .menu-item ) > a:not( .btn )',
+				selector: '#colophon .bgtfw-footer.footer-content:not(.template-footer) .attribution-theme-mods > .link > a:not( .btn ):hover',
 				properties: [ 'color' ]
 			}
 		];
