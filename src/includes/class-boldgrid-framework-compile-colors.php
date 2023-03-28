@@ -211,6 +211,12 @@ class Boldgrid_Framework_Compile_Colors {
 	/**
 	 * Get the hover color for a given background and text color.
 	 *
+	 * All the logic for determining the hover color was
+	 * derived from the SCSS functions defined prior to the
+	 * 2.2.0 release in the following file:
+	 *
+	 * src/assets/scss/custom-color/color-palettes.scss
+	 *
 	 * @since 2.20.0
 	 *
 	 * @param string $bg_color_value  Background color value.

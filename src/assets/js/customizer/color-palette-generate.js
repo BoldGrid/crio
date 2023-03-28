@@ -162,7 +162,7 @@ BOLDGRID.COLOR_PALETTE.Generate = BOLDGRID.COLOR_PALETTE.Generate || {};
 	 * 2.2.0 release in the following file:
 	 *
 	 * src/assets/scss/custom-color/color-palettes.scss
-	 * 
+	 *
 	 * @since 2.20.0
 	 *
 	 * @param {Color} BgColor   Background Color object.
