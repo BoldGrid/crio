@@ -94,6 +94,138 @@ BOLDGRID.COLOR_PALETTE.Generate = BOLDGRID.COLOR_PALETTE.Generate || {};
 	];
 
 	/**
+	 * Css Variables.
+	 *
+	 * Generate CSS Variables for a color palette.
+	 *
+	 * @ since 2.20.0
+	 *
+	 * @param {object} colorPalette The Color Palette Object.
+	 *
+	 * @returns string CSS Variables string.
+	 */
+	self.cssVariables = function( colorPalette ) {
+		var css              = '',
+			formattedPalette = {};
+
+		$.each( colorPalette.colors, function( index, color ) {
+			var colorIndex = index + 1;
+
+			formattedPalette['color-' + colorIndex ] = color;
+		} );
+
+		formattedPalette['color-neutral'] = colorPalette['neutral-color'];
+
+		$.each( formattedPalette, function( variable, color ) {
+			css += `--${variable}: ${color};`;
+			css += `--${variable}-raw: ` + color.replace( 'rgb(', '' ).replace( ')', '' ) + ';';
+			css += `--${variable}-light:` + net.brehaut.Color( color ).lightenByAmount( 0.1 ).toCSS() + ';';
+			css += self.generateHoverVars( formattedPalette, variable, color );
+		} );
+
+		return css;
+	};
+
+	/**
+	 * Generates CSS Variables for hover colors.
+	 *
+	 * @since 2.20.0
+	 *
+	 * @param {object} formattedPalette Formatted colors object.
+	 * @param {string} textVariable     Text color variable.
+	 * @param {string} textColor        Text color value.
+	 *
+	 * @returns {string} CSS Variables string.
+	 */
+	self.generateHoverVars = function( formattedPalette, textVariable, textColor ) {
+		var textIndex = textVariable.replace( 'color-', '' ),
+			hoverVars = '';
+
+		$.each( formattedPalette, function( bgVariable, bgColor ) {
+			var bgIndex    = bgVariable.replace( 'color-', '' ),
+				hoverColor = self.getHoverColor(
+					net.brehaut.Color( bgColor ),
+					net.brehaut.Color( textColor )
+				);
+
+				hoverVars += `--bg-${bgIndex}-text-${textIndex}-hover: ${hoverColor};`;
+		} );
+
+		return hoverVars;
+	};
+
+	/**
+	 * Get Hover Color.
+	 *
+	 * All the logic for determining the hover color was
+	 * derived from the SCSS functions defined prior to the
+	 * 2.2.0 release in the following file:
+	 *
+	 * src/assets/scss/custom-color/color-palettes.scss
+	 *
+	 * @since 2.20.0
+	 *
+	 * @param {Color} BgColor   Background Color object.
+	 * @param {Color} TextColor Text Color object.
+	 *
+	 * @returns {string} RGB Color value.
+	 */
+	self.getHoverColor = function( BgColor, TextColor ) {
+		var textLightness = TextColor.getLightness(),
+			bgLightness   = BgColor.getLightness(),
+			hoverColor;
+
+		// White Text
+		if ( 1 === textLightness ) {
+
+			// Dark Background
+			if ( 0.9 <= bgLightness ) {
+				hoverColor = BgColor.darkenByAmount( 0.15 );
+
+			// Light Background
+			} else {
+				hoverColor = BgColor.blend( TextColor, 0.8 );
+			}
+
+		// Black Text
+		} else if ( 0 === textLightness ) {
+
+			// Dark Background
+			if ( 0.10 > bgLightness ) {
+				hoverColor = BgColor.lightenByAmount( 0.2 );
+
+			// Light Background
+			} else {
+				hoverColor = BgColor.blend( TextColor, 0.6 );
+			}
+
+		// Light Text on Dark Background.
+		} else if ( bgLightness < textLightness ) {
+
+			// Color is too light to lighten.
+			if ( 0.9 < textLightness ) {
+				hoverColor = TextColor.darkenByAmount( 0.2 );
+			} else {
+				hoverColor = TextColor.lightenByAmount( 0.2 );
+			}
+
+		// Dark Text on Light Background.
+		} else {
+
+			// Color is too dark to darken.
+			if ( 0.15 > textLightness ) {
+				hoverColor = TextColor.lightenByAmount( 0.2 );
+			} else {
+				hoverColor = TextColor.darkenByAmount( 0.2 );
+			}
+		}
+
+		hoverColor = hoverColor.toRGB();
+
+		return 'rgb(' + Math.floor( hoverColor.red * 255 ) + ',' + Math.floor( hoverColor.green * 255 ) + ',' + Math.floor( hoverColor.blue * 255 ) + ')';
+	};
+
+	/**
 	 * Get a random color
 	 * Not Used ATM
 	 */

@@ -547,6 +547,10 @@ BOLDGRID.Customizer.Util.getInitialPalettes = function( option ) {
 			value.bind( function( to ) {
 				var palettes, colors;
 
+				if ( ! to ) {
+					to = parent.BOLDGRID.COLOR_PALETTE.Modify.text_area_val;
+				}
+
 				palettes = parent.jQuery( '.colors-wrapper' );
 				colors = BOLDGRID.Customizer.Util.getInitialPalettes( to );
 

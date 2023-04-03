@@ -371,7 +371,7 @@ class BoldGrid {
 			$classes = array_merge(
 				$classes,
 				$this->get_background_color( 'bgtfw_footer_color' ),
-				$this->get_link_color( 'bgtfw_footer_links' )
+				$this->get_link_color( 'bgtfw_footer_link_color' )
 			);
 		}
 

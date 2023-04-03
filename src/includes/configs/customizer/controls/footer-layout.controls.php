@@ -128,7 +128,7 @@ return array(
 			),
 		),
 	),
-	'bgtfw_footer_links'  => array(
+	'bgtfw_footer_link_color'  => array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
 		'settings'          => 'bgtfw_footer_links',
@@ -136,10 +136,11 @@ return array(
 		'description'       => esc_attr__( 'Change the color of your attribution links if shown.', 'crio' ),
 		'section'           => 'bgtfw_footer_colors',
 		'priority'          => 30,
-		'default'           => '',
+		'default'           => get_theme_mod( 'bgtfw_footer_links', '' ),
 		'choices'           => array(
-			'colors' => $bgtfw_formatted_palette,
-			'size'   => $bgtfw_palette->get_palette_size( $bgtfw_formatted_palette ),
+			'selectors' => Boldgrid_Framework_Links::$footer_link_selectors,
+			'colors'    => $bgtfw_formatted_palette,
+			'size'      => $bgtfw_palette->get_palette_size( $bgtfw_formatted_palette ),
 		),
 		'sanitize_callback' => array( $bgtfw_color_sanitize, 'sanitize_palette_selector' ),
 	),

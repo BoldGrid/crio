@@ -429,6 +429,18 @@ gulp.task('bootstrapCompile', function () {
   //  .pipe( notify( { message: 'SCSS compile complete', onLast: true } ) );
 });
 
+// Bootstrap Compile
+gulp.task('colorPalettesCompile', function () {
+  gulp.src(config.dist + '/assets/scss/custom-color/color-palettes.scss')
+    .pipe(sass())
+    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(gulp.dest(config.prime_dest + '/css' ) )
+    .pipe(cssnano({ discardComments: { removeAll: true }, safe: true }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest( config.prime_dest + '/css' ) )
+  //  .pipe( notify( { message: 'SCSS compile complete', onLast: true } ) );
+});
+
 // Watch for changes and recompile scss
 gulp.task('sass:watch', function () {
 	gulp.watch( 'src/assets/scss/**/*.scss', function () {
@@ -554,7 +566,7 @@ gulp.task( 'build', function( cb ) {
 		['jsHint', 'jscs', 'frameworkJs', 'svgs', 'tgm'],
 		['scssDeps', 'jsDeps', 'modernizr', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss'],
 		'images',
-		['scssCompile', 'bootstrapCompile'],
+		['scssCompile', 'bootstrapCompile', 'colorPalettesCompile' ],
 		['fontFamilyCss', 'patterns'],
 		'hovers',
 		'hoverColors',
