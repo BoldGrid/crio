@@ -36,26 +36,94 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 	 * @since 2.20.0
 	 */
 	self.updateOverlayColors = function() {
-		var $bgColorElements = $( '[class*="-background-color"]' );
+		var $bgColorElements    = $( '[class*="-background-color"]' ),
+			$imgOverlayElements = $( '[data-bg-overlaycolor-class]' ),
+			$fwrElements        = $( '[class*="fwr-"]' ),
+			rawColorValues      = {
+				'color-1-raw': $( ':root' ).css( '--color-1-raw' ),
+				'color-2-raw': $( ':root' ).css( '--color-2-raw' ),
+				'color-3-raw': $( ':root' ).css( '--color-3-raw' ),
+				'color-4-raw': $( ':root' ).css( '--color-4-raw' ),
+				'color-5-raw': $( ':root' ).css( '--color-5-raw' ),
+				'color-neutral-raw': $( ':root' ).css( '--color-neutral-raw' ),
+			};
 
 		$bgColorElements.each( ( _, el ) => {
-			var $el       = $( el ),
-				alpha     = $el.attr( 'data-alpha' ),
-				classList = $el.attr( 'class' ),
-				colorIndex,
-				colorRaw,
-				bgUuid;
+			var $bgColorEl      = $( el ),
+				bgUuid          = $bgColorEl.attr( 'data-bg-uuid' ),
+				$fwrInlineStyle = $( `#${bgUuid}-inline-css` );
 
-			if ( alpha && '1' !== alpha.toString() ) {
-				colorIndex = classList.match( /color-?(\d|neutral)-background-color/ )[1];
-				bgUuid     = $el.attr( 'data-bg-uuid' );
-
-				colorRaw = '--color-' + colorIndex + '-raw';
-
-				$( `#${bgUuid}-inline-css` ).remove();
-				$( 'head' ).append( `<style id="${bgUuid}-inline-css">.${bgUuid} { background-color: rgba( var(${colorRaw}), ${alpha} ) !important; }</style>` );
-			}
+			$fwrInlineStyle.each( ( _, el ) => {
+				self.updateBgColorOverlays( el, rawColorValues );
+			} );
 		} );
+
+		$imgOverlayElements.each( ( _, el ) => {
+			self.updateImageOverlays( el, rawColorValues );
+		} );
+
+		$fwrElements.each( ( _, el ) => {
+			var $fwr            = $( el ),
+				classList       = $fwr.attr( 'class' ),
+				fwrId           = 'fwr-' + classList.match( /fwr-?(\d+)/ )[1],
+				$fwrInlineStyle = $( `#${fwrId}-inline-css` );
+
+			$fwrInlineStyle.each( ( _, el ) => {
+				self.updateBgColorOverlays( el, rawColorValues );
+			} );
+		} );
+	};
+
+	/**
+	 * Updage Image Overlay colors.
+	 *
+	 * Elements that have a translucent color overlaying the
+	 * background image that uses a color from the palette,
+	 * has the background-image property set in the elements'
+	 * inline styles.
+	 *
+	 * @since 2.20.0
+	 *
+	 * @param {object} el             Image overlay element.
+	 * @param {object} rawColorValues Raw color values.
+	 */
+	self.updateImageOverlays = function( el, rawColorValues ) {
+		var $el             = $( el ),
+			elStyle         = $el.attr( 'style' ),
+			colorIndex      = $el.attr( 'data-bg-overlaycolor-class' ),
+			overlayValue    = rawColorValues[`color-${colorIndex}-raw`],
+			overlayVariable = `var(--color-${colorIndex}-raw)`;
+
+		$el.attr(
+			'style',
+			elStyle.replace( new RegExp( overlayValue, 'g' ), overlayVariable )
+		);
+	};
+
+
+	/**
+	 * Update BG Color Overlays.
+	 *
+	 * Elements with a translucent background color
+	 * that uses a color from the palette, and does not
+	 * have a background image, has the background properties
+	 * set in the <head> inline style element. This handles
+	 * Full Width Rows as well.
+	 *
+	 * @since 2.20.0
+	 *
+	 * @param {object} inlineStyleEl  <head> inline style element.
+	 * @param {object} rawColorValues Raw color values.
+	 */
+	self.updateBgColorOverlays = function( inlineStyleEl, rawColorValues ) {
+		var $inlineStyleEl = $( inlineStyleEl ),
+			styleString    = $inlineStyleEl.html();
+
+		_.each( rawColorValues, ( colorRawValue, colorRawVariable ) => {
+			styleString = styleString.replace( new RegExp( colorRawValue, 'g' ), `var(--${colorRawVariable})` );
+		} );
+
+		$inlineStyleEl.html( styleString );
 	};
 
 	/**

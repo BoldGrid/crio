@@ -258,6 +258,12 @@ $names: background background-color;
 			background-color: $ubtn-background !important;
 			border-color: $ubtn-background;
 			color: $ubtn-color;
+			&.btn-raised {
+				background: linear-gradient( $ubtn-background, $ubtn-bg-light ) !important;
+				&:hover, &:focus {
+					background: linear-gradient( $ubtn-bg-light, $ubtn-background ) !important;
+				}
+			}
 			a {
 				color: $ubtn-color;
 			}
