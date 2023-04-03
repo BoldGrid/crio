@@ -108,8 +108,9 @@ class BoldGrid {
 	 */
 	public function print_tagline() {
 		// Retrieve blog tagline.
-		$blog_info = get_bloginfo( 'description' );
-		$display   = get_theme_mod( 'bgtfw_tagline_display' ) === 'hide' ? ' screen-reader-text' : '';
+		$blog_info   = get_bloginfo( 'description' );
+		$display     = get_theme_mod( 'bgtfw_tagline_display' ) === 'hide' ? ' screen-reader-text' : '';
+		$aria_hidden = ! in_array( 'description', get_theme_mod( 'bgtfw_header_preset_branding' ) ) ? 'true' : 'false';
 
 		if ( $blog_info ) {
 			$classes = $this->configs['template']['tagline-classes'] . $display;
@@ -117,7 +118,12 @@ class BoldGrid {
 			$classes = $this->configs['template']['tagline-classes'] . ' site-description invisible';
 		}
 
-		printf( wp_kses_post( $this->configs['template']['tagline'] ), esc_attr( $classes ), esc_html( $blog_info ) );
+		printf(
+			'<h3 class="site-description %1$s" aria-hidden="%2$s">%3$s</h3>',
+			esc_attr( $classes ),
+			esc_attr( $aria_hidden ),
+			esc_html( $blog_info )
+		);
 	}
 
 	/**

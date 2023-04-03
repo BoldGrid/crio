@@ -111,6 +111,21 @@ class Boldgrid_Framework_Customizer_Presets {
 	}
 
 	/**
+	 * Get logo notice
+	 *
+	 * @since 2.20.0
+	 *
+	 * @return string Markup of notice
+	 */
+	public function get_logo_notice() {
+		return '<p class="branding_notice logo_set">'
+		. esc_html__( 'Your header layout does not display a logo. ', 'crio' )
+		. '<a href="#">' . esc_html__( 'Click Here', 'crio' )
+		. ' </a>' . esc_html__( ' to display your logo.', 'crio' )
+		. '</p>';
+		}
+
+	/**
 	 * Get Branding Notices.
 	 *
 	 * @since 2.7.0
@@ -122,6 +137,11 @@ class Boldgrid_Framework_Customizer_Presets {
 			. esc_html__( 'You do not have a logo set. ', 'crio' )
 			. '<a href="#">' . esc_html__( 'Click Here', 'crio' )
 			. ' </a>' . esc_html__( ' to set your logo.', 'crio' )
+			. '</p>';
+		$markup .= '<p class="branding_notice logo_set">'
+			. esc_html__( 'Your header layout does not display a logo. ', 'crio' )
+			. '<a href="#">' . esc_html__( 'Click Here', 'crio' )
+			. ' </a>' . esc_html__( ' to display your logo.', 'crio' )
 			. '</p>';
 		$markup .= '<p class="branding_notice title">'
 			. esc_html__( 'You do not have a site title set. ', 'crio' )

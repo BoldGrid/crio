@@ -562,6 +562,18 @@ export class HeaderLayout  {
 			}
 		} );
 
+		controlApi.section( 'title_tagline' ).expanded.bind( ( isExpanded ) => {
+			if ( isExpanded ) {
+				this.brandingNotices( controlApi( 'bgtfw_header_preset_branding' )(), controlApi.control( 'custom_logo' ) );
+			}
+		} );
+
+		controlApi( 'custom_logo', ( control ) => {
+			control.bind( () => {
+				this.brandingNotices( controlApi( 'bgtfw_header_preset_branding' )(), controlApi.control( 'custom_logo' ) );
+			} );
+		} );
+
 		/*
 		 * bgtfw_header_presets
 		 *
@@ -1059,7 +1071,9 @@ export class HeaderLayout  {
 	 * @param {wp.customize.control} control Customizer Control object.
 	 */
 	brandingNotices( value, control ) {
-		var container = control.container;
+		var container = control.container,
+			controlId = control.id;
+
 		container.find( '.branding_notice' ).hide();
 
 		if ( value.includes( 'logo' ) && ! controlApi( 'custom_logo' )() ) {
@@ -1083,6 +1097,15 @@ export class HeaderLayout  {
 			container.find( '.branding_notice.description a' ).on( 'click', ( e ) => {
 				e.preventDefault();
 				controlApi.control( 'blogdescription' ).focus();
+			} );
+		}
+
+		if ( 'custom_logo' === controlId && ! value.includes( 'logo' ) && controlApi( 'custom_logo' )() ) {
+			container.find( '.branding_notice.logo_set' ).show();
+			container.find( '.branding_notice.logo_set a' ).off( 'click' );
+			container.find( '.branding_notice.logo_set a' ).on( 'click', ( e ) => {
+				e.preventDefault();
+				controlApi.control( 'bgtfw_header_preset_branding' ).focus();
 			} );
 		}
 	}

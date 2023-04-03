@@ -838,6 +838,8 @@ HTML;
 
 		if ( $wp_customize->get_setting( 'custom_logo' ) ) {
 			$setting = $wp_customize->get_setting( 'custom_logo' );
+			$control = $wp_customize->get_control( 'custom_logo' );
+			$control->description = $this->presets->get_logo_notice();
 			$setting->transport = 'refresh';
 		}
 
