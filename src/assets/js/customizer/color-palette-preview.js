@@ -92,7 +92,14 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 			elStyle         = $el.attr( 'style' ),
 			colorIndex      = $el.attr( 'data-bg-overlaycolor-class' ),
 			overlayValue    = rawColorValues[`color-${colorIndex}-raw`],
-			overlayVariable = `var(--color-${colorIndex}-raw)`;
+			overlayVariable = `var(--color-${colorIndex}-raw)`,
+			colorMatches    = elStyle.match( new RegExp( overlayValue, 'g' ) );
+
+		// If the color value is not found, try removing the spaces.
+		if ( ! colorMatches ) {
+			overlayValue = overlayValue.replace( /\s/g, '' );
+			colorMatches = elStyle.match( new RegExp( overlayValue, 'g' ) );
+		}
 
 		$el.attr(
 			'style',
