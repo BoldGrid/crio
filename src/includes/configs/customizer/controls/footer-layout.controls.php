@@ -131,7 +131,7 @@ return array(
 	'bgtfw_footer_link_color'  => array(
 		'type'              => 'bgtfw-palette-selector',
 		'transport'         => 'postMessage',
-		'settings'          => 'bgtfw_footer_links',
+		'settings'          => 'bgtfw_footer_link_color',
 		'label'             => esc_attr__( 'Attribution Link Colors', 'crio' ),
 		'description'       => esc_attr__( 'Change the color of your attribution links if shown.', 'crio' ),
 		'section'           => 'bgtfw_footer_colors',
