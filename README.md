@@ -41,6 +41,12 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 
 ## Changelog ##
 
+### 2.20.0 ###
+* Enhancement: Improve Color Palettes by using color variables instead of SCSS compilation during runtime [#50](https://github.com/BoldGrid/crio/issues/50)
+* New Feature: Add notice to Design > Footer > Colors to help users [#48](https://github.com/BoldGrid/crio/issues/48)
+* New Feature: If I add a logo but my header isn't setup to show it, show a warning [#49](https://github.com/BoldGrid/crio/issues/49)
+* Accessibility: Hidden Tagline = Empty Heading Tag = Bad for Accessibility [#52](https://github.com/BoldGrid/crio/issues/52)
+
 ### 2.19.2 ###
 * Bug Fix: If the first menu item has a dropdown there are padding issues in the dropdown [#39](https://github.com/BoldGrid/crio/issues/39)
 * Bug Fix: Cannot get even spacing between posts and header/footer on Blog Page [#38](https://github.com/BoldGrid/crio/issues/38)
