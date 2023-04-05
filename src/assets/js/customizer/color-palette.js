@@ -1045,6 +1045,9 @@ BOLDGRID.COLOR_PALETTE.Modify = BOLDGRID.COLOR_PALETTE.Modify || {};
 	 * Change the palette settings
 	 */
 	colorPalette.update_palette_settings = function() {
+		colorPalette.css_variables       = BOLDGRID.COLOR_PALETTE.Generate.cssVariables( colorPalette.state.palettes['palette-primary'] );
+		colorPalette.state.css_variables = colorPalette.css_variables;
+
 		colorPalette.text_area_val = JSON.stringify({ 'state': colorPalette.state });
 		wp.customize( 'boldgrid_color_palette' ).set( '' ).set( colorPalette.text_area_val );
 	};

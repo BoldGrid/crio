@@ -4,7 +4,7 @@ Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, ful
 Requires PHP: 5.6
 Requires at least: 4.8
 Tested up to: 6.2
-Stable tag: 2.19.2
+Stable tag: 2.20.0
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -14,12 +14,19 @@ Crio is a WordPress SuperTheme that allows designers, developers and other web p
 Crio is a WordPress SuperTheme that allows designers, developers and other web professionals to create without bounds or restrictions.  Crio’s advanced customization options are completely integrated with the WordPress Customizer API, providing you with a powerful, but familiar interface to customize your website. Our integration gives you granular control over many elements straight from the Customizer, and even device previews so you can see how your site looks on different devices. Crio’s unique color palette system keeps colors consistent across your site. Drag and drop colors in your palette to increase or decrease the usage of that color throughout your website. Use the advanced controls to create a custom Header, Footer, or Blog Page layout. Be Bold and stand above the rest with Crio by BoldGrid!
 
 == Upgrade Notice ==
-= 2.10.0 =
-This version includes CSS fixes for incorrect margin / padding issues. If you are using the Custom CSS as a temporary fix for these issues, this update may possibly conflict with your custom CSS.
+
+= 2.20.0 =
+This version changes the way the color palette CSS is generated. If you are using custom CSS to override color palettes, this may cause some conflicts.
 
 == Changelog ==
 
 ## Changelog ##
+
+== 2.20.0 ==
+* Enhancement: Improve Color Palettes by using color variables instead of SCSS compilation during runtime [#50](https://github.com/BoldGrid/crio/issues/50)
+* New Feature: Add notice to Design > Footer > Colors to help users [#48](https://github.com/BoldGrid/crio/issues/48)
+* New Feature: If I add a logo but my header isn't setup to show it, show a warning [#49](https://github.com/BoldGrid/crio/issues/49)
+* Accessibility: Hidden Tagline = Empty Heading Tag = Bad for Accessibility [#52](https://github.com/BoldGrid/crio/issues/52)
 
 == 2.19.2 ==
 * Bug Fix: If the first menu item has a dropdown there are padding issues in the dropdown [#39](https://github.com/BoldGrid/crio/issues/39)

@@ -1,7 +1,7 @@
 [id^="customize-control-bgtfw_"] {
 	&[id$="_link_color"],
 	&[id$="_link_color_display"] {
-		&:not( [id$="_link_color_display"] ),
+		&:not( [id$="_link_color_display"] ):not( [id$="_footer_link_color"] ),
 		~ [id$="_link_color"],
 		~ [id$="_link_color_hover"],
 		~ [id$="_link_decoration"],
@@ -22,7 +22,7 @@
 			padding-bottom: 12px;
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		}
-		&[id$="_link_color"] {
+		&[id$="_link_color"]:not( [id$="_footer_link_color"] ) {
 			border-top: 1px solid rgba(0, 0, 0, 0.1);
 		}
 		&[id$="_link_color_display"] + &[id$="_link_color"] {

@@ -303,20 +303,13 @@ class BoldGrid_Framework_Styles {
 			$inline_override = true === $this->configs['framework']['inline_styles'];
 			$is_changeset = ! empty( $_REQUEST['customize_changeset_uuid'] ) && ! is_customize_preview();
 
-			if ( $inline_override || $is_changeset || is_customize_preview() ) {
-				wp_register_style( $handle, false );
-				wp_enqueue_style( $handle );
-				$css = get_theme_mod( 'boldgrid_compiled_css', '' );
-				wp_add_inline_style( $handle, $css );
-			} else {
-				wp_register_style(
-					$handle,
-					Boldgrid_Framework_Customizer_Colors::get_colors_uri( $this->configs ),
-					$deps,
-					$last_mod
-				);
-				wp_enqueue_style( $handle );
-			}
+			wp_register_style(
+				$handle,
+				Boldgrid_Framework_Customizer_Colors::get_colors_uri( $this->configs ),
+				$deps,
+				$last_mod
+			);
+			wp_enqueue_style( $handle );
 		}
 
 		if ( true === $this->configs['edit-post-links']['enabled'] ) {
@@ -618,15 +611,35 @@ class BoldGrid_Framework_Styles {
 			$inline_css .= "--light-text:{$light};";
 			$inline_css .= "--dark-text:{$dark};";
 			$additional_css = '';
+
 			foreach ( $formatted_palette as $property => $value ) {
+				$value_rgba_array   = $helper->get_rgb_array( $value );
+				$light_hsla_array   = $helper->rgba_to_hsla( $value_rgba_array, 10 );
+				$lighter_hsla_array = $helper->rgba_to_hsla( $value_rgba_array, 20 );
+				$dark_hsla_array    = $helper->rgba_to_hsla( $value_rgba_array, -10 );
+				$darker_hsla_array  = $helper->rgba_to_hsla( $value_rgba_array, -20 );
+
+				$value_raw      = str_replace( array( 'rgb(', ')' ), array( '', '' ), $value );
+				$value_light    = 'hsla(' . implode( ',', $light_hsla_array ) . ')';
+				$value_lighter  = 'hsla(' . implode( ',', $lighter_hsla_array ) . ')';
+				$value_dark     = 'hsla(' . implode( ',', $dark_hsla_array ) . ')';
+				$value_darker   = 'hsla(' . implode( ',', $darker_hsla_array ) . ')';
 				$contrast_color = $helper->get_luminance( $value );
-				$lightness = abs( $contrast_color - $helper->get_luminance( $light ) );
-				$darkness = abs( $contrast_color - $helper->get_luminance( $dark ) );
+				$lightness      = abs( $contrast_color - $helper->get_luminance( $light ) );
+				$darkness       = abs( $contrast_color - $helper->get_luminance( $dark ) );
 				$contrast_color = $lightness > $darkness ? 'light' : 'dark';
 				$contrast_color = "var(--{$contrast_color}-text)";
 
 				$inline_css .= "--{$property}:{$value};";
+				$inline_css .= "--{$property}-light:{$value_light};";
+				$inline_css .= "--{$property}-lighter:{$value_lighter};";
+				$inline_css .= "--{$property}-dark:{$value_dark};";
+				$inline_css .= "--{$property}-darker:{$value_darker};";
+				$inline_css .= "--{$property}-raw:{$value_raw};";
 				$inline_css .= "--{$property}-text-contrast:{$contrast_color};";
+
+				$inline_css .= $helper->generate_hover_variables( $formatted_palette, $property, $value );
+
 				$property2 = str_replace( '-', '', $property );
 				$additional_css .= ".{$property}-text-default, .{$property2}-text-default{color: var(--{$property}-text-contrast);}";
 				$additional_css .= ".{$property}-text-contrast, .{$property2}-text-contrast, .{$property}-text-contrast-hover:hover, .{$property2}-text-contrast-hover:hover, .{$property}-text-contrast-hover:focus, .{$property2}-text-contrast-hover:focus { color: var(--{$property}-text-contrast) !important;}";

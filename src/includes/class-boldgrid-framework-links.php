@@ -51,9 +51,18 @@ class Boldgrid_Framework_Links {
 		'.custom-sub-menu a:not(.btn)',
 		'.page-header-wrapper a:not(.btn)',
 		'.mce-content-body *:not( .menu-item ) > a:not(.btn)',
-		'.template-header a:not(.btn)',
+		'.template-header *:not( .menu-item ) > a:not(.btn)',
 		'.template-footer a:not(.btn)',
 		'.template-sticky-header a:not(.btn)',
+	);
+
+	/**
+	 * Footer Link Selectors.
+	 *
+	 * @var array
+	 */
+	public static $footer_link_selectors = array(
+		'#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn )',
 	);
 
 	/**
@@ -162,8 +171,19 @@ class Boldgrid_Framework_Links {
 				}
 
 				if ( 'bgtfw_body' === $prefix ) {
-					$footer_link_color  = explode( ':', get_theme_mod( 'bgtfw_footer_links' ) )[1];
-					$footer_ari_color   = ariColor::newColor( $color );
+					/**
+					 * The footer link theme mod name was changed from
+					 * 'bgtfw_footer_links' to 'bgtfw_footer_link_color' in
+					 * 2.20.0, so we need to check for both to ensure backwards compatibility.
+					 */
+					$footer_link_color  = explode(
+						':',
+						get_theme_mod(
+							'bgtfw_footer_link_color',
+							get_theme_mod( 'bgtfw_footer_links' )
+						)
+					)[1];
+					$footer_ari_color   = ariColor::newColor( $footer_link_color );
 					$footer_color_hover = get_theme_mod( "${prefix}_link_color_hover" ) ?: 0;
 					$footer_lightness   = min( $footer_ari_color->lightness + $footer_color_hover, 100 );
 					$footer_lightness   = max( $footer_lightness, 0 );
@@ -180,8 +200,8 @@ class Boldgrid_Framework_Links {
 						$css .= ".sidebar.color-${sidebar_color_class}-link-color a:not( .btn ):hover, .sidebar.color-${sidebar_color_class}-link-color a:not( .btn ):focus { color: ${sidebar_color_hover} !important; }";
 					}
 
-					$css .= "#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ) { text-decoration: ${decoration};}";
-					$css .= "#colophon .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ):hover, .bgtfw-footer.footer-content *:not( .menu-item ) > a:not( .btn ):focus {color: ${footer_color_hover};text-decoration: ${decoration_hover};}";
+					$css .= "#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ) { text-decoration: ${decoration};}";
+					$css .= "#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ):hover, .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ):focus {color: ${footer_color_hover};text-decoration: ${decoration_hover};}";
 				}
 			}
 		}

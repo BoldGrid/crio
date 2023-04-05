@@ -445,7 +445,7 @@ class Boldgrid_Framework_Customizer_Widget_Meta {
 				$settings[ $sidebar_id ]['background_color'] = get_theme_mod( 'bgtfw_footer_color', $this->get_control_default( 'bgtfw_footer_color' ) );
 			}
 			if ( empty( $settings[ $sidebar_id ]['links_color'] ) ) {
-				$settings[ $sidebar_id ]['links_color'] = get_theme_mod( 'bgtfw_footer_links', $this->get_control_default( 'bgtfw_footer_links' ) );
+				$settings[ $sidebar_id ]['links_color'] = get_theme_mod( 'bgtfw_footer_link_color', $this->get_control_default( 'bgtfw_footer_link_color' ) );
 			}
 		}
 

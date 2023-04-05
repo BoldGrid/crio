@@ -395,24 +395,24 @@ return array(
 	'bgtfw_dropdown_footer_colors'     => array(
 		'type'                => 'bgtfw-dropdown-menu',
 		'transport'           => 'postMessage',
-		'label'               => __( 'Background', 'crio' ),
-		'active_label'        => __( 'Footer Background', 'crio' ),
+		'label'               => __( 'Link Color', 'crio' ),
+		'active_label'        => __( 'Footer Links', 'crio' ),
 		'default'             => false,
 		'settings'            => 'bgtfw_dropdown_footer_colors',
 		'section'             => 'bgtfw_footer_colors',
 		'priority'            => -1,
-		'help_label'          => __( 'Tip - Changing Backgrounds', 'crio' ),
+		'help_label'          => __( 'Tip - Footer Link Colors', 'crio' ),
 		'help_text'           => sprintf(
-			/* translators: %1$s = site name, %2$s = site tagline */
 			__(
-				'After changing your Footer Colors, you may need to adjust your %2$sWidget%1$s colors. If you don’t see the color you want to use, please update your %3$sColor Palette%1$s. You may also want to change the %4$sFooter Design%1$s or %5$sSite Background%1$s.',
+				/* translators: %1$s = closing anchor, %2$s = Widgets link tags, %3$s = Menu link tags */
+				'The color of the links in your footer depend on their location inside your footer.
+				Attribution links can be changed here, however if the links are inside of a widget,
+				you will have to change them in the %2$sWidget%1$s panel. If the links are inside a menu, you will have to change them in the %3$sMenu%1$s panel.',
 				'crio'
 			),
 			'</a>',
 			'<a class="bgtfw-inline-af-link" href="#" title="Go To Widgets Panel" data-focusType="panel" data-focusId="widgets">',
-			'<a class="bgtfw-inline-af-link" href="#" title="Go To Color Palette Section" data-focusType="section" data-focusId="colors">',
-			'<a class="bgtfw-inline-af-link" href="#" title="Go To Footer Layout Section" data-focusType="section" data-focusId="boldgrid_footer_panel">',
-			'<a class="bgtfw-inline-af-link" href="#" title="Go To Site Background Section" data-focusType="section" data-focusId="background_image">'
+			'<a class="bgtfw-inline-af-link" href="#" title="Go To the Menu Design Panel" data-focusType="panel" data-focusId="bgtfw_menus_panel">',
 		),
 		'additional_controls' => array(
 			array(
@@ -421,29 +421,19 @@ return array(
 				'focus_id'   => 'widgets',
 			),
 			array(
-				'label'      => __( 'Color Palette', 'crio' ),
-				'focus_type' => 'section',
-				'focus_id'   => 'colors',
-			),
-			array(
-				'label'      => __( 'Header Background', 'crio' ),
-				'focus_type' => 'section',
-				'focus_id'   => 'header_image',
-			),
-			array(
-				'label'      => __( 'Site Background', 'crio' ),
-				'focus_type' => 'section',
-				'focus_id'   => 'background_image',
+				'label'      => __( 'Menu Design', 'crio' ),
+				'focus_type' => 'panel',
+				'focus_id'   => 'bgtfw_menus_panel',
 			),
 		),
 		'faq_links'           => array(
 			array(
-				'label' => __( 'Change the Site Background', 'crio' ),
-				'url'   => esc_url( 'https://www.boldgrid.com/support/boldgrid-crio-supertheme-product-guide/changing-your-site-background-in-boldgrid-crio/' ),
+				'label' => __( 'Working With Widgets', 'crio' ),
+				'url'   => esc_url( 'https://www.boldgrid.com/support/boldgrid-crio-supertheme-product-guide/working-with-header-and-footer-widgets-in-boldgrid-crio/' ),
 			),
 			array(
-				'label' => __( 'Choose the Color Palette', 'crio' ),
-				'url'   => esc_url( 'https://www.boldgrid.com/support/boldgrid-crio-supertheme-product-guide/customizing-the-color-palette/' ),
+				'label' => __( 'Changing the Menu Link Colors', 'crio' ),
+				'url'   => esc_url( 'https://www.boldgrid.com/support/boldgrid-crio-supertheme-product-guide/changing-the-menu-link-styles/' ),
 			),
 		),
 	),
