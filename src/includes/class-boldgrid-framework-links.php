@@ -51,7 +51,7 @@ class Boldgrid_Framework_Links {
 		'.custom-sub-menu a:not(.btn)',
 		'.page-header-wrapper a:not(.btn)',
 		'.mce-content-body *:not( .menu-item ) > a:not(.btn)',
-		'.template-header a:not(.btn)',
+		'.template-header *:not( .menu-item ) > a:not(.btn)',
 		'.template-footer a:not(.btn)',
 		'.template-sticky-header a:not(.btn)',
 	);
