@@ -189,11 +189,14 @@ const { __ } = wp.i18n;
 				if ( 1 === Object.keys( controls ).length ) {
 					let controlId = Object.keys( controls )[0],
 						buttonPosition = self.determineButtonPosition( selector ),
-						thisLinkExclusions = [ '.button-primary', '.button-secondary', '.showcoupon', '.avatar', '.comment-edit-link' ].join( ', ' ),
+						thisLinkExclusions = [
+							'.button-primary', '.button-secondary', '.showcoupon', '.avatar', '.comment-edit-link',
+							'.bgc-single-title'
+						].join( ', ' ),
 						parentLinkExclusions = [
 							'.page-title', '.entry-title', '.tags-links', '.cat-links', '.read-more',
 							'.author', '.posted-on', '.nav-previous', '.nav-next', '.logged-in-as',
-							'.comment-meta', '.edit-link'
+							'.comment-meta', '.edit-link', '.bgc-single-article'
 						].join( ', ' );
 
 					$( selector ).each( function() {

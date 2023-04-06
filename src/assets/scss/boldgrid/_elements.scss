@@ -383,4 +383,18 @@ body.bgtfw-edit-links-hidden .bgtfw-edit-link a {
 	.color5-background-alpha {
 		background-color: rgba( var(--color-5-raw), 0.7 );
 	}
+
+	.boldgrid-shortcode .bgc-single-article {
+		background-color: var( --color-3 );
+		color: var( --color-3-text-contrast );
+	}
+  
+	.bgc-single-image .date {
+		background-color:rgba( var(--color-1-raw), 0.7 );
+		color: var( --color-1-text-contrast );
+	}
+  
+	.bgc-single-image .image-opacity {
+		background-color: rgba( var( --color-2-raw ), 0.3 );
+	}
 }

@@ -41,6 +41,9 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 
 ## Changelog ##
 
+### 2.20.1 ###
+* Bug Fix: Fix missing CSS for the PPB Post List widget when updating to 2.20.0.
+
 ### 2.20.0 ###
 * Enhancement: Improve Color Palettes by using color variables instead of SCSS compilation during runtime [#50](https://github.com/BoldGrid/crio/issues/50)
 * New Feature: Add notice to Design > Footer > Colors to help users [#48](https://github.com/BoldGrid/crio/issues/48)

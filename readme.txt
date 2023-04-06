@@ -4,7 +4,7 @@ Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, ful
 Requires PHP: 5.6
 Requires at least: 4.8
 Tested up to: 6.2
-Stable tag: 2.20.0
+Stable tag: 2.20.1
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,9 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.20.1 ==
+* Bug Fix: Fix missing CSS for the PPB Post List widget when updating to 2.20.0.
 
 == 2.20.0 ==
 * Enhancement: Improve Color Palettes by using color variables instead of SCSS compilation during runtime [#50](https://github.com/BoldGrid/crio/issues/50)
