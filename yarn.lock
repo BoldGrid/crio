@@ -753,9 +753,9 @@
   resolved "https://registry.yarnpkg.com/@boldgrid/components/-/components-2.16.2.tgz#8a0fcac9d14093fb72bca09bb9e72d8ff9033c1a"
   integrity sha512-SAvoySS7JwX9S63sJW83D9A8LG2P67IJyrVtLDseeZnQ4eoxOBTzU5I5W2kZObse4hhjlgwqBUINooXiCmICSg==
 
-"@boldgrid/controls@https://github.com/BoldGrid/controls#dev":
+"@boldgrid/controls@https://github.com/BoldGrid/controls#update-multi-slider":
   version "0.15.0"
-  resolved "https://github.com/BoldGrid/controls#d1ef9755892a8dfcb9aa7e6f5013086f2f2ecfec"
+  resolved "https://github.com/BoldGrid/controls#78e3e5b37f3d13471f1b86bb5ddc58ae5baeec71"
   dependencies:
     "@boldgrid/components" "^2.14.0"
     "@material/switch" "^0.36.1"

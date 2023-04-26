@@ -65,7 +65,7 @@
 		"@babel/plugin-transform-react-jsx": "^7.3.0",
 		"@babel/plugin-transform-runtime": "^7.4.4",
 		"@babel/preset-env": "^7.0.0-beta.47",
-		"@boldgrid/controls": "https://github.com/BoldGrid/controls#dev",
+		"@boldgrid/controls": "https://github.com/BoldGrid/controls#update-multi-slider",
 		"PHP_CodeSniffer": "https://github.com/squizlabs/PHP_CodeSniffer/#2.9",
 		"WordPress-Coding-Standards": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards#0.10.0",
 		"archiver": "^3.0.0",
@@ -163,8 +163,8 @@
 		"sass.js": "~0.11.1",
 		"scssphp": "https://github.com/scssphp/scssphp#v1.10.0",
 		"smartmenus": "^1.1.0",
-		"wow.js": "^1.2.2",
-		"snyk": "1.685.0"
+		"snyk": "1.685.0",
+		"wow.js": "^1.2.2"
 	},
 	"snyk": true
 }
