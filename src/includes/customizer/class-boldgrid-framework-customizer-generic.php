@@ -150,6 +150,10 @@ class Boldgrid_Framework_Customizer_Generic {
 		$css      = '';
 		$selector = implode( ',', $control['choices']['settings']['control']['selectors'] );
 		foreach ( $defaults as $config_set ) {
+			error_log( 'config_set: ' . json_encode( $config_set ) );
+			if ( ! is_array( $config_set ) ) {
+				continue;
+			}
 			foreach ( $config_set['media'] as $media_device ) {
 				$media_prefix = $this->create_media_prefix( $media_device );
 				$control_css  = $this->get_directional_css( $control, $config_set );
