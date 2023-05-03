@@ -150,7 +150,6 @@ class Boldgrid_Framework_Customizer_Generic {
 		$css      = '';
 		$selector = implode( ',', $control['choices']['settings']['control']['selectors'] );
 		foreach ( $defaults as $config_set ) {
-			error_log( 'config_set: ' . json_encode( $config_set ) );
 			if ( ! is_array( $config_set ) ) {
 				continue;
 			}
