@@ -551,6 +551,13 @@ $sections_array = array(
 		'description' => esc_html__( 'Change the border of your blog posts.', 'crio' ),
 		'capability'  => 'edit_theme_options',
 	),
+	'bgtfw_blog_border_radius_section'                  => array(
+		'title'       => __( 'Border Radius', 'crio' ),
+		'panel'       => 'bgtfw_blog_blog_page_panel',
+		'section'     => 'bgtfw_pages_blog_blog_page_advanced',
+		'description' => esc_html__( 'Change the border radius of your blog posts.', 'crio' ),
+		'capability'  => 'edit_theme_options',
+	),
 	'bgtfw_blog_shadow_section'                  => array(
 		'title'       => __( 'Box Shadow', 'crio' ),
 		'panel'       => 'bgtfw_blog_blog_page_panel',
