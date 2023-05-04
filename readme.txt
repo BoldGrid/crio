@@ -22,6 +22,12 @@ This version changes the way the color palette CSS is generated. If you are usin
 
 ## Changelog ##
 
+== 2.20.2 ==
+* Improvement: Add Border Radius to Blog > Blog Page > Border [#60](https://github.com/BoldGrid/crio/issues/60)
+* Bug Fix: Selecting transparent color color palette causes css syntax error[#66](https://github.com/BoldGrid/crio/issues/66)
+* Bug Fix: Customizer Sticky Header Background doesn't change in live preview[#67](https://github.com/BoldGrid/crio/issues/67)
+* Bug Fix: Dreamhost Issue with Crio and PHP 8.1+ [#65](https://github.com/BoldGrid/crio/issues/65)
+
 == 2.20.1 ==
 * Bug Fix: Fix missing CSS for the PPB Post List widget when updating to 2.20.0.
 
