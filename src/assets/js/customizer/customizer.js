@@ -583,7 +583,7 @@ BOLDGRID.Customizer.Util.getInitialPalettes = function( option ) {
 		/* Header Background Color */
 		api( 'bgtfw_header_color', function( value ) {
 			value.bind( function() {
-				colorPreview.outputColor( 'bgtfw_header_color', '#masthead, #navi', [ 'background-color', 'text-default' ] );
+				colorPreview.outputColor( 'bgtfw_header_color', '#masthead, #navi, #masthead-sticky', [ 'background-color', 'text-default' ] );
 			} );
 		} );
 
