@@ -898,7 +898,7 @@ class BoldGrid {
 		foreach ( $conditions as $condition ) {
 			// Split [params]method to useable strings.
 			preg_match( '/^\[.*\]/', $condition, $matches );
-			$type = ! empty( $matches[0] ) ? $matches[0] : null;
+			$type = ! empty( $matches[0] ) ? $matches[0] : '';
 			$param = str_replace( array( '[', ']' ), '', $type );
 			$is_page_template = ( strpos( $condition, 'is_page_template' ) !== false );
 			switch ( $param ) {
