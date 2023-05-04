@@ -1994,6 +1994,25 @@ return array(
 		),
 		'sanitize_callback' => array( $bgtfw_color_sanitize, 'sanitize_palette_selector' ),
 	),
+	'bgtfw_blog_border_radius'       => array(
+		'type'              => 'kirki-generic',
+		'transport'         => 'postMessage',
+		'section'           => 'bgtfw_blog_border_radius_section',
+		'settings'          => 'bgtfw_blog_border_radius',
+		'label'             => '',
+		'default'           => '',
+		'sanitize_callback' => array( 'Boldgrid_Framework_Customizer_Generic', 'sanitize' ),
+		'choices'           => array(
+			'name'     => 'boldgrid_controls',
+			'type'     => 'BorderRadius',
+			'settings' => array(
+				'responsive' => Boldgrid_Framework_Customizer_Generic::$device_sizes,
+				'control'    => array(
+					'selectors' => array( '.palette-primary.archive .post, .palette-primary.blog .post' ),
+				),
+			),
+		),
+	),
 	'bgtfw_blog_shadow'                                => array(
 		'type'              => 'kirki-generic',
 		'transport'         => 'postMessage',

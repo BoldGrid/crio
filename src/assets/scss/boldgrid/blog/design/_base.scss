@@ -81,6 +81,7 @@ main {
 	article.post {
 		display: flex;
 		flex-direction: column;
+		overflow: hidden;
 		.entry-header {
 			display: flex;
 			flex-direction: column;
