@@ -15,7 +15,7 @@ return array(
 		'custom_logo' => array(
 			'edit_vars' => array(
 				array(
-					'selector'    => array( '.custom-logo' ),
+					'selector'    => array( '.custom-logo-link' ),
 					'label'       => esc_html__( 'Change Logo', 'crio' ),
 					'description' => esc_html__( 'Upload or change your site logo.', 'crio' ),
 				),
