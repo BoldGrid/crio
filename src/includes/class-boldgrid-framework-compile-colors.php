@@ -634,7 +634,7 @@ class Boldgrid_Framework_Compile_Colors {
 		$r = intval( $rgba_array[0] );
 		$g = intval( $rgba_array[1] );
 		$b = intval( $rgba_array[2] );
-		$a = isset( $rgba_array[3] ) ? intval( $rgba_array[3] ) : 1;
+		$a = isset( $rgba_array[3] ) ? $rgba_array[3] : 1;
 
 		$r /= 255;
 		$g /= 255;
