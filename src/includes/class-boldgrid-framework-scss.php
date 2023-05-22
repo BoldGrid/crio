@@ -41,6 +41,42 @@ class Boldgrid_Framework_SCSS {
 	public $compiled_content;
 
 	/**
+	 * WPFS
+	 * 
+	 * @since 2.20.3
+	 * 
+	 * @var Boldgrid_Framework_Wp_Fs
+	 */
+	public $wpfs;
+
+	/**
+	 * Colors
+	 * 
+	 * @since 2.20.3
+	 * 
+	 * @var Boldgrid_Framework_Compile_Colors
+	 */
+	public $colors;
+
+	/**
+	 * Staging
+	 * 
+	 * @since 2.20.3
+	 * 
+	 * @var Boldgrid_Framework_Staging
+	 */
+	public $staging;
+
+	/**
+	 * Buttons
+	 * 
+	 * @since 2.20.3
+	 * 
+	 * @var Boldgrid_Framework_Scss_Compile
+	 */
+	public $buttons;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since     1.0.0

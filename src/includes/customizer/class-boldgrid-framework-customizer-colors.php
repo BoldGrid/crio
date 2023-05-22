@@ -44,6 +44,15 @@ class Boldgrid_Framework_Customizer_Colors {
 	private $color_palettes = array();
 
 	/**
+	 * Colors
+	 * 
+	 * @since 2.20.3
+	 * 
+	 * @var Boldgrid_Framework_Compile_Colors
+	 */
+	public $colors;
+
+	/**
 	 * Setter for WP_Customizer
 	 *
 	 * @param array $s WP_Customizer object.
@@ -369,7 +378,7 @@ class Boldgrid_Framework_Customizer_Colors {
 		$dom = new \DOMDocument();
 
 		// Handle UTF-8, otherwise problems will occur with UTF-8 characters.
-		$dom->loadHTML( mb_convert_encoding( '<html>' . $post_content . '</html>', 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+		$dom->loadHTML( htmlentities( '<html>' . $post_content . '</html>' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
 
 		$elements = $dom->getElementsByTagName( '*' );
 
