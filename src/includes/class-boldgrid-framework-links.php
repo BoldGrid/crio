@@ -109,7 +109,7 @@ class Boldgrid_Framework_Links {
 			$css_prefix = str_replace( '_', '-', $prefix );
 			$styles = $this->get_styles( $prefix );
 			if ( ! empty( $styles ) ) {
-				Boldgrid_Framework_Customizer_Generic::add_inline_style( "${css_prefix}-link", $styles );
+				Boldgrid_Framework_Customizer_Generic::add_inline_style( "{$css_prefix}-link", $styles );
 			}
 		}
 	}
@@ -137,16 +137,16 @@ class Boldgrid_Framework_Links {
 	 */
 	public function get_styles( $prefix ) {
 		$css = '';
-		if ( empty( $this->configs['customizer']['controls'][ "${prefix}_link_color_display" ] ) || 'custom' === get_theme_mod( "${prefix}_link_color_display" ) ) {
-			$color = get_theme_mod( "${prefix}_link_color" ) ?: '';
-			$color_hover = get_theme_mod( "${prefix}_link_color_hover" ) ?: 0;
-			$decoration = get_theme_mod( "${prefix}_link_decoration" );
-			$decoration_hover = get_theme_mod( "${prefix}_link_decoration_hover" );
+		if ( empty( $this->configs['customizer']['controls'][ "{$prefix}_link_color_display" ] ) || 'custom' === get_theme_mod( "{$prefix}_link_color_display" ) ) {
+			$color = get_theme_mod( "{$prefix}_link_color" ) ?: '';
+			$color_hover = get_theme_mod( "{$prefix}_link_color_hover" ) ?: 0;
+			$decoration = get_theme_mod( "{$prefix}_link_decoration" );
+			$decoration_hover = get_theme_mod( "{$prefix}_link_decoration_hover" );
 
 			// Apply color as CSS variable.
 			list( $color_variable ) = explode( ':', $color );
 			$color = BoldGrid::color_from_class( $color_variable );
-			$color_variable = "var(--${color_variable})";
+			$color_variable = "var(--{$color_variable})";
 
 			if ( empty( $color ) ) {
 				return $css;
@@ -161,13 +161,13 @@ class Boldgrid_Framework_Links {
 			$excludes = '';
 
 			// Grab the filtered selectors.
-			if ( ! empty( $this->configs['customizer']['controls'][ "${prefix}_link_color" ]['choices']['selectors'] ) ) {
-				$selectors = $this->configs['customizer']['controls'][ "${prefix}_link_color" ]['choices']['selectors'];
+			if ( ! empty( $this->configs['customizer']['controls'][ "{$prefix}_link_color" ]['choices']['selectors'] ) ) {
+				$selectors = $this->configs['customizer']['controls'][ "{$prefix}_link_color" ]['choices']['selectors'];
 
 				foreach ( $selectors as $selector ) {
 					$selector = $selector . $excludes;
-					$css .= "${selector} {color: ${color_variable};text-decoration: ${decoration};}";
-					$css .= "${selector}:hover, ${selector}:focus {color: ${color_hover};text-decoration: ${decoration_hover};}";
+					$css .= "{$selector} {color: {$color_variable};text-decoration: {$decoration};}";
+					$css .= "{$selector}:hover, {$selector}:focus {color: {$color_hover};text-decoration: {$decoration_hover};}";
 				}
 
 				if ( 'bgtfw_body' === $prefix ) {
@@ -184,7 +184,7 @@ class Boldgrid_Framework_Links {
 						)
 					)[1];
 					$footer_ari_color   = ariColor::newColor( $footer_link_color );
-					$footer_color_hover = get_theme_mod( "${prefix}_link_color_hover" ) ?: 0;
+					$footer_color_hover = get_theme_mod( "{$prefix}_link_color_hover" ) ?: 0;
 					$footer_lightness   = min( $footer_ari_color->lightness + $footer_color_hover, 100 );
 					$footer_lightness   = max( $footer_lightness, 0 );
 					$footer_color_hover = $footer_ari_color->getNew( 'lightness', $footer_lightness )->toCSS( 'hsla' );
@@ -197,11 +197,11 @@ class Boldgrid_Framework_Links {
 						$sidebar_lightness   = max( $sidebar_lightness, 0 );
 						$sidebar_color_hover = $sidebar_ari_color->getNew( 'lightness', $sidebar_lightness )->toCSS( 'hsla' );
 
-						$css .= ".sidebar.color-${sidebar_color_class}-link-color a:not( .btn ):hover, .sidebar.color-${sidebar_color_class}-link-color a:not( .btn ):focus { color: ${sidebar_color_hover} !important; }";
+						$css .= ".sidebar.color-{$sidebar_color_class}-link-color a:not( .btn ):hover, .sidebar.color-{$sidebar_color_class}-link-color a:not( .btn ):focus { color: {$sidebar_color_hover} !important; }";
 					}
 
-					$css .= "#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ) { text-decoration: ${decoration};}";
-					$css .= "#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ):hover, .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ):focus {color: ${footer_color_hover};text-decoration: ${decoration_hover};}";
+					$css .= "#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ) { text-decoration: {$decoration};}";
+					$css .= "#colophon .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ):hover, .bgtfw-footer.footer-content .attribution-theme-mods > .link > a:not( .btn ):focus {color: {$footer_color_hover};text-decoration: {$decoration_hover};}";
 				}
 			}
 		}
