@@ -260,7 +260,7 @@ class Boldgrid_Framework_Customizer_Colors {
 		$old_palette = ! empty( $old_value['boldgrid_color_palette'] ) ? $old_value['boldgrid_color_palette'] : '';
 		$new_palette = ! empty( $new_value['boldgrid_color_palette'] ) ? $new_value['boldgrid_color_palette'] : '';
 
-		if ( trim( $old_palette ) != trim( $new_palette ) ) {
+		if ( trim( strval( $old_palette ) ) != trim( strval( $new_palette ) ) ) {
 			// Pass in the color palette that was updated to the compiler.
 			$this->configs['forced_color_palette_decoded'] = null;
 			if ( ! empty( $new_palette ) ) {
