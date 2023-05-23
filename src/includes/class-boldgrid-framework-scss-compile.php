@@ -33,27 +33,27 @@ class Boldgrid_Framework_Scss_Compile implements Boldgrid_Framework_Compile {
 
 	/**
 	 * WPFS
-	 * 
+	 *
 	 * @since 2.20.3
-	 * 
+	 *
 	 * @var Boldgrid_Framework_Wp_Fs
 	 */
 	public $wpfs;
-	
+
 	/**
 	 * Colors
-	 * 
+	 *
 	 * @since 2.20.3
-	 * 
+	 *
 	 * @var Boldgrid_Framework_Compile_Colors
 	 */
 	public $colors;
 
 	/**
 	 * Staging
-	 * 
+	 *
 	 * @since 2.20.3
-	 * 
+	 *
 	 * @var Boldgrid_Framework_Staging
 	 */
 	public $staging;

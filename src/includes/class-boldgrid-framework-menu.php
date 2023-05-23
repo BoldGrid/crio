@@ -24,9 +24,9 @@ class Boldgrid_Framework_Menu {
 
 	/**
 	 * Edit Enabled
-	 * 
+	 *
 	 * @since 2.20.3
-	 * 
+	 *
 	 * @var bool
 	 */
 	public $edit_enabled;

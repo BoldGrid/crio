@@ -46,9 +46,9 @@ class BoldGrid_Framework_Customizer {
 
 	/**
 	 * Presets
-	 * 
+	 *
 	 * @since 2.20.3
-	 * 
+	 *
 	 * @var BoldGrid_Framework_Customizer_Presets
 	 */
 	public $presets;

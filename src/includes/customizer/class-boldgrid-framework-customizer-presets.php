@@ -42,7 +42,7 @@ class Boldgrid_Framework_Customizer_Presets {
 	 * Current Sticky Header Layout.
 	 *
 	 * @var array
-	 * 
+	 *
 	 * @since 2.20.2
 	 */
 	public $current_sticky_layout = array();

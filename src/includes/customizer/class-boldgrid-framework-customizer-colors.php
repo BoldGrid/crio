@@ -45,9 +45,9 @@ class Boldgrid_Framework_Customizer_Colors {
 
 	/**
 	 * Colors
-	 * 
+	 *
 	 * @since 2.20.3
-	 * 
+	 *
 	 * @var Boldgrid_Framework_Compile_Colors
 	 */
 	public $colors;
