@@ -257,8 +257,8 @@ class Boldgrid_Framework_Customizer_Colors {
 	 */
 	public function update_color_palette( $old_value, $new_value ) {
 		$boldgrid_theme_helper_scss = null;
-		$old_palette = ! empty( $old_value['boldgrid_color_palette'] ) ? $old_value['boldgrid_color_palette'] : null;
-		$new_palette = ! empty( $new_value['boldgrid_color_palette'] ) ? $new_value['boldgrid_color_palette'] : null;
+		$old_palette = ! empty( $old_value['boldgrid_color_palette'] ) ? $old_value['boldgrid_color_palette'] : '';
+		$new_palette = ! empty( $new_value['boldgrid_color_palette'] ) ? $new_value['boldgrid_color_palette'] : '';
 
 		if ( trim( $old_palette ) != trim( $new_palette ) ) {
 			// Pass in the color palette that was updated to the compiler.
