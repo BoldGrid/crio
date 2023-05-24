@@ -272,6 +272,8 @@ class BoldGrid_Framework_Comments {
 						$button_class = get_theme_mod( 'bgtfw_comment_reply_button_class', 'button-primary' );
 						$classes      = apply_filters( 'bgtfw_button_classes', array() );
 
+						$comment_reply_link = $comment_reply_link ? $comment_reply_link : '';
+
 						if ( isset( $classes[ $button_class ] ) ) {
 							$comment_reply_link = preg_replace(
 								'/comment-reply-link/',
