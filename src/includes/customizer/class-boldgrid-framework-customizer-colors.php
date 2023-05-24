@@ -44,6 +44,24 @@ class Boldgrid_Framework_Customizer_Colors {
 	private $color_palettes = array();
 
 	/**
+	 * Changset Customization
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var array
+	 */
+	public $changset_customization;
+
+	/**
+	 * Palette Changeset
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var array
+	 */
+	public $palette_changeset;
+
+	/**
 	 * Colors
 	 *
 	 * @since 2.20.3
