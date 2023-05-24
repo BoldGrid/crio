@@ -396,7 +396,7 @@ class Boldgrid_Framework_Customizer_Colors {
 		$dom = new \DOMDocument();
 
 		// Handle UTF-8, otherwise problems will occur with UTF-8 characters.
-		$dom->loadHTML( htmlentities( '<html>' . $post_content . '</html>' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+		$dom->loadHTML( htmlspecialchars_decode( htmlentities( '<html>' . $post_content . '</html>', ENT_COMPAT, 'UTF-8', false ) ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
 
 		$elements = $dom->getElementsByTagName( '*' );
 

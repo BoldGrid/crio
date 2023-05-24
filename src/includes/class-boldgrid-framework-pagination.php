@@ -91,7 +91,7 @@ class BoldGrid_Framework_Pagination {
 			$dom = new \DOMDocument();
 
 			// Handle UTF-8, otherwise problems will occur with UTF-8 characters.
-			$dom->loadHTML( htmlentities( $output ) );
+			$dom->loadHTML( htmlspecialchars_decode( htmlentities( $output, ENT_COMPAT, 'UTF-8', false ) ) );
 
 			// Create an instance of DOMXpath and all elements with the class 'page-numbers'
 			$xpath = new \DOMXpath( $dom );
