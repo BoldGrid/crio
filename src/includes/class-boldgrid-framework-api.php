@@ -1114,8 +1114,10 @@ class BoldGrid {
 			$col_width_theme_mod = json_decode( $raw_col_widths, true );
 		} elseif ( isset( $raw_col_widths['media'] ) && is_string( $raw_col_widths['media'] ) ) {
 			$col_width_theme_mod = json_decode( $raw_col_widths['media'], true );
+		} elseif ( isset( $raw_col_widths[0]['media'] ) ) {
+			$col_width_theme_mod = $raw_col_widths[0]['media'];
 		} else {
-			$col_width_theme_mod = isset( $raw_col_widths[0]['media'] ) ? $raw_col_widths[0]['media'] : array();
+			return array();
 		}
 
 		foreach ( $col_width_theme_mod as $device => $values ) {
