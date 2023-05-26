@@ -1,6 +1,6 @@
 {
 	"name": "boldgrid-theme-framework",
-	"version": "2.20.2",
+	"version": "2.20.3-rc1",
 	"description": "BoldGrid Theme Framework",
 	"main": "index.js",
 	"engines": {
@@ -154,14 +154,14 @@
 		"jarallax": "^1.12.4",
 		"jquery-goup": "^1.1.0",
 		"jquery.nicescroll": "^3.6.8",
-		"kirki-toolkit": "https://github.com/kirki-framework/kirki.git#v3.1.4",
+		"kirki-toolkit": "https://github.com/boldgrid/kirki.git#crio-kirki",
 		"lodash.camelcase": "^4.3.0",
 		"lodash.kebabcase": "^4.1.1",
 		"lodash.lowercase": "^4.3.0",
 		"lodash.startcase": "^4.4.0",
 		"postcss": "^8.2.13",
 		"sass.js": "~0.11.1",
-		"scssphp": "https://github.com/scssphp/scssphp#v1.10.0",
+		"scssphp": "https://github.com/boldgrid/scssphp#crio-scss",
 		"smartmenus": "^1.1.0",
 		"snyk": "1.685.0",
 		"wow.js": "^1.2.2"

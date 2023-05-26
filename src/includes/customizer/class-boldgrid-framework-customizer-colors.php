@@ -44,6 +44,33 @@ class Boldgrid_Framework_Customizer_Colors {
 	private $color_palettes = array();
 
 	/**
+	 * Changset Customization
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var array
+	 */
+	public $changset_customization;
+
+	/**
+	 * Palette Changeset
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var array
+	 */
+	public $palette_changeset;
+
+	/**
+	 * Colors
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var Boldgrid_Framework_Compile_Colors
+	 */
+	public $colors;
+
+	/**
 	 * Setter for WP_Customizer
 	 *
 	 * @param array $s WP_Customizer object.
@@ -248,10 +275,10 @@ class Boldgrid_Framework_Customizer_Colors {
 	 */
 	public function update_color_palette( $old_value, $new_value ) {
 		$boldgrid_theme_helper_scss = null;
-		$old_palette = ! empty( $old_value['boldgrid_color_palette'] ) ? $old_value['boldgrid_color_palette'] : null;
-		$new_palette = ! empty( $new_value['boldgrid_color_palette'] ) ? $new_value['boldgrid_color_palette'] : null;
+		$old_palette = ! empty( $old_value['boldgrid_color_palette'] ) ? $old_value['boldgrid_color_palette'] : '';
+		$new_palette = ! empty( $new_value['boldgrid_color_palette'] ) ? $new_value['boldgrid_color_palette'] : '';
 
-		if ( trim( $old_palette ) != trim( $new_palette ) ) {
+		if ( trim( strval( $old_palette ) ) != trim( strval( $new_palette ) ) ) {
 			// Pass in the color palette that was updated to the compiler.
 			$this->configs['forced_color_palette_decoded'] = null;
 			if ( ! empty( $new_palette ) ) {
@@ -369,7 +396,7 @@ class Boldgrid_Framework_Customizer_Colors {
 		$dom = new \DOMDocument();
 
 		// Handle UTF-8, otherwise problems will occur with UTF-8 characters.
-		$dom->loadHTML( mb_convert_encoding( '<html>' . $post_content . '</html>', 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+		$dom->loadHTML( htmlspecialchars_decode( htmlentities( '<html>' . $post_content . '</html>', ENT_COMPAT, 'UTF-8', false ) ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
 
 		$elements = $dom->getElementsByTagName( '*' );
 

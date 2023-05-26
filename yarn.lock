@@ -8200,9 +8200,9 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-"kirki-toolkit@https://github.com/kirki-framework/kirki.git#v3.1.4":
+"kirki-toolkit@https://github.com/boldgrid/kirki.git#crio-kirki":
   version "3.0.43"
-  resolved "https://github.com/kirki-framework/kirki.git#25d4fc4297b431a254a86ff8036134e5a0a80010"
+  resolved "https://github.com/boldgrid/kirki.git#a75b01f0d3157ca84d2f7636a8765578d4f27521"
 
 lazy-req@^1.0.0:
   version "1.1.0"
@@ -11774,9 +11774,9 @@ scss-tokenizer@^0.2.3:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
 
-"scssphp@https://github.com/scssphp/scssphp#v1.10.0":
+"scssphp@https://github.com/boldgrid/scssphp#crio-scss":
   version "0.0.0"
-  resolved "https://github.com/scssphp/scssphp#9699a52a862da4efb43985943afa17150155dd3d"
+  resolved "https://github.com/boldgrid/scssphp#9d46eaaeebd49fba65f9c59fd7b79d32bad7e408"
 
 seek-bzip@^1.0.3:
   version "1.0.5"

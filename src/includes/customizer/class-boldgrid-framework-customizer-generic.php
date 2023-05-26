@@ -156,8 +156,8 @@ class Boldgrid_Framework_Customizer_Generic {
 			foreach ( $config_set['media'] as $media_device ) {
 				$media_prefix = $this->create_media_prefix( $media_device );
 				$control_css  = $this->get_directional_css( $control, $config_set );
-				$control_css  = $control_css ? "${selector} { ${control_css} }" : '';
-				$control_css  = $media_prefix && $control_css ? "${media_prefix} { ${control_css} }" : $control_css;
+				$control_css  = $control_css ? "{$selector} { {$control_css} }" : '';
+				$control_css  = $media_prefix && $control_css ? "{$media_prefix} { {$control_css} }" : $control_css;
 
 				$css .= $control_css;
 			}
@@ -181,9 +181,9 @@ class Boldgrid_Framework_Customizer_Generic {
 			$unit             = ! empty( $config['unit'] ) ? $config['unit'] : 'px';
 			$control_property = $this->get_control_property( $control['choices']['type'], $direction );
 			if ( 'ContainerWidth' === $control['choices']['type'] && 'max-width' === $control_property && '%' === $unit ) {
-				$css .= "${control_property}: calc( {$value}{$unit} + 30px );";
+				$css .= "{$control_property}: calc( {$value}{$unit} + 30px );";
 			} else {
-				$css .= "${control_property}: ${value}{$unit};";
+				$css .= "{$control_property}: {$value}{$unit};";
 			}
 		}
 
@@ -301,7 +301,7 @@ class Boldgrid_Framework_Customizer_Generic {
 		foreach ( $defaults as $device ) {
 			$selector     = implode( ',', $control['choices']['settings']['control']['selectors'] );
 			$media_prefix = $this->create_media_prefix( $device );
-			$css         .= $media_prefix ? "${media_prefix} { ${selector} { display: none !important;} }" : '';
+			$css         .= $media_prefix ? "{$media_prefix} { {$selector} { display: none !important;} }" : '';
 		}
 
 		return $css;
