@@ -1110,6 +1110,12 @@ class BoldGrid {
 			$configs['customizer']['controls']['bgtfw_header_layout_col_width']['default']
 		);
 
+		/**
+		 * Because of various versions users may be coming from,
+		 * we have to validate the form of this theme mod. If it
+		 * is a string, or contains a string in the array,
+		 * we decode it as a json_encoded array.
+		 */
 		if ( is_string( $raw_col_widths ) ) {
 			$col_width_theme_mod = json_decode( $raw_col_widths, true );
 		} elseif ( isset( $raw_col_widths['media'] ) && is_string( $raw_col_widths['media'] ) ) {
