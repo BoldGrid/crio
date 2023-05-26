@@ -145,15 +145,30 @@ class Boldgrid_Framework_Customizer_Generic {
 	 */
 	public function directional_control_styles( $control ) {
 		$defaults = get_theme_mod( $control['settings'] );
-		$defaults = is_array( $defaults ) ? $defaults : [];
+		$defaults = is_array( $defaults ) ? $defaults : array();
 
 		$css      = '';
 		$selector = implode( ',', $control['choices']['settings']['control']['selectors'] );
+
+		// This logic is to adjust for malformed theme_mods that may have been created in past versions.
+		if ( isset( $defaults['media'] ) ) {
+			$defaults = array( $defaults );
+		}
+
 		foreach ( $defaults as $config_set ) {
 			if ( ! is_array( $config_set ) ) {
 				continue;
 			}
 			foreach ( $config_set['media'] as $media_device ) {
+
+				// This logic is to adjust for malformed theme_mods that may have been created in past versions.
+				if ( ! is_string( $device ) ) {
+					continue;
+				}
+				if ( ! isset( $this->range_config[ $device ] ) ) {
+					continue;
+				}
+
 				$media_prefix = $this->create_media_prefix( $media_device );
 				$control_css  = $this->get_directional_css( $control, $config_set );
 				$control_css  = $control_css ? "{$selector} { {$control_css} }" : '';
@@ -296,9 +311,17 @@ class Boldgrid_Framework_Customizer_Generic {
 	public function device_visibility_styles( $control ) {
 		$css      = '';
 		$defaults = get_theme_mod( $control['settings'] );
-		$defaults = is_array( $defaults ) ? $defaults : [];
+		$defaults = is_array( $defaults ) && ! empty( $defaults ) ? $defaults : [];
 
 		foreach ( $defaults as $device ) {
+			// This logic is to adjust for malformed theme_mods that may have been created in past versions.
+			if ( ! is_string( $device ) ) {
+				continue;
+			}
+			if ( ! isset( $this->range_config[ $device ] ) ) {
+				continue;
+			}
+
 			$selector     = implode( ',', $control['choices']['settings']['control']['selectors'] );
 			$media_prefix = $this->create_media_prefix( $device );
 			$css         .= $media_prefix ? "{$media_prefix} { {$selector} { display: none !important;} }" : '';
