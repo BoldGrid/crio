@@ -1107,13 +1107,15 @@ class BoldGrid {
 		// if the theme_mod is a json array, we need to decode it to use it as a php array.
 		$raw_col_widths = get_theme_mod(
 			'bgtfw_' . $type . '_layout_col_width',
-			$configs['customizer']['controls']['bgtfw_header_layout_col_width']['default'] );
+			$configs['customizer']['controls']['bgtfw_header_layout_col_width']['default']
+		);
+
 		if ( is_string( $raw_col_widths ) ) {
 			$col_width_theme_mod = json_decode( $raw_col_widths, true );
+		} elseif ( isset( $raw_col_widths['media'] ) && is_string( $raw_col_widths['media'] ) ) {
+			$col_width_theme_mod = json_decode( $raw_col_widths['media'], true );
 		} else {
-			$col_width_theme_mod = isset( $raw_col_widths['media'] )
-				? json_decode( $raw_col_widths['media'], true )
-				: $raw_col_widths[0]['media'];
+			$col_width_theme_mod = isset( $raw_col_widths[0]['media'] ) ? $raw_col_widths[0]['media'] : array();
 		}
 
 		foreach ( $col_width_theme_mod as $device => $values ) {
