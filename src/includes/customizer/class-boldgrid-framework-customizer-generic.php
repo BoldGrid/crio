@@ -162,10 +162,10 @@ class Boldgrid_Framework_Customizer_Generic {
 			foreach ( $config_set['media'] as $media_device ) {
 
 				// This logic is to adjust for malformed theme_mods that may have been created in past versions.
-				if ( ! is_string( $device ) ) {
+				if ( ! is_string( $media_device ) ) {
 					continue;
 				}
-				if ( ! isset( $this->range_config[ $device ] ) ) {
+				if ( ! isset( $this->range_config[ $media_device ] ) ) {
 					continue;
 				}
 
