@@ -32,6 +32,24 @@ class Boldgrid_Framework_Activate {
 	protected $configs;
 
 	/**
+	 * SCSS
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var Boldgrid_Framework_SCSS
+	 */
+	public $scss;
+
+	/**
+	 * Color
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var Boldgrid_Framework_Customizer_Colors
+	 */
+	public $color;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @param string $configs The BoldGrid Theme Framework configurations.

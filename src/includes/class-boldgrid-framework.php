@@ -60,6 +60,17 @@ class BoldGrid_Framework {
 	}
 
 	/**
+	 * Colors
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var boolean
+	 *
+	 * @access private
+	 */
+	private $doing_cron;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.

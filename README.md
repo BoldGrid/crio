@@ -41,6 +41,11 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 
 ## Changelog ##
 
+### 2.20.3 ###
+* Bug Fix: PHP 8.1 + Crio Fatal Error | DreamHost [#82](https://github.com/BoldGrid/crio/issues/82)
+* Bug Fix: PHP 8.2 Deprecated: Using ${var} in strings is deprecated, use {$var} instead [#81](https://github.com/BoldGrid/crio/issues/81)
+* Bug Fix: DH PHP 8.2 & WP 6.2 Fatal Error [#78](https://github.com/BoldGrid/crio/issues/78)
+
 ### 2.20.2 ###
 * Improvement: Add Border Radius to Blog > Blog Page > Border [#60](https://github.com/BoldGrid/crio/issues/60)
 * Bug Fix: Selecting transparent color color palette causes css syntax error[#66](https://github.com/BoldGrid/crio/issues/66)

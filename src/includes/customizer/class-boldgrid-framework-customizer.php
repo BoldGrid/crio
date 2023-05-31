@@ -45,6 +45,15 @@ class BoldGrid_Framework_Customizer {
 	protected $scripts;
 
 	/**
+	 * Presets
+	 *
+	 * @since 2.20.3
+	 *
+	 * @var BoldGrid_Framework_Customizer_Presets
+	 */
+	public $presets;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @param     string $configs       The BoldGrid Theme Framework configurations.

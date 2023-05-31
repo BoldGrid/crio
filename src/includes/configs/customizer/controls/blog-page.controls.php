@@ -151,10 +151,12 @@ return array(
 			'size'   => $bgtfw_palette->get_palette_size( $bgtfw_formatted_palette ),
 		),
 		'sanitize_callback' => array( $bgtfw_color_sanitize, 'sanitize_palette_selector' ),
-		array(
-			'selector'    => '.blog .entry-content',
-			'label'       => 'Post Content Background',
-			'description' => 'Change the color of the Post Content Background',
+		'edit_vars'         => array(
+			array(
+				'selector'    => '.blog .entry-content',
+				'label'       => 'Post Content Background',
+				'description' => 'Change the color of the Post Content Background',
+			),
 		),
 	),
 	'bgtfw_blog_post_header_title_display'             => array(
