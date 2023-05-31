@@ -4,7 +4,7 @@ Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, ful
 Requires PHP: 5.6
 Requires at least: 4.8
 Tested up to: 6.2
-Stable tag: 2.20.3-rc1
+Stable tag: 2.20.3
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,11 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.20.3 ==
+* Bug Fix: PHP 8.1 + Crio Fatal Error | DreamHost [#82](https://github.com/BoldGrid/crio/issues/82)
+* Bug Fix: PHP 8.2 Deprecated: Using ${var} in strings is deprecated, use {$var} instead [#81](https://github.com/BoldGrid/crio/issues/81)
+* Bug Fix: DH PHP 8.2 & WP 6.2 Fatal Error [#78](https://github.com/BoldGrid/crio/issues/78)
 
 == 2.20.2 ==
 * Improvement: Add Border Radius to Blog > Blog Page > Border [#60](https://github.com/BoldGrid/crio/issues/60)
