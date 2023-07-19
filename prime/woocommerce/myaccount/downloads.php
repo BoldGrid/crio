@@ -12,10 +12,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
- * @package WooCommerce/Templates
- * @version 3.2.0
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 7.8.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $downloads     = WC()->customer->get_downloadable_products();
 $has_downloads = (bool) $downloads;
+
 do_action( 'woocommerce_before_account_downloads', $has_downloads ); ?>
 
 <?php if ( $has_downloads ) : ?>

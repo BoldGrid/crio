@@ -41,6 +41,9 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 
 ## Changelog ##
 
+### 2.20.4 ###
+* Update: Updated WooCommerce templates used by Crio [#89](https://github.com/BoldGrid/crio/issues/89)
+
 ### 2.20.3 ###
 * Bug Fix: PHP 8.1 + Crio Fatal Error | DreamHost [#82](https://github.com/BoldGrid/crio/issues/82)
 * Bug Fix: PHP 8.2 Deprecated: Using ${var} in strings is deprecated, use {$var} instead [#81](https://github.com/BoldGrid/crio/issues/81)
