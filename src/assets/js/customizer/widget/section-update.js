@@ -9,7 +9,7 @@ export default function() {
 				.filter( items => items.includes( 'sidebar' ) )
 				.map( control => control.replace( 'bgtfw_sidebar_', 'sidebar-widgets-' ) ),
 				sections = _.filter( window._wpCustomizeSettings.sections, ( section, id ) => id.includes( 'sidebar-widgets' ) );
-		
+
 				/*
 				 * Loop through the sections and determine which ones should or should not
 				 * be active based on the custom layout settings. However, the primarly-sidebar
