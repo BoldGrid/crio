@@ -3,8 +3,8 @@ Contributors: boldgrid, timph, rramo012, bgnicolepaschen, joemoto, imh_brad, jam
 Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, full-width-template, footer-widgets, featured-images, flexible-header, custom-header, custom-logo, custom-background, custom-colors, custom-menu, editor-style, translation-ready, left-sidebar, right-sidebar, grid-layout, one-column, two-columns, three-columns, four-columns
 Requires PHP: 5.6
 Requires at least: 4.8
-Tested up to: 6.2
-Stable tag: 2.20.4
+Tested up to: 6.3
+Stable tag: 2.21.1
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,13 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.21.1 ==
+* Update: Update tested to version to 6.3
+
+== 2.21.0 ==
+* New Feature: Add Smooth Scrolling behavior [#75](https://github.com/BoldGrid/crio/issues/75)
+* Big Fix: Primary Sidebar section disappearing [#91](https://github.com/BoldGrid/crio/issues/91)
 
 == 2.20.4 ==
 * Update: Updated WooCommerce templates used by Crio [#89](https://github.com/BoldGrid/crio/issues/89)

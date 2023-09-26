@@ -8,7 +8,7 @@
 * **Contributors:** rramo012, timph, jamesros161
 * **Tags:** inspiration,customization,build,create,design
 * **Requires at least:** 4.9
-* **Tested up to:** 6.2
+* **Tested up to:** 6.3
 * **License:** GPL-3.0-or-later
 * **License URI:** https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -40,6 +40,13 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 4. Run the `yarn link-theme` command to symlink your dev build directory to your WordPress installation's `wp-content/themes/crio` directory.
 
 ## Changelog ##
+
+### 2.21.1 ###
+* Update: Update tested to version to 6.3
+
+### 2.21.0 ###
+* New Feature: Add Smooth Scrolling behavior [#75](https://github.com/BoldGrid/crio/issues/75)
+* Big Fix: Primary Sidebar section disappearing [#91](https://github.com/BoldGrid/crio/issues/91)
 
 ### 2.20.4 ###
 * Update: Updated WooCommerce templates used by Crio [#89](https://github.com/BoldGrid/crio/issues/89)
