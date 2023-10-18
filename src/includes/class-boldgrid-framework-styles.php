@@ -398,7 +398,7 @@ class BoldGrid_Framework_Styles {
 		$background_color = "var(--{$background_color})";
 
 		$location = str_replace( '_', '-', $location );
-		$menu_id = "#{$location}-menu";
+		$menu_id = "#{$location}-menu.sm-clean";
 
 		$css = include $this->configs['framework']['includes_dir'] . 'partials/hover-colors-only.php';
 		$css = sprintf( $css, $menu_id, $background_color, $color, $background_color );
@@ -532,11 +532,11 @@ class BoldGrid_Framework_Styles {
 		$subcolor_obj->alpha = 0.4;
 
 		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) {background-color: var(--{$submenu_background_class});}";
-		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a:not(.btn), ";
-		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a:not(.btn):hover, ";
-		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a:not(.btn):focus, ";
-		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a:not(.btn):active, ";
-		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a:not(.btn).highlighted, ";
+		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu):not(.hvr-fade) > a:not(.btn), ";
+		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu):not(.hvr-fade) > a:not(.btn):hover, ";
+		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu):not(.hvr-fade) > a:not(.btn):focus, ";
+		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu):not(.hvr-fade) > a:not(.btn):active, ";
+		$css .= "#{$location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu):not(.hvr-fade) > a:not(.btn).highlighted, ";
 		$css .= "#{$location}-menu.sm-clean span.scroll-up, #{$location}-menu.sm-clean span.scroll-down, ";
 		$css .= "#{$location}-menu.sm-clean span.scroll-up:hover, #{$location}-menu.sm-clean span.scroll-down:hover ";
 		$css .= "{ background-color: var(--{$submenu_background_class}); }";
