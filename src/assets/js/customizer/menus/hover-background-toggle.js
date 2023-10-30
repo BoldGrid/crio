@@ -57,7 +57,11 @@ export class HoverBackgroundToggle {
 								let currentChoice = api.control( effectControlId ).setting.get();
 
 								// Displays "Secondary Color" control for "Border Effects" (optgroup3) and "Two Color Transitions" (optgroup2) option groups.
-								_.isUndefined( choices.optgroup2[1][ currentChoice ] ) && _.isUndefined( choices.optgroup3[1][ currentChoice ] ) ? control.container.hide() : control.container.show();
+								_.isUndefined( choices.optgroup2[1][ currentChoice ] ) &&
+								_.isUndefined( choices.optgroup1[1][ currentChoice ] ) &&
+								_.isUndefined( choices.optgroup3[1][ currentChoice ] ) ?
+								control.container.hide() :
+								control.container.show();
 							};
 							display();
 							setting.bind( display );

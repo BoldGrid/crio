@@ -755,7 +755,7 @@ BOLDGRID.Customizer.Util.getInitialPalettes = function( option ) {
 				} );
 
 				// Bind menu items hover effects.
-				new ToggleValue( `bgtfw_menu_items_hover_effect_${props.theme_location}`, `#${props.menu_id} > li:not(.current-menu-item)`, hoverFn );
+				new ToggleValue( `bgtfw_menu_items_hover_effect_${props.theme_location}`, `#${props.menu_id} li:not(.current-menu-item)`, hoverFn );
 
 				// Bind menu background contrast for link colors.
 				api( `bgtfw_menu_background_${props.theme_location}`, 'bgtfw_header_color', 'bgtfw_footer_color', ( ...args ) => {

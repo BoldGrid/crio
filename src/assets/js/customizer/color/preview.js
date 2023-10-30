@@ -435,17 +435,6 @@ export class Preview  {
 
 		css += '@media (min-width: 768px) {';
 		css += `#${location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) {background-color: ${subcolorVariable};}`;
-		css += `#${location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a,
-			#${location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a:hover,
-			#${location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a:focus,
-			#${location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a:active,
-			#${location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) li.menu-item:not(.custom-sub-menu) > a.highlighted,
-			#${location}-menu.sm-clean span.scroll-up,
-			#${location}-menu.sm-clean span.scroll-down,
-			#${location}-menu.sm-clean span.scroll-up:hover,
-			#${location}-menu.sm-clean span.scroll-down:hover {
-				background-color: ${subcolorVariable};
-			}`;
 		css += `#${location}-menu.sm-clean ul.sub-menu:not(.custom-sub-menu) {
 			border: 1px solid ${subcolorVariable};
 			}`;
