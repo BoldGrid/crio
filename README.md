@@ -8,7 +8,7 @@
 * **Contributors:** rramo012, timph, jamesros161
 * **Tags:** inspiration,customization,build,create,design
 * **Requires at least:** 4.9
-* **Tested up to:** 6.3
+* **Tested up to:** 6.4
 * **License:** GPL-3.0-or-later
 * **License URI:** https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -40,6 +40,13 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 4. Run the `yarn link-theme` command to symlink your dev build directory to your WordPress installation's `wp-content/themes/crio` directory.
 
 ## Changelog ##
+
+## 2.21.2 ###
+* Bug Fix: Dropdown menu hover effect - only the last menu item shows the set hover effect [#87](https://github.com/BoldGrid/crio/issues/87)
+* Bug Fix: Logo is stretched in Sticky CPH [#99](https://github.com/BoldGrid/crio/issues/99)
+* Bug Fix: Paragraphs in Sticky CPH do not use Customizer font settings [#101] (https://github.com/BoldGrid/crio/issues/101)
+* Bug Fix: Fade Menu Hover Effect doesn't work with dropdowns [#26](https://github.com/BoldGrid/crio/issues/26)
+* Update: Update tested to version to 6.4
 
 ### 2.21.1 ###
 * Update: Update tested to version to 6.3

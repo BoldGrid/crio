@@ -3,8 +3,8 @@ Contributors: boldgrid, timph, rramo012, bgnicolepaschen, joemoto, imh_brad, jam
 Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, full-width-template, footer-widgets, featured-images, flexible-header, custom-header, custom-logo, custom-background, custom-colors, custom-menu, editor-style, translation-ready, left-sidebar, right-sidebar, grid-layout, one-column, two-columns, three-columns, four-columns
 Requires PHP: 5.6
 Requires at least: 4.8
-Tested up to: 6.3
-Stable tag: 2.21.1
+Tested up to: 6.4
+Stable tag: 2.21.2
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,13 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.21.2 ==
+* Bug Fix: Dropdown menu hover effect - only the last menu item shows the set hover effect [#87](https://github.com/BoldGrid/crio/issues/87)
+* Bug Fix: Logo is stretched in Sticky CPH [#99](https://github.com/BoldGrid/crio/issues/99)
+* Bug Fix: Paragraphs in Sticky CPH do not use Customizer font settings [#101] (https://github.com/BoldGrid/crio/issues/101)
+* Bug Fix: Fade Menu Hover Effect doesn't work with dropdowns [#26](https://github.com/BoldGrid/crio/issues/26)
+* Update: Update tested to version to 6.4
 
 == 2.21.1 ==
 * Update: Update tested to version to 6.3
