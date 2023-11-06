@@ -808,10 +808,20 @@
 	}
 }
 
-li.menu-item[class*="hvr-underline"]:not(.hvr-underline-reveal) a:not( .button-primary):not(.button-secondary ) {
-	transform: unset;
-	overflow: unset;
-	&:before {
-		bottom: -2.5px;
+li.menu-item[class*="hvr-underline"] {
+	> a:not( .button-primary):not( .button-secondary ) {
+		&:before {
+			z-index: 1;
+		}
+	}
+	&:not(.hvr-underline-reveal) a:not( .button-primary):not(.button-secondary ) {
+		transform: unset;
+		overflow: unset;
+		&:before {
+			bottom: -2.5px;
+		}
 	}
 }
+
+
+
