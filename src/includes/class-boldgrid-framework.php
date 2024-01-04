@@ -758,6 +758,7 @@ class BoldGrid_Framework {
 		self::customizer_effects();
 		self::customizer_widget_meta();
 		self::customizer_search();
+		self::customizer_help();
 		self::customizer_notifications();
 		self::customizer_query();
 		self::customizer_edit_buttons();
@@ -992,6 +993,17 @@ class BoldGrid_Framework {
 	 */
 	private function customizer_effects() {
 		$effects = new BoldGrid_Framework_Customizer_Effects( $this->configs );
+	}
+
+	/**
+	 * Add hooks to customizer register action.
+	 *
+	 * @sicne 2.20.0
+	 */
+	private function customizer_help() {
+		$help = new Boldgrid_Framework_Customizer_Help( $this->configs );
+		$this->loader->add_action( 'customize_controls_enqueue_scripts', $help, 'enqueue' );
+		$this->loader->add_action( 'customize_controls_print_footer_scripts', $help, 'print_templates' );
 	}
 
 
