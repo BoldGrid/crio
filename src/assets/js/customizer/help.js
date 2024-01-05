@@ -77,13 +77,11 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 			var template;
 
 			template = wp.template( 'help-button' );
-			console.log( { helpButtonTemplate: template() } );
 			if ( $( '#customize-header-actions .customize-help-modal-toggle' ).length === 0 ) {
 				$( '#customize-header-actions' ).append( template() );
 			}
 
 			template = wp.template( 'help-modal' );
-			console.log( { helpModalTemplate: template() } );
 			if ( $( '#customizer-help-modal' ).length === 0 ) {
 				$( '#customize-header-actions' ).after( template() );
 			}
@@ -110,6 +108,8 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		_closeHelpModal: function _closeHelpModal() {
 			$( '#customizer-help-modal' ).removeClass( 'open' ).slideUp( 'fast' );
 			$( '#customize-header-actions .customize-help-modal-toggle' ).removeClass( 'open' );
+
+			BOLDGRID.CUSTOMIZER.Help._loadAdminPointer();
 		},
 
 		/**
@@ -127,6 +127,34 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 
 			$( '#customize-header-actions .customize-help-modal-toggle' ).addClass( 'open' );
 			$( '#customizer-help-modal' ).addClass( 'open' ).slideDown( 'fast' );
+		},
+
+		/**
+		 * Load the admin pointer.
+		 * 
+		 * @since 1.26.0
+		 */
+		_loadAdminPointer: function _loadAdminPointer() {
+			var $target  = $( '#customize-header-actions .customize-help-modal-toggle' ),
+				template = wp.template( 'help-modal-pointer' );
+				options  = {
+					pointerClass: 'wp-pointer crio-onb-videos',
+					content: template(),
+					position: {
+						edge: 'left',
+						align: 'top',
+					},
+					close: function() {
+						$.post( ajaxurl, {
+							pointer: 'crio-onb-videos',
+							action: 'dismiss-wp-pointer'
+						} );
+						$target.pointer( 'destroy' );
+					}
+				};
+
+			$target.pointer( options ).pointer( 'open' );
+			$target.pointer( 'reposition' );
 		}
 	};
 

@@ -12,9 +12,6 @@
  * @link       https://boldgrid.com
  */
 
-// If this file is called directly, abort.
-defined( 'WPINC' ) ? : die;
-
 /**
  * BoldGrid_Framework_Customizer_Help
  *
@@ -171,12 +168,16 @@ class Boldgrid_Framework_Customizer_Help {
 	public function print_templates() {
 		?>
 		<script type="text/html" id="tmpl-help-button">
-			<button type="button" class="customize-help-modal-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Search', 'crio' ); ?></span></button>
+			<button type="button" class="customize-help-modal-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Help', 'crio' ); ?></span></button>
+		</script>
+		<script type="text/html" id="tmpl-help-modal-pointer">
+			<h3><?php esc_html_e( 'Tutorial Videos', 'crio' ); ?></h3>
+			<p><?php esc_html_e( 'You can open up the tutorial videos again by clicking here', 'crio' ); ?></p>
 		</script>
 		<script type="text/html" id="tmpl-help-modal">
 			<div id="customizer-help-modal" style="display: none;">
 				<div class="help-modal-title">
-					<span class="name">BoldGrid Crio - Getting Started</span>
+					<span class="name"><?php esc_html_e( 'BoldGrid Crio - Getting Started', 'crio' ); ?></span>
 					<span data-nonce="<?php echo esc_attr( $this->nonce ); ?>" class="dashicons dashicons-no-alt close-icon"></span>
 				</div>
 				<div class="help-modal-content">
