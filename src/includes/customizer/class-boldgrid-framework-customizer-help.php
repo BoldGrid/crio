@@ -57,7 +57,31 @@ class Boldgrid_Framework_Customizer_Help {
 	public function __construct( $configs ) {
 		$this->configs = $configs;
 
+		$this->onboarding_videos = $this->get_onboarding_videos();
+
 		$this->nonce = wp_create_nonce( 'boldgrid_framework_customizer_dismiss_help' );
+	}
+
+	/**
+	 * Admin Ajax call to dismiss the onboarding video notice.
+	 *
+	 * @since 1.26.0
+	 */
+	public function ajax_dismiss_videos() {
+		$nonce_check = check_ajax_referer( 'boldgrid_framework_customizer_dismiss_help', 'nonce', false );
+
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
+
+			wp_die( esc_html__( 'Error: WordPress security violation.', 'crio' ) );
+		}
+
+		if ( 1 !== $nonce_check ) {
+			wp_die( esc_html__( 'Error: WordPress security violation.', 'crio' ) );
+		}
+
+		update_option( 'boldgrid_framework_customizer_dismiss_help', true );
+
+		wp_send_json_success();
 	}
 
 	/**
@@ -90,14 +114,55 @@ class Boldgrid_Framework_Customizer_Help {
 	}
 
 	/**
+	 * Auto Display Videos
+	 *
+	 * Determines whether or not the videos modal should be displayed
+	 * automatically when opening the customizer based on whether the user
+	 * has dismissed the videos modal.
+	 *
+	 * @since 2.22.0
+	 *
+	 * @return bool Auto Display Videos
+	 */
+	public function auto_display_videos() {
+		$dismissed = get_option( 'boldgrid_framework_customizer_dismiss_help', false );
+
+		if ( false === $dismissed ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
 	 * Enqueue scripts in customizer.
 	 *
 	 * @since 2.20.0
 	 */
 	public function enqueue() {
 
+		if ( 0 === count( $this->onboarding_videos ) ) {
+			return;
+		}
+
 		// Minify if script debug is off.
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		wp_register_script(
+			'bgtfw-customizer-help-js',
+			$this->configs['framework']['js_dir'] . 'customizer/help' . $suffix . '.js',
+			array(),
+			$this->configs['version'],
+			true
+		);
+
+		wp_localize_script(
+			'bgtfw-customizer-help-js',
+			'CrioCustomizerHelp',
+			array(
+				'autoDisplayVideos' => $this->auto_display_videos(),
+			)
+		);
 
 		wp_enqueue_script(
 			'bgtfw-customizer-help-js',
@@ -114,10 +179,9 @@ class Boldgrid_Framework_Customizer_Help {
 	 * @since 2.20.0
 	 */
 	public function get_video_list() {
-		$onboarding_videos = $this->get_onboarding_videos();
-		$video_list        = '';
+		$video_list = '';
 
-		if ( 0 !== count( $onboarding_videos ) ) {
+		if ( 0 !== count( $this->onboarding_videos ) ) {
 			$video_list .= '<ul class="onb-videos-list">';
 			foreach ( $onboarding_videos as $video ) {
 				$video_list .= '<li class="onb-video-list-item">';

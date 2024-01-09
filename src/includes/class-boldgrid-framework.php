@@ -1004,6 +1004,7 @@ class BoldGrid_Framework {
 		$help = new Boldgrid_Framework_Customizer_Help( $this->configs );
 		$this->loader->add_action( 'customize_controls_enqueue_scripts', $help, 'enqueue' );
 		$this->loader->add_action( 'customize_controls_print_footer_scripts', $help, 'print_templates' );
+		$this->loader->add_action( 'wp_ajax_boldgrid_framework_customizer_dismiss_help', $help, 'ajax_dismiss_videos' );
 	}
 
 

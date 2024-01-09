@@ -85,6 +85,10 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 			if ( $( '#customizer-help-modal' ).length === 0 ) {
 				$( '#customize-header-actions' ).after( template() );
 			}
+
+			if ( CrioCustomizerHelp.autoDisplayVideos ) {
+				BOLDGRID.CUSTOMIZER.Help._openHelpModal();
+			}
 		},
 
 		/**
@@ -109,7 +113,13 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 			$( '#customizer-help-modal' ).removeClass( 'open' ).slideUp( 'fast' );
 			$( '#customize-header-actions .customize-help-modal-toggle' ).removeClass( 'open' );
 
-			BOLDGRID.CUSTOMIZER.Help._loadAdminPointer();
+			if ( CrioCustomizerHelp.autoDisplayVideos ) {
+				BOLDGRID.CUSTOMIZER.Help._loadAdminPointer();
+				BOLDGRID.CUSTOMIZER.Help._ajaxDismiss(
+					$( '#customizer-help-modal .close-icon' ).data( 'nonce' )
+				);
+				CrioCustomizerHelp.autoDisplayVideos = false;
+			}
 		},
 
 		/**
@@ -127,6 +137,20 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 
 			$( '#customize-header-actions .customize-help-modal-toggle' ).addClass( 'open' );
 			$( '#customizer-help-modal' ).addClass( 'open' ).slideDown( 'fast' );
+		},
+
+		/**
+		 * Dismiss the notice via ajax.
+		 * 
+		 * @since 1.26.0
+		 * 
+		 * @param {string} nonce Nonce.
+		 */
+		_ajaxDismiss: function _ajaxDismiss( nonce ) {
+			$.post( ajaxurl, {
+				nonce: nonce,
+				action: 'boldgrid_framework_customizer_dismiss_help',
+			} );
 		},
 
 		/**
