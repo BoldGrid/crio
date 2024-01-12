@@ -183,7 +183,7 @@ class Boldgrid_Framework_Customizer_Help {
 
 		if ( 0 !== count( $this->onboarding_videos ) ) {
 			$video_list .= '<ul class="onb-videos-list">';
-			foreach ( $onboarding_videos as $video ) {
+			foreach ( $this->onboarding_videos as $video ) {
 				$video_list .= '<li class="onb-video-list-item">';
 				$video_list .= '<span data-video-id="';
 				$video_list .= $video->VideoId; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
@@ -216,9 +216,6 @@ class Boldgrid_Framework_Customizer_Help {
 					frameborder="0"
 					allowfullscreen>
 				</iframe>
-				<p class="buttons" style="margin: 10px">
-					<a data-nonce="<?php echo esc_attr( $this->nonce ); ?>" class="close-icon button button-primary">Okay, Got It!</a>
-				</p>
 			</div>
 			<?php
 		}
@@ -244,6 +241,11 @@ class Boldgrid_Framework_Customizer_Help {
 					<span class="name"><?php esc_html_e( 'BoldGrid Crio - Getting Started', 'crio' ); ?></span>
 					<span data-nonce="<?php echo esc_attr( $this->nonce ); ?>" class="dashicons dashicons-no-alt close-icon"></span>
 				</div>
+				<div class="help-modal-header">
+					<h3 class="help-modal-header-text">
+						<?php esc_html_e( 'For help getting started with Crio, you can watch these tutorial videos for help', 'crio' ); ?> 
+					</h3>
+				</div>
 				<div class="help-modal-content">
 					<div class="onb-videos-list-container">
 						<?php echo wp_kses_post( $this->get_video_list() ); ?>
@@ -252,7 +254,6 @@ class Boldgrid_Framework_Customizer_Help {
 						<?php $this->print_video_embed(); ?>
 					</div>
 				</div>
-			</div>
 		</script>
 		<?php
 	}

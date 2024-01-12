@@ -34,6 +34,11 @@
 	position: absolute;
 	background-color: white;
 	border-radius: 5px;
+	.help-modal-header {
+		h3 {
+			text-align: center;
+		}
+	}
 	.help-modal-title {
 		background-color: #32373c;
 		color: #fff;
