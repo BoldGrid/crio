@@ -95,6 +95,7 @@ class Boldgrid_Framework_Customizer_Help {
 		$onb_videos     = get_option( 'boldgrid_onboarding_videos', array() );
 		$crio_onb_vidos = array();
 
+		// @codingStandardsIgnoreStart
 		foreach ( $onb_videos as $key => $video ) {
 			if ( 'crio' === $video->Plugin ) { // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
 				$crio_onb_vidos[] = $video;
@@ -109,6 +110,7 @@ class Boldgrid_Framework_Customizer_Help {
 				}
 			);
 		}
+		// @codingStandardsIgnoreEnd
 
 		return $crio_onb_vidos;
 	}
@@ -186,9 +188,11 @@ class Boldgrid_Framework_Customizer_Help {
 			foreach ( $this->onboarding_videos as $video ) {
 				$video_list .= '<li class="onb-video-list-item">';
 				$video_list .= '<span data-video-id="';
+				// @codingStandardsIgnoreStart
 				$video_list .= $video->VideoId; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
 				$video_list .= '" class="button button-secondary">';
 				$video_list .= $video->Title; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+				// @codingStandardsIgnoreEnd
 				$video_list .= '</span>';
 				$video_list .= '</li>';
 			}
