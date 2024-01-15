@@ -7,7 +7,7 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 /**
  * Customizer Admin JS
  *
- * @since  1.0.0
+ * @since  2.22.0
  * @package Customizer_Help
  */
 
@@ -17,14 +17,14 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 	 * Handles logic for the customizer help interface.
 	 *
 	 * @class BOLDGRID.CUSTOMIZER.Help
-	 * @since 2.0.0
+	 * @since 2.22.0
 	 */
 	BOLDGRID.CUSTOMIZER.Help = {
 		controls: [],
 		/**
 		 * Initializes the customizer help interface.
 		 *
-		 * @since 1.0.0
+		 * @since 2.22.0
 		 */
 		_init: function _init() {
 			this._bind();
@@ -45,7 +45,7 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		/**
 		 * Bind Video List Buttons
 		 * 
-		 * @since 1.26.0
+		 * @since 2.22.0
 		 */
 		_updateVideoEmbed: function _updateVideoEmbed( $button ) {
 			var videoId = $button.data( 'video-id' );
@@ -60,7 +60,7 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		/**
 		 * Binds admin customize events.
 		 *
-		 * @since 2.0.0
+		 * @since 2.22.0
 		 */
 		_bind: function _bind() {
 			wp.customize.previewer.targetWindow.bind(
@@ -71,7 +71,7 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		/**
 		 * Adds the templates to the customizer.
 		 *
-		 * @since 2.0.0
+		 * @since 2.22.0
 		 */
 		_renderTemplate: function _renderTemplate() {
 			var template;
@@ -92,9 +92,9 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		},
 
 		/**
-		 * Toggles the seach form.
+		 * Toggles the help modal.
 		 *
-		 * @since  2.0.0
+		 * @since  2.22.0
 		 */
 		_toggleHelpModal: function _toggleHelpModal() {
 			if ( $( '#customizer-help-modal' ).hasClass( 'open' ) ) {
@@ -107,7 +107,7 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		/**
 		 * Closes the help Modal.
 		 *
-		 * @since  2.0.0
+		 * @since 2.22.0
 		 */
 		_closeHelpModal: function _closeHelpModal() {
 			$( '#customizer-help-modal' ).removeClass( 'open' ).slideUp( 'fast' );
@@ -123,9 +123,9 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		},
 
 		/**
-		 * Opens the search form.
+		 * Opens the help modal.
 		 *
-		 * @since  2.0.0
+		 * @since  2.22.0
 		 */
 		_openHelpModal: function _openHelpModal() {
 			$( '#customizer-help-modal' ).css( {
@@ -142,7 +142,7 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		/**
 		 * Dismiss the notice via ajax.
 		 * 
-		 * @since 1.26.0
+		 * @since 2.22.0
 		 * 
 		 * @param {string} nonce Nonce.
 		 */
@@ -156,7 +156,7 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		/**
 		 * Load the admin pointer.
 		 * 
-		 * @since 1.26.0
+		 * @since 2.22.0
 		 */
 		_loadAdminPointer: function _loadAdminPointer() {
 			var $target  = $( '#customize-header-actions .customize-help-modal-toggle' ),
