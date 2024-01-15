@@ -229,7 +229,7 @@ class Boldgrid_Framework_Customizer_Help {
 	public function print_templates() {
 		?>
 		<script type="text/html" id="tmpl-help-button">
-			<button type="button" class="customize-help-modal-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Help', 'crio' ); ?></span></button>
+			<button type="button" class="customize-help-modal-toggle dashicons dashicons-video-alt2" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Help', 'crio' ); ?></span></button>
 		</script>
 		<script type="text/html" id="tmpl-help-modal-pointer">
 			<h3><?php esc_html_e( 'Tutorial Videos', 'crio' ); ?></h3>

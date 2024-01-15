@@ -4,7 +4,7 @@ Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, ful
 Requires PHP: 5.6
 Requires at least: 4.8
 Tested up to: 6.4
-Stable tag: 2.21.2
+Stable tag: 2.22.0
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,9 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.22.0 ==
+* New Feature: Add Tutorial Videos to Customizer.
 
 == 2.21.2 ==
 * Bug Fix: Dropdown menu hover effect - only the last menu item shows the set hover effect [#87](https://github.com/BoldGrid/crio/issues/87)

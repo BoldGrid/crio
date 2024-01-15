@@ -41,7 +41,10 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 
 ## Changelog ##
 
-## 2.21.2 ###
+### 2.22.0 ###
+* New Feature: Add Tutorial Videos to Customizer.
+
+### 2.21.2 ###
 * Bug Fix: Dropdown menu hover effect - only the last menu item shows the set hover effect [#87](https://github.com/BoldGrid/crio/issues/87)
 * Bug Fix: Logo is stretched in Sticky CPH [#99](https://github.com/BoldGrid/crio/issues/99)
 * Bug Fix: Paragraphs in Sticky CPH do not use Customizer font settings [#101] (https://github.com/BoldGrid/crio/issues/101)
