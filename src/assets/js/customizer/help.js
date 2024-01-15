@@ -1,3 +1,12 @@
+/**
+ * File: help.js
+ * 
+ * This is used to display the help / tutorial
+ * videos inside the customizer.
+ * 
+ * @package Crio
+ * @since 2.22.0
+ */
 var BOLDGRID = BOLDGRID || {};
 BOLDGRID.CUSTOMIZER = BOLDGRID.CUSTOMIZER || {};
 BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
@@ -5,10 +14,10 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 'use strict';
 
 /**
- * Customizer Admin JS
+ * Customizer Help JS
  *
  * @since  2.22.0
- * @package Customizer_Help
+ * @package Crio
  */
 
 ( function( $ ) {
@@ -20,7 +29,6 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 	 * @since 2.22.0
 	 */
 	BOLDGRID.CUSTOMIZER.Help = {
-		controls: [],
 		/**
 		 * Initializes the customizer help interface.
 		 *
@@ -46,6 +54,8 @@ BOLDGRID.CUSTOMIZER.Help = BOLDGRID.CUSTOMIZER.Help || {};
 		 * Bind Video List Buttons
 		 * 
 		 * @since 2.22.0
+		 * 
+		 * @param {object} $button jQuery Object.
 		 */
 		_updateVideoEmbed: function _updateVideoEmbed( $button ) {
 			var videoId = $button.data( 'video-id' );
