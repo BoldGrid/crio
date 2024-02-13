@@ -52,7 +52,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					<# for ( key in data.choices['colors'] ) { #>
 						<input type="radio" {{{ data.inputAttrs }}} value="{{ key }}:{{ data.choices['colors'][ key ].replace( /\s+/g, '' ).toLowerCase() }}" name="_customize-color-palette-{{ data.id }}" id="{{ data.id }}{{ key }}" {{{ data.link }}}<# if ( data.value == data.choices['colors'][ key ] ) { #> checked<# } #>>
 							<label for="{{ data.id }}{{ key }}" style="width: {{ data.choices['size'] }}px; height: {{ data.choices['size'] }}px;">
-								<span class="color-palette-color" style='background: {{ data.choices['colors'][ key ] }};'>{{ data.choices['colors'][ key ] }}</span>
+								<span class="color-palette-color" style='background: var(--{{ key }});'>{{ data.choices['colors'][ key ] }}</span>
 							</label>
 						</input>
 					<# } #>

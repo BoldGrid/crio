@@ -464,12 +464,19 @@ class BoldGrid_Framework_Customizer {
 			);
 		}
 
-		wp_enqueue_style(
+		wp_register_style(
 			'boldgrid-customizer-controls-bundle',
 			$this->scripts->get_webpack_url( $this->configs['framework']['css_dir'], 'customizer/base-controls-bundle.min.css' ),
 			array(),
 			$this->configs['version']
 		);
+
+		$bgtfw_styles = new BoldGrid_Framework_Styles( $this->configs );
+		$inline_css   = $bgtfw_styles->get_css_vars();
+
+		wp_add_inline_style( 'boldgrid-customizer-controls-bundle', $inline_css );
+
+		wp_enqueue_style( 'boldgrid-customizer-controls-bundle' );
 
 		wp_enqueue_style(
 			'kirki-control-styles',
