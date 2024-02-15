@@ -408,6 +408,11 @@ class Boldgrid_Framework_Menu {
 			}
 		}
 
+		// Add the default footer social location if it's not already set.
+		if ( ! isset( $menus['footer-social'] ) ) {
+			$menus['footer-social'] = __( 'Footer Social Icons', 'crio' );
+		}
+
 		// This theme uses wp_nav_menu() in one location.
 		if ( ! empty( $menus ) ) {
 			register_nav_menus( $menus );
