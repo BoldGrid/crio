@@ -26,12 +26,12 @@ return array(
 		'sanitize_callback' => array( $bgtfw_color_sanitize, 'sanitize_palette_selector' ),
 	),
 	'bgtfw_headings_typography'        => array(
-		'type'      => 'typography',
-		'settings'  => 'bgtfw_headings_typography',
-		'transport' => 'auto',
-		'label'     => esc_attr__( 'Headings Typography', 'crio' ),
-		'section'   => 'boldgrid_typography',
-		'default'   => array(
+		'type'              => 'typography',
+		'settings'          => 'bgtfw_headings_typography',
+		'transport'         => 'auto',
+		'label'             => esc_attr__( 'Headings Typography', 'crio' ),
+		'section'           => 'boldgrid_typography',
+		'default'           => array(
 			'font-family'    => 'Roboto',
 			'variant'        => 'regular',
 			'line-height'    => '1.5',
@@ -39,15 +39,16 @@ return array(
 			'subsets'        => array( 'latin-ext' ),
 			'text-transform' => 'none',
 		),
-		'priority'  => 3,
-		'output'    => $bgtfw_typography->get_output_values( $bgtfw_configs ),
-		'edit_vars' => array(
+		'priority'          => 3,
+		'output'            => $bgtfw_typography->get_output_values( $bgtfw_configs ),
+		'edit_vars'         => array(
 			array(
 				'selector'    => array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ),
 				'label'       => esc_attr__( 'Heading Typography', 'crio' ),
 				'description' => esc_attr__( 'Adjust heading typography styles', 'crio' ),
 			),
 		),
+		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_typography' ),
 	),
 	'bgtfw_headings_font_size'         => array(
 		'type'      => 'text',
@@ -60,12 +61,12 @@ return array(
 		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_font_size' ),
 	),
 	'bgtfw_body_typography'            => array(
-		'type'      => 'typography',
-		'transport' => 'auto',
-		'settings'  => 'bgtfw_body_typography',
-		'label'     => esc_attr__( 'Main Text Typography', 'crio' ),
-		'section'   => 'boldgrid_typography',
-		'default'   => array(
+		'type'              => 'typography',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_body_typography',
+		'label'             => esc_attr__( 'Main Text Typography', 'crio' ),
+		'section'           => 'boldgrid_typography',
+		'default'           => array(
 			'font-family'    => 'Roboto',
 			'variant'        => '100',
 			'font-size'      => '18px',
@@ -74,12 +75,13 @@ return array(
 			'subsets'        => array( 'latin-ext' ),
 			'text-transform' => 'none',
 		),
-		'priority'  => 1,
-		'output'    => $bgtfw_typography->get_typography_output(
+		'priority'          => 1,
+		'output'            => $bgtfw_typography->get_typography_output(
 			$bgtfw_configs,
 			'.widget, .site-content, .sm li.custom-sub-menu, .sm li.custom-sub-menu a:not(.btn), .sm li.custom-sub-menu .widget a:not(.btn), .attribution-theme-mods-wrapper, .gutenberg .edit-post-visual-editor, .mce-content-body, .template-header, .template-sticky-header, .template-footer'
 		),
-		'edit_vars' => array(
+		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_typography' ),
+		'edit_vars'         => array(
 			array(
 				'selector'    => array(
 					'.site-content p:first-of-type',

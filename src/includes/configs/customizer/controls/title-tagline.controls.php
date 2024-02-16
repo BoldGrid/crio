@@ -26,12 +26,12 @@ return array(
 		'sanitize_callback' => array( $bgtfw_color_sanitize, 'sanitize_palette_selector' ),
 	),
 	'bgtfw_site_title_typography' => array(
-		'type'      => 'typography',
-		'transport' => 'auto',
-		'settings'  => 'bgtfw_site_title_typography',
-		'label'     => esc_attr__( 'Typography', 'crio' ),
-		'section'   => 'bgtfw_site_title',
-		'default'   => array(
+		'type'              => 'typography',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_site_title_typography',
+		'label'             => esc_attr__( 'Typography', 'crio' ),
+		'section'           => 'bgtfw_site_title',
+		'default'           => array(
 			'font-family'    => 'Roboto',
 			'variant'        => 'regular',
 			'font-size'      => '42px',
@@ -41,11 +41,12 @@ return array(
 			'text-transform' => 'none',
 			'text-align'     => 'left',
 		),
-		'priority'  => 20,
-		'output'    => $bgtfw_typography->get_typography_output(
+		'priority'          => 20,
+		'output'            => $bgtfw_typography->get_typography_output(
 			$bgtfw_configs,
 			'.site-footer .site-title > a, .' . get_theme_mod( 'boldgrid_palette_class', 'palette-primary' ) . '.site-header .site-title > a, .' . get_theme_mod( 'boldgrid_palette_class', 'palette-primary' ) . ' .site-header .site-title > a,.' . get_theme_mod( 'boldgrid_palette_class', 'palette-primary' ) . ' .site-header .site-title > a:hover, .bgc-heading.bgc-site-title, .bgc-heading.bgc-site-title:hover'
 		),
+		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_typography' ),
 	),
 	'bgtfw_tagline_color'         => array(
 		'type'              => 'bgtfw-palette-selector',
@@ -62,12 +63,12 @@ return array(
 		'sanitize_callback' => array( $bgtfw_color_sanitize, 'sanitize_palette_selector' ),
 	),
 	'bgtfw_tagline_typography'    => array(
-		'type'      => 'typography',
-		'transport' => 'auto',
-		'settings'  => 'bgtfw_tagline_typography',
-		'label'     => esc_attr__( 'Typography', 'crio' ),
-		'section'   => 'bgtfw_tagline',
-		'default'   => array(
+		'type'              => 'typography',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_tagline_typography',
+		'label'             => esc_attr__( 'Typography', 'crio' ),
+		'section'           => 'bgtfw_tagline',
+		'default'           => array(
 			'font-family'    => 'Roboto',
 			'variant'        => 'regular',
 			'font-size'      => '42px',
@@ -77,10 +78,11 @@ return array(
 			'text-transform' => 'none',
 			'text-align'     => 'left',
 		),
-		'priority'  => 20,
-		'output'    => $bgtfw_typography->get_typography_output(
+		'priority'          => 20,
+		'output'            => $bgtfw_typography->get_typography_output(
 			$bgtfw_configs,
 			'.site-branding .site-description, .bgc-tagline'
 		),
+		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_typography' ),
 	),
 );

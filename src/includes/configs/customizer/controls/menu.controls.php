@@ -610,12 +610,12 @@ return array(
 
 	/** Menu Typography */
 	'bgtfw_menu_typography_main'                      => array(
-		'type'      => 'typography',
-		'transport' => 'auto',
-		'settings'  => 'bgtfw_menu_typography_main',
-		'label'     => esc_attr__( 'Typography', 'crio' ),
-		'section'   => 'bgtfw_menu_typography_main',
-		'default'   => array(
+		'type'              => 'typography',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_menu_typography_main',
+		'label'             => esc_attr__( 'Typography', 'crio' ),
+		'section'           => 'bgtfw_menu_typography_main',
+		'default'           => array(
 			'font-family'    => 'Roboto',
 			'variant'        => 'regular',
 			'font-size'      => '18px',
@@ -624,10 +624,11 @@ return array(
 			'subsets'        => array( 'latin-ext' ),
 			'text-transform' => 'uppercase',
 		),
-		'priority'  => 20,
-		'output'    => $bgtfw_typography->get_typography_output(
+		'priority'          => 20,
+		'output'            => $bgtfw_typography->get_typography_output(
 			$bgtfw_configs,
 			'#main-menu li.menu-item > a, .mce-content-body .sm-clean'
 		),
+		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_typography' ),
 	),
 );

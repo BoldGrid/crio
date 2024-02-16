@@ -92,19 +92,31 @@ export class Preview {
 
 			// Selector lists are pulled from the customizer options matched to controlType.
 			} else if ( controlType === selector.type ) {
+				let sanitizeFontSize = ( size ) => {
+					var sizeBase    = parseInt( size ),
+						sizeUnit    = size.replace( sizeBase, '' ),
+						sizeMatches = sizeUnit.match( /(em|ex|%|px|cm|mm|in|pt|pc|rem)/ );
 
+					if ( sizeUnit === '' ) {
+						sizeUnit = 'px';
+					}
+
+					sizeUnit = sizeMatches ? sizeMatches[0] : 'px';
+
+					return sizeBase + sizeUnit;
+				};
+
+				css += rule + '{font-size:' + sanitizeFontSize( to['font-size'] ) + ';';
 				// Adds css for font variants.
 				if ( fontWeight && fontStyle ) {
-					css += rule + '{';
 					css += 'font-style:' + fontStyle + ';';
-					css += 'font-weight:' + fontWeight + ';}';
+					css += 'font-weight:' + fontWeight + ';';
 				} else if ( fontWeight ) {
-					css += rule + '{';
-					css += 'font-weight:' + fontWeight + ';}';
+					css += 'font-weight:' + fontWeight + ';';
 				} else if ( fontStyle ) {
-					css += rule + '{';
-					css += 'font-style:' + fontStyle + ';}';
+					css += 'font-style:' + fontStyle + ';';
 				}
+				css += '}';
 			}
 		} );
 

@@ -149,18 +149,19 @@ return array(
 			),
 		),
 	),
-	'bgtfw_button_primary_typography'            => array(
-		'type'      => 'typography',
-		'transport' => 'auto',
-		'settings'  => 'bgtfw_button_primary_typography',
-		'label'     => esc_attr__( 'Primary Button Typography', 'crio' ),
-		'section'   => 'bgtfw_primary_button',
-		'default'   => $bgtfw_typography->default_button_typography( $bgtfw_configs ),
-		'priority'  => 10,
-		'output'    => $bgtfw_typography->get_typography_output(
+	'bgtfw_button_primary_typography'     => array(
+		'type'              => 'typography',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_button_primary_typography',
+		'label'             => esc_attr__( 'Primary Button Typography', 'crio' ),
+		'section'           => 'bgtfw_primary_button',
+		'default'           => $bgtfw_typography->default_button_typography( $bgtfw_configs ),
+		'priority'          => 10,
+		'output'            => $bgtfw_typography->get_typography_output(
 			$bgtfw_configs,
 			'.palette-primary *:not( .menu-item ) > .button-primary'
 		),
+		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_typography' ),
 	),
 	// Secondary Buttons.
 	'bgtfw_secondary_button_background' => array(
@@ -301,17 +302,18 @@ return array(
 			),
 		),
 	),
-	'bgtfw_button_secondary_typography'            => array(
-		'type'      => 'typography',
-		'transport' => 'auto',
-		'settings'  => 'bgtfw_button_secondary_typography',
-		'label'     => esc_attr__( 'Secondary Button Typography', 'crio' ),
-		'section'   => 'bgtfw_secondary_button',
-		'default'   => $bgtfw_typography->default_button_typography( $bgtfw_configs ),
-		'priority'  => 10,
-		'output'    => $bgtfw_typography->get_typography_output(
+	'bgtfw_button_secondary_typography'   => array(
+		'type'              => 'typography',
+		'transport'         => 'auto',
+		'settings'          => 'bgtfw_button_secondary_typography',
+		'label'             => esc_attr__( 'Secondary Button Typography', 'crio' ),
+		'section'           => 'bgtfw_secondary_button',
+		'default'           => $bgtfw_typography->default_button_typography( $bgtfw_configs ),
+		'priority'          => 10,
+		'output'            => $bgtfw_typography->get_typography_output(
 			$bgtfw_configs,
 			'.palette-primary *:not( .menu-item ) > .button-secondary'
 		),
+		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_typography' ),
 	),
 );
