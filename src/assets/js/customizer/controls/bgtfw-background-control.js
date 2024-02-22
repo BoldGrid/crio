@@ -129,6 +129,14 @@ export default function() {
 	};
 
 	var setActivePattern = function() {
+		/*
+		 * If a pattern is not set, but the control is active, then
+		 * it will be an empty string, which will match ALL patterns.
+		 * and we don't want that.
+		 */
+		if ( ! wp.customize( 'boldgrid_background_pattern' )() ) {
+			return;
+		}
 		$( `#boldgrid_background_pattern .patternpreview[style*='background-image: ${ wp.customize( 'boldgrid_background_pattern' )() }']` ).addClass( 'active-pattern' );
 	};
 
