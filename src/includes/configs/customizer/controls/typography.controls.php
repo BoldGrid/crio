@@ -48,7 +48,6 @@ return array(
 				'description' => esc_attr__( 'Adjust heading typography styles', 'crio' ),
 			),
 		),
-		'sanitize_callback' => array( $bgtfw_typography, 'sanitize_typography' ),
 	),
 	'bgtfw_headings_font_size'         => array(
 		'type'      => 'text',
