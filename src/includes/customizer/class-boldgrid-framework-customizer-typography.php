@@ -295,6 +295,33 @@ class Boldgrid_Framework_Customizer_Typography {
 	}
 
 	/**
+	 * Sanitize Typography Controls.
+	 *
+	 * Sanitize callback for typography sanitize_callback argument.
+	 *
+	 * @since 2.22.1
+	 *
+	 * @param array $value The value to sanitize.
+	 *
+	 * @return string Sanitized value.
+	 */
+	public function sanitize_typography( $value ) {
+
+		if ( ! is_array( $value ) ) {
+			return false;
+		}
+		if ( ! isset( $value['font-size'] ) ) {
+			return false;
+		}
+
+		$font_size = $this->sanitize_font_size( $value['font-size'] );
+
+		$value['font-size'] = $font_size;
+
+		return $value;
+	}
+
+	/**
 	 * Sanitize Responsive Fonts.
 	 *
 	 * Sanitize callback for responsive fonts validate_callback argument.

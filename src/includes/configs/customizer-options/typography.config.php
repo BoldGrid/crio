@@ -90,6 +90,26 @@ return array(
 			'round'  => 'floor',
 			'amount' => 1,
 		),
+		'.palette-primary .site-footer .site-title > a, .palette-primary .site-header .site-title > a' => array(
+			'type'   => 'site_title',
+			'round'  => 'ceil',
+			'amount' => 1,
+		),
+		'.bgc-heading.bgc-site-title, .bgc-heading.bgc-site-title:hover' => array(
+			'type'   => 'site_title',
+			'round'  => 'ceil',
+			'amount' => 1,
+		),
+		'.palette-primary .site-footer .site-title > a:hover, .palette-primary .site-header .site-title > a:hover' => array(
+			'type'   => 'site_title',
+			'round'  => 'ceil',
+			'amount' => 1,
+		),
+		'.site-branding .site-description, .bgc-tagline' => array(
+			'type'   => 'tagline',
+			'round'  => 'ceil',
+			'amount' => 1,
+		),
 	),
 	'responsive_font_controls' => array(
 		'bgtfw_body_font_size'                => array(
