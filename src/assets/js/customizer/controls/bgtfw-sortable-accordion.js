@@ -900,7 +900,7 @@ export default {
 			}
 		} );
 
-		return menuLocations.map( location => `bgtfw_menu_${ location }` );
+		return menuLocations.map( location => `boldgrid_menu_${ location }` );
 	},
 
 	/**
