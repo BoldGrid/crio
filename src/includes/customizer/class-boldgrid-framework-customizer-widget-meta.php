@@ -384,6 +384,12 @@ class Boldgrid_Framework_Customizer_Widget_Meta {
 
 			foreach ( $this->configs['customizer-options']['typography']['selectors'] as $selector => $options ) {
 				$exploded = explode( ',', $selector );
+
+				// Only add selectors for headings.
+				if ( 'headings' !== $options['type'] ) {
+					continue;
+				}
+
 				foreach ( $exploded as $explode ) {
 					$selectors[] = ".{$sidebar_id} {$explode}";
 				}
