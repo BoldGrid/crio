@@ -8,7 +8,7 @@
 * **Contributors:** rramo012, timph, jamesros161
 * **Tags:** inspiration,customization,build,create,design
 * **Requires at least:** 4.9
-* **Tested up to:** 6.4
+* **Tested up to:** 6.5
 * **License:** GPL-3.0-or-later
 * **License URI:** https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -40,6 +40,16 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 4. Run the `yarn link-theme` command to symlink your dev build directory to your WordPress installation's `wp-content/themes/crio` directory.
 
 ## Changelog ##
+
+### 2.22.1 ###
+* Bug Fix: Do not allow only a number for the font size [#112](https://github.com/BoldGrid/crio/issues/112)
+* Bug Fix: Comments - currentcolor overrides Customizer settings [#57](https://github.com/BoldGrid/crio/issues/57)
+* Bug Fix: Footer Widgets - content inherits Headings Color [#86](https://github.com/BoldGrid/crio/issues/86)
+* Bug Fix: Cannot add new menu to Customizer footer [#56](https://github.com/BoldGrid/crio/issues/56)
+* Bug Fix: Live preview changes Header Background of CPH when it should not [#77](https://github.com/BoldGrid/crio/issues/77)
+* Bug Fix: Crio - WooCommerce Templates out of date [#114](https://github.com/BoldGrid/crio/issues/114)
+* Bug Fix: Pattern background issue [#88](https://github.com/BoldGrid/crio/issues/88)
+* Bug Fix: bgtfw-palette-selector controls are not updating their values when color palette is changed [#108](https://github.com/BoldGrid/crio/issues/108)
 
 ### 2.22.0 ###
 * New Feature: Add Tutorial Videos to Customizer.

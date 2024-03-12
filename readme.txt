@@ -3,8 +3,8 @@ Contributors: boldgrid, timph, rramo012, bgnicolepaschen, joemoto, imh_brad, jam
 Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, full-width-template, footer-widgets, featured-images, flexible-header, custom-header, custom-logo, custom-background, custom-colors, custom-menu, editor-style, translation-ready, left-sidebar, right-sidebar, grid-layout, one-column, two-columns, three-columns, four-columns
 Requires PHP: 5.6
 Requires at least: 4.8
-Tested up to: 6.4
-Stable tag: 2.22.0
+Tested up to: 6.5
+Stable tag: 2.22.1
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,16 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.22.1 ==
+* Bug Fix: Do not allow only a number for the font size [#112](https://github.com/BoldGrid/crio/issues/112)
+* Bug Fix: Comments - currentcolor overrides Customizer settings [#57](https://github.com/BoldGrid/crio/issues/57)
+* Bug Fix: Footer Widgets - content inherits Headings Color [#86](https://github.com/BoldGrid/crio/issues/86)
+* Bug Fix: Cannot add new menu to Customizer footer [#56](https://github.com/BoldGrid/crio/issues/56)
+* Bug Fix: Live preview changes Header Background of CPH when it should not [#77](https://github.com/BoldGrid/crio/issues/77)
+* Bug Fix: Crio - WooCommerce Templates out of date [#114](https://github.com/BoldGrid/crio/issues/114)
+* Bug Fix: Pattern background issue [#88](https://github.com/BoldGrid/crio/issues/88)
+* Bug Fix: bgtfw-palette-selector controls are not updating their values when color palette is changed [#108](https://github.com/BoldGrid/crio/issues/108)
 
 == 2.22.0 ==
 * New Feature: Add Tutorial Videos to Customizer.
