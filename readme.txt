@@ -4,7 +4,7 @@ Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, ful
 Requires PHP: 5.6
 Requires at least: 4.8
 Tested up to: 6.5
-Stable tag: 2.22.1
+Stable tag: 2.22.2
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,9 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.22.2 ==
+* Bug Fix: Updated kirki user-agent when making Google Fonts Requests [2524](https://github.com/themeum/kirki/issues/2524)
 
 == 2.22.1 ==
 * Bug Fix: Do not allow only a number for the font size [#112](https://github.com/BoldGrid/crio/issues/112)

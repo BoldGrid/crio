@@ -8202,7 +8202,7 @@ kind-of@^6.0.0, kind-of@^6.0.2:
 
 "kirki-toolkit@https://github.com/boldgrid/kirki.git#crio-kirki":
   version "3.0.43"
-  resolved "https://github.com/boldgrid/kirki.git#a75b01f0d3157ca84d2f7636a8765578d4f27521"
+  resolved "https://github.com/boldgrid/kirki.git#23c74869298925cca6fa1e0a9ac6fb6786abbac3"
 
 lazy-req@^1.0.0:
   version "1.1.0"
