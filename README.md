@@ -41,6 +41,9 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 
 ## Changelog ##
 
+### 2.22.2 ###
+* Bug Fix: Updated kirki user-agent when making Google Fonts Requests [2524](https://github.com/themeum/kirki/issues/2524)
+
 ### 2.22.1 ###
 * Bug Fix: Do not allow only a number for the font size [#112](https://github.com/BoldGrid/crio/issues/112)
 * Bug Fix: Comments - currentcolor overrides Customizer settings [#57](https://github.com/BoldGrid/crio/issues/57)
