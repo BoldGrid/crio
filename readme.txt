@@ -3,8 +3,8 @@ Contributors: boldgrid, timph, rramo012, bgnicolepaschen, joemoto, imh_brad, jam
 Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, full-width-template, footer-widgets, featured-images, flexible-header, custom-header, custom-logo, custom-background, custom-colors, custom-menu, editor-style, translation-ready, left-sidebar, right-sidebar, grid-layout, one-column, two-columns, three-columns, four-columns
 Requires PHP: 5.6
 Requires at least: 4.8
-Tested up to: 6.5
-Stable tag: 2.22.2
+Tested up to: 6.6
+Stable tag: 2.22.3
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,9 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.22.3 ==
+* Update: Updated WordPress tested up to version to 6.6
 
 == 2.22.2 ==
 * Bug Fix: Updated kirki user-agent when making Google Fonts Requests [2524](https://github.com/themeum/kirki/issues/2524)
