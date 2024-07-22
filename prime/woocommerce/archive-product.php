@@ -10,14 +10,10 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.4.0
+ * @see https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 8.6.0
  */
-
-$has_header_template = apply_filters( 'crio_premium_get_page_header', get_the_ID() );
-$has_header_template = get_the_ID() === $has_header_template ? false : $has_header_template;
-$template_has_title  = get_post_meta( $has_header_template, 'crio-premium-template-has-page-title', true );
 
 defined( 'ABSPATH' ) || exit;
 
@@ -32,23 +28,15 @@ get_header( 'shop' );
  */
 do_action( 'woocommerce_before_main_content' );
 
-?>
-<header class="woocommerce-products-header">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) && ! $template_has_title ) : ?>
-		<<?php echo is_front_page() ? 'h2' : 'h1'; ?> class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
-	<?php endif; ?>
+/**
+ * Hook: woocommerce_shop_loop_header.
+ *
+ * @since 8.6.0
+ *
+ * @hooked woocommerce_product_taxonomy_archive_header - 10
+ */
+do_action( 'woocommerce_shop_loop_header' );
 
-	<?php
-	/**
-	 * Hook: woocommerce_archive_description.
-	 *
-	 * @hooked woocommerce_taxonomy_archive_description - 10
-	 * @hooked woocommerce_product_archive_description - 10
-	 */
-	do_action( 'woocommerce_archive_description' );
-	?>
-</header>
-<?php
 if ( woocommerce_product_loop() ) {
 
 	/**
