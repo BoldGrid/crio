@@ -71,6 +71,22 @@ class BoldGrid_Framework {
 	private $doing_cron;
 
 	/**
+	 * Changeset Customization
+	 * 
+	 * @var boolean
+	 */
+	public $changeset_customization;
+
+	/**
+	 * Palette_changeset
+	 * 
+	 * JSON Encoded string
+	 * 
+	 * @var string
+	 */
+	public $palette_changeset;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
