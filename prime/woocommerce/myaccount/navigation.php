@@ -26,7 +26,8 @@ do_action( 'woocommerce_before_account_navigation' );
 	<ul class="nav nav-pills nav-stacked">
 
 		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
-			<li class="<?php echo esc_attr( wc_get_account_menu_item_classes( $endpoint ) ); ?>">
+			<?php $classes = wc_get_account_menu_item_classes( $endpoint ); ?>
+			<li class="<?php echo esc_attr( $endpoint ); ?>">
 			<?php
 				$active = '';
 				if ( strpos( $classes, 'is-active' ) !== false ) {
