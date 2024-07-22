@@ -27,7 +27,7 @@ do_action( 'woocommerce_before_account_navigation' );
 
 		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
 			<?php $classes = wc_get_account_menu_item_classes( $endpoint ); ?>
-			<li class="<?php echo esc_attr( $endpoint ); ?>">
+			<li class="<?php echo esc_attr( $classes ); ?>">
 			<?php
 				$active = '';
 				if ( strpos( $classes, 'is-active' ) !== false ) {
