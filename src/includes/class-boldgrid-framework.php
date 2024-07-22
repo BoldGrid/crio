@@ -72,16 +72,16 @@ class BoldGrid_Framework {
 
 	/**
 	 * Changeset Customization
-	 * 
+	 *
 	 * @var boolean
 	 */
 	public $changeset_customization;
 
 	/**
 	 * Palette_changeset
-	 * 
+	 *
 	 * JSON Encoded string
-	 * 
+	 *
 	 * @var string
 	 */
 	public $palette_changeset;
