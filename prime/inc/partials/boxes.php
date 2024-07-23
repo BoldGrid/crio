@@ -56,7 +56,7 @@ return array(
 		'</div>' .
 		'<div class="learning-text">' .
 			'<h3>' . esc_html__( 'Team Orange', 'crio' ) . '</h3>' .
-			'<p>' . esc_html__( 'An active and helpful place to get answers and tips from users like you!', 'crio' ) . '/p>' .
+			'<p>' . esc_html__( 'An active and helpful place to get answers and tips from users like you!', 'crio' ) . '</p>' .
 		'</div>' .
 	'</div>' .
 	'<p class="box">' .
