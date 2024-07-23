@@ -4,7 +4,7 @@ Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, ful
 Requires PHP: 5.6
 Requires at least: 4.8
 Tested up to: 6.6
-Stable tag: 2.22.3
+Stable tag: 2.22.4
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,11 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.22.4 ==
+* Update: Updated WooCommerce templates [#127](https://github.com/BoldGrid/crio/issues/127)
+* Bug Fix: Deprecated errors in wp-admin [#126](https://github.com/BoldGrid/crio/issues/126)
+* Bug Fix: Welcome to Crio page has markup showing [#120](https://github.com/BoldGrid/crio/issues/120)
 
 == 2.22.3 ==
 * Update: Updated WordPress tested up to version to 6.6
