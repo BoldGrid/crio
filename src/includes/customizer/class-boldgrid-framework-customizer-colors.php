@@ -309,7 +309,7 @@ class Boldgrid_Framework_Customizer_Colors {
 		}
 
 		if ( 'publish' !== $changeset_status && ! empty( $data[ $slug . '::boldgrid_color_palette' ]['value'] ) ) {
-			$boldgrid_theme_framework->changset_customization = true;
+			$boldgrid_theme_framework->changeset_customization = true;
 			$boldgrid_theme_framework->palette_changeset = $data[ $slug . '::boldgrid_color_palette' ]['value'];
 
 			$boldgrid_scss = $this->update_color_palette( false, array(
