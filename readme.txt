@@ -24,6 +24,7 @@ This version changes the way the color palette CSS is generated. If you are usin
 
 == 2.22.5 ==
 * Update: Updated WooCommerce templates [#132](https://github.com/BoldGrid/crio/issues/132)
+* Bug Fix: buttons.css gets lost on update to WP 6.6 [#131](https://github.com/BoldGrid/crio/issues/131)
 
 == 2.22.4 ==
 * Update: Updated WooCommerce templates [#127](https://github.com/BoldGrid/crio/issues/127)

@@ -276,11 +276,19 @@ class BoldGrid_Framework_Styles {
 	public function enqueue_buttons( $deps = array() ) {
 		$button_configs = $this->configs['components']['buttons'];
 
+		/*
+		 * For unknown reasons, sometimes the buttons.css file gets deleted.
+		 * This will force rebuilding the buttons.css file if it doesn't exist.
+		 */
+		if ( true === $button_configs['enabled'] && ! file_exists( $button_configs['css_file'] ) ) {
+			$compile = new Boldgrid_Framework_Scss_Compile( $this->configs );
+			$compile->build_bgtfw();
+		}
+
 		if ( true === $button_configs['enabled'] && file_exists( $button_configs['css_file'] ) ) {
 			$last_mod = filemtime( $button_configs['css_file'] );
 			wp_enqueue_style( 'boldgrid-buttons', $button_configs['css_uri'], $deps, $last_mod );
 		}
-
 	}
 
 	/**
