@@ -1,6 +1,6 @@
 /* eslint max-nested-callbacks: [ "error", 4 ], consistent-this: [ "error", "partial" ] */
 
-wp.customize.selectiveRefresh.partialConstructor.sidebar_meta_title = (function( api ) {
+wp.customize.selectiveRefresh.partialConstructor.sidebar_meta_title = ( function( api ) { // eslint-disable-line camelcase
 	'use strict';
 
 	return api.selectiveRefresh.Partial.extend( {
@@ -11,7 +11,8 @@ wp.customize.selectiveRefresh.partialConstructor.sidebar_meta_title = (function(
 		 * @returns {jQuery.promise}
 		 */
 		refresh: function() {
-			var partial = this, titleSetting;
+			var partial = this,
+				titleSetting;
 
 			// Do instant low-fidelity preview before selective refresh responds with high-fidelity PHP-rendering.
 			titleSetting = api( partial.params.primarySetting );
@@ -24,4 +25,4 @@ wp.customize.selectiveRefresh.partialConstructor.sidebar_meta_title = (function(
 			return api.selectiveRefresh.Partial.prototype.refresh.call( partial );
 		}
 	} );
-})( wp.customize );
+} )( wp.customize );

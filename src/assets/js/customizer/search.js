@@ -1,3 +1,4 @@
+/* global _wpCustomizeSettings:false */
 var BOLDGRID = BOLDGRID || {};
 BOLDGRID.CUSTOMIZER = BOLDGRID.CUSTOMIZER || {};
 BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
@@ -33,12 +34,14 @@ BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
 	 */
 	BOLDGRID.CUSTOMIZER.Search = {
 		controls: [],
+		
 		/**
 		 * Initializes the customizer search interface.
 		 *
 		 * @since 1.0.0
 		 */
 		_init: function _init() {
+			var customizePanelsParent;
 			this._bind();
 
 			// Maps the existing controls.
@@ -58,12 +61,13 @@ BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
 					}
 				} );
 
-				return [control];
+				return [ control ];
 			} );
 
 			// Adds the dymanic sidebar controls we've created.
 			$.map( _wpCustomizeSettings.sections, function( section ) {
-				var sidebar, panel;
+				var sidebar,
+					panel;
 				if ( 'sidebar' === section.type ) {
 					sidebar = wp.customize.section( section.id );
 					panel = wp.customize.panel( sidebar.params.panel );
@@ -80,17 +84,15 @@ BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
 				}
 			} );
 
-			customizerPanels = document.getElementById( 'customize-theme-controls' );
-
 			customizePanelsParent = $( '#customize-theme-controls' );
 			customizePanelsParent.after( '<div id="search-results"></div>' );
 
 			$( document ).on( 'keyup', searchInputSelector, function( event ) {
+				var $this  = $( searchInputSelector ),
+					string = $this.val();
 				event.preventDefault();
-				$this = $( searchInputSelector );
-				string = $this.val();
 
-				if ( string.length > 0 ) {
+				if ( 0 < string.length ) {
 					BOLDGRID.CUSTOMIZER.Search.displayMatches( string, BOLDGRID.CUSTOMIZER.Search.controls );
 				} else {
 					BOLDGRID.CUSTOMIZER.Search._clearSearch();
@@ -129,7 +131,9 @@ BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
 		 * @since  2.0.0
 		 */
 		displayMatches: function displayMatches( stringToMatch, controls ) {
-			var matchArray, searchSettings;
+			var matchArray,
+				searchSettings,
+				html;
 
 			matchArray = BOLDGRID.CUSTOMIZER.Search.findMatches( stringToMatch, controls );
 
@@ -191,11 +195,11 @@ BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
 			return controls.filter( function( control ) {
 				var regex;
 
-				if ( control.panelName == null ) {
+				if ( null == control.panelName ) {
 					control.panelName = '';
 				}
 
-				if ( control.sectionName == null ) {
+				if ( null == control.sectionName ) {
 					control.sectionName = '';
 				}
 
@@ -230,12 +234,12 @@ BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
 			var template;
 
 			template = wp.template( 'search-button' );
-			if ( $( '#customize-header-actions .customize-search-toggle' ).length === 0 ) {
+			if ( 0 === $( '#customize-header-actions .customize-search-toggle' ).length ) {
 				$( '#customize-header-actions' ).append( template() );
 			}
 
 			template = wp.template( 'search-form' );
-			if ( $( '#accordion-section-customizer-search' ).length === 0 ) {
+			if ( 0 === $( '#accordion-section-customizer-search' ).length ) {
 				$( '#customize-header-actions' ).after( template() );
 			}
 		},
@@ -261,9 +265,9 @@ BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
 		 * @since  2.0.0
 		 */
 		_closeSearchForm: function _closeSearchForm() {
-			var searchHeight, noticeHeight, visibility;
+			var noticeHeight,
+				visibility;
 			noticeHeight = $( '#customize-notifications-area' ).outerHeight();
-			searchHeight = $( '#accordion-section-customizer-search' ).outerHeight();
 			visibility = $( '#customize-notifications-area:hidden' ).length ? 0 : 1;
 
 			$( '#accordion-section-customizer-search' ).removeClass( 'open' ).slideUp( 'fast' );

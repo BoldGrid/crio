@@ -1,15 +1,15 @@
 /* exported CustomizeWidgetSidebarMetaControls */
 
-var CustomizeWidgetSidebarMetaControls = ( function( $ ) {
+var CustomizeWidgetSidebarMetaControls = ( function( $ ) { // eslint-disable-line no-unused-vars
 	'use strict';
 
 	var component = {
 		data: {
 			l10n: {
-				color_label: '',
-				background_color_label: '',
-				headings_color_label: '',
-				links_color_label: ''
+				color_label: '', // eslint-disable-line camelcase
+				background_color_label: '', // eslint-disable-line camelcase
+				headings_color_label: '', // eslint-disable-line camelcase
+				links_color_label: '' // eslint-disable-line camelcase
 			},
 			choices: {
 				colors: [],
@@ -96,7 +96,11 @@ var CustomizeWidgetSidebarMetaControls = ( function( $ ) {
 	 * @returns {wp.customize.control} The added control.
 	 */
 	component.addTitleControl = function addTitleControl( section ) {
-		var control, customizeId, setting, params, obj = {};
+		var control,
+			customizeId,
+			setting,
+			params,
+			obj = {};
 
 		customizeId = 'sidebar_meta[' + section.params.sidebarId + '][title]';
 		setting = component.api( customizeId );
@@ -135,7 +139,11 @@ var CustomizeWidgetSidebarMetaControls = ( function( $ ) {
 	 * @returns {wp.customize.control} The added control.
 	 */
 	component.addBackgroundColorControl = function addColorControl( section ) {
-		var control, customizeId, setting, params, obj = {};
+		var control,
+			customizeId,
+			setting,
+			params,
+			obj = {};
 
 		customizeId = 'sidebar_meta[' + section.params.sidebarId + '][background_color]';
 		setting = component.api( customizeId );
@@ -179,8 +187,12 @@ var CustomizeWidgetSidebarMetaControls = ( function( $ ) {
 	 * @param {wp.customize.Widgets.SidebarSection} section Section.
 	 * @returns {wp.customize.control} The added control.
 	 */
-	component.addHeadingsColorControl = function addColorControl ( section ) {
-		var control, customizeId, setting, params, obj = {};
+	component.addHeadingsColorControl = function addColorControl( section ) {
+		var control,
+			customizeId,
+			setting,
+			params,
+			obj = {};
 
 		customizeId = 'sidebar_meta[' + section.params.sidebarId + '][headings_color]';
 		setting = component.api( customizeId );
@@ -224,8 +236,12 @@ var CustomizeWidgetSidebarMetaControls = ( function( $ ) {
 	 * @param {wp.customize.Widgets.SidebarSection} section Section.
 	 * @returns {wp.customize.control} The added control.
 	 */
-	component.addLinksColorControl = function addColorControl ( section ) {
-		var control, customizeId, setting, params, obj = {};
+	component.addLinksColorControl = function addColorControl( section ) {
+		var control,
+			customizeId,
+			setting,
+			params,
+			obj = {};
 
 		customizeId = 'sidebar_meta[' + section.params.sidebarId + '][links_color]';
 		setting = component.api( customizeId );
@@ -264,4 +280,4 @@ var CustomizeWidgetSidebarMetaControls = ( function( $ ) {
 
 	return component;
 
-})( jQuery );
+} )( jQuery );

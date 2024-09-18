@@ -11,7 +11,7 @@ jQuery( document ).ready( function( $ ) {
 				.css( 'display', 'flex' )
 				.hide()
 				.fadeIn( 1000 );
-		});
+		} );
 		return false;
-	});
-});
+	} );
+} );

@@ -22,7 +22,7 @@
 				$( document.body ).removeClass( 'has-video-header has-youtube-header' );
 
 				// Check if a YouTube Video is loaded.
-				if ( wp.customize( 'external_header_video' )() !== '' ) {
+				if ( '' !== wp.customize( 'external_header_video' )() ) {
 					$( document.body ).addClass( 'has-youtube-video' );
 					$( document.body ).removeClass( 'has-video-header' );
 				}

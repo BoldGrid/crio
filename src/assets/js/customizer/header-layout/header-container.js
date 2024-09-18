@@ -1,3 +1,4 @@
+/* global BoldGrid:false */
 ( function( api ) {
 
 	/**
@@ -9,7 +10,7 @@
 			_.each( containers, function( container ) {
 				container = document.getElementById( container );
 				container && container.classList.remove( 'container' );
-				if ( to === 'header-top' && ! _.isEmpty( api( 'header_container' )() ) ) {
+				if ( 'header-top' === to && ! _.isEmpty( api( 'header_container' )() ) ) {
 					container && container.classList.add( api( 'header_container' )() );
 				}
 			} );

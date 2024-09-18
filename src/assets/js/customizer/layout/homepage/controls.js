@@ -1,4 +1,4 @@
-wp.customize.bind( 'ready', function () {
+wp.customize.bind( 'ready', function() {
 
 	/**
 	 * The active_callback method in PHP continues to display the control

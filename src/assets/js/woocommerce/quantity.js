@@ -85,20 +85,20 @@ jQuery( document ).ready( function( $ ) {
 		$( '.input-number' ).keydown( function( e ) {
 
 			// Allow: backspace, delete, tab, escape, enter and .'s.
-			if ( $.inArray( e.keyCode, [ 46, 8, 9, 27, 13, 190 ] ) !== -1 ||
+			if ( -1 !== $.inArray( e.keyCode, [ 46, 8, 9, 27, 13, 190 ] ) ||
 
 				// Allow: Ctrl+A.
 				( 65 === e.keyCode && true === e.ctrlKey ) ||
 
 				// Allow: home, end, left, right.
-				( e.keyCode >= 35 && e.keyCode <= 39 ) ) {
+				( 35 <= e.keyCode && 39 >= e.keyCode ) ) {
 
 					// Let it happen, don't do anything.
 					return;
 			}
 
 			// Ensure that it is a number and stop the keypress.
-			if ( ( e.shiftKey || ( e.keyCode < 48 || e.keyCode > 57 ) ) && ( e.keyCode < 96 || e.keyCode > 105 ) ) {
+			if ( ( e.shiftKey || ( 48 > e.keyCode || 57 > e.keyCode ) ) && ( 96 > e.keyCode || 105 < e.keyCode ) ) {
 				e.preventDefault();
 			}
 		} );
