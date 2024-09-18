@@ -1,34 +1,26 @@
 // Include gulp
-var gulp = require('gulp'),
+const gulp = require('gulp'),
   wpPot = require('gulp-wp-pot'),
   sort = require('gulp-sort'),
-  sass = require('gulp-sass'),
+  sass = require('gulp-sass')(require('sass')),
   rename = require('gulp-rename'),
   uglify = require('gulp-uglify-es').default,
-  imagemin = require('gulp-imagemin'),
   cssnano = require('gulp-cssnano'),
   newer = require('gulp-newer'),
-  //   notify   = require( 'gulp-notify' ),
   replace = require('gulp-replace'),
-  sequence = require('run-sequence'),
   fontImage = require("googlefonts-sprite-generator"),
-  jshint = require('gulp-jshint'),
-  phpcbf = require('gulp-phpcbf'),
+  eslint = require('gulp-eslint'),
   phpcs = require('gulp-phpcs'),
   gutil = require('gutil'),
   shell = require('gulp-shell'),
-  del = require('del'),
-  clean = require('gulp-clean'),
   fs = require('fs'),
   argv = require('yargs').argv,
-  modernizr = require('gulp-modernizr-wezom'),
-  jscs = require('gulp-jscs'),
+  modernizr = require('gulp-modernizr'),
   postcss = require('gulp-postcss'),
-  inject = require('gulp-inject-string'),
-  deleteLines = require( 'gulp-delete-lines' );
+  inject = require('gulp-inject-string');
 
 // Configs
-var config = {
+const config = {
   fontsDest: './crio/inc/boldgrid-theme-framework/assets/fonts',
   src: './src',
   prime_src: './prime',
@@ -45,7 +37,7 @@ var config = {
   img_src: './inc/assets/img/**/*',
   layouts_src: './layouts',
   layouts_dest: '../crio/inc/boldgrid-theme-framework/layouts',
-  scss_minify: 'compressed' // or uncompressed for dev
+  scss_minify: 'compressed'
 };
 
 // Create CSS file for font-family control based on webfonts.json.
@@ -54,18 +46,16 @@ var config = {
 // Before running, make sure assets/json/webfonts.json is up to date with
 // https://www.googleapis.com/webfonts/v1/webfonts?key={key-goes-here}
 gulp.task('fontFamilyCss', function () {
-  var fileContent = fs.readFileSync(config.src + "/assets/json/webfonts.json", "utf8"),
+  const fileContent = fs.readFileSync(config.src + "/assets/json/webfonts.json", "utf8"),
     webFonts = JSON.parse(fileContent),
-    outFilename = 'font-family-controls.min.css',
-    css = '',
+    outFilename = 'font-family-controls.min.css';
+  let css = '',
     family,
     position;
 
-for (var key in webFonts.items) {
-	family = webFonts.items[key].family;
-
-    // This value needs to -41.45 after updating image.
-	position = key * -41.423841059602649006622516556291;
+  for (let key in webFonts.items) {
+    family = webFonts.items[key].family;
+    position = key * -41.423841059602649006622516556291;
 
     css += '.select2-container--default .select2-selection__rendered[title="' + family + '"] {color: transparent; background-image: url(../../img/web-fonts.png); background-repeat: no-repeat; background-position: 8px ' + position + 'px;}';
     css += '[id^="select2-"][id$="-' + family + '"] { line-height:25px; color: transparent; background-image: url(../../img/web-fonts.png); background-repeat: no-repeat; background-position:8px ' + position + 'px;}';
@@ -74,7 +64,7 @@ for (var key in webFonts.items) {
 
   // Write to file.
   fs.writeFileSync(outFilename, css);
-  gulp.src(outFilename)
+  return gulp.src(outFilename)
     .pipe(clean(config.dist + '/assets/css/customizer/' + outFilename))
     .pipe(gulp.dest(config.dist + '/assets/css/customizer'));
 });
@@ -87,7 +77,7 @@ for (var key in webFonts.items) {
 // # Preview the image used within sprites by visiting the following page:
 //   node_modules/googlefonts-sprint-generator/generators/generator_phantom.html
 gulp.task('googlefonts-image', function () {
-  var googleApiKey = argv.google_api_key;
+  const googleApiKey = argv.google_api_key;
   if (!googleApiKey) {
 	console.log('Invalid format' );
     console.log('gulp googlefonts-image --google_api_key={Key Goes Here}');
@@ -96,14 +86,12 @@ gulp.task('googlefonts-image', function () {
 
   fontImage.getImage({
     callback: function (base64Data) {
-      //console.log( base64Data );
-      require('fs').writeFile(config.src + '/assets/img/web-fonts.png', base64Data, 'base64', function (err) {
+      fs.writeFile(config.src + '/assets/img/web-fonts.png', base64Data, 'base64', function (err) {
         console.log(err);
       });
     },
     port: 1224,
     options: {
-      // If above 37px, not all fonts will be rendered within web-fonts.png.
       lineHeight: '37px',
       fontSize: '25px',
       width: '500px'
@@ -118,10 +106,6 @@ gulp.task('googlefonts-image', function () {
 gulp.task('dist', function () {
   return gulp.src('*.*', {read: false})
     .pipe(gulp.dest('./crio/inc/boldgrid-theme-framework'))
-});
-// Clean distribution on build.
-gulp.task('clean', function () {
-  return del([ config.dist, '**/*.map', '*phpunit.xml.dist*', '*phpunit.xml*', '*build.sh*' ] );
 });
 
 // Javascript Dependencies
@@ -207,14 +191,14 @@ gulp.task('phpDeps', function () {
     .pipe(replace('kirki-logo.svg', 'boldgrid-logo.svg'))
     // Use locally provided FontAwesome dependency.
     .pipe(replace(/([ \t]*)wp_enqueue_script\(\s?\'kirki-fontawesome-font\',\s?\'https:\/\/use.fontawesome.com\/30858dc40a.js\',\s?array\(\),\s?\'4.0.7\',\s?(?:true|false)\s?\)\;\s?^(?:[\t ]*(?:\r?\n|\r))*/gm, "$1global $boldgrid_theme_framework;\n$1$bgtfw_configs = $boldgrid_theme_framework->get_configs();\n\n$1if ( ! class_exists( 'BoldGrid_Framework_Styles' ) ) {\n$1\trequire_once $bgtfw_configs['framework']['includes_dir'] . 'class-boldgrid-framework-styles.php';\n$1}\n\n$1$bgtfw_styles = new BoldGrid_Framework_Styles( $bgtfw_configs );\n$1$bgtfw_styles->enqueue_fontawesome();\n\n"))
-	.pipe( deleteLines( { 'filters': [ /.*sourceMappingURL=.*/i ] } ) )
+	.pipe( replace(/.*sourceMappingURL=.*\n/g, '') )
   // Change 'final private' methods to 'private'.
   .pipe( replace( /final private function/g, 'private function' ) )
 	.pipe(gulp.dest(config.dist + '/includes/kirki') );
   // Get Kirki CSS.
   gulp.src(config.node_modules + '/kirki-toolkit/assets/**/*.{css,json}')
     .pipe(replace('Button styles **/', 'Button styles **', true))
-	.pipe( deleteLines( { 'filters': [ /.*sourceMappingURL=.*/i ] } ) )
+	.pipe( replace(/.*sourceMappingURL=.*\n/g, '') )
     .pipe(gulp.dest(config.dist + '/includes/kirki/assets'));
   // Get Kirki Assets.
   gulp.src(config.node_modules + '/kirki-toolkit/assets/**/*.{png,scss,js,json}')
@@ -238,20 +222,20 @@ gulp.task('frameworkFiles', function () {
 
 // Move Readme.txt to build folder.
 gulp.task( 'readme', function() {
-  gulp.src( './readme.txt' )
-    .pipe( gulp.dest( config.prime_dest ) );
+  return gulp.src('./readme.txt')
+    .pipe(gulp.dest(config.prime_dest));
 } );
 
 // Move style.css to build folder.
 gulp.task( 'styleCss', function() {
-  gulp.src( './style.css' )
-    .pipe( gulp.dest( config.prime_dest ) );
+  return gulp.src('./style.css')
+    .pipe(gulp.dest(config.prime_dest));
 } );
 
 // Copy License
 gulp.task( 'license', function() {
-	gulp.src( './LICENSE' )
-		.pipe( gulp.dest( config.dist ) );
+	return gulp.src('./LICENSE')
+    .pipe(gulp.dest(config.dist));
 } );
 
 // Framework Images.  Pipe through newer images only!
@@ -283,23 +267,12 @@ gulp.task( 'translate', function() {
   //.pipe( notify( { message: 'Theme Translation complete', onLast: true } ) );
 });
 
-// JSHint
-gulp.task('jsHint', function () {
-  return gulp.src([config.src + '/assets/js/**/*.js'])
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'));
-});
-
 gulp.task('jscs', function () {
-  return gulp.src([config.src + '/assets/js/**/*.js'])
-	.pipe(jscs())
-	.pipe(jscs({configPath: "./.jscsrc"}))
-    .pipe(jscs.reporter())
-    .pipe(jscs.reporter('fail'));
+	return gulp.src([config.src + '/assets/js/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format()) // Output results to the console
+    .pipe(eslint.failAfterError()); // Fail the task if an error is found
 });
-
-gulp.task( 'webpack', shell.task('npm run build-webpack') );
 
 // Minify & Copy JS
 gulp.task('frameworkJs', function () {
@@ -391,20 +364,21 @@ gulp.task('scssDeps', function () {
 
 // Compile SCSS
 gulp.task('scssCompile', function () {
-  var plugins = [
+  const plugins = [
     require('postcss-flexbugs-fixes'),
     require('autoprefixer')
   ];
   return gulp.src([
     '!' + config.dist + '/assets/scss/bootstrap.scss',
     '!' + config.dist + '/assets/scss/custom-color/**/*',
-	'!' + config.dist + '/assets/scss/container-widths.scss',
-    config.dist + '/assets/scss/**/*.scss'])
+    '!' + config.dist + '/assets/scss/container-widths.scss',
+    config.dist + '/assets/scss/**/*.scss'
+  ])
     .pipe(sass({
-	 outputStyle: 'expanded',
-     includePaths: [
+      outputStyle: 'expanded',
+      includePaths: [
         config.dist + 'assets/scss/',
-        config.dist + 'assets/scss/bootstrap',
+        config.dist + 'assets/scss/bootstrap'
       ]
     }).on('error', sass.logError))
     .pipe(postcss(plugins))
@@ -417,6 +391,7 @@ gulp.task('scssCompile', function () {
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(config.dist + '/assets/css'));
 });
+
 // Bootstrap Compile
 gulp.task('bootstrapCompile', function () {
   gulp.src(config.dist + '/assets/scss/bootstrap.scss')
@@ -441,37 +416,21 @@ gulp.task('colorPalettesCompile', function () {
   //  .pipe( notify( { message: 'SCSS compile complete', onLast: true } ) );
 });
 
-// Watch for changes and recompile scss
+// Watch for changes and recompile SCSS
 gulp.task('sass:watch', function () {
-	gulp.watch( 'src/assets/scss/**/*.scss', function () {
-		sequence( 'copyScss', 'scssCompile' );
-	} );
-} );
-
-// Watch for changes and copy php files.
-gulp.task('php:watch', function () {
-	gulp.watch(config.src + '/**/*.{php,txt,json,css,mo,po,pot}', ['frameworkFiles']);
-} );
-
-// Watch for changes and recompile/copy js files.
-gulp.task('js:watch', function () {
-	gulp.watch(config.src + '/**/*.js', ['framework-js']);
-} );
-
-// WordPress Standard PHP Beautify
-gulp.task('phpcbf', function () {
-  return gulp.src('src/**/*.php')
-    .pipe(phpcbf({
-      bin: 'phpcbf',
-      standard: 'WordPress',
-      warningSeverity: 0
-    }))
-    .on('error', gutil.log)
-    .pipe(gulp.dest('src'));
+  gulp.watch('src/assets/scss/**/*.scss', gulp.series('copyScss', 'scssCompile'));
 });
 
+// Watch for changes and copy PHP files
+gulp.task('php:watch', function () {
+  gulp.watch(config.src + '/**/*.{php,txt,json,css,mo,po,pot}', gulp.series('frameworkFiles'));
+});
 
-// WordPress Standard PHP Beautify
+// Watch for changes and recompile/copy JS files
+gulp.task('js:watch', function () {
+  gulp.watch(config.src + '/**/*.js', gulp.series('framework-js'));
+});
+
 gulp.task( 'copyScss', () => {
 	return gulp.src( config.src + '/assets/scss/**/*.scss' )
 		.pipe( gulp.dest( config.dist + '/assets/scss/' ) );
@@ -557,50 +516,35 @@ gulp.task( 'prime', function() {
     .pipe(gulp.dest(config.prime_dest));
 } );
 
-// Tasks
-gulp.task( 'build', function( cb ) {
-	sequence(
-		'dist',
-    'prime',
-		[ 'readme','license', 'styleCss' ],
-		['jsHint', 'jscs', 'frameworkJs', 'svgs', 'tgm'],
-		['scssDeps', 'jsDeps', 'modernizr', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss'],
-		'images',
-		['scssCompile', 'bootstrapCompile', 'colorPalettesCompile' ],
-		['fontFamilyCss', 'patterns'],
-		'hovers',
-		'hoverColors',
-		'cleanHovers',
-    'wpTextDomainLint',
-    'translate',
-		cb
-	);
-} );
+// Build Task
+gulp.task('build', gulp.series(
+  'dist',
+  'prime',
+  gulp.parallel('readme', 'license', 'styleCss'),
+  gulp.parallel( 'jscs', 'frameworkJs', 'svgs', 'tgm'),
+  gulp.parallel('scssDeps', 'jsDeps', 'modernizr', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss'),
+  'images',
+  gulp.parallel('scssCompile', 'bootstrapCompile', 'colorPalettesCompile'),
+  gulp.parallel('fontFamilyCss', 'patterns'),
+  'hovers',
+  'hoverColors',
+  'cleanHovers',
+  'wpTextDomainLint',
+  'translate'
+));
 
-// Tasks
-gulp.task( 'qbuild', function( cb ) {
-	sequence(
-		'dist',
-		[ 'readme','license', 'styleCss' ],
-		['wpTextDomainLint', 'jsHint', 'jscs', 'frameworkJs'],
-		['scssDeps', 'jsDeps', 'modernizr', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss'],
-		['scssCompile', 'bootstrapCompile'],
-		'fontFamilyCss',
-		'hovers',
-		'hoverColors',
-		'cleanHovers',
-		cb
-	);
-});
+// Quick Build Task
+gulp.task('qbuild', gulp.series(
+  'dist',
+  gulp.parallel('readme', 'license', 'styleCss'),
+  gulp.parallel('wpTextDomainLint', 'jscs', 'frameworkJs'),
+  gulp.parallel('scssDeps', 'jsDeps', 'modernizr', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss'),
+  gulp.parallel('scssCompile', 'bootstrapCompile'),
+  'fontFamilyCss',
+  'hovers',
+  'hoverColors',
+  'cleanHovers'
+));
 
-gulp.task('framework-js', function (cb) {
-	return sequence( [ 'jsHint', 'jscs' ], 'frameworkJs', 'modernizr', cb );
-});
-
-gulp.task('prebuild', ['images', 'scssDeps', 'jsDeps', 'fontDeps', 'phpDeps', 'frameworkFiles', 'copyScss']);
-
-gulp.task('watch', function () {
-	gulp.start( 'sass:watch' );
-	gulp.start( 'php:watch' );
-	gulp.start( 'js:watch' );
-});
+// Watch Task
+gulp.task('watch', gulp.parallel('sass:watch', 'php:watch', 'js:watch'));
