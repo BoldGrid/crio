@@ -1,4 +1,3 @@
-/* global BoldGrid:false */
 ( function( api ) {
 
 	/**

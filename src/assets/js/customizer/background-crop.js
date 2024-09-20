@@ -7,9 +7,9 @@
 	}
 
 	// Set up our namespace.
-	var api = wp.customize;
+	const api = wp.customize;
 
-	api.croppingBackgroundImageControl = api.CroppedImageControl.extend({
+	api.croppingBackgroundImageControl = api.CroppedImageControl.extend( {
 
 		ready: function() {
 
@@ -49,7 +49,7 @@
 			this.setting( attachment.sizes.full.url );
 		}
 
-	});
+	} );
 
 	/**
 	 * Extends wp.customizer.controlConstructor with control constructor for
@@ -57,6 +57,6 @@
 	 */
 	$.extend( api.controlConstructor, {
 		background: api.croppingBackgroundImageControl
-	});
+	} );
 
-})( window.wp, jQuery );
+} )( window.wp, jQuery );

@@ -21,7 +21,6 @@
 		"publicPath": true,
 		"timings": true,
 		"version": true,
-		"maxModules": 0,
 		"warnings": true,
 		"colors": {
 			"green": "\u001b[32m"

@@ -4,7 +4,6 @@ const path = require('path');
 const src = path.resolve(__dirname, 'src');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { merge } = require('webpack-merge'); // Updated merge import
-const RuntimePath = require('webpack-runtime-public-path-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin'); // eslint-webpack-plugin
 const requireDesired = require('./build/modules/require-desired.js');
 const localConfig = merge(
@@ -81,9 +80,6 @@ const webpackConfig = merge(
             ],
         },
         plugins: [
-            new RuntimePath({
-                runtimePublicPath: 'BGTFW.assets.path',
-            }),
             new MiniCssExtractPlugin({
                 filename: './assets/css/[name]-bundle.min.css',
             }),

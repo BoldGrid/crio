@@ -24,7 +24,7 @@
 		$( window ).one( 'boldgrid_customizer_refresh', function() {
 			$body.removeClass( 'pre-initial-refresh' );
 			$themeControls.removeAttr( 'title' );
-		});
+		} );
 
 		$( document ).on( 'click', '.open-widgets-section', function() {
 			wp.customize.panel( 'widgets' ).focus();

@@ -11,6 +11,19 @@ module.exports = {
 	commonjs: true,
 	jquery: true
   },
+  globals: {
+    'BOLDGRID': true,
+    'BoldGrid': true,
+    'BOLDGRID.Sass': true,
+    'BOLDGRIDColorPalettes': true,
+    'BOLDGRIDSass': true,
+    'Sass': true,
+    'kirkiPostMessageFields': true,
+    '_wpCustomizePreviewNavMenusExports': true,
+    '_wpCustomizeSettings': true,
+    'net': true,
+    '__webpack_public_path__': true,
+  },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: [ 'eslint:recommended', 'wordpress' ],
   plugins: [

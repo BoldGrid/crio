@@ -192,8 +192,6 @@ module.exports = ( pattern = '**/*.php', config = {} ) => {
 		//Output errors
 		if ( errors.length > 0 ) {
 
-			console.log( "\n" + chalk.underline( _file ) );
-
 			var rows = [], error_line, func, message;
 
 			for ( i = 0; i < errors.length; i++ ) {
@@ -211,15 +209,12 @@ module.exports = ( pattern = '**/*.php', config = {} ) => {
 					message = chalk`{red Incorrect text domain used:} {reset.bold '${ errors[ i ].domain }'}`;
 				}
 
-				rows.push( [ error_line, func, message ] );
+				//rows.push( [ error_line, func, message ] );
 				errorCount++;
 			}
 
-			console.log( table( rows ) );
-
 			if ( options.fix ){
 				fs.writeFileSync( _file, modifiedContent );
-				console.log( chalk.bold( `${_file} corrected.` ) );
 			}
 		}
 

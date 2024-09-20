@@ -1,5 +1,3 @@
-/* global BoldGrid:true */
-
 import PaletteSelector from '../color/palette-selector';
 import ColorPreview from '../color/preview';
 import { Preview as PreviewUtility } from '../preview';

@@ -14,9 +14,9 @@ window.wp = window.wp || {};
 		template: wp.template
 	};
 
-	customizer.screen.model = Backbone.Model.extend({});
+	customizer.screen.model = Backbone.Model.extend( {} );
 
-	customizer.screen.view.Devices = wp.Backbone.View.extend({
+	customizer.screen.view.Devices = wp.Backbone.View.extend( {
 		className: 'device',
 		activeClass: 'current',
 		events: {
@@ -44,21 +44,25 @@ window.wp = window.wp || {};
 			this.previewFrame.removeClass( 'desktop tablet mobile' );
 			this.previewFrame.addClass( device );
 		}
-	});
+	} );
 
 	customizer.screen.Run = {
 		init: function() {
-			this.view = new customizer.screen.view.Devices({});
+			this.view = new customizer.screen.view.Devices( {} );
 			this.view.render();
 		}
 	};
 
 	function customizerCollapse( element, className ) {
+		var classString,
+			nameIndex;
 		if ( ! element || ! className ) {
 			return;
 		}
-		var classString = element.className, nameIndex = classString.indexOf( className );
-		if ( nameIndex === -1 ) {
+		classString = element.className;
+		nameIndex   = classString.indexOf( className );
+
+		if ( -1 === nameIndex ) {
 			classString += ' ' + className;
 		} else {
 			classString = classString.substr( 0, nameIndex ) + classString.substr( nameIndex + className.length );
@@ -69,8 +73,8 @@ window.wp = window.wp || {};
 
 	jQuery( '#customize-footer-actions > button' ).on( 'click', function(  ) {
 		customizerCollapse( document.getElementById( 'devices' ), 'hidden' );
-	});
+	} );
 
 	jQuery( document ).ready( _.bind( customizer.screen.Run.init, customizer.screen.Run ) );
 
-})( jQuery );
+} )( jQuery );

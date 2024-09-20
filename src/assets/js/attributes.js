@@ -7,8 +7,6 @@
  * @since 2.0.0
  */
 
-/* global jQuery */
-
 var BOLDGRID = BOLDGRID || {};
 BOLDGRID.BGTFW = BOLDGRID.BGTFW || {};
 
@@ -97,6 +95,6 @@ BOLDGRID.BGTFW = BOLDGRID.BGTFW || {};
 		$( '#bgtfw-attributes-meta-box .advanced-toggle' ).on( 'click', function() {
 			$( '.post-attributes-advanced-wrap' ).slideToggle();
 			$( this ).toggleClass( 'open' );
-		});
+		} );
 	} );
-})( jQuery );
+} )( jQuery );

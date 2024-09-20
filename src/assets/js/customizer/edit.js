@@ -7,8 +7,6 @@
  * @requires jquery-ui-dialog
  */
 
-/* global _,jQuery */
-
 var BOLDGRID = BOLDGRID || {};
 BOLDGRID.CustomizerEdit = BOLDGRID.CustomizerEdit || {};
 
@@ -561,8 +559,8 @@ const { __ } = wp.i18n;
 					{
 						'bgtfw_page_headers': {
 							type: 'section',
-							label:__( 'Change Custom Page Template', 'bgtfw' ),
-							description: __( 'Choose which custom page template to display', 'bgtfw' ),
+							label: __( 'Change Custom Page Template', 'bgtfw' ),
+							description: __( 'Choose which custom page template to display', 'bgtfw' )
 						},
 						'pageHeaderLink': {
 							type: 'external',

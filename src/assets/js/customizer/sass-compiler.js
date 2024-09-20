@@ -2,17 +2,18 @@ var BOLDGRID = BOLDGRID || {};
 BOLDGRID.Sass = BOLDGRID.Sass || {};
 
 ( function( $ ) {
-	var self = BOLDGRID.Sass;
+	var self = BOLDGRID.Sass,
+		instanceCompiler;
 
 	self.$window = $( window );
-	self.compile_done = $.Event( 'boldgrid_sass_compile_done' );
+	self.compileDone = $.Event( 'boldgrid_sass_compile_done' );
 	self.processing = false;
 
 	Sass.setWorkerUrl( BOLDGRIDSass.WorkerUrl );
 
-	var instance_compiler = new Sass( BOLDGRIDSass.WorkerUrl );
+	instanceCompiler = new Sass( BOLDGRIDSass.WorkerUrl );
 
-	instance_compiler.writeFile( 'bgtfw/config-files.scss', BOLDGRIDSass.ScssFormatFileContents );
+	instanceCompiler.writeFile( 'bgtfw/config-files.scss', BOLDGRIDSass.ScssFormatFileContents );
 
 	/**
 	 * Setup a compile function
@@ -27,18 +28,19 @@ BOLDGRID.Sass = BOLDGRID.Sass || {};
 		 * var start_time  = d.getTime();
 		 */
 
-		instance_compiler.compile( scss, function( result ) {
-			self.processing = false;
+		instanceCompiler.compile( scss, function( result ) {
 			var data = {
 				result: result,
 				source: options.source
 			};
 
-			if ( result.status !== 0 ) {
+			self.processing = false;
+
+			if ( 0 !== result.status ) {
 				console.error( result.formatted );
 			}
 
-			self.$window.trigger( self.compile_done, data );
+			self.$window.trigger( self.compileDone, data );
 
 			/*
 			 * var d = new Date();
@@ -50,4 +52,4 @@ BOLDGRID.Sass = BOLDGRID.Sass || {};
 		} );
 	};
 
-})( jQuery );
+} )( jQuery );

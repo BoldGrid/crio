@@ -1,4 +1,3 @@
-/* global _wpCustomizePreviewNavMenusExports:false, BOLDGRID:false */
 import PaletteSelector from './palette-selector';
 import { Preview as PreviewUtility } from '../preview';
 

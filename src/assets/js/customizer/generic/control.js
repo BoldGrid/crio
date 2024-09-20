@@ -111,7 +111,7 @@ export class Control {
 
 			try {
 				controlSettings.saved.media = JSON.parse( controlSettings.saved.media ) || {};
-			} catch ( e ) {
+			} catch {
 				controlSettings.saved.media = {};
 			}
 		}

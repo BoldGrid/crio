@@ -1,4 +1,3 @@
-/* global BoldGrid:false */
 const api = wp.customize;
 
 export class Preview {

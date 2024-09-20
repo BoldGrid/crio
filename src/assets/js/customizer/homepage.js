@@ -6,18 +6,17 @@
  * @since 2.0.0
  */
 
-/* global jQuery, boldgridFrameworkCustomizerHomepage */
+/* global boldgridFrameworkCustomizerHomepage */
 
 var BOLDGRID = BOLDGRID || {};
 BOLDGRID.CustomizerHomepage = BOLDGRID.CustomizerHomepage || {};
 
-( function ( $ ) {
+( function( $ ) {
 
 	'use strict';
 
-	var self, bg, api;
+	var self, api;
 
-	bg = BOLDGRID;
 	api = parent.wp.customize;
 
 	/**
@@ -48,7 +47,7 @@ BOLDGRID.CustomizerHomepage = BOLDGRID.CustomizerHomepage || {};
 				$( this )
 					.text( text )
 					.css( 'font-weight', 'normal' );
-			});
+			} );
 
 			// Give our "Configure Posts Page" a few of the same styles as the existing "Add New Page".
 			$linkConfigurePage
@@ -78,7 +77,7 @@ BOLDGRID.CustomizerHomepage = BOLDGRID.CustomizerHomepage || {};
 		toggleLinks: function() {
 			var value = $( '[name="_customize-radio-show_on_front"]:checked' ).val();
 
-			switch( value ) {
+			switch ( value ) {
 				case 'posts':
 					self.$latestPostsContainer.find( '.bgtfw-homepage-config' ).show();
 					break;
@@ -105,14 +104,14 @@ BOLDGRID.CustomizerHomepage = BOLDGRID.CustomizerHomepage || {};
 		 */
 		_onReady: function() {
 			$( function() {
-				self.$latestPostsContainer = $( '#_customize-input-show_on_front-radio-posts').closest( '.customize-inside-control-row' );
+				self.$latestPostsContainer = $( '#_customize-input-show_on_front-radio-posts' ).closest( '.customize-inside-control-row' );
 
 				self.addLinks();
 
 				$( '[name="_customize-radio-show_on_front"]' ).on( 'change', self.toggleLinks );
 
 				$( '.bgtfw-homepage-config' ).on( 'click', self.onClickConfigure );
-			});
+			} );
 		}
 	};
 

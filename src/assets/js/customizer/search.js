@@ -1,4 +1,3 @@
-/* global _wpCustomizeSettings:false */
 var BOLDGRID = BOLDGRID || {};
 BOLDGRID.CUSTOMIZER = BOLDGRID.CUSTOMIZER || {};
 BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
@@ -34,7 +33,7 @@ BOLDGRID.CUSTOMIZER.Search = BOLDGRID.CUSTOMIZER.Search || {};
 	 */
 	BOLDGRID.CUSTOMIZER.Search = {
 		controls: [],
-		
+
 		/**
 		 * Initializes the customizer search interface.
 		 *

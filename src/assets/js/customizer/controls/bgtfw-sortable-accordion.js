@@ -390,7 +390,7 @@ export default {
 			if ( obj && _.isObject( obj ) ) {
 				return true;
 			}
-		} catch ( err ) {
+		} catch {
 			return false;
 		}
 		return false;

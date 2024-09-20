@@ -1,4 +1,12 @@
 /* eslint-disable */
+
+// Ensure this is at the very top, before any other imports
+if (window.BGTFW && window.BGTFW.assets && window.BGTFW.assets.path) {
+    __webpack_public_path__ = window.BGTFW.assets.path;
+} else {
+    __webpack_public_path__ = '/wp-content/themes/crio/inc/boldgrid-theme-framework/';
+}
+
 import WidgetSectionUpdate from './widget/section-update';
 import bgtfwWidgetsSection from './controls/bgtfw-widgets-section';
 import HomepageSectionExpand from './design/homepage/section-expand.js';

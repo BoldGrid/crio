@@ -1,4 +1,3 @@
-/* global BOLDGRID:false, kirkiPostMessageFields*/
 const api = wp.customize;
 const controlApi = parent.wp.customize;
 
@@ -59,7 +58,7 @@ export class Preview {
 		// JSON returned sometimes.
 		try {
 			to = JSON.parse( to );
-		} catch ( err ) {
+		} catch {
 
 			// Do nothing on error.
 		}

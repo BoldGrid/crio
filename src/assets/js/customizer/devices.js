@@ -259,7 +259,7 @@ export class Devices {
 
 		this.container.addClass( `previewed-from-${device}` );
 		document.body.className += ` bgtfw-is-${device}`;
-		'function' === typeof( callback ) && callback();
+		'function' === typeof ( callback ) && callback();
 	}
 
 	/**

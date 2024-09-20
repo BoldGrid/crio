@@ -8,14 +8,20 @@
  * Only fires on body classes that match. If a body class contains a dash,
  * replace the dash with an underscore when adding it to the object below.
  * ======================================================================== */
+
+// Ensure this is at the very top, before any other imports
+if ( window.BGTFW && window.BGTFW.assets && window.BGTFW.assets.path ) {
+    __webpack_public_path__ = window.BGTFW.assets.path; // eslint-disable-line camelcase, no-unused-vars
+} else {
+    __webpack_public_path__ = '/wp-content/themes/crio/inc/boldgrid-theme-framework/'; // eslint-disable-line camelcase, no-unused-vars
+}
+
 import { createHooks } from '@wordpress/hooks';
 import cssVars from 'css-vars-ponyfill';
 import domReady from '@wordpress/dom-ready';
 
 // Setup our object.
-//jscs:disable requireVarDeclFirst
-var BoldGrid = BoldGrid || {};
-//jscs:enable requireVarDeclFirst
+var BoldGrid = BoldGrid || {}; // eslint-disable-line vars-on-top
 
 ( function( $ ) {
 
@@ -316,7 +322,7 @@ var BoldGrid = BoldGrid || {};
 
 			// Vanilla trigger resize events.
 			triggerResize: function() {
-				if ( 'function' === typeof( Event ) ) {
+				if ( 'function' === typeof ( Event ) ) {
 					window.dispatchEvent( new Event( 'resize' ) );
 				} else {
 

@@ -1,5 +1,3 @@
-/* global BOLDGRID */
-
 /**
  * File: src/assets/js/customizer/bgtfw-responsive-font-sizes/preview.js
  *

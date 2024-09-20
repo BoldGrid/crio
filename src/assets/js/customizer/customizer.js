@@ -1,4 +1,10 @@
-/* global _wpCustomizePreviewNavMenusExports:false, _wpCustomizeSettings:false, BoldGrid:true, BOLDGRID:true */
+// Ensure this is at the very top, before any other imports
+if ( window.BGTFW && window.BGTFW.assets && window.BGTFW.assets.path ) {
+	__webpack_public_path__ = window.BGTFW.assets.path; // eslint-disable-line camelcase, no-unused-vars
+} else {
+	__webpack_public_path__ = '/wp-content/themes/crio/inc/boldgrid-theme-framework/'; // eslint-disable-line camelcase, no-unused-vars
+}
+
 import ColorPreview from './color/preview';
 import TitleSizePreview from './title-size/preview';
 import { Preview as GenericPreview } from './generic/preview.js';
@@ -141,7 +147,7 @@ BOLDGRID.Customizer.Util.getAllUrlParams = function( url ) {
 			} );
 
 			// Set parameter value (use 'true' if empty).
-			let paramValue = 'undefined' === typeof( a[1] ) ? true : a[1];
+			let paramValue = 'undefined' === typeof ( a[1] ) ? true : a[1];
 
 			// Keep casing consistent.
 			paramName = paramName.toLowerCase();
@@ -198,7 +204,7 @@ BOLDGRID.Customizer.Util.bgtfwParseJSON = function( string ) {
 			if ( data && _.isObject( data ) ) {
 				return data;
 			}
-		} catch ( error ) {
+		} catch {
 
 			// console.warn( 'An error retrieving the active color palette occured!', error );
 			return false;
@@ -548,7 +554,7 @@ BOLDGRID.Customizer.Util.getInitialPalettes = function( option ) {
 				var palettes, colors;
 
 				if ( ! to ) {
-					to = parent.BOLDGRID.COLOR_PALETTE.Modify.text_area_val;
+					to = parent.BOLDGRID.COLOR_PALETTE.Modify.textAreaVal;
 				}
 
 				palettes = parent.jQuery( '.colors-wrapper' );

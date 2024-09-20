@@ -17,10 +17,10 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 		// When the page loads for the first time, this method wont be called.
 
 		// This section of code is executed when the user changes pages in the customizer.
-		if ( parent.BOLDGRID && parent.BOLDGRID.COLOR_PALETTE.Modify && parent.BOLDGRID.COLOR_PALETTE.Modify.text_area_val ) {
-			self.update_css( parent.BOLDGRID.COLOR_PALETTE.Modify.text_area_val );
+		if ( parent.BOLDGRID && parent.BOLDGRID.COLOR_PALETTE.Modify && parent.BOLDGRID.COLOR_PALETTE.Modify.textAreaVal ) {
+			self.updateCss( parent.BOLDGRID.COLOR_PALETTE.Modify.textAreaVal );
 		}
-	});
+	} );
 
 	/**
 	 * Update CSS overlay colors.
@@ -45,7 +45,7 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 				'color-3-raw': $( ':root' ).css( '--color-3-raw' ),
 				'color-4-raw': $( ':root' ).css( '--color-4-raw' ),
 				'color-5-raw': $( ':root' ).css( '--color-5-raw' ),
-				'color-neutral-raw': $( ':root' ).css( '--color-neutral-raw' ),
+				'color-neutral-raw': $( ':root' ).css( '--color-neutral-raw' )
 			};
 
 		$bgColorElements.each( ( _, el ) => {
@@ -139,7 +139,7 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 	 * along with the compiled css file that is stored in memory in the parent
 	 * This function attaches a new css file to the DOM
 	 */
-	self.update_css = function( to ) {
+	self.updateCss = function( to ) {
 		var style, data, classes, modify;
 
 		if ( ! to ) {
@@ -148,7 +148,7 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 
 		data = JSON.parse( to );
 		modify = parent.BOLDGRID.COLOR_PALETTE.Modify;
-		classes = _.isArray( modify.body_classes ) ? modify.body_classes.join( ' ' ) : '';
+		classes = _.isArray( modify.bodyClasses ) ? modify.bodyClasses.join( ' ' ) : '';
 
 		// Update body class.
 		$( 'body:not(.' + data.state['active-palette'] + ')' ).removeClass( classes ).addClass( data.state['active-palette'] );
@@ -166,12 +166,12 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 	 * Everytime the user changes the following setting, Update the css.
 	 */
 	wp.customize( 'boldgrid_color_palette', function( value ) {
-		value.bind( self.update_css );
+		value.bind( self.updateCss );
 
 		// Update css field on updates.
 		value.bind( function() {
-			parent.BOLDGRID.COLOR_PALETTE.Modify.$compiled_css_control
-				.val( parent.BOLDGRID.COLOR_PALETTE.Modify.compiled_css )
+			parent.BOLDGRID.COLOR_PALETTE.Modify.$compiledCssControl
+				.val( parent.BOLDGRID.COLOR_PALETTE.Modify.compiledCss )
 				.change();
 		} );
 
@@ -187,4 +187,4 @@ BOLDGRID.COLOR_PALETTE.Preview = BOLDGRID.COLOR_PALETTE.Preview || {};
 		} );
 	} );
 
-})( jQuery );
+} )( jQuery );

@@ -2,7 +2,7 @@
 const gulp = require('gulp'),
   wpPot = require('gulp-wp-pot'),
   sort = require('gulp-sort'),
-  sass = require('gulp-sass')(require('sass')),
+  sass = require('gulp-dart-sass'),
   rename = require('gulp-rename'),
   uglify = require('gulp-uglify-es').default,
   cssnano = require('gulp-cssnano'),
@@ -17,6 +17,7 @@ const gulp = require('gulp'),
   argv = require('yargs').argv,
   modernizr = require('gulp-modernizr'),
   postcss = require('gulp-postcss'),
+  del = require('del'),
   inject = require('gulp-inject-string');
 
 // Configs
@@ -29,12 +30,12 @@ const config = {
   node_modules: './node_modules',
   jsDest: './crio/inc/boldgrid-theme-framework/assets/js',
   scss_dest: '../crio/inc/boldgrid-theme-framework/inc/assets/scss',
-  scss_src: './inc/assets/scss',
+  scss_src: './src/assets/scss',
   css_dest: '../crio/inc/boldgrid-theme-framework/inc/assets/css',
-  css_src: './inc/assets/css',
-  fontsSrc: './inc/assets/fonts',
+  css_src: './src/assets/css',
+  fontsSrc: './src/assets/fonts',
   img_dest: '../crio/inc/boldgrid-theme-framework/inc/assets/img',
-  img_src: './inc/assets/img/**/*',
+  img_src: './src/assets/img/**/*',
   layouts_src: './layouts',
   layouts_dest: '../crio/inc/boldgrid-theme-framework/layouts',
   scss_minify: 'compressed'
@@ -63,10 +64,12 @@ gulp.task('fontFamilyCss', function () {
   }
 
   // Write to file.
-  fs.writeFileSync(outFilename, css);
-  return gulp.src(outFilename)
-    .pipe(clean(config.dist + '/assets/css/customizer/' + outFilename))
-    .pipe(gulp.dest(config.dist + '/assets/css/customizer'));
+  fs.writeFileSync( outFilename, css );
+  return del( config.dist + '/assets/css/customizer/' + outFilename )
+    .then( () => {
+      return gulp.src( outFilename )
+        .pipe( gulp.dest( config.dist + '/assets/css/customizer' ) );
+    });
 });
 
 // Google Fonts image generator
@@ -109,17 +112,9 @@ gulp.task('dist', function () {
 });
 
 // Javascript Dependencies
-gulp.task('jsDeps', function () {
+gulp.task('jsDeps', function ( cb ) {
   gulp.src(config.node_modules + '/multislider/src/*.js' )
     .pipe(gulp.dest(config.jsDest + '/multislider' ) );
-  // jQuery Stellar - Check
-  gulp.src(config.node_modules + '/jquery.stellar/jquery.stellar*.js')
-    .pipe(gulp.dest(config.jsDest + '/jquery-stellar'));
-  gulp.src(config.node_modules + '/jquery.stellar/jquery.stellar*.js')
-    .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(config.jsDest + '/jquery-stellar'));
-  // Bootstrap
   gulp.src(config.node_modules + '/bootstrap-sass/assets/javascripts/bootstrap.*')
     .pipe(gulp.dest(config.jsDest + '/bootstrap'));
   gulp.src(config.node_modules + '/smartmenus/dist/jquery.*.js')
@@ -142,8 +137,8 @@ gulp.task('jsDeps', function () {
     .pipe(gulp.dest(config.jsDest + '/float-labels.js'));
   // Wowjs - Check
   gulp.src([
-	'!' + config.node_modules + '/wow.js/dist/**/*.map',
-	config.node_modules + '/wow.js/dist/**/*'
+    config.node_modules + '/wow.js/dist/**/*',
+	  '!' + config.node_modules + '/wow.js/dist/**/*.map'
 	]).pipe(gulp.dest(config.jsDest + '/wow'));
   // Color-js
   gulp.src(config.node_modules + '/color-js/color.js')
@@ -152,10 +147,12 @@ gulp.task('jsDeps', function () {
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(config.jsDest + '/color-js'));
+
+  cb();
 });
 
 // Font Dependencies
-gulp.task('fontDeps', function () {
+gulp.task('fontDeps', function ( cb ) {
   // Font Awesome
   gulp.src(config.node_modules + '/font-awesome/fonts/**/*.{ttf,woff,woff2,eot,otf,svg}')
     .pipe(gulp.dest(config.fontsDest));
@@ -163,19 +160,22 @@ gulp.task('fontDeps', function () {
   // Custom Icons
   gulp.src(config.src + '/assets/fonts/*.{ttf,woff,woff2,eot,otf,svg}')
     .pipe(gulp.dest(config.fontsDest));
+
+  cb();
 });
 
 // PHP Dependencies
-gulp.task('phpDeps', function () {
+gulp.task('phpDeps', function ( cb ) {
   // ScssPhp SCSSPHP Compiler
   gulp.src([
+    config.node_modules + '/scssphp/**/*.php',
     '!' + config.node_modules + '/scssphp/tests',
     '!' + config.node_modules + '/scssphp/example/**',
-    '!' + config.node_modules + '/scssphp/tests/**',
-    config.node_modules + '/scssphp/**/*.php'
+    '!' + config.node_modules + '/scssphp/tests/**'
   ]).pipe(gulp.dest(config.dist + '/includes/scssphp'));
   // Kirki Customizer Controls.
   gulp.src([
+    config.node_modules + '/kirki-toolkit/**',
     '!' + config.node_modules + '/kirki-toolkit/assets',
     '!' + config.node_modules + '/kirki-toolkit/assets/**',
     '!' + config.node_modules + '/kirki-toolkit/tests',
@@ -185,8 +185,7 @@ gulp.task('phpDeps', function () {
 	'!' + config.node_modules + '/kirki-toolkit/**/*.map',
 	'!' + config.node_modules + '/kirki-toolkit/**/*build.sh',
 	'!' + config.node_modules + '/kirki-toolkit/**/*phpunit**',
-	'!' + config.node_modules + '/kirki-toolkit/modules/webfonts/*.json',
-    config.node_modules + '/kirki-toolkit/**',
+	'!' + config.node_modules + '/kirki-toolkit/modules/webfonts/*.json'
   ])
     .pipe(replace('kirki-logo.svg', 'boldgrid-logo.svg'))
     // Use locally provided FontAwesome dependency.
@@ -210,14 +209,18 @@ gulp.task('phpDeps', function () {
   // Add BoldGrid Logo to Kirki.
   gulp.src(config.src + '/assets/img/boldgrid-logo.svg')
     .pipe(gulp.dest(config.dist + '/includes/kirki/assets/images'));
+
+  cb();
 });
 
 // Copy Framework Files.
-gulp.task('frameworkFiles', function () {
+gulp.task('frameworkFiles', function( cb ) {
   return gulp.src([
     config.src + '/**/*.{php,txt,json,css,mo,po,pot}',
   ])
     .pipe(gulp.dest(config.dist));
+
+  cb();
 });
 
 // Move Readme.txt to build folder.
@@ -258,11 +261,11 @@ gulp.task( 'translate', function() {
     .pipe( sort() )
     .pipe( wpPot( {
       domain: 'crio',
-      destFile: 'crio.pot',
       package: 'crio',
       bugReport: 'https://boldgrid.com',
       team: 'The BoldGrid Team <support@boldgrid.com>'
     } ) )
+    .pipe( rename( 'crio.pot' ) )
     .pipe( gulp.dest( config.prime_dest + '/languages' ) );
   //.pipe( notify( { message: 'Theme Translation complete', onLast: true } ) );
 });
@@ -275,7 +278,7 @@ gulp.task('jscs', function () {
 });
 
 // Minify & Copy JS
-gulp.task('frameworkJs', function () {
+gulp.task('frameworkJs', function ( cb ) {
   // Minified Files.
   gulp.src([config.src + '/assets/js/**/*.js'])
     .pipe(uglify().on('error', gutil.log))
@@ -287,40 +290,44 @@ gulp.task('frameworkJs', function () {
   // Unminified Files.
   gulp.src([config.src + '/assets/js/**/*.js'])
     .pipe(gulp.dest(config.dist + '/assets/js'));
+
+  cb();
 });
 
 // Modernizr
 // Minify & Copy JS
-gulp.task('modernizr', function () {
-  // Minified Files.
-  gulp.src([
-	  config.src + '/assets/js/**/*.js',
-    '!' + config.src + '/assets/js/customizer/customizer.js',
-    '!' + config.src + '/assets/js/customizer/base-customizer.js',
-	])
+// Define the 'modernizr' task
+gulp.task('modernizr', ( cb ) => {
+  const stream = gulp.src([
+      `${config.src}/assets/js/**/*.js`,
+      `!${config.src}/assets/js/customizer/customizer.js`,
+      `!${config.src}/assets/js/customizer/base-customizer.js`,
+    ])
     .pipe(modernizr(require('./modernizr-config.json')))
-    .pipe(rename({
-      suffix: '.min'
-    }))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(uglify({
       mangle: {
         reserved: ['Modernizr']
       }
     }).on('error', gutil.log))
-    .pipe(gulp.dest(config.dist + '/assets/js'));
+    .pipe(gulp.dest(`${config.dist}/assets/js`));
 
-  // Unminified Files.
-  gulp.src([config.src + '/assets/js/**/*.js'])
-    .pipe(modernizr(require('./modernizr-config.json')))
-    .pipe(gulp.dest(config.dist + '/assets/js'));
+  // Handle the end of the stream
+  stream.on('end', () => {
+    if (process.env.NODE_ENV !== 'development') {
+      // Run the 'webpack' task after 'modernizr' finishes
+      gulp.series('webpack')( cb );
+    } else {
+      cb();
+    }
+  });
 
-	if ( 'development' !== process.env.NODE_ENV ) {
-		gulp.start('webpack');
-	}
+  // Return the stream to ensure proper task completion
+  return stream;
 });
 
 // Copy SCSS & CSS deps.
-gulp.task('scssDeps', function () {
+gulp.task('scssDeps', function ( cb ) {
   // Bootstrap
   gulp.src(config.node_modules + '/bootstrap-sass/assets/stylesheets/**/*')
     .pipe(replace(/@import "bootstrap\/buttons";/, '//@import "bootstrap/buttons";'))
@@ -339,7 +346,7 @@ gulp.task('scssDeps', function () {
     .pipe(gulp.dest(config.dist + '/assets/scss/icomoon'));
   // Container Widths
   gulp.src(config.scss_src + '/container-widths.scss')
-    .pipe(gulp.dest(config.dist + '/assets/scss/container-widths'));
+    .pipe(gulp.dest(config.dist + '/assets/scss'));
   // Animate.css
   gulp.src(config.node_modules + '/animate.css/animate.*')
     .pipe(gulp.dest(config.dist + '/assets/css/animate-css'));
@@ -360,6 +367,8 @@ gulp.task('scssDeps', function () {
   // forms.
   gulp.src(config.node_modules + '/float-labels.js/src/float-labels.scss')
     .pipe(gulp.dest(config.dist + '/assets/scss/float-labels.js'));
+
+  cb();
 });
 
 // Compile SCSS
@@ -368,14 +377,15 @@ gulp.task('scssCompile', function () {
     require('postcss-flexbugs-fixes'),
     require('autoprefixer')
   ];
+
   return gulp.src([
+    config.dist + '/assets/scss/**/*.scss',
     '!' + config.dist + '/assets/scss/bootstrap.scss',
     '!' + config.dist + '/assets/scss/custom-color/**/*',
-    '!' + config.dist + '/assets/scss/container-widths.scss',
-    config.dist + '/assets/scss/**/*.scss'
-  ])
-    .pipe(sass({
+    '!' + config.dist + '/assets/scss/container-widths.scss'
+  ]).pipe(sass({
       outputStyle: 'expanded',
+      quietDeps: true,
       includePaths: [
         config.dist + 'assets/scss/',
         config.dist + 'assets/scss/bootstrap'
@@ -393,19 +403,21 @@ gulp.task('scssCompile', function () {
 });
 
 // Bootstrap Compile
-gulp.task('bootstrapCompile', function () {
+gulp.task('bootstrapCompile', function ( cb ) {
   gulp.src(config.dist + '/assets/scss/bootstrap.scss')
     .pipe(sass())
-    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(sass.sync())
     .pipe(gulp.dest(config.dist + '/assets/css/bootstrap'))
     .pipe(cssnano({ discardComments: { removeAll: true }, safe: true }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(config.dist + '/assets/css/bootstrap'))
   //  .pipe( notify( { message: 'SCSS compile complete', onLast: true } ) );
+
+  cb();
 });
 
 // Bootstrap Compile
-gulp.task('colorPalettesCompile', function () {
+gulp.task('colorPalettesCompile', function ( cb ) {
   gulp.src(config.dist + '/assets/scss/custom-color/color-palettes.scss')
     .pipe(sass())
     .pipe(sass.sync().on('error', sass.logError))
@@ -414,6 +426,7 @@ gulp.task('colorPalettesCompile', function () {
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest( config.prime_dest + '/css' ) )
   //  .pipe( notify( { message: 'SCSS compile complete', onLast: true } ) );
+  cb();
 });
 
 // Watch for changes and recompile SCSS
@@ -431,9 +444,10 @@ gulp.task('js:watch', function () {
   gulp.watch(config.src + '/**/*.js', gulp.series('framework-js'));
 });
 
-gulp.task( 'copyScss', () => {
-	return gulp.src( config.src + '/assets/scss/**/*.scss' )
+gulp.task( 'copyScss', ( cb ) => {
+	gulp.src( config.src + '/assets/scss/**/*.scss' )
 		.pipe( gulp.dest( config.dist + '/assets/scss/' ) );
+  cb();
 } );
 
 // PHP Code Sniffer
@@ -451,7 +465,7 @@ gulp.task('codeSniffer', function () {
 });
 
 // hovers.
-gulp.task('hovers', function() {
+gulp.task('hovers', function( cb ) {
   var plugins = [
     require('postcss-hash-classname')({
       hashType: 'md5',
@@ -465,6 +479,8 @@ gulp.task('hovers', function() {
   gulp.src(config.node_modules + '/hover.css/css/hover*.css')
     .pipe(postcss(plugins))
     .pipe(gulp.dest(config.dist + '/assets/css/hover.css'));
+
+  cb();
 });
 
 gulp.task('hoverColors', function() {
@@ -501,9 +517,8 @@ gulp.task('hoverColors', function() {
 });
 
 gulp.task('cleanHovers', function() {
-  return gulp.src('hover*.json')
-    .pipe(clean({force: true}));
-});
+  return del('hover*.json');
+} );
 
 gulp.task( 'patterns', shell.task( 'yarn run script:patterns' ) );
 gulp.task( 'tgm', shell.task( 'yarn run script:tgm' ) );
@@ -514,6 +529,11 @@ gulp.task( 'prime', function() {
     config.prime_src + '/**/*',
   ])
     .pipe(gulp.dest(config.prime_dest));
+} );
+
+gulp.task( 'webpack', ( cb ) => {
+  shell.task('npm run build-webpack')
+  cb();
 } );
 
 // Build Task
