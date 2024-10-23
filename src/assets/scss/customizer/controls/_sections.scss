@@ -9,19 +9,32 @@
 
 // Base Styles.
 #customize-controls {
+	.control-section-bgtfw-upsell {
+		.accordion-section-title {
+			&::after {
+				content: none;
+			}
+		}
+	}
 	.accordion-section-title {
+		min-height: 40px;
+		&.dashicons-cover-image {
+			&::before {
+				margin-top: 10px;
+			}
+		}
 		&::before {
-			line-height: 40px;
+			position: absolute;
+			padding: 10px;
+			margin-right: 20px;
+			margin-left: 10px;
+			line-height: 30px;
+			text-align: center;
 		}
 		button.accordion-trigger {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			z-index: 2;
-			width: calc( 100% - 40px );
-			padding: 0 0 0 35px;
+			width: calc( 100% - 3.75em );
+			padding: 0.5em 0 0 3.75em;
+			min-height: 40px;
 			&:hover, &:focus, &:active {
 				background: transparent;
 			}
@@ -61,7 +74,7 @@ span.section-title-extended {
 	font-weight: 400;
 	h3.accordion-section-title & {
 		margin-left: 3.25em;
-		margin-bottom: -6px;
+		margin-bottom: 0px;
 		margin-top: -3px;
 	}
 }
@@ -112,7 +125,6 @@ span.section-title-extended {
 	// See: https://github.com/BoldGrid/boldgrid-theme-framework/issues/120
 	&.icon-sidebar-settings:before {
 		transform: rotate(-90deg)!important;
-		padding: 0 .5em .5em 0!important;
 		display: inline-block !important;
 		margin-top: -.5em;
 	}
