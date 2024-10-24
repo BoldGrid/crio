@@ -154,14 +154,20 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 			?>
 			<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 				<h3 class="accordion-section-title<# if ( ! _.isEmpty( data.icon ) ) { #> {{ data.icon }}<# } #>" tabindex="0">
-					{{ data.title }}
-					<span class="screen-reader-text"><?php esc_html_e( 'Press return or enter to open this section', 'crio' ); ?></span>
+					<button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="{{ data.id }}-content">
+						{{ data.title }}
+					</button>
 				</h3>
-				<ul class="accordion-section-content">
+				<ul class="accordion-section-content" id="{{ data.id }}-content">
 					<li class="customize-section-description-container section-meta <# if ( data.description_hidden ) { #>customize-info<# } #>">
 						<div class="customize-section-title">
 							<button class="customize-section-back" tabindex="-1">
-								<span class="screen-reader-text"><?php esc_html_e( 'Back', 'crio' ); ?></span>
+								<span class="screen-reader-text">
+									<?php
+									/* translators: Hidden accessibility text. */
+									_e( 'Back', 'crio' );
+									?>
+								</span>
 							</button>
 							<h3>
 								<span class="customize-action">
@@ -170,15 +176,20 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 								<div class="bgtfw-section-title<# if ( ! _.isEmpty( data.icon ) ) { #> {{ data.icon }}<# } #>">{{ data.title }}</div>
 							</h3>
 							<# if ( data.description && data.description_hidden ) { #>
-								<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Help', 'crio' ); ?></span></button>
+								<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text">
+									<?php
+									/* translators: Hidden accessibility text. */
+									_e( 'Help', 'crio' );
+									?>
+								</span></button>
 								<div class="description customize-section-description">
 									{{{ data.description }}}
 								</div>
 							<# } #>
-
+	
 							<div class="customize-control-notifications-container"></div>
 						</div>
-
+	
 						<# if ( data.description && ! data.description_hidden ) { #>
 							<div class="description customize-section-description">
 								{{{ data.description }}}
