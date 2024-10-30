@@ -1,0 +1,37 @@
+/*
+ * Compatibility with WordPress 6.7 and
+ * newer customizer changes
+ */
+ #customize-controls {
+	.control-section-bgtfw-upsell {
+		.accordion-section-title {
+			&::after {
+				content: none;
+			}
+		}
+	}
+	.accordion-section-title {
+		min-height: 40px;
+		&.dashicons-cover-image {
+			&::before {
+				margin-top: 10px;
+			}
+		}
+		&::before {
+			position: absolute;
+			padding: 10px;
+			margin-right: 20px;
+			margin-left: 10px;
+			line-height: 30px;
+			text-align: center;
+		}
+		button.accordion-trigger {
+			width: calc( 100% - 3.75em );
+			padding: 0.5em 0 0 3.75em;
+			min-height: 40px;
+			&:hover, &:focus, &:active {
+				background: transparent;
+			}
+		}
+	}
+}
