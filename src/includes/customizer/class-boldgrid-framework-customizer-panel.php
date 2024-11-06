@@ -225,7 +225,7 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 
 			// Strip the beta or RC suffix from the version number.
 			$wp_version = preg_replace( '/-.*/', '', get_bloginfo( 'version' ) );
-			//If wordpress version is less than 6.7 then use the old template
+			// If wordpress version is less than 6.7 then use the old template
 			if ( version_compare( $wp_version, '6.7', '<' ) ) {
 				$this->old_render_template();
 				return;
@@ -243,7 +243,7 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 		}
 
 		/**
-		 * An Underscore (JS) template for rendering this panel's container in 
+		 * An Underscore (JS) template for rendering this panel's container in
 		 * versions of WP older than 6.7.
 		 *
 		 * Class variables for this panel class are available in the `data` JS object;

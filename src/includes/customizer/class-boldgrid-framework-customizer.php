@@ -481,7 +481,7 @@ class BoldGrid_Framework_Customizer {
 		// Strip the beta or RC suffix from the version number.
 		$wp_version = preg_replace( '/-.*/', '', get_bloginfo( 'version' ) );
 		// If wordpress version greater than or equal to 6.7 then enqueue the new styles
-		if ( version_compare( $wp_version, '6.7', '>=' ) ) {	
+		if ( version_compare( $wp_version, '6.7', '>=' ) ) {
 			wp_enqueue_style(
 				'bgtfw-control-styles-wp67',
 				$this->scripts->get_webpack_url( $this->configs['framework']['css_dir'], 'customizer/controls-wp67.min.css' ),

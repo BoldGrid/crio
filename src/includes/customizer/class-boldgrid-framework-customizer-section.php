@@ -151,10 +151,10 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 		 * @see WP_Customize_Section::print_template()
 		 */
 		protected function render_template() {
-			
+
 			// Strip the beta or RC suffix from the version number.
 			$wp_version = preg_replace( '/-.*/', '', get_bloginfo( 'version' ) );
-			//If wordpress version is less than 6.7 then use the old template
+			// If wordpress version is less than 6.7 then use the old template
 			if ( version_compare( $wp_version, '6.7', '<' ) ) {
 				$this->old_render_template();
 				return;
@@ -173,7 +173,7 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 								<span class="screen-reader-text">
 									<?php
 									/* translators: Hidden accessibility text. */
-									_e( 'Back', 'crio' );
+									esc_html_e( 'Back', 'crio' );
 									?>
 								</span>
 							</button>
@@ -187,7 +187,7 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 								<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text">
 									<?php
 									/* translators: Hidden accessibility text. */
-									_e( 'Help', 'crio' );
+									esc_html_e( 'Help', 'crio' );
 									?>
 								</span></button>
 								<div class="description customize-section-description">
@@ -210,7 +210,7 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 		}
 
 		/**
-		 * An Underscore (JS) template for rendering this section's content (but not its container) in 
+		 * An Underscore (JS) template for rendering this section's content (but not its container) in
 		 * versions of WP older than 6.7.
 		 *
 		 * Class variables for this section class are available in the `data` JS object;
