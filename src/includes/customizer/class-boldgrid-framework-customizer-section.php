@@ -151,9 +151,79 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 		 * @see WP_Customize_Section::print_template()
 		 */
 		protected function render_template() {
+
+			// Strip the beta or RC suffix from the version number.
+			$wp_version = preg_replace( '/-.*/', '', get_bloginfo( 'version' ) );
+			// If wordpress version is less than 6.7 then use the old template
+			if ( version_compare( $wp_version, '6.7', '<' ) ) {
+				$this->old_render_template();
+				return;
+			}
 			?>
 			<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 				<h3 class="accordion-section-title<# if ( ! _.isEmpty( data.icon ) ) { #> {{ data.icon }}<# } #>" tabindex="0">
+					<button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="{{ data.id }}-content">
+						{{ data.title }}
+					</button>
+				</h3>
+				<ul class="accordion-section-content" id="{{ data.id }}-content">
+					<li class="customize-section-description-container section-meta <# if ( data.description_hidden ) { #>customize-info<# } #>">
+						<div class="customize-section-title">
+							<button class="customize-section-back" tabindex="-1">
+								<span class="screen-reader-text">
+									<?php
+									/* translators: Hidden accessibility text. */
+									esc_html_e( 'Back', 'crio' );
+									?>
+								</span>
+							</button>
+							<h3>
+								<span class="customize-action">
+									{{{ data.customizeAction }}}
+								</span>
+								<div class="bgtfw-section-title<# if ( ! _.isEmpty( data.icon ) ) { #> {{ data.icon }}<# } #>">{{ data.title }}</div>
+							</h3>
+							<# if ( data.description && data.description_hidden ) { #>
+								<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text">
+									<?php
+									/* translators: Hidden accessibility text. */
+									esc_html_e( 'Help', 'crio' );
+									?>
+								</span></button>
+								<div class="description customize-section-description">
+									{{{ data.description }}}
+								</div>
+							<# } #>
+	
+							<div class="customize-control-notifications-container"></div>
+						</div>
+	
+						<# if ( data.description && ! data.description_hidden ) { #>
+							<div class="description customize-section-description">
+								{{{ data.description }}}
+							</div>
+						<# } #>
+					</li>
+				</ul>
+			</li>
+			<?php
+		}
+
+		/**
+		 * An Underscore (JS) template for rendering this section's content (but not its container) in
+		 * versions of WP older than 6.7.
+		 *
+		 * Class variables for this section class are available in the `data` JS object;
+		 * export custom variables by overriding WP_Customize_Section::json().
+		 *
+		 * @since 4.3.0
+		 *
+		 * @see WP_Customize_Section::print_template()
+		 */
+		protected function old_render_template() {
+			?>
+			<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
+				<h3 class="legacy accordion-section-title<# if ( ! _.isEmpty( data.icon ) ) { #> {{ data.icon }}<# } #>" tabindex="0">
 					{{ data.title }}
 					<span class="screen-reader-text"><?php esc_html_e( 'Press return or enter to open this section', 'crio' ); ?></span>
 				</h3>

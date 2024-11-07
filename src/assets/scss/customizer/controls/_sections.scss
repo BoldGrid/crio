@@ -6,6 +6,7 @@
 	}
 }
 
+
 // Base Styles.
 #customize-controls {
 	.control-section-bgtfw_section.open > li.control-section-bgtfw_section {
@@ -42,7 +43,7 @@ span.section-title-extended {
 	font-weight: 400;
 	h3.accordion-section-title & {
 		margin-left: 3.25em;
-		margin-bottom: -6px;
+		margin-bottom: 0px;
 		margin-top: -3px;
 	}
 }
@@ -93,7 +94,6 @@ span.section-title-extended {
 	// See: https://github.com/BoldGrid/boldgrid-theme-framework/issues/120
 	&.icon-sidebar-settings:before {
 		transform: rotate(-90deg)!important;
-		padding: 0 .5em .5em 0!important;
 		display: inline-block !important;
 		margin-top: -.5em;
 	}

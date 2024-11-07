@@ -222,9 +222,41 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 		 * @since 4.3.0
 		 */
 		protected function render_template() {
+
+			// Strip the beta or RC suffix from the version number.
+			$wp_version = preg_replace( '/-.*/', '', get_bloginfo( 'version' ) );
+			// If wordpress version is less than 6.7 then use the old template
+			if ( version_compare( $wp_version, '6.7', '<' ) ) {
+				$this->old_render_template();
+				return;
+			}
 			?>
 			<li id="accordion-panel-{{ data.id }}" class="accordion-section control-section control-panel control-panel-{{ data.type }}">
-				<h3 class="accordion-section-title<# if ( ! _.isEmpty( data.icon ) ) { #> {{ data.icon }}<# } #>" tabindex="0">
+			<h3 class="wp67 accordion-section-title<# if ( ! _.isEmpty( data.icon ) ) { #> {{ data.icon }}<# } #>" tabindex="0">
+					<button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="{{ data.id }}-content">
+						{{ data.title }}
+					</button>
+				</h3>
+				<ul class="accordion-sub-container control-panel-content" id="{{ data.id }}-content"></ul>
+			</li>
+		<?php
+		}
+
+		/**
+		 * An Underscore (JS) template for rendering this panel's container in
+		 * versions of WP older than 6.7.
+		 *
+		 * Class variables for this panel class are available in the `data` JS object;
+		 * export custom variables by overriding WP_Customize_Panel::json().
+		 *
+		 * @see WP_Customize_Panel::print_template()
+		 *
+		 * @since 4.3.0
+		 */
+		protected function old_render_template() {
+			?>
+			<li id="accordion-panel-{{ data.id }}" class="accordion-section control-section control-panel control-panel-{{ data.type }}">
+				<h3 class="legacy accordion-section-title<# if ( ! _.isEmpty( data.icon ) ) { #> {{ data.icon }}<# } #>" tabindex="0">
 					{{ data.title }}
 					<span class="screen-reader-text"><?php esc_html_e( 'Press return or enter to open this panel', 'crio' ); ?></span>
 				</h3>
