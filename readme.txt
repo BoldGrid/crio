@@ -4,7 +4,7 @@ Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, ful
 Requires PHP: 5.6
 Requires at least: 4.8
 Tested up to: 6.7
-Stable tag: 2.22.7
+Stable tag: 2.22.8
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,9 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.22.8 ==
+* Update: Updated WooCommerce Templates [#137](https://github.com/BoldGrid/crio/issues/137)
 
 == 2.22.7 ==
 * Bug Fix: Customizer broken with WP 6.7 [#135](https://github.com/BoldGrid/crio/issues/135)
