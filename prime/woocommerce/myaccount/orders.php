@@ -14,7 +14,7 @@
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 9.2.0
+ * @version 9.5.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -75,12 +75,20 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 								if ( ! empty( $actions ) ) {
 									foreach ( $actions as $key => $action ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button btn button-primary ' . esc_attr( $wp_button_class ) . ' button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+										if ( empty( $action['aria-label'] ) ) {
+											// Generate the aria-label based on the action name.
+											/* translators: %1$s Action name, %2$s Order number. */
+											$action_aria_label = sprintf( __( '%1$s order number %2$s', 'woocommerce' ), $action['name'], $order->get_order_number() );
+										} else {
+											$action_aria_label = $action['aria-label'];
+										}
+										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button btn button-primary ' . esc_attr( $wp_button_class ) . ' button ' . sanitize_html_class( $key ) . '" aria-label="' . esc_attr( $action_aria_label ) . '">' . esc_html( $action['name'] ) . '</a>';
+										unset( $action_aria_label );
 									}
 								}
 								?>
 							<?php endif; ?>
-						
+
 						<?php if ( $is_order_number ) : ?>
 							</th>
 						<?php else : ?>
@@ -109,12 +117,9 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 	<?php endif; ?>
 
 <?php else : ?>
-	<div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">
-		<a class="woocommerce-Button btn button-primary <?php echo esc_attr( $wp_button_class ); ?>" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-			<?php esc_html_e( 'Browse products', 'crio' ); ?>
-		</a>
-		<?php esc_html_e( 'No order has been made yet.', 'crio' ); ?>
-	</div>
+
+	<?php wc_print_notice( esc_html__( 'No order has been made yet.', 'woocommerce' ) . ' <a class="woocommerce-Button wc-forward button btn button-primary' . esc_attr( $wp_button_class ) . '" href="' . esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) . '">' . esc_html__( 'Browse products', 'woocommerce' ) . '</a>', 'notice' ); // phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment ?>
+
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_after_account_orders', $has_orders ); ?>
