@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.8.0
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 9.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,10 +31,10 @@ $woo_product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 if ( ! empty( $woo_product_tabs ) ) : ?>
 
 	<div class="woocommerce-tabs wc-tabs-wrapper">
-		<ul class="nav nav-tabs wc-tabs" role="tablist">
+		<ul class="nav nav-tabs tabs wc-tabs" role="tablist">
 			<?php foreach ( $woo_product_tabs as $key => $woo_product_tab ) : ?>
-				<li class="<?php echo esc_attr( $key ); ?>_tab" id="tab-title-<?php echo esc_attr( $key ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
-					<a href="#tab-<?php echo esc_attr( $key ); ?>">
+				<li class="<?php echo esc_attr( $key ); ?>_tab" id="tab-title-<?php echo esc_attr( $key ); ?>">
+					<a href="#tab-<?php echo esc_attr( $key ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
 						<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $woo_product_tab['title'], $key ) ); ?>
 					</a>
 				</li>
