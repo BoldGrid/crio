@@ -141,7 +141,7 @@ class BoldGrid_Framework {
 	 */
 	public function disable_jit_notices( $doing_it_wrong, $function_name, $message ) {
 		// if the function is _load_textdomain_just_in_time, return false to prevent the error.
-		if ( '_load_textdomain_just_in_time' === $function_name && false !== strpos( $message, 'boldgrid-backup' ) ) {
+		if ( '_load_textdomain_just_in_time' === $function_name && false !== strpos( $message, 'crio' ) ) {
 			return false;
 		}
 		return $doing_it_wrong;
