@@ -24,6 +24,7 @@ This version changes the way the color palette CSS is generated. If you are usin
 
 == 2.22.10 ==
 * Bug Fix: Fix _load_textdomain_just_in_time notices [#144](https://github.com/BoldGrid/crio/issues/144)
+* Update: Updated WooCommerce Templates [#146](https://github.com/BoldGrid/crio/pull/146)
 
 == 2.22.9 ==
 * Update: Updated WooCommerce Templates [#139](https://github.com/BoldGrid/crio/issues/139)
