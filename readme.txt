@@ -3,8 +3,8 @@ Contributors: boldgrid, timph, rramo012, bgnicolepaschen, joemoto, imh_brad, jam
 Tags: news, blog, e-commerce, sticky-post, theme-options, threaded-comments, full-width-template, footer-widgets, featured-images, flexible-header, custom-header, custom-logo, custom-background, custom-colors, custom-menu, editor-style, translation-ready, left-sidebar, right-sidebar, grid-layout, one-column, two-columns, three-columns, four-columns
 Requires PHP: 5.6
 Requires at least: 4.8
-Tested up to: 6.7
-Stable tag: 2.22.9
+Tested up to: 6.8
+Stable tag: 2.22.10
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -21,6 +21,9 @@ This version changes the way the color palette CSS is generated. If you are usin
 == Changelog ==
 
 ## Changelog ##
+
+== 2.22.10 ==
+* Bug Fix: Fix _load_textdomain_just_in_time notices [#144](https://github.com/BoldGrid/crio/issues/144)
 
 == 2.22.9 ==
 * Update: Updated WooCommerce Templates [#139](https://github.com/BoldGrid/crio/issues/139)

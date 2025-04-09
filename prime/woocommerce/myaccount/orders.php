@@ -78,7 +78,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 										if ( empty( $action['aria-label'] ) ) {
 											// Generate the aria-label based on the action name.
 											/* translators: %1$s Action name, %2$s Order number. */
-											$action_aria_label = sprintf( __( '%1$s order number %2$s', 'woocommerce' ), $action['name'], $order->get_order_number() );
+											$action_aria_label = sprintf( __( '%1$s order number %2$s', 'crio' ), $action['name'], $order->get_order_number() );
 										} else {
 											$action_aria_label = $action['aria-label'];
 										}
@@ -118,7 +118,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 <?php else : ?>
 
-	<?php wc_print_notice( esc_html__( 'No order has been made yet.', 'woocommerce' ) . ' <a class="woocommerce-Button wc-forward button btn button-primary' . esc_attr( $wp_button_class ) . '" href="' . esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) . '">' . esc_html__( 'Browse products', 'woocommerce' ) . '</a>', 'notice' ); // phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment ?>
+	<?php wc_print_notice( esc_html__( 'No order has been made yet.', 'crio' ) . ' <a class="woocommerce-Button wc-forward button btn button-primary' . esc_attr( $wp_button_class ) . '" href="' . esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) . '">' . esc_html__( 'Browse products', 'crio' ) . '</a>', 'notice' ); // phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment ?>
 
 <?php endif; ?>
 

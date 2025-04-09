@@ -101,6 +101,8 @@ class BoldGrid_Framework {
 		global $boldgrid_theme_framework;
 		$boldgrid_theme_framework = $this;
 
+		add_filter( 'doing_it_wrong_trigger_error', array( $this, 'disable_jit_notices' ), 10, 3 );
+
 		$this->load_dependencies();
 
 		$this->assign_configurations();
@@ -124,6 +126,25 @@ class BoldGrid_Framework {
 		$this->pagination();
 		$this->woocommerce();
 		$this->title();
+	}
+
+	/**
+	 * Disable Just In Time notices.
+	 *
+	 * @since 2.22.10
+	 *
+	 * @param bool   $doing_it_wrong Whether to trigger the error for _doing_it_wrong.
+	 * @param string $function_name The function that was called.
+	 * @param string $message The message that was passed to _doing_it_wrong.
+	 *
+	 * @return bool $doing_it_wrong Whether to trigger the error for _doing_it_wrong.
+	 */
+	public function disable_jit_notices( $doing_it_wrong, $function_name, $message ) {
+		// if the function is _load_textdomain_just_in_time, return false to prevent the error.
+		if ( '_load_textdomain_just_in_time' === $function_name && false !== strpos( $message, 'crio' ) ) {
+			return false;
+		}
+		return $doing_it_wrong;
 	}
 
 	/**
