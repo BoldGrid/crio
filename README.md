@@ -41,6 +41,13 @@ Crio is a WordPress SuperTheme that allows front-end designers, developers and o
 
 ## Changelog ##
 
+### 2.22.11 ###
+* Update: Updated Woocomerce Templates [#147](https://github.com/BoldGrid/crio/issues/147)
+
+### 2.22.10 ###
+* Bug Fix: Fix _load_textdomain_just_in_time notices [#144](https://github.com/BoldGrid/crio/issues/144)
+* Update: Updated WooCommerce Templates [#146](https://github.com/BoldGrid/crio/pull/146)
+
 ### 2.22.9 ###
 * Update: Updated WooCommerce Templates [#139](https://github.com/BoldGrid/crio/issues/139)
 
