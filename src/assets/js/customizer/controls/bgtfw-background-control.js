@@ -129,7 +129,7 @@ export default function() {
 	};
 
 	var setActivePattern = function() {
-		
+
 		/*
 		 * If a pattern is not set, but the control is active, then
 		 * it will be an empty string, which will match ALL patterns.

@@ -108,7 +108,7 @@ export class Preview {
 			// Selector lists are pulled from the customizer options matched to controlType.
 			} else if ( controlType === selector.type ) {
 				css += rule + '{font-size:' + sanitizeFontSize( to['font-size'] ) + ';';
-				
+
 				// Adds css for font variants.
 				if ( fontWeight && fontStyle ) {
 					css += 'font-style:' + fontStyle + ';';
