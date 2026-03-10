@@ -1,6 +1,6 @@
 language: php
 sudo: false
-dist: focal
+dist: bionic
 services:
   - mysql
 matrix:
