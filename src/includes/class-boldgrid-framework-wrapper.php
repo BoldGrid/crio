@@ -118,20 +118,9 @@ class Boldgrid_Framework_Wrapper {
 			self::$base = false;
 		}
 
-		// Build the same templates array as the wrapper object (see __construct).
-		$template_file = 'base.php';
-		$templates     = array( $template_file );
-		if ( self::$base ) {
-			$str = substr( $template_file, 0, -4 );
-			array_unshift( $templates, sprintf( $str . '-%s.php', self::$base ) );
-		}
-
-		// Apply the same filters as __toString() so extensions behave identically.
-		$slug      = sanitize_title( basename( $template_file, '.php' ) );
-		$templates = apply_filters( 'boldgrid/wrap_' . $slug, $templates );
-		$templates = apply_filters( 'bgtfw_wrapper_templates', $templates, self::$base, self::$main_template );
-
-		return locate_template( $templates );
+		// Use the wrapper's __toString() so template-building and filter logic stay in one place.
+		$wrapper = new Boldgrid_Framework_Wrapper();
+		return (string) $wrapper;
 	}
 
 	/**
