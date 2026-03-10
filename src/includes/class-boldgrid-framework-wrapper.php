@@ -96,11 +96,13 @@ class Boldgrid_Framework_Wrapper {
 	 * Wrap method.
 	 *
 	 * Saves the $main_template path and $base as static variables.  Uses the
-	 * template_include filter in WordPress.
+	 * template_include filter in WordPress. Returns the wrapper template path
+	 * as a string for compatibility with WordPress 6.9.2+ (template_include
+	 * must return a string path).
 	 *
 	 * @since 1.1
 	 * @param string $main path of main template file to use.
-	 * @return Boldgrid_Framework_Wrapper An instance of Boldgrid_Framework_Wrapper
+	 * @return string Path to the wrapper template file to include.
 	 */
 	public static function wrap( $main ) {
 		// Check for other filters returning null.
@@ -116,7 +118,9 @@ class Boldgrid_Framework_Wrapper {
 			self::$base = false;
 		}
 
-		return new Boldgrid_Framework_Wrapper();
+		// Use the wrapper's __toString() so template-building and filter logic stay in one place.
+		$wrapper = new Boldgrid_Framework_Wrapper();
+		return (string) $wrapper;
 	}
 
 	/**
